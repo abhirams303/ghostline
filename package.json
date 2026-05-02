@@ -1,0 +1,15 @@
+{
+  "name": "opsec-mirror",
+  "private": true,
+  "packageManager": "pnpm@10.30.3",
+  "scripts": {
+    "dev": "concurrently -k -n frontend,backend \"pnpm dev:frontend\" \"pnpm dev:backend\"",
+    "dev:frontend": "pnpm --filter @opsec-mirror/frontend dev",
+    "dev:backend": "fastapi dev backend/app/main.py",
+    "build": "pnpm --filter @opsec-mirror/frontend build",
+    "lint": "pnpm --filter @opsec-mirror/frontend lint"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

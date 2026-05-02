@@ -1,0 +1,62 @@
+{
+  "run_id": "demo-norfolk-naval",
+  "target": {
+    "name": "Norfolk Naval",
+    "lat": 36.946,
+    "lon": -76.3306,
+    "radius_km": 18
+  },
+  "mode": "demo",
+  "generated_at": "2026-05-02T20:00:00Z",
+  "score": {
+    "movement": 40,
+    "personnel": 35,
+    "facility": 70,
+    "aerial": 55,
+    "aggregate": 50
+  },
+  "findings": [
+    {
+      "source": "adsb",
+      "title": "Visible aviation rhythm around coastal facility",
+      "severity": "medium",
+      "summary": "Approach and departure patterns expose timing around adjacent operations.",
+      "geo": {
+        "lat": 36.946,
+        "lon": -76.3306
+      },
+      "ts": "2026-05-02T20:00:00Z",
+      "metadata": {
+        "mode": "demo"
+      }
+    },
+    {
+      "source": "satellite",
+      "title": "Persistent observation potential",
+      "severity": "high",
+      "summary": "Coastal infrastructure and open berths make activity changes easier to observe over time.",
+      "geo": {
+        "lat": 36.946,
+        "lon": -76.3306
+      },
+      "ts": "2026-05-02T23:00:00Z",
+      "metadata": {
+        "mode": "demo"
+      }
+    }
+  ],
+  "layers": [
+    {
+      "id": "norfolk-adsb",
+      "type": "path",
+      "visible": true,
+      "data": [
+        {
+          "path": [[-76.45, 36.87], [-76.3306, 36.946], [-76.21, 37.01]]
+        }
+      ]
+    }
+  ],
+  "narrative_preview": "Public transport and imagery cues around Norfolk Naval create a moderately high facility-exposure profile. The strongest signal is the repeatability of visible activity windows.",
+  "ethics_banner": "For defensive OPSEC assessment only. Do not use to target or facilitate harm."
+}

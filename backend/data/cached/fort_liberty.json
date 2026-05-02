@@ -1,0 +1,64 @@
+{
+  "run_id": "demo-fort-liberty",
+  "target": {
+    "name": "Fort Liberty",
+    "lat": 35.1414,
+    "lon": -79.006,
+    "radius_km": 20
+  },
+  "mode": "demo",
+  "generated_at": "2026-05-02T20:00:00Z",
+  "score": {
+    "movement": 85,
+    "personnel": 60,
+    "facility": 45,
+    "aerial": 35,
+    "aggregate": 56
+  },
+  "findings": [
+    {
+      "source": "strava",
+      "title": "Heat concentration near perimeter corridors",
+      "severity": "high",
+      "summary": "Public exercise traces cluster around roads approaching the installation boundary.",
+      "evidence_url": "https://www.strava.com/heatmap",
+      "geo": {
+        "lat": 35.1414,
+        "lon": -79.006
+      },
+      "ts": "2026-05-02T20:00:00Z",
+      "metadata": {
+        "mode": "demo"
+      }
+    },
+    {
+      "source": "satellite",
+      "title": "Frequent revisit opportunities",
+      "severity": "medium",
+      "summary": "Commercial imaging cadence suggests regular opportunities to compare activity over time.",
+      "geo": {
+        "lat": 35.1414,
+        "lon": -79.006
+      },
+      "ts": "2026-05-02T22:00:00Z",
+      "metadata": {
+        "mode": "demo"
+      }
+    }
+  ],
+  "layers": [
+    {
+      "id": "fort-liberty-strava",
+      "type": "heatmap",
+      "visible": true,
+      "data": [
+        {
+          "position": [-79.006, 35.1414],
+          "weight": 0.95
+        }
+      ]
+    }
+  ],
+  "narrative_preview": "Public traces around Fort Liberty suggest repeatable movement routes and enough commercial revisit cadence to reveal activity rhythms. Prioritize device geotag controls and movement-pattern disruption.",
+  "ethics_banner": "For defensive OPSEC assessment only. Do not use to target or facilitate harm."
+}

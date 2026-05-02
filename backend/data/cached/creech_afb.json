@@ -1,0 +1,49 @@
+{
+  "run_id": "demo-creech-afb",
+  "target": {
+    "name": "Creech AFB",
+    "lat": 36.5872,
+    "lon": -115.6767,
+    "radius_km": 25
+  },
+  "mode": "demo",
+  "generated_at": "2026-05-02T20:00:00Z",
+  "score": {
+    "movement": 55,
+    "personnel": 50,
+    "facility": 60,
+    "aerial": 80,
+    "aggregate": 61
+  },
+  "findings": [
+    {
+      "source": "adsb",
+      "title": "Airspace pattern reveals operational tempo",
+      "severity": "high",
+      "summary": "Repeated flight activity near the target area could let an observer infer tempo shifts.",
+      "geo": {
+        "lat": 36.5872,
+        "lon": -115.6767
+      },
+      "ts": "2026-05-02T20:00:00Z",
+      "metadata": {
+        "mode": "demo"
+      }
+    }
+  ],
+  "layers": [
+    {
+      "id": "creech-footprint",
+      "type": "footprint",
+      "visible": true,
+      "data": [
+        {
+          "center": [-115.6767, 36.5872],
+          "radiusKm": 18
+        }
+      ]
+    }
+  ],
+  "narrative_preview": "Creech AFB presents an aerial-observation-heavy exposure profile, where routine public traces can hint at tempo and persistence even without direct access to sensitive systems.",
+  "ethics_banner": "For defensive OPSEC assessment only. Do not use to target or facilitate harm."
+}
