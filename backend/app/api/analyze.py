@@ -1,4 +1,5 @@
 import asyncio
+from uuid import uuid4
 
 from fastapi import APIRouter, HTTPException
 
@@ -9,6 +10,7 @@ from app.collectors.strava import StravaCollector
 from app.config import get_settings
 from app.models.location import AnalyzeRequest
 from app.models.report import AnalyzeResponse
+from app.storage import persist_analysis_run
 from app.synthesis.synthesizer import synthesize_report
 from app.utils.cache import load_cached_report
 
@@ -43,4 +45,18 @@ async def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
     if not findings:
         raise HTTPException(status_code=404, detail="No findings were generated for this request.")
 
-    return await synthesize_report(request.target, request.mode, findings, layers)
+    run_id = uuid4().hex
+    response = await synthesize_report(
+        request.target,
+        request.mode,
+        findings,
+        layers,
+        run_id=run_id,
+    )
+    await asyncio.to_thread(
+        persist_analysis_run,
+        settings.database_path,
+        request,
+        response,
+    )
+    return response

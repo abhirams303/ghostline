@@ -20,6 +20,7 @@ __pycache__/
 
 backend/.env
 frontend/.env.local
+backend/data/runtime/
 .vercel/
 .idea/
 .vscode/

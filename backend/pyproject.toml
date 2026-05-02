@@ -30,6 +30,7 @@ packages = [
   "app.collectors",
   "app.models",
   "app.palantir",
+  "app.storage",
   "app.synthesis",
   "app.utils"
 ]

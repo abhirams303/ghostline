@@ -27,6 +27,7 @@ Implemented now:
 - SSE endpoint at `GET /stream/{run_id}`
 - typed request and response models
 - live-by-default analysis path
+- local SQLite persistence for runs, findings, and deduped source evidence
 - cached demo JSON payloads for specific preset locations
 - placeholder collectors for `strava`, `adsb`, `satellite`, and `exa`
 - OpenAI-backed synthesis when `OPENAI_API_KEY` is configured
@@ -56,6 +57,7 @@ Frontend (Next.js app shell)
   -> POST /analyze
 Backend (FastAPI)
   -> parallel collectors
+  -> local SQLite persistence
   -> scoring
   -> synthesized narrative preview
   -> run_id returned to client
@@ -180,6 +182,7 @@ Local runtime files:
 
 - `backend/.env`
 - `frontend/.env.local`
+- `backend/data/runtime/opsec_mirror.sqlite3` by default
 
 Templates:
 

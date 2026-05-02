@@ -11,6 +11,7 @@ Today it includes:
 - a `pnpm`-managed Next.js frontend shell
 - a FastAPI backend with typed request and response models
 - stubbed live-collector interfaces for `strava`, `adsb`, `satellite`, and `exa`
+- a local SQLite evidence store for analysis runs, findings, and deduped source documents
 - cached demo payloads for rehearsed presentations
 - OpenAI-backed threat-brief synthesis with fallback preview generation
 - SSE threat-brief replay over chunked narrative output
@@ -118,6 +119,7 @@ Important notes:
 - The root `.env.example` is just a shared reference.
 - The backend reads `backend/.env`.
 - The frontend reads `frontend/.env.local`.
+- Live analysis persistence defaults to `backend/data/runtime/opsec_mirror.sqlite3`.
 - Set `OPENAI_API_KEY` in `backend/.env` to enable real synthesis.
 - Live collector credentials are intentionally optional right now because most collectors are still interface-level.
 
@@ -155,6 +157,7 @@ opsec-mirror/
 
 - The map is a shell, not a full deck.gl + Mapbox implementation yet.
 - Collector classes return placeholder findings instead of real vendor responses.
+- Source persistence is wired, but real Exa and Strava provider fetches still need implementation.
 - SSE currently replays a completed narrative in chunks instead of token-streaming directly from OpenAI.
 - Palantir AIP is still a typed placeholder client.
 

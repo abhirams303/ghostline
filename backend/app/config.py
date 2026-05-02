@@ -1,14 +1,19 @@
 import json
 from functools import lru_cache
+from pathlib import Path
 from typing import Annotated, Any
 
 from pydantic import AliasChoices, Field, field_validator
 from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
 
 
+BACKEND_DIR = Path(__file__).resolve().parents[1]
+DEFAULT_DATABASE_PATH = BACKEND_DIR / "data" / "runtime" / "opsec_mirror.sqlite3"
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=BACKEND_DIR / ".env",
         env_prefix="OPSEC_MIRROR_",
         extra="ignore",
     )
@@ -34,6 +39,7 @@ class Settings(BaseSettings):
         validation_alias=AliasChoices("OPSEC_MIRROR_EXA_API_KEY", "EXA_API_KEY"),
     )
     mapbox_token: str | None = None
+    database_path: Path = DEFAULT_DATABASE_PATH
 
     @field_validator("cors_origins", mode="before")
     @classmethod
@@ -50,6 +56,17 @@ class Settings(BaseSettings):
             return [item.strip() for item in stripped.split(",") if item.strip()]
 
         return ["http://localhost:3000"]
+
+    @field_validator("database_path", mode="before")
+    @classmethod
+    def resolve_database_path(cls, value: Any) -> Path:
+        if value in (None, ""):
+            return DEFAULT_DATABASE_PATH
+
+        path = Path(value)
+        if path.is_absolute():
+            return path
+        return BACKEND_DIR / path
 
 
 @lru_cache

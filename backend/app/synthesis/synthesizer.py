@@ -39,11 +39,12 @@ async def synthesize_report(
     mode: str,
     findings: list[Finding],
     layers: list[MapLayerPayload],
+    run_id: str | None = None,
 ) -> AnalyzeResponse:
     settings = get_settings()
     score = score_findings(findings)
 
-    run_id = uuid4().hex
+    run_id = run_id or uuid4().hex
     try:
         narrative = await generate_threat_brief(settings, target, mode, score, findings)
     except Exception:
