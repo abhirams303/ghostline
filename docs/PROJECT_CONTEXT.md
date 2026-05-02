@@ -29,11 +29,12 @@ Implemented now:
 - live-by-default analysis path
 - cached demo JSON payloads for specific preset locations
 - placeholder collectors for `strava`, `adsb`, `satellite`, and `exa`
+- OpenAI-backed synthesis when `OPENAI_API_KEY` is configured
+- local fallback narrative generation when OpenAI is not configured or the request fails
 
 Not implemented yet:
 
 - real source integrations
-- real LLM synthesis provider calls
 - true deck.gl/Mapbox rendering
 - Palantir AIP ontology push logic
 - route and `unit_id` analysis beyond schema placeholders
@@ -111,8 +112,15 @@ The synthesis layer is intentionally thin right now.
 - prompts live in `backend/app/synthesis/prompts.py`
 - score computation lives in `backend/app/synthesis/scorer.py`
 - run lifecycle and preview generation live in `backend/app/synthesis/synthesizer.py`
+- OpenAI request code lives in `backend/app/synthesis/openai_client.py`
 
-If you wire a real LLM:
+Current behavior:
+
+- if `OPENAI_API_KEY` is present, the backend calls the OpenAI Responses API
+- if the key is missing or the call fails, the backend falls back to a local deterministic summary
+- SSE replays the finished narrative in chunks; it is not token-by-token model streaming yet
+
+If you extend the LLM path:
 
 - keep raw collector output structured
 - keep the LLM focused on summarization and defensive recommendations
@@ -242,6 +250,6 @@ If no user instruction overrides this, the most sensible order is:
 
 1. wire one real collector end-to-end
 2. replace map-shell placeholders with actual deck.gl rendering
-3. wire a real LLM synthesis provider
+3. upgrade SSE from replayed chunks to true provider streaming
 4. add route-based analysis beyond single-point targets
 5. add Palantir AIP integration only after source and contract stability improve

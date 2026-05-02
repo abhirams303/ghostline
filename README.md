@@ -12,7 +12,8 @@ Today it includes:
 - a FastAPI backend with typed request and response models
 - stubbed live-collector interfaces for `strava`, `adsb`, `satellite`, and `exa`
 - cached demo payloads for rehearsed presentations
-- streaming threat-brief scaffolding over SSE
+- OpenAI-backed threat-brief synthesis with fallback preview generation
+- SSE threat-brief replay over chunked narrative output
 
 It does not yet include production-grade live integrations for the data sources.
 
@@ -117,6 +118,7 @@ Important notes:
 - The root `.env.example` is just a shared reference.
 - The backend reads `backend/.env`.
 - The frontend reads `frontend/.env.local`.
+- Set `OPENAI_API_KEY` in `backend/.env` to enable real synthesis.
 - Live collector credentials are intentionally optional right now because most collectors are still interface-level.
 
 ## Project Structure
@@ -153,7 +155,7 @@ opsec-mirror/
 
 - The map is a shell, not a full deck.gl + Mapbox implementation yet.
 - Collector classes return placeholder findings instead of real vendor responses.
-- LLM synthesis is scaffolded but not wired to Anthropic or OpenAI APIs.
+- SSE currently replays a completed narrative in chunks instead of token-streaming directly from OpenAI.
 - Palantir AIP is still a typed placeholder client.
 
 ## Agent Notes
