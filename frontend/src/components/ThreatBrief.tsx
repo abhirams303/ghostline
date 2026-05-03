@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 
 import { streamThreatBrief } from "@/lib/api";
 import type { AnalyzeResponse } from "@/types/findings";
@@ -36,6 +36,11 @@ interface ThreatBriefBodyProps {
   report: AnalyzeResponse;
 }
 
+type NarrativeBlock =
+  | { type: "heading"; level: 2 | 3; text: string }
+  | { type: "paragraph"; text: string }
+  | { type: "list"; items: string[] };
+
 function ThreatBriefBody({ report }: ThreatBriefBodyProps) {
   const [streamedChunks, setStreamedChunks] = useState<string[]>([]);
 
@@ -69,20 +74,10 @@ function ThreatBriefBody({ report }: ThreatBriefBodyProps) {
       : report.narrative_preview;
   }, [report.narrative_preview, streamedChunks]);
 
-  const paragraphs = useMemo(() => {
-    return narrativeBody
-      .split(/(?<=[.!?])\s+/)
-      .filter(Boolean)
-      .reduce<string[]>((chunks, sentence, index) => {
-        if (index % 2 === 0) {
-          chunks.push(sentence);
-          return chunks;
-        }
-
-        chunks[chunks.length - 1] = `${chunks[chunks.length - 1]} ${sentence}`;
-        return chunks;
-      }, []);
-  }, [narrativeBody]);
+  const narrativeBlocks = useMemo(
+    () => buildNarrativeBlocks(narrativeBody),
+    [narrativeBody],
+  );
 
   return (
     <section className="overflow-hidden rounded-[1.9rem] border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02)),linear-gradient(180deg,rgba(8,12,16,0.92),rgba(10,14,17,0.82))] shadow-panel">
@@ -136,18 +131,17 @@ function ThreatBriefBody({ report }: ThreatBriefBodyProps) {
               Narrative
             </p>
             <span className="text-[11px] uppercase tracking-[0.24em] text-white/35">
-              {paragraphs.length} blocks
+              {narrativeBlocks.length} blocks
             </span>
           </div>
 
-          <div className="mt-5 space-y-4">
-            {paragraphs.map((paragraph, index) => (
-              <p
-                key={`${index}-${paragraph}`}
-                className="max-w-none text-[15px] leading-8 text-[#f2eee4] md:text-[15.5px] [overflow-wrap:anywhere]"
-              >
-                {paragraph}
-              </p>
+          <div className="mt-5 space-y-5">
+            {narrativeBlocks.map((block, index) => (
+              <NarrativeBlockView
+                key={`${block.type}-${index}`}
+                block={block}
+                isFirst={index === 0}
+              />
             ))}
           </div>
         </div>
@@ -172,6 +166,145 @@ function ThreatBriefBody({ report }: ThreatBriefBodyProps) {
       </div>
     </section>
   );
+}
+
+function buildNarrativeBlocks(raw: string): NarrativeBlock[] {
+  const normalized = raw
+    .replace(/\r/g, "")
+    .replace(/([^\n])\s+(#{2,3}\s+)/g, "$1\n\n$2")
+    .replace(/:\s+-\s+/g, ":\n- ")
+    .replace(/([.!?])\s+-\s+(?=\*\*|[A-Z])/g, "$1\n- ")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+
+  if (!normalized) {
+    return [];
+  }
+
+  const lines = normalized.split("\n").map((line) => line.trim()).filter(Boolean);
+  const blocks: NarrativeBlock[] = [];
+  let paragraphBuffer: string[] = [];
+  let listBuffer: string[] = [];
+
+  const flushParagraph = () => {
+    if (paragraphBuffer.length === 0) {
+      return;
+    }
+
+    blocks.push({
+      type: "paragraph",
+      text: paragraphBuffer.join(" ").trim(),
+    });
+    paragraphBuffer = [];
+  };
+
+  const flushList = () => {
+    if (listBuffer.length === 0) {
+      return;
+    }
+
+    blocks.push({
+      type: "list",
+      items: [...listBuffer],
+    });
+    listBuffer = [];
+  };
+
+  for (const line of lines) {
+    if (line.startsWith("### ")) {
+      flushParagraph();
+      flushList();
+      blocks.push({ type: "heading", level: 3, text: line.slice(4).trim() });
+      continue;
+    }
+
+    if (line.startsWith("## ")) {
+      flushParagraph();
+      flushList();
+      blocks.push({ type: "heading", level: 2, text: line.slice(3).trim() });
+      continue;
+    }
+
+    if (line.startsWith("- ")) {
+      flushParagraph();
+      listBuffer.push(line.slice(2).trim());
+      continue;
+    }
+
+    flushList();
+    paragraphBuffer.push(line);
+  }
+
+  flushParagraph();
+  flushList();
+
+  return blocks.length > 0 ? blocks : [{ type: "paragraph", text: normalized }];
+}
+
+function NarrativeBlockView({
+  block,
+  isFirst,
+}: {
+  block: NarrativeBlock;
+  isFirst: boolean;
+}) {
+  if (block.type === "heading") {
+    return block.level === 2 ? (
+      <h3 className="border-t border-white/8 pt-5 font-display text-[1.65rem] leading-tight text-[#f2eee4] first:border-t-0 first:pt-0">
+        {block.text}
+      </h3>
+    ) : (
+      <h4 className="text-[11px] uppercase tracking-[0.24em] text-[#8ff6d2]">
+        {block.text}
+      </h4>
+    );
+  }
+
+  if (block.type === "list") {
+    return (
+      <ul className="grid gap-3">
+        {block.items.map((item, index) => (
+          <li
+            key={`${item}-${index}`}
+            className="rounded-[1.1rem] border border-white/8 bg-white/[0.03] px-4 py-3 text-[14.5px] leading-7 text-[#e8e3d6] md:text-[15px]"
+          >
+            <div className="flex gap-3">
+              <span className="mt-[0.62rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#8ff6d2]" />
+              <span className="[overflow-wrap:anywhere]">{renderInlineText(item)}</span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  return (
+    <p
+      className={`max-w-none leading-8 [overflow-wrap:anywhere] ${
+        isFirst
+          ? "text-[17px] text-[#f2eee4] md:text-[18px]"
+          : "text-[15px] text-[#d8d2c4] md:text-[15.5px]"
+      }`}
+    >
+      {renderInlineText(block.text)}
+    </p>
+  );
+}
+
+function renderInlineText(text: string) {
+  const parts = text.split(/(\*\*.*?\*\*)/g).filter(Boolean);
+
+  return parts.map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={`${part}-${index}`} className="font-semibold text-[#f6f1e6]">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+
+    return <Fragment key={`${part}-${index}`}>{part}</Fragment>;
+  });
 }
 
 function BriefStat({
