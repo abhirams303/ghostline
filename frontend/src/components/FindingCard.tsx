@@ -20,6 +20,13 @@ export function FindingCard({ finding }: FindingCardProps) {
     typeof finding.metadata.status === "string"
       ? finding.metadata.status
       : "observed";
+  const metaRows = [
+    timestamp ? { label: "Time", value: timestamp } : null,
+    location ? { label: "Geo", value: location } : null,
+    signalState !== "observed"
+      ? { label: "Signal", value: signalState.replace(/_/g, " ") }
+      : null,
+  ].filter(Boolean) as Array<{ label: string; value: string }>;
 
   return (
     <article className="min-w-0 rounded-[1.4rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-4">
@@ -43,11 +50,13 @@ export function FindingCard({ finding }: FindingCardProps) {
         {finding.summary}
       </p>
 
-      <div className="mt-5 grid gap-2 text-[11px] uppercase tracking-[0.22em] text-white/38">
-        <MetaRow label="Time" value={timestamp ?? "No timestamp"} />
-        <MetaRow label="Geo" value={location ?? "No fix"} />
-        <MetaRow label="Signal" value={signalState.replace(/_/g, " ")} />
-      </div>
+      {metaRows.length > 0 ? (
+        <div className="mt-5 grid gap-2 text-[11px] uppercase tracking-[0.22em] text-white/38">
+          {metaRows.map((row) => (
+            <MetaRow key={`${row.label}-${row.value}`} label={row.label} value={row.value} />
+          ))}
+        </div>
+      ) : null}
 
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
         <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-white/32">

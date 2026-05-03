@@ -175,7 +175,7 @@ export default function HomePage() {
           </div>
         ) : null}
 
-        <section className="grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
+        <section className="grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)]">
           <div className="space-y-4">
             <LayerToggle
               layers={layers}
@@ -192,9 +192,10 @@ export default function HomePage() {
           <div className="space-y-4">
             <ExposureScore score={report?.score} />
             <SourceStatusPanel report={report} />
-            <ThreatBrief report={report} />
           </div>
         </section>
+
+        <ThreatBrief report={report} />
 
         <section className="grid gap-6 lg:grid-cols-[minmax(280px,0.8fr)_minmax(0,1.2fr)]">
           <aside className="rounded-[1.75rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-5 shadow-panel">
