@@ -1,0 +1,16 @@
+{
+  "source": "strava",
+  "severity": "low",
+  "title": "Public fitness activity in 0/9 surrounding tiles",
+  "summary": "Aggregated Strava activity is publicly visible at zoom 13 around (0.0000, -150.0000). Patterns may reveal PT routes, perimeters, or routine movement.",
+  "evidence_urls": [],
+  "tile_count": 0,
+  "tile_total": 9,
+  "zoom": 13,
+  "tiles": [],
+  "target": {
+    "name": "ocean_control",
+    "lat": 0.0,
+    "lon": -150.0
+  }
+}

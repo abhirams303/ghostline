@@ -1,0 +1,48 @@
+{
+  "source": "strava",
+  "severity": "high",
+  "title": "Public fitness activity in 9/9 surrounding tiles",
+  "summary": "Aggregated Strava activity is publicly visible at zoom 13 around (35.1392, -79.0060). Patterns may reveal PT routes, perimeters, or routine movement.",
+  "evidence_urls": [
+    "https://content-a.strava.com/identified/globalheat/all/blue/13/2297/3239@2x.png?v=19",
+    "https://content-a.strava.com/identified/globalheat/all/blue/13/2297/3240@2x.png?v=19",
+    "https://content-a.strava.com/identified/globalheat/all/blue/13/2297/3241@2x.png?v=19"
+  ],
+  "tile_count": 9,
+  "tile_total": 9,
+  "zoom": 13,
+  "tiles": [
+    {
+      "url": "https://content-a.strava.com/identified/globalheat/all/blue/13/2297/3239@2x.png?v=19"
+    },
+    {
+      "url": "https://content-a.strava.com/identified/globalheat/all/blue/13/2297/3240@2x.png?v=19"
+    },
+    {
+      "url": "https://content-a.strava.com/identified/globalheat/all/blue/13/2297/3241@2x.png?v=19"
+    },
+    {
+      "url": "https://content-a.strava.com/identified/globalheat/all/blue/13/2298/3239@2x.png?v=19"
+    },
+    {
+      "url": "https://content-a.strava.com/identified/globalheat/all/blue/13/2298/3240@2x.png?v=19"
+    },
+    {
+      "url": "https://content-a.strava.com/identified/globalheat/all/blue/13/2298/3241@2x.png?v=19"
+    },
+    {
+      "url": "https://content-a.strava.com/identified/globalheat/all/blue/13/2299/3239@2x.png?v=19"
+    },
+    {
+      "url": "https://content-a.strava.com/identified/globalheat/all/blue/13/2299/3240@2x.png?v=19"
+    },
+    {
+      "url": "https://content-a.strava.com/identified/globalheat/all/blue/13/2299/3241@2x.png?v=19"
+    }
+  ],
+  "target": {
+    "name": "fort_liberty",
+    "lat": 35.1392,
+    "lon": -79.006
+  }
+}

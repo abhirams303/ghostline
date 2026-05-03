@@ -1,5 +1,11 @@
 export type Severity = "low" | "medium" | "high" | "critical";
 export type SourceName = "strava" | "adsb" | "satellite" | "exa" | "system";
+export type SourceHealthState =
+  | "ok"
+  | "disabled"
+  | "missing_config"
+  | "upstream_error"
+  | "no_data";
 
 export interface LocationInput {
   name: string;
@@ -41,6 +47,13 @@ export interface MapLayerPayload {
   data: Array<Record<string, unknown>>;
 }
 
+export interface SourceStatus {
+  source: "strava" | "adsb" | "satellite" | "exa";
+  status: SourceHealthState;
+  message: string;
+  details: Record<string, string | number | boolean | null>;
+}
+
 export interface AnalyzeResponse {
   run_id: string;
   target: LocationInput;
@@ -49,6 +62,7 @@ export interface AnalyzeResponse {
   score: ScoreBreakdown;
   findings: Finding[];
   layers: MapLayerPayload[];
+  source_statuses: SourceStatus[];
   narrative_preview: string;
   ethics_banner: string;
 }

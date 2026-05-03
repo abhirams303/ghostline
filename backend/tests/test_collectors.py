@@ -1,6 +1,7 @@
 import sqlite3
 from pathlib import Path
 
+import httpx
 from fastapi.testclient import TestClient
 
 from app.collectors.adsb import ADSBCollector
@@ -38,9 +39,9 @@ def test_demo_analyze(tmp_path: Path, monkeypatch) -> None:
                 "name": "Fort Liberty",
                 "lat": 35.1414,
                 "lon": -79.006,
-                "radius_km": 20
+                "radius_km": 20,
             },
-            "mode": "demo"
+            "mode": "demo",
         },
     )
 
@@ -50,7 +51,9 @@ def test_demo_analyze(tmp_path: Path, monkeypatch) -> None:
     assert body["mode"] == "demo"
 
 
-def test_live_analyze_without_openai_key_uses_fallback(tmp_path: Path, monkeypatch) -> None:
+def test_live_analyze_without_openai_key_uses_fallback(
+    tmp_path: Path, monkeypatch
+) -> None:
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     monkeypatch.delenv("OPSEC_MIRROR_OPENAI_API_KEY", raising=False)
     client, database_path = make_client(tmp_path, monkeypatch)
@@ -62,9 +65,9 @@ def test_live_analyze_without_openai_key_uses_fallback(tmp_path: Path, monkeypat
                 "name": "Fort Liberty",
                 "lat": 35.1414,
                 "lon": -79.006,
-                "radius_km": 20
+                "radius_km": 20,
             },
-            "mode": "live"
+            "mode": "live",
         },
     )
 
@@ -76,8 +79,12 @@ def test_live_analyze_without_openai_key_uses_fallback(tmp_path: Path, monkeypat
 
     with sqlite3.connect(database_path) as connection:
         run_count = connection.execute("SELECT COUNT(*) FROM search_runs").fetchone()[0]
-        finding_count = connection.execute("SELECT COUNT(*) FROM findings").fetchone()[0]
-        document_count = connection.execute("SELECT COUNT(*) FROM source_documents").fetchone()[0]
+        finding_count = connection.execute("SELECT COUNT(*) FROM findings").fetchone()[
+            0
+        ]
+        document_count = connection.execute(
+            "SELECT COUNT(*) FROM source_documents"
+        ).fetchone()[0]
 
     assert run_count == 1
     assert finding_count == len(body["findings"])
@@ -86,7 +93,9 @@ def test_live_analyze_without_openai_key_uses_fallback(tmp_path: Path, monkeypat
     get_settings.cache_clear()
 
 
-def test_repeated_live_runs_dedupe_source_documents(tmp_path: Path, monkeypatch) -> None:
+def test_repeated_live_runs_dedupe_source_documents(
+    tmp_path: Path, monkeypatch
+) -> None:
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     monkeypatch.delenv("OPSEC_MIRROR_OPENAI_API_KEY", raising=False)
     client, database_path = make_client(tmp_path, monkeypatch)
@@ -109,14 +118,20 @@ def test_repeated_live_runs_dedupe_source_documents(tmp_path: Path, monkeypatch)
 
     with sqlite3.connect(database_path) as connection:
         run_count = connection.execute("SELECT COUNT(*) FROM search_runs").fetchone()[0]
-        finding_count = connection.execute("SELECT COUNT(*) FROM findings").fetchone()[0]
-        document_count = connection.execute("SELECT COUNT(*) FROM source_documents").fetchone()[0]
-        run_document_count = connection.execute("SELECT COUNT(*) FROM run_documents").fetchone()[0]
+        finding_count = connection.execute("SELECT COUNT(*) FROM findings").fetchone()[
+            0
+        ]
+        document_count = connection.execute(
+            "SELECT COUNT(*) FROM source_documents"
+        ).fetchone()[0]
+        run_document_count = connection.execute(
+            "SELECT COUNT(*) FROM run_documents"
+        ).fetchone()[0]
 
     assert run_count == 2
-    assert finding_count == 4
-    assert document_count == 2
-    assert run_document_count == 4
+    assert finding_count == 8
+    assert document_count == 4
+    assert run_document_count == 8
 
     get_settings.cache_clear()
 
@@ -164,26 +179,115 @@ def test_adsb_collector_normalizes_live_payload(tmp_path: Path, monkeypatch) -> 
                 "name": "Fort Liberty",
                 "lat": 35.1414,
                 "lon": -79.006,
-                "radius_km": 20
+                "radius_km": 20,
             },
-            "mode": "live"
+            "mode": "live",
         },
     )
 
     assert response.status_code == 200
     body = response.json()
-    adsb_findings = [finding for finding in body["findings"] if finding["source"] == "adsb"]
-    adsb_layers = [layer for layer in body["layers"] if layer["id"] == "adsb-live-markers"]
+    adsb_findings = [
+        finding for finding in body["findings"] if finding["source"] == "adsb"
+    ]
+    adsb_layers = [
+        layer for layer in body["layers"] if layer["id"] == "adsb-live-markers"
+    ]
 
-    assert len(adsb_findings) == 2
+    assert len(adsb_findings) == 3
     assert adsb_layers
     assert adsb_layers[0]["type"] == "marker"
-    assert adsb_layers[0]["data"][0]["hex"] == "abc123"
+    assert {item["hex"] for item in adsb_layers[0]["data"]} == {"abc123", "def456"}
+    assert any(layer["id"] == "adsb-live-tracks" for layer in body["layers"])
+    assert any(
+        status["source"] == "adsb" and status["status"] == "ok"
+        for status in body["source_statuses"]
+    )
 
     with sqlite3.connect(database_path) as connection:
-        finding_count = connection.execute("SELECT COUNT(*) FROM findings").fetchone()[0]
+        finding_count = connection.execute("SELECT COUNT(*) FROM findings").fetchone()[
+            0
+        ]
 
     assert finding_count == len(body["findings"])
+
+    get_settings.cache_clear()
+
+
+def test_adsb_collector_reports_missing_config_status(
+    tmp_path: Path, monkeypatch
+) -> None:
+    client, _ = make_client(tmp_path, monkeypatch)
+    monkeypatch.setenv("OPSEC_MIRROR_ADSB_ENABLED", "true")
+    monkeypatch.delenv("ADSBEXCHANGE_API_KEY", raising=False)
+    monkeypatch.delenv("OPSEC_MIRROR_ADSBEXCHANGE_API_KEY", raising=False)
+    get_settings.cache_clear()
+
+    response = client.post(
+        "/analyze",
+        json={
+            "target": {
+                "name": "Fort Liberty",
+                "lat": 35.1414,
+                "lon": -79.006,
+                "radius_km": 20,
+            },
+            "mode": "live",
+        },
+    )
+
+    assert response.status_code == 200
+    body = response.json()
+    assert any(
+        finding["source"] == "adsb"
+        and finding["metadata"].get("status") == "missing_config"
+        for finding in body["findings"]
+    )
+    assert any(
+        status["source"] == "adsb" and status["status"] == "missing_config"
+        for status in body["source_statuses"]
+    )
+
+    get_settings.cache_clear()
+
+
+def test_adsb_collector_reports_upstream_error_status(
+    tmp_path: Path, monkeypatch
+) -> None:
+    client, _ = make_client(tmp_path, monkeypatch)
+    monkeypatch.setenv("OPSEC_MIRROR_ADSB_ENABLED", "true")
+    monkeypatch.setenv("ADSBEXCHANGE_API_KEY", "test-uuid")
+    get_settings.cache_clear()
+
+    async def failing_fetch(self, request):
+        raise httpx.TimeoutException("timed out")
+
+    monkeypatch.setattr(ADSBCollector, "_fetch_aircraft_payload", failing_fetch)
+
+    response = client.post(
+        "/analyze",
+        json={
+            "target": {
+                "name": "Fort Liberty",
+                "lat": 35.1414,
+                "lon": -79.006,
+                "radius_km": 20,
+            },
+            "mode": "live",
+        },
+    )
+
+    assert response.status_code == 200
+    body = response.json()
+    assert any(
+        finding["source"] == "adsb"
+        and finding["metadata"].get("status") == "upstream_error"
+        for finding in body["findings"]
+    )
+    assert any(
+        status["source"] == "adsb" and status["status"] == "upstream_error"
+        for status in body["source_statuses"]
+    )
 
     get_settings.cache_clear()
 
@@ -220,10 +324,15 @@ def test_exa_collector_normalizes_live_payload(tmp_path: Path, monkeypatch) -> N
         ],
     }
 
-    async def fake_search(self, request):
-        return sample_payload
+    async def fake_search_single_plan(self, request, plan):
+        return {
+            **sample_payload,
+            "_query_family": plan.family,
+            "_query": plan.query,
+            "_query_category": plan.category,
+        }
 
-    monkeypatch.setattr(ExaCollector, "_search_payload", fake_search)
+    monkeypatch.setattr(ExaCollector, "_search_single_plan", fake_search_single_plan)
 
     response = client.post(
         "/analyze",
@@ -232,23 +341,220 @@ def test_exa_collector_normalizes_live_payload(tmp_path: Path, monkeypatch) -> N
                 "name": "Fort Liberty",
                 "lat": 35.1414,
                 "lon": -79.006,
-                "radius_km": 20
+                "radius_km": 20,
             },
-            "mode": "live"
+            "mode": "live",
         },
     )
 
     assert response.status_code == 200
     body = response.json()
-    exa_findings = [finding for finding in body["findings"] if finding["source"] == "exa"]
+    exa_findings = [
+        finding for finding in body["findings"] if finding["source"] == "exa"
+    ]
 
     assert len(exa_findings) == 2
     assert exa_findings[0]["title"] == "Public exercise coverage near Fort Liberty"
     assert exa_findings[0]["evidence_url"] == "https://example.com/article-1"
 
     with sqlite3.connect(database_path) as connection:
-        document_count = connection.execute("SELECT COUNT(*) FROM source_documents").fetchone()[0]
+        document_count = connection.execute(
+            "SELECT COUNT(*) FROM source_documents"
+        ).fetchone()[0]
 
     assert document_count == len(body["findings"])
+
+    get_settings.cache_clear()
+
+
+def test_exa_collector_dedupes_multi_query_results(tmp_path: Path, monkeypatch) -> None:
+    client, _ = make_client(tmp_path, monkeypatch)
+    monkeypatch.setenv("OPSEC_MIRROR_EXA_ENABLED", "true")
+    monkeypatch.setenv("EXA_API_KEY", "test-exa-key")
+    monkeypatch.setenv("OPSEC_MIRROR_EXA_MAX_QUERIES_PER_RUN", "4")
+    get_settings.cache_clear()
+
+    payloads = {
+        "identity": {
+            "requestId": "exa-identity",
+            "results": [
+                {
+                    "id": "doc-1",
+                    "title": "Fort Liberty exercise update",
+                    "url": "https://example.com/article-1/",
+                    "publishedDate": "2026-05-02T10:00:00Z",
+                    "author": "Reporter One",
+                    "summary": "Fort Liberty personnel discussed exercise planning and readiness.",
+                }
+            ],
+        },
+        "operations": {
+            "requestId": "exa-ops",
+            "results": [
+                {
+                    "id": "doc-1",
+                    "title": "Fort Liberty exercise update",
+                    "url": "https://example.com/article-1",
+                    "publishedDate": "2026-05-02T10:00:00Z",
+                    "author": "Reporter One",
+                    "highlights": [
+                        "Fort Liberty exercise update includes operations and readiness detail."
+                    ],
+                },
+                {
+                    "id": "doc-2",
+                    "title": "Regional contractor supports Fort Liberty facility work",
+                    "url": "https://vendor.example.com/story",
+                    "publishedDate": "2026-05-01T08:30:00Z",
+                    "author": "Reporter Two",
+                    "summary": "A contractor described infrastructure and facility support near Fort Liberty.",
+                },
+            ],
+        },
+        "personnel": {
+            "requestId": "exa-personnel",
+            "results": [
+                {
+                    "id": "doc-3",
+                    "title": "Personnel travel around Fort Liberty discussed publicly",
+                    "url": "https://news.example.com/personnel-travel",
+                    "publishedDate": "2026-04-30T08:30:00Z",
+                    "author": "Reporter Three",
+                    "summary": "Fort Liberty personnel travel and conference attendance were discussed in public news coverage.",
+                }
+            ],
+        },
+        "location": {
+            "requestId": "exa-location",
+            "results": [],
+        },
+    }
+
+    async def fake_search_single_plan(self, request, plan):
+        payload = payloads[plan.family]
+        return {
+            **payload,
+            "_query_family": plan.family,
+            "_query": plan.query,
+            "_query_category": plan.category,
+        }
+
+    monkeypatch.setattr(ExaCollector, "_search_single_plan", fake_search_single_plan)
+
+    response = client.post(
+        "/analyze",
+        json={
+            "target": {
+                "name": "Fort Liberty",
+                "lat": 35.1414,
+                "lon": -79.006,
+                "radius_km": 20,
+            },
+            "mode": "live",
+        },
+    )
+
+    assert response.status_code == 200
+    body = response.json()
+    exa_findings = [
+        finding for finding in body["findings"] if finding["source"] == "exa"
+    ]
+
+    assert len(exa_findings) == 2
+    assert (
+        exa_findings[0]["metadata"]["relevance_score"]
+        >= exa_findings[1]["metadata"]["relevance_score"]
+    )
+    assert set(exa_findings[0]["metadata"]["query_families"]) >= {
+        "identity",
+        "operations",
+    }
+    assert any(
+        status["source"] == "exa" and status["status"] == "ok"
+        for status in body["source_statuses"]
+    )
+
+    get_settings.cache_clear()
+
+
+def test_exa_collector_reports_missing_config_status(
+    tmp_path: Path, monkeypatch
+) -> None:
+    client, _ = make_client(tmp_path, monkeypatch)
+    monkeypatch.setenv("OPSEC_MIRROR_EXA_ENABLED", "true")
+    monkeypatch.delenv("EXA_API_KEY", raising=False)
+    monkeypatch.delenv("OPSEC_MIRROR_EXA_API_KEY", raising=False)
+    get_settings.cache_clear()
+
+    response = client.post(
+        "/analyze",
+        json={
+            "target": {
+                "name": "Fort Liberty",
+                "lat": 35.1414,
+                "lon": -79.006,
+                "radius_km": 20,
+            },
+            "mode": "live",
+        },
+    )
+
+    assert response.status_code == 200
+    body = response.json()
+    assert any(
+        status["source"] == "exa" and status["status"] == "missing_config"
+        for status in body["source_statuses"]
+    )
+    assert not any(
+        finding["source"] == "exa"
+        and finding["metadata"].get("status") == "missing_config"
+        for finding in body["findings"]
+    )
+    assert any(
+        status["source"] == "exa" and status["status"] == "missing_config"
+        for status in body["source_statuses"]
+    )
+
+    get_settings.cache_clear()
+
+
+def test_exa_collector_reports_upstream_error_status(
+    tmp_path: Path, monkeypatch
+) -> None:
+    client, _ = make_client(tmp_path, monkeypatch)
+    monkeypatch.setenv("OPSEC_MIRROR_EXA_ENABLED", "true")
+    monkeypatch.setenv("EXA_API_KEY", "test-exa-key")
+    monkeypatch.setenv("OPSEC_MIRROR_EXA_MAX_QUERIES_PER_RUN", "2")
+    get_settings.cache_clear()
+
+    async def failing_search_single_plan(self, request, plan):
+        raise httpx.TimeoutException("timed out")
+
+    monkeypatch.setattr(ExaCollector, "_search_single_plan", failing_search_single_plan)
+
+    response = client.post(
+        "/analyze",
+        json={
+            "target": {
+                "name": "Fort Liberty",
+                "lat": 35.1414,
+                "lon": -79.006,
+                "radius_km": 20,
+            },
+            "mode": "live",
+        },
+    )
+
+    assert response.status_code == 200
+    body = response.json()
+    assert any(
+        finding["source"] == "exa"
+        and finding["metadata"].get("status") == "upstream_error"
+        for finding in body["findings"]
+    )
+    assert any(
+        status["source"] == "exa" and status["status"] == "upstream_error"
+        for status in body["source_statuses"]
+    )
 
     get_settings.cache_clear()

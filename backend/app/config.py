@@ -6,7 +6,6 @@ from typing import Annotated, Any
 from pydantic import AliasChoices, Field, field_validator
 from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
 
-
 BACKEND_DIR = Path(__file__).resolve().parents[1]
 DEFAULT_DATABASE_PATH = BACKEND_DIR / "data" / "runtime" / "opsec_mirror.sqlite3"
 
@@ -37,6 +36,8 @@ class Settings(BaseSettings):
     adsb_base_url: str = "https://adsbexchange.com"
     adsb_timeout_seconds: float = 10.0
     adsb_max_aircraft: int = 25
+    adsb_snapshot_samples: int = 3
+    adsb_snapshot_interval_seconds: float = 1.0
     adsb_low_altitude_threshold_ft: int = 5000
     satellite_enabled: bool = True
     exa_enabled: bool = False
@@ -44,6 +45,14 @@ class Settings(BaseSettings):
     exa_num_results: int = 3
     exa_lookback_days: int = 30
     exa_highlights_max_characters: int = 600
+    exa_max_queries_per_run: int = 6
+    exa_max_concurrency: int = 3
+    exa_timeout_seconds: float = 10.0
+    exa_retry_attempts: int = 2
+    exa_retry_backoff_seconds: float = 0.5
+    exa_news_enabled: bool = True
+    exa_web_enabled: bool = True
+    exa_min_relevance_score: int = 3
     openai_api_key: str | None = Field(
         default=None,
         validation_alias=AliasChoices("OPSEC_MIRROR_OPENAI_API_KEY", "OPENAI_API_KEY"),
