@@ -40,6 +40,11 @@ type NarrativeBlock =
   | { type: "heading"; level: 2 | 3; text: string }
   | { type: "paragraph"; text: string }
   | { type: "list"; items: string[] };
+type NarrativeSection = {
+  title?: string;
+  accent?: "summary" | "section";
+  blocks: NarrativeBlock[];
+};
 
 function ThreatBriefBody({ report }: ThreatBriefBodyProps) {
   const [streamedChunks, setStreamedChunks] = useState<string[]>([]);
@@ -77,6 +82,10 @@ function ThreatBriefBody({ report }: ThreatBriefBodyProps) {
   const narrativeBlocks = useMemo(
     () => buildNarrativeBlocks(narrativeBody),
     [narrativeBody],
+  );
+  const narrativeSections = useMemo(
+    () => buildNarrativeSections(narrativeBlocks),
+    [narrativeBlocks],
   );
 
   return (
@@ -131,15 +140,15 @@ function ThreatBriefBody({ report }: ThreatBriefBodyProps) {
               Narrative
             </p>
             <span className="text-[11px] uppercase tracking-[0.24em] text-white/35">
-              {narrativeBlocks.length} blocks
+              {narrativeSections.length} sections
             </span>
           </div>
 
           <div className="mt-5 space-y-5">
-            {narrativeBlocks.map((block, index) => (
-              <NarrativeBlockView
-                key={`${block.type}-${index}`}
-                block={block}
+            {narrativeSections.map((section, index) => (
+              <NarrativeSectionView
+                key={`${section.title ?? "section"}-${index}`}
+                section={section}
                 isFirst={index === 0}
               />
             ))}
@@ -172,7 +181,9 @@ function buildNarrativeBlocks(raw: string): NarrativeBlock[] {
   const normalized = raw
     .replace(/\r/g, "")
     .replace(/([^\n])\s+(#{2,3}\s+)/g, "$1\n\n$2")
+    .replace(/([^\n])\s+(\d+[.)]\s+)/g, "$1\n\n$2")
     .replace(/:\s+-\s+/g, ":\n- ")
+    .replace(/(\d+[.)]\s+[^\n-:]+(?:[:?])?)\s+-\s+/g, "$1\n- ")
     .replace(/([.!?])\s+-\s+(?=\*\*|[A-Z])/g, "$1\n- ")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
@@ -225,6 +236,17 @@ function buildNarrativeBlocks(raw: string): NarrativeBlock[] {
       continue;
     }
 
+    if (/^\d+[.)]\s+/.test(line)) {
+      flushParagraph();
+      flushList();
+      blocks.push({
+        type: "heading",
+        level: 3,
+        text: line.replace(/^\d+[.)]\s+/, "").trim(),
+      });
+      continue;
+    }
+
     if (line.startsWith("- ")) {
       flushParagraph();
       listBuffer.push(line.slice(2).trim());
@@ -241,32 +263,101 @@ function buildNarrativeBlocks(raw: string): NarrativeBlock[] {
   return blocks.length > 0 ? blocks : [{ type: "paragraph", text: normalized }];
 }
 
+function buildNarrativeSections(blocks: NarrativeBlock[]): NarrativeSection[] {
+  if (blocks.length === 0) {
+    return [];
+  }
+
+  const sections: NarrativeSection[] = [];
+  let current: NarrativeSection | null = null;
+
+  for (const block of blocks) {
+    if (block.type === "heading") {
+      if (current && current.blocks.length > 0) {
+        sections.push(current);
+      }
+
+      current = {
+        title: block.text,
+        accent: "section",
+        blocks: [],
+      };
+      continue;
+    }
+
+    if (!current) {
+      current = {
+        accent: "summary",
+        blocks: [],
+      };
+    }
+
+    current.blocks.push(block);
+  }
+
+  if (current && current.blocks.length > 0) {
+    sections.push(current);
+  }
+
+  return sections;
+}
+
+function NarrativeSectionView({
+  section,
+  isFirst,
+}: {
+  section: NarrativeSection;
+  isFirst: boolean;
+}) {
+  const shellClass =
+    section.accent === "summary"
+      ? "rounded-[1.3rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] px-5 py-5"
+      : "rounded-[1.3rem] border border-white/8 bg-white/[0.03] px-5 py-5";
+
+  return (
+    <section className={shellClass}>
+      {section.title ? (
+        <div className="mb-4 flex flex-wrap items-center gap-3">
+          <span className="rounded-full border border-[#8ff6d2]/18 bg-[#8ff6d2]/8 px-3 py-2 text-[10px] uppercase tracking-[0.26em] text-[#dff8ec]">
+            {section.title}
+          </span>
+        </div>
+      ) : null}
+
+      <div className="space-y-4">
+        {section.blocks.map((block, index) => (
+          <NarrativeBlockView
+            key={`${block.type}-${index}`}
+            block={block}
+            isFirst={isFirst && index === 0}
+            inSection={section.accent === "section"}
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function NarrativeBlockView({
   block,
   isFirst,
+  inSection,
 }: {
   block: NarrativeBlock;
   isFirst: boolean;
+  inSection: boolean;
 }) {
-  if (block.type === "heading") {
-    return block.level === 2 ? (
-      <h3 className="border-t border-white/8 pt-5 font-display text-[1.65rem] leading-tight text-[#f2eee4] first:border-t-0 first:pt-0">
-        {block.text}
-      </h3>
-    ) : (
-      <h4 className="text-[11px] uppercase tracking-[0.24em] text-[#8ff6d2]">
-        {block.text}
-      </h4>
-    );
-  }
-
   if (block.type === "list") {
     return (
       <ul className="grid gap-3">
         {block.items.map((item, index) => (
           <li
             key={`${item}-${index}`}
-            className="rounded-[1.1rem] border border-white/8 bg-white/[0.03] px-4 py-3 text-[14.5px] leading-7 text-[#e8e3d6] md:text-[15px]"
+            className={`rounded-[1.1rem] border px-4 py-3 text-[14.5px] leading-7 md:text-[15px] ${
+              inSection
+                ? "border-white/8 bg-black/12 text-[#ebe4d5]"
+                : "border-white/8 bg-white/[0.03] text-[#e8e3d6]"
+            }`}
           >
             <div className="flex gap-3">
               <span className="mt-[0.62rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#8ff6d2]" />
