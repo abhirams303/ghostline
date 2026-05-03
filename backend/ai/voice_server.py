@@ -21,6 +21,7 @@ Endpoints:
     GET /voice/get_provenance?entity_id=...
     GET /voice/get_full_picture?location=...
     GET /voice/get_current_state?lat=...&lon=...&location_name=...
+    GET /voice/mission_report?location=...
 """
 
 from __future__ import annotations
@@ -32,6 +33,7 @@ from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
+from .frontend_adapter import build_mission_report
 from .query_api import (
     compare_locations,
     get_adversary_actions,
@@ -117,6 +119,7 @@ def root() -> dict[str, Any]:
             "/voice/get_provenance?entity_id=...",
             "/voice/get_full_picture?location=...",
             "/voice/get_current_state?lat=...&lon=...&location_name=...",
+            "/voice/mission_report?location=...",
         ],
         "docs": "/docs",
     }
@@ -188,3 +191,16 @@ def voice_get_current_state(
         status_code=200,
         content=get_full_current_state(lat, lon, location_name),
     )
+
+
+# ---------------------------------------------------------------------------
+# Frontend-shaped MissionReport (matches teammate's TypeScript interface)
+# ---------------------------------------------------------------------------
+
+@app.get("/voice/mission_report")
+def voice_mission_report(
+    location: str = Query(..., min_length=1, description="Location name; fuzzy match supported."),
+) -> JSONResponse:
+    """Returns a MissionReport JSON shaped for the deck.gl frontend
+    (see ~/Desktop/bang_sec/command-deck/src/domain/types.ts)."""
+    return _wrap(build_mission_report(location))
