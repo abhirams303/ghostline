@@ -21,8 +21,8 @@ export function SearchBar({ loading, onSubmit }: SearchBarProps) {
           <div className="min-w-0">
             <p className="text-[11px] uppercase tracking-[0.34em] text-[#b8c1bd]">Target Command</p>
             <p className="mt-2 text-sm leading-6 text-white/58">
-              Choose a preset target or type a known operating area. Unknown input currently resolves to the
-              closest demo-safe preset.
+              Choose a preset target or type a known operating area. Custom locations resolve through
+              OpenStreetMap Nominatim when analysis starts.
             </p>
           </div>
           <span className="w-fit rounded-full border border-[#8ff6d2]/20 bg-[#8ff6d2]/8 px-3 py-2 text-[10px] uppercase tracking-[0.3em] text-[#8ff6d2]">

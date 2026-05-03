@@ -10,6 +10,7 @@ Today it includes:
 
 - a `pnpm`-managed Next.js frontend shell
 - a FastAPI backend with typed request and response models
+- server-side OpenStreetMap Nominatim geocoding for custom location strings
 - a real Mapbox + deck.gl map surface with interactive overlays and synthetic fallback geometry
 - a production-hardened live ADS-B Exchange collector, a live Exa collector, an opt-in Strava global heatmap collector, and a scaffolded `satellite` collector
 - a local SQLite evidence store for analysis runs, findings, and deduped source documents
@@ -24,10 +25,11 @@ It does not yet include production-grade live integrations for every data source
 User flow:
 
 1. Enter a target location.
-2. Run analysis in `live` or `demo` mode.
-3. Backend fans out across collectors in parallel.
-4. Findings are scored and summarized into a threat-brief preview.
-5. Frontend renders evidence cards, layer toggles, and a live Mapbox + deck.gl map surface.
+2. Preset targets resolve locally; custom locations resolve through backend `/geocode`.
+3. Run analysis in `live` or `demo` mode.
+4. Backend fans out across collectors in parallel.
+5. Findings are scored and summarized into a threat-brief preview.
+6. Frontend renders evidence cards, layer toggles, and a live Mapbox + deck.gl map surface.
 
 ## Stack
 
@@ -133,6 +135,7 @@ Important notes:
 - Set `OPENAI_API_KEY` in `backend/.env` to enable real synthesis.
 - Set `ADSBEXCHANGE_API_KEY` in `backend/.env` to enable the live ADS-B collector.
 - Set `EXA_API_KEY` in `backend/.env` to enable the live Exa news/web collector.
+- Nominatim geocoding uses no API key, but keep `OPSEC_MIRROR_NOMINATIM_USER_AGENT` identifying this application; public Nominatim is intended for local/light usage only.
 - ADS-B performs bounded multi-snapshot sampling, emits marker and short-track layers, filters invalid out-of-radius rows, and reports collector health states such as disabled, missing configuration, upstream error, and no-data.
 - The Strava heatmap path requires local `STRAVA_CF_KEY_PAIR_ID`, `STRAVA_CF_POLICY`, and `STRAVA_CF_SIGNATURE` values in `backend/.env` and only runs when `OPSEC_MIRROR_STRAVA_ENABLED=true`.
 

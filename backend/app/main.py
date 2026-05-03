@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.analyze import router as analyze_router
 from app.api.collect import router as collect_router
+from app.api.geocode import router as geocode_router
 from app.api.health import router as health_router
 from app.api.stream import router as stream_router
 from app.config import get_settings
@@ -38,6 +39,7 @@ def create_app() -> FastAPI:
 
     app.include_router(health_router)
     app.include_router(collect_router)
+    app.include_router(geocode_router)
     app.include_router(analyze_router)
     app.include_router(stream_router)
     return app

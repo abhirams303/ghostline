@@ -9,7 +9,7 @@ import { Map } from "@/components/Map";
 import { SearchBar } from "@/components/SearchBar";
 import { SourceStatusPanel } from "@/components/SourceStatusPanel";
 import { ThreatBrief } from "@/components/ThreatBrief";
-import { analyzeTarget } from "@/lib/api";
+import { analyzeTarget, geocodeTarget } from "@/lib/api";
 import { listPresetTargets, resolveTarget } from "@/lib/geo";
 import { toLayerViewModels } from "@/lib/layers";
 import type { AnalyzeResponse, Severity } from "@/types/findings";
@@ -42,7 +42,7 @@ export default function HomePage() {
     setLastQuery(query);
 
     try {
-      const target = resolveTarget(query);
+      const target = resolveTarget(query) ?? (await geocodeTarget(query));
       const nextReport = await analyzeTarget({
         target,
         mode,

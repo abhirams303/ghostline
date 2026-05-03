@@ -24,6 +24,7 @@ Implemented now:
 
 - Next.js single-page frontend shell
 - real Mapbox + deck.gl map rendering in the frontend
+- server-side OpenStreetMap Nominatim geocoding at `GET /geocode`
 - FastAPI backend with `POST /analyze`
 - SSE endpoint at `GET /stream/{run_id}`
 - typed request and response models
@@ -58,6 +59,7 @@ Do not assume this repo already supports:
 
 ```text
 Frontend (Next.js app shell)
+  -> GET /geocode for custom location strings
   -> POST /analyze
 Backend (FastAPI)
   -> parallel collectors
@@ -77,6 +79,7 @@ If you are changing a contract, these files matter first:
 - backend finding schema: `backend/app/models/finding.py`
 - backend response schema: `backend/app/models/report.py`
 - frontend mirrored types: `frontend/src/types/findings.ts`
+- geocode endpoint: `backend/app/api/geocode.py`
 - main analyze endpoint: `backend/app/api/analyze.py`
 - narrative stream behavior: `backend/app/api/stream.py`
 
@@ -85,6 +88,7 @@ If you are changing a contract, these files matter first:
 ### Analyze Mode
 
 - frontend defaults to `live`
+- preset targets resolve locally; custom target strings resolve through backend `/geocode`
 - backend uses cached JSON only when request mode is `demo`
 - optional demo fallback can still be enabled through backend env
 
@@ -179,6 +183,13 @@ Avoid:
 - embedding source-specific parsing in `main.py`
 - duplicating schema definitions
 - making the frontend know collector internals
+
+### Geocoding
+
+- `GET /geocode?q=<location>` wraps OpenStreetMap Nominatim and returns a `LocationInput`.
+- Nominatim calls are server-side only so the backend can send a compliant identifying `User-Agent`.
+- The wrapper caches normalized queries for `OPSEC_MIRROR_CACHE_TTL_SECONDS` and enforces at least 1 second between upstream Nominatim requests.
+- Public Nominatim is suitable for local/light use only; production volume should use a dedicated Nominatim instance or commercial geocoder.
 
 ## Environment Setup
 

@@ -13,6 +13,7 @@ from app.main import create_app
 def make_client(tmp_path: Path, monkeypatch) -> tuple[TestClient, Path]:
     database_path = tmp_path / "opsec-mirror-test.sqlite3"
     monkeypatch.setenv("OPSEC_MIRROR_DATABASE_PATH", str(database_path))
+    monkeypatch.setenv("OPSEC_MIRROR_STRAVA_ENABLED", "false")
     monkeypatch.setenv("OPSEC_MIRROR_ADSB_ENABLED", "false")
     monkeypatch.setenv("OPSEC_MIRROR_EXA_ENABLED", "false")
     monkeypatch.delenv("ADSBEXCHANGE_API_KEY", raising=False)
@@ -499,6 +500,19 @@ def test_exa_collector_reports_missing_config_status(
     body = response.json()
     assert isinstance(body.get("source_statuses"), list)
     assert any(finding["source"] == "exa" for finding in body["findings"])
+    assert any(
+        status["source"] == "exa" and status["status"] == "missing_config"
+        for status in body["source_statuses"]
+    )
+    assert any(
+        finding["source"] == "exa"
+        and finding["metadata"].get("status") == "missing_config"
+        for finding in body["findings"]
+    )
+    assert any(
+        status["source"] == "exa" and status["status"] == "missing_config"
+        for status in body["source_statuses"]
+    )
 
     get_settings.cache_clear()
 
