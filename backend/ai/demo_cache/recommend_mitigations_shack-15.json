@@ -1,8 +1,8 @@
 {
-  "_cached_at": "2026-05-03T15:07:07.481469+00:00",
+  "_cached_at": "2026-05-03T15:38:21.673600+00:00",
   "_function": "recommend_mitigations",
   "_args": [
-    "shack15"
+    "shack-15"
   ],
   "value": {
     "location": "Shack15",
