@@ -22,13 +22,13 @@ export function FindingCard({ finding }: FindingCardProps) {
       : "observed";
 
   return (
-    <article className="rounded-[1.4rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-4">
+    <article className="min-w-0 rounded-[1.4rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-4">
       <div className="flex items-start justify-between gap-3">
-        <div>
+        <div className="min-w-0">
           <p className="text-[11px] uppercase tracking-[0.28em] text-white/42">
             {finding.source}
           </p>
-          <h3 className="mt-2 text-lg leading-6 text-[#f2eee4]">
+          <h3 className="mt-2 break-words text-lg leading-6 text-[#f2eee4] [overflow-wrap:anywhere]">
             {finding.title}
           </h3>
         </div>
@@ -39,7 +39,9 @@ export function FindingCard({ finding }: FindingCardProps) {
         </span>
       </div>
 
-      <p className="mt-4 text-sm leading-7 text-white/62">{finding.summary}</p>
+      <p className="mt-4 break-words text-sm leading-7 text-white/62 [overflow-wrap:anywhere]">
+        {finding.summary}
+      </p>
 
       <div className="mt-5 grid gap-2 text-[11px] uppercase tracking-[0.22em] text-white/38">
         <MetaRow label="Time" value={timestamp ?? "No timestamp"} />
@@ -47,7 +49,7 @@ export function FindingCard({ finding }: FindingCardProps) {
         <MetaRow label="Signal" value={signalState.replace(/_/g, " ")} />
       </div>
 
-      <div className="mt-5 flex items-center justify-between">
+      <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
         <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-white/32">
           {Object.keys(finding.metadata).length} metadata fields
         </span>
@@ -72,9 +74,11 @@ export function FindingCard({ finding }: FindingCardProps) {
 
 function MetaRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-center justify-between gap-3 border-b border-white/8 pb-2 last:border-b-0 last:pb-0">
-      <span>{label}</span>
-      <span className="text-right text-white/58">{value}</span>
+    <div className="flex items-start justify-between gap-3 border-b border-white/8 pb-2 last:border-b-0 last:pb-0">
+      <span className="min-w-0">{label}</span>
+      <span className="min-w-0 break-words text-right text-white/58 [overflow-wrap:anywhere]">
+        {value}
+      </span>
     </div>
   );
 }

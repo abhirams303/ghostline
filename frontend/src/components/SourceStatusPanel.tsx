@@ -17,8 +17,8 @@ export function SourceStatusPanel({ report }: SourceStatusPanelProps) {
 
   return (
     <section className="rounded-[1.75rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-5 shadow-panel">
-      <div className="flex items-center justify-between gap-4">
-        <div>
+      <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+        <div className="min-w-0">
           <p className="text-[11px] uppercase tracking-[0.34em] text-[#b8c1bd]">Collector Status</p>
           <p className="mt-2 text-sm leading-6 text-white/55">
             Health and output posture for ADS-B, Exa, and the remaining collection channels.
@@ -29,7 +29,7 @@ export function SourceStatusPanel({ report }: SourceStatusPanelProps) {
         </span>
       </div>
 
-      <div className="mt-5 grid gap-3 md:grid-cols-2">
+      <div className="mt-5 grid gap-3 xl:grid-cols-2">
         {statuses.length > 0 ? (
           statuses.map((status) => <StatusCard key={status.source} status={status} />)
         ) : (
@@ -44,25 +44,25 @@ export function SourceStatusPanel({ report }: SourceStatusPanelProps) {
 
 function StatusCard({ status }: { status: SourceStatus }) {
   return (
-    <article className={`rounded-[1.25rem] border p-4 ${stateStyles[status.status]}`}>
+    <article className={`min-w-0 rounded-[1.25rem] border p-4 ${stateStyles[status.status]}`}>
       <div className="flex items-start justify-between gap-3">
-        <div>
+        <div className="min-w-0">
           <p className="text-[11px] uppercase tracking-[0.28em]">{status.source}</p>
-          <h3 className="mt-2 text-base text-[#f2eee4]">{formatStatusTitle(status.status)}</h3>
+          <h3 className="mt-2 break-words text-base text-[#f2eee4] [overflow-wrap:anywhere]">{formatStatusTitle(status.status)}</h3>
         </div>
         <span className="rounded-full border border-current/20 px-3 py-2 text-[10px] uppercase tracking-[0.24em]">
           {status.status.replace(/_/g, " ")}
         </span>
       </div>
 
-      <p className="mt-4 text-sm leading-6">{status.message}</p>
+      <p className="mt-4 break-words text-sm leading-6 [overflow-wrap:anywhere]">{status.message}</p>
 
       <div className="mt-4 grid gap-2 text-[11px] uppercase tracking-[0.22em] text-current/80">
         {Object.entries(status.details).length > 0 ? (
           Object.entries(status.details).map(([key, value]) => (
-            <div key={key} className="flex items-center justify-between gap-3 border-b border-current/10 pb-2 last:border-b-0 last:pb-0">
-              <span>{formatLabel(key)}</span>
-              <span className="text-right">{String(value)}</span>
+            <div key={key} className="flex items-start justify-between gap-3 border-b border-current/10 pb-2 last:border-b-0 last:pb-0">
+              <span className="min-w-0">{formatLabel(key)}</span>
+              <span className="min-w-0 break-words text-right [overflow-wrap:anywhere]">{String(value)}</span>
             </div>
           ))
         ) : (

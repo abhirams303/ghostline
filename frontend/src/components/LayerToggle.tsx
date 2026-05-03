@@ -10,7 +10,7 @@ export function LayerToggle({ layers, activeLayerIds, onToggle }: LayerTogglePro
   return (
     <section className="rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-4 shadow-panel">
       <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-        <div>
+        <div className="min-w-0">
           <p className="text-[11px] uppercase tracking-[0.34em] text-[#b8c1bd]">Layer Controls</p>
           <p className="mt-2 text-sm leading-6 text-white/55">
             Toggle response layers before they are projected onto the tactical surface.
