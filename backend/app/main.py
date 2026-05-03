@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -8,7 +10,15 @@ from app.config import get_settings
 from app.storage import initialize_storage
 
 
+def _configure_logging() -> None:
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s %(levelname)s %(name)s %(message)s",
+    )
+
+
 def create_app() -> FastAPI:
+    _configure_logging()
     settings = get_settings()
     initialize_storage(settings.database_path)
     app = FastAPI(

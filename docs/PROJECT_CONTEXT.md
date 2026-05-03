@@ -30,7 +30,7 @@ Implemented now:
 - live-by-default analysis path
 - local SQLite persistence for runs, findings, and deduped source evidence
 - cached demo JSON payloads for specific preset locations
-- live ADS-B Exchange collector
+- production-hardened ADS-B Exchange collector with bounded multi-snapshot sampling, path generation, and source-health reporting
 - live Exa news/public-web collector
 - placeholder collectors for `strava` and `satellite`
 - OpenAI-backed synthesis when `OPENAI_API_KEY` is configured
@@ -103,7 +103,7 @@ Each collector should stay isolated in `backend/app/collectors/`.
 Current expectation:
 
 - `strava.py`: movement or heat-signature style findings
-- `adsb.py`: live snapshot of nearby aircraft with normalized markers and aerial-exposure findings
+- `adsb.py`: bounded live sampling of nearby aircraft with normalized markers, short-track layers, source-health reporting, and aerial-exposure findings
 - `satellite.py`: revisit-window and imaging opportunity findings
 - `exa.py`: live public-web or news enrichment via Exa search
 
@@ -253,7 +253,7 @@ Update these when relevant:
 
 If no user instruction overrides this, the most sensible order is:
 
-1. deepen ADS-B from single-snapshot heuristics into track-history analysis
+1. deepen ADS-B from bounded short-window sampling into richer track-history and corridor analysis
 2. add richer Exa observability, diagnostics, and operational runbooks on top of the new multi-query evidence gathering and deduplication flow
 3. upgrade SSE from replayed chunks to true provider streaming
 4. add route-based analysis beyond single-point targets

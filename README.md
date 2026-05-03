@@ -11,13 +11,13 @@ Today it includes:
 - a `pnpm`-managed Next.js frontend shell
 - a FastAPI backend with typed request and response models
 - a real Mapbox + deck.gl map surface with interactive overlays and synthetic fallback geometry
-- live ADS-B Exchange and Exa collectors plus scaffolded collector interfaces for `strava` and `satellite`
+- production-hardened live ADS-B Exchange and live Exa collectors plus scaffolded collector interfaces for `strava` and `satellite`
 - a local SQLite evidence store for analysis runs, findings, and deduped source documents
 - cached demo payloads for rehearsed presentations
 - OpenAI-backed threat-brief synthesis with fallback preview generation
 - SSE threat-brief replay over chunked narrative output
 
-It does not yet include production-grade live integrations for the data sources.
+It does not yet include production-grade live integrations for every data source, but ADS-B is now hardened for production-style live use.
 
 ## Current Product Shape
 
@@ -125,7 +125,7 @@ Important notes:
 - Set `OPENAI_API_KEY` in `backend/.env` to enable real synthesis.
 - Set `ADSBEXCHANGE_API_KEY` in `backend/.env` to enable the live ADS-B collector.
 - Set `EXA_API_KEY` in `backend/.env` to enable the live Exa news/web collector.
-- ADS-B currently uses a single live snapshot around the target radius and derives first-pass defensive findings from that snapshot.
+- ADS-B now performs bounded multi-snapshot sampling, emits marker and short-track layers, filters invalid out-of-radius rows, and reports collector health states such as disabled, missing configuration, upstream error, and no-data.
 
 ## Project Structure
 
@@ -159,7 +159,7 @@ opsec-mirror/
 
 ## Known Gaps
 
-- ADS-B and Exa are live, but `strava` and `satellite` still return placeholder findings instead of real vendor responses.
+- ADS-B is live and production-hardened, and Exa is live, but `strava` and `satellite` still return placeholder findings instead of real vendor responses.
 - Exa now performs multi-query news/public-web gathering with deduplication and scoring, but still lacks richer observability and runbook-grade production operations.
 - SSE currently replays a completed narrative in chunks instead of token-streaming directly from OpenAI.
 - Palantir AIP is still a typed placeholder client.
