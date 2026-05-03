@@ -477,6 +477,19 @@ def _select_cascades(cascades: list[dict], filters: list[str]) -> list[dict]:
     return out
 
 
+def _dedupe_to_latest_per_location(cascades: list[dict]) -> list[dict]:
+    """When multiple cascades exist per location (after cascade_analyst --regenerate),
+    keep only the highest-createdTimestamp one per locationName. Otherwise we'd
+    redundantly generate adversary actions against superseded analyses."""
+    by_loc: dict[str, dict] = {}
+    for c in cascades:
+        loc = c.get("locationName") or ""
+        existing = by_loc.get(loc)
+        if existing is None or (c.get("createdTimestamp") or "") > (existing.get("createdTimestamp") or ""):
+            by_loc[loc] = c
+    return list(by_loc.values())
+
+
 def main(argv: list[str] | None = None) -> int:
     args = _build_argparser().parse_args(argv)
     logging.basicConfig(
@@ -503,6 +516,7 @@ def main(argv: list[str] | None = None) -> int:
             print(f"list CascadeRisk failed: {exc}")
             return 2
 
+        cascades = _dedupe_to_latest_per_location(cascades)
         cascades = _select_cascades(cascades, args.location)
         if not cascades:
             print("No CascadeRisk objects matched. "

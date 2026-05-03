@@ -31,6 +31,7 @@ import argparse
 import json
 import logging
 import os
+import re
 import sys
 from datetime import date, datetime, timezone
 from typing import Any
@@ -105,8 +106,32 @@ Output strict JSON only:
 # Deterministic helpers
 # ---------------------------------------------------------------------------
 
-def cascade_id_for(slug: str, today: date) -> str:
-    return f"cascade_{slug}_{today.isoformat()}"
+def cascade_id_for(slug: str, today: date, version: int = 1) -> str:
+    """Daily cascade primary key. version > 1 produces a `_v{N}` suffix so a
+    --regenerate run doesn't clobber the existing day's cascade — the old
+    cascade remains in the audit trail and `_latest_cascade_for` (which
+    sorts by createdTimestamp) automatically prefers the newer version."""
+    base = f"cascade_{slug}_{today.isoformat()}"
+    if version <= 1:
+        return base
+    return f"{base}_v{version}"
+
+
+def _next_cascade_version(client: FoundryClient, slug: str, today: date) -> int:
+    """Find the highest existing version for today's cascade and return next."""
+    base = f"cascade_{slug}_{today.isoformat()}"
+    pattern = re.compile(rf"^{re.escape(base)}(?:_v(\d+))?$")
+    try:
+        existing = client.list_objects("CascadeRisk", page_size=200)
+    except FoundryError:
+        return 2  # if we can't tell, assume v2 is safe
+    versions: set[int] = set()
+    for c in existing:
+        cid = c.get("cascadeId") or ""
+        m = pattern.match(cid)
+        if m:
+            versions.add(int(m.group(1) or "1"))
+    return (max(versions) + 1) if versions else 1
 
 
 def amplified_cascade_score(exposure_score: int, chain_depth: int) -> int:
@@ -333,6 +358,8 @@ def build_cascade_for_location(
     client: FoundryClient,
     loc: dict[str, Any],
     today: date,
+    *,
+    regenerate: bool = False,
 ) -> dict[str, Any] | None:
     feature_id = loc["feature_id"]
     geo = client.get_object("GhostlineGeoFeature", feature_id)
@@ -407,7 +434,8 @@ def build_cascade_for_location(
     if narrative.get("_fallback"):
         confidence = "low"
 
-    cid = cascade_id_for(loc["slug"], today)
+    version = _next_cascade_version(client, loc["slug"], today) if regenerate else 1
+    cid = cascade_id_for(loc["slug"], today, version=version)
     now_iso = datetime.now(timezone.utc).isoformat()
     source_url = _opsec_assessment_url(assessment_id)
 
@@ -564,6 +592,11 @@ def _build_argparser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description="Write CascadeRisk objects from the populated ontology.")
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--verify", action="store_true")
+    p.add_argument("--regenerate", action="store_true",
+                   help="Force a new cascade version (cascade_..._v2, _v3, ...) "
+                        "instead of skipping when today's cascade already exists. "
+                        "Old versions remain as audit trail; query_api picks the latest "
+                        "by createdTimestamp.")
     p.add_argument("--location", action="append", default=[])
     p.add_argument("--log-level", default="INFO")
     return p
@@ -598,7 +631,7 @@ def main(argv: list[str] | None = None) -> int:
     if not only_verify:
         for loc in locations:
             print(f"\n=== {loc['slug']} ===")
-            cascade = build_cascade_for_location(client, loc, today)
+            cascade = build_cascade_for_location(client, loc, today, regenerate=args.regenerate)
             if cascade is None:
                 counts["no-data"] += 1
                 continue
