@@ -2,7 +2,12 @@ import type { Layer, PickingInfo } from "@deck.gl/core";
 import { HeatmapLayer } from "@deck.gl/aggregation-layers";
 import { GeoJsonLayer, PathLayer, ScatterplotLayer } from "@deck.gl/layers";
 
-import type { AnalyzeResponse, Finding, LocationInput, MapLayerPayload } from "@/types/findings";
+import type {
+  AnalyzeResponse,
+  Finding,
+  LocationInput,
+  MapLayerPayload,
+} from "@/types/findings";
 
 type TooltipRecord = {
   label: string;
@@ -40,7 +45,7 @@ const SOURCE_COLORS = {
   adsb: [242, 196, 107, 225] as [number, number, number, number],
   satellite: [245, 139, 100, 225] as [number, number, number, number],
   exa: [231, 236, 232, 210] as [number, number, number, number],
-  system: [147, 162, 168, 190] as [number, number, number, number]
+  system: [147, 162, 168, 190] as [number, number, number, number],
 };
 
 export function buildDeckLayers(params: {
@@ -52,7 +57,7 @@ export function buildDeckLayers(params: {
   const target = report?.target ?? fallbackTarget;
   const layers: Layer[] = [
     buildTargetRadiusLayer(target),
-    buildTargetMarkerLayer(target)
+    buildTargetMarkerLayer(target),
   ];
 
   if (!report) {
@@ -70,7 +75,10 @@ export function buildDeckLayers(params: {
     }
   }
 
-  const findingLayer = buildFindingMarkerLayer(report.findings, visibleLayerIds);
+  const findingLayer = buildFindingMarkerLayer(
+    report.findings,
+    visibleLayerIds,
+  );
   if (findingLayer) {
     layers.push(findingLayer);
   }
@@ -89,7 +97,7 @@ export function getTooltipContent(info: PickingInfo) {
       <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.72;margin-bottom:4px">Map Signal</div>
       <div style="font-size:13px;font-weight:600;margin-bottom:4px">${escapeHtml(record.label)}</div>
       <div style="font-size:12px;line-height:1.5;opacity:0.86">${escapeHtml(record.detail)}</div>
-    </div>`
+    </div>`,
   };
 }
 
@@ -116,13 +124,15 @@ function buildTargetRadiusLayer(target: LocationInput) {
         label: `${target.name} radius`,
         detail: `${target.radius_km} km assessment ring`,
         lineColor: [242, 238, 228, 190],
-        fillColor: [242, 238, 228, 18]
+        fillColor: [242, 238, 228, 18],
       },
       geometry: {
         type: "Polygon",
-        coordinates: [buildCircleCoordinates([target.lon, target.lat], target.radius_km)]
-      }
-    }
+        coordinates: [
+          buildCircleCoordinates([target.lon, target.lat], target.radius_km),
+        ],
+      },
+    },
   ];
 
   return new GeoJsonLayer<PolygonFeature>({
@@ -134,7 +144,7 @@ function buildTargetRadiusLayer(target: LocationInput) {
     getLineColor: [242, 238, 228, 190],
     getFillColor: [242, 238, 228, 18],
     getLineWidth: 2,
-    pickable: true
+    pickable: true,
   });
 }
 
@@ -148,8 +158,8 @@ function buildTargetMarkerLayer(target: LocationInput) {
         fillColor: [242, 238, 228, 255],
         lineColor: [10, 10, 10, 180],
         label: target.name,
-        detail: "Target center"
-      }
+        detail: "Target center",
+      },
     ],
     getPosition: (d) => d.position,
     getRadius: (d) => d.radiusMeters,
@@ -158,7 +168,7 @@ function buildTargetMarkerLayer(target: LocationInput) {
     getLineColor: (d) => d.lineColor ?? [0, 0, 0, 0],
     lineWidthMinPixels: 2,
     stroked: true,
-    pickable: true
+    pickable: true,
   });
 }
 
@@ -169,12 +179,12 @@ function buildFallbackDemoLayers(target: LocationInput): Layer[] {
       data: [
         { position: [target.lon - 0.03, target.lat + 0.01], weight: 0.4 },
         { position: [target.lon + 0.02, target.lat - 0.015], weight: 0.8 },
-        { position: [target.lon + 0.04, target.lat + 0.02], weight: 0.6 }
+        { position: [target.lon + 0.04, target.lat + 0.02], weight: 0.6 },
       ],
       getPosition: (d) => d.position,
       getWeight: (d) => d.weight,
       radiusPixels: 60,
-      opacity: 0.6
+      opacity: 0.6,
     }),
     new PathLayer<PathDatum>({
       id: "fallback-demo-path",
@@ -183,19 +193,19 @@ function buildFallbackDemoLayers(target: LocationInput): Layer[] {
           path: [
             [target.lon - 0.08, target.lat - 0.04],
             [target.lon - 0.02, target.lat - 0.01],
-            [target.lon + 0.05, target.lat + 0.02]
+            [target.lon + 0.05, target.lat + 0.02],
           ],
           color: SOURCE_COLORS.adsb,
           width: 5,
           label: "Synthetic transit corridor",
-          detail: "Demo path shown before a run"
-        }
+          detail: "Demo path shown before a run",
+        },
       ],
       getPath: (d) => d.path,
       getColor: (d) => d.color,
       getWidth: (d) => d.width,
       widthMinPixels: 3,
-      pickable: true
+      pickable: true,
     }),
     new ScatterplotLayer<MarkerDatum>({
       id: "fallback-demo-markers",
@@ -205,22 +215,22 @@ function buildFallbackDemoLayers(target: LocationInput): Layer[] {
           radiusMeters: 420,
           fillColor: SOURCE_COLORS.strava,
           label: "Synthetic signal A",
-          detail: "Demo-only geospatial marker"
+          detail: "Demo-only geospatial marker",
         },
         {
           position: [target.lon + 0.06, target.lat - 0.025],
           radiusMeters: 420,
           fillColor: SOURCE_COLORS.satellite,
           label: "Synthetic signal B",
-          detail: "Demo-only geospatial marker"
-        }
+          detail: "Demo-only geospatial marker",
+        },
       ],
       getPosition: (d) => d.position,
       getRadius: (d) => d.radiusMeters,
       radiusMinPixels: 5,
       getFillColor: (d) => d.fillColor,
-      pickable: true
-    })
+      pickable: true,
+    }),
   ];
 }
 
@@ -235,14 +245,24 @@ function buildMarkerPayloadLayer(layer: MapLayerPayload) {
       const altitude = asNumber(item.altitudeFt);
       const speed = asNumber(item.groundSpeedKts);
 
+      const minDistance = asNumber(item.minDistanceKm);
+      const sampleCount = asNumber(item.sampleCount);
+
       return {
         position,
         radiusMeters: 520,
         fillColor: SOURCE_COLORS.adsb,
         label: asString(item.flight) || asString(item.hex) || "Aircraft marker",
-        detail: [altitude !== null ? `${Math.round(altitude)} ft` : null, speed !== null ? `${Math.round(speed)} kts` : null]
+        detail: [
+          altitude !== null ? `${Math.round(altitude)} ft` : null,
+          speed !== null ? `${Math.round(speed)} kts` : null,
+          minDistance !== null
+            ? `${minDistance.toFixed(1)} km min range`
+            : null,
+          sampleCount !== null ? `${Math.round(sampleCount)} samples` : null,
+        ]
           .filter(Boolean)
-          .join(" - ")
+          .join(" - "),
       } satisfies MarkerDatum;
     })
     .filter((item): item is MarkerDatum => item !== null);
@@ -262,7 +282,7 @@ function buildMarkerPayloadLayer(layer: MapLayerPayload) {
     lineWidthMinPixels: 1.5,
     stroked: true,
     pickable: true,
-    autoHighlight: true
+    autoHighlight: true,
   });
 }
 
@@ -279,12 +299,23 @@ function buildPathPayloadLayer(layer: MapLayerPayload) {
         return null;
       }
 
+      const minDistance = asNumber(item.minDistanceKm);
+      const sampleCount = asNumber(item.sampleCount);
       return {
         path,
         color: SOURCE_COLORS.adsb,
         width: 6,
-        label: `Path ${index + 1}`,
-        detail: `${path.length} vertices`
+        label:
+          asString(item.flight) || asString(item.hex) || `Path ${index + 1}`,
+        detail: [
+          `${path.length} vertices`,
+          sampleCount !== null ? `${Math.round(sampleCount)} samples` : null,
+          minDistance !== null
+            ? `${minDistance.toFixed(1)} km min range`
+            : null,
+        ]
+          .filter(Boolean)
+          .join(" - "),
       } satisfies PathDatum;
     })
     .filter((item): item is PathDatum => item !== null);
@@ -302,7 +333,7 @@ function buildPathPayloadLayer(layer: MapLayerPayload) {
     widthMinPixels: 3,
     rounded: true,
     pickable: true,
-    autoHighlight: true
+    autoHighlight: true,
   });
 }
 
@@ -321,12 +352,12 @@ function buildFootprintPayloadLayer(layer: MapLayerPayload) {
           label: `Footprint ${index + 1}`,
           detail: `${radiusKm.toFixed(1)} km radius`,
           lineColor: SOURCE_COLORS.satellite,
-          fillColor: [245, 139, 100, 32]
+          fillColor: [245, 139, 100, 32],
         },
         geometry: {
           type: "Polygon",
-          coordinates: [buildCircleCoordinates(center, radiusKm)]
-        }
+          coordinates: [buildCircleCoordinates(center, radiusKm)],
+        },
       } satisfies PolygonFeature;
     })
     .filter((item): item is PolygonFeature => item !== null);
@@ -345,7 +376,7 @@ function buildFootprintPayloadLayer(layer: MapLayerPayload) {
     lineWidthMinPixels: 2,
     getLineWidth: 2,
     pickable: true,
-    autoHighlight: true
+    autoHighlight: true,
   });
 }
 
@@ -359,7 +390,7 @@ function buildHeatmapPayloadLayer(layer: MapLayerPayload) {
 
       return {
         position,
-        weight: asNumber(item.weight) ?? 0.6
+        weight: asNumber(item.weight) ?? 0.6,
       } satisfies HeatDatum;
     })
     .filter((item): item is HeatDatum => item !== null);
@@ -376,11 +407,14 @@ function buildHeatmapPayloadLayer(layer: MapLayerPayload) {
     radiusPixels: 70,
     intensity: 1,
     threshold: 0.05,
-    opacity: 0.75
+    opacity: 0.75,
   });
 }
 
-function buildFindingMarkerLayer(findings: Finding[], visibleLayerIds: string[]) {
+function buildFindingMarkerLayer(
+  findings: Finding[],
+  visibleLayerIds: string[],
+) {
   const data = findings
     .filter((finding) => finding.geo)
     .filter((finding) => isFindingVisible(finding.source, visibleLayerIds))
@@ -390,7 +424,7 @@ function buildFindingMarkerLayer(findings: Finding[], visibleLayerIds: string[])
       fillColor: SOURCE_COLORS[finding.source],
       lineColor: [255, 255, 255, 190] as [number, number, number, number],
       label: finding.title,
-      detail: `${finding.source.toUpperCase()} - ${finding.severity.toUpperCase()}`
+      detail: `${finding.source.toUpperCase()} - ${finding.severity.toUpperCase()}`,
     }));
 
   if (data.length === 0) {
@@ -408,30 +442,43 @@ function buildFindingMarkerLayer(findings: Finding[], visibleLayerIds: string[])
     lineWidthMinPixels: 2,
     stroked: true,
     pickable: true,
-    autoHighlight: true
+    autoHighlight: true,
   });
 }
 
-function buildCircleCoordinates(center: [number, number], radiusKm: number, steps = 48) {
+function buildCircleCoordinates(
+  center: [number, number],
+  radiusKm: number,
+  steps = 48,
+) {
   const [lon, lat] = center;
   const points: [number, number][] = [];
   const latRadius = radiusKm / 111.32;
-  const lonRadius = radiusKm / (111.32 * Math.max(Math.cos((lat * Math.PI) / 180), 0.2));
+  const lonRadius =
+    radiusKm / (111.32 * Math.max(Math.cos((lat * Math.PI) / 180), 0.2));
 
   for (let step = 0; step <= steps; step += 1) {
     const angle = (step / steps) * Math.PI * 2;
-    points.push([lon + Math.cos(angle) * lonRadius, lat + Math.sin(angle) * latRadius]);
+    points.push([
+      lon + Math.cos(angle) * lonRadius,
+      lat + Math.sin(angle) * latRadius,
+    ]);
   }
 
   return points;
 }
 
-function isFindingVisible(source: Finding["source"], visibleLayerIds: string[]) {
+function isFindingVisible(
+  source: Finding["source"],
+  visibleLayerIds: string[],
+) {
   if (visibleLayerIds.length === 0) {
     return true;
   }
 
-  return visibleLayerIds.some((layerId) => layerId.toLowerCase().includes(source));
+  return visibleLayerIds.some((layerId) =>
+    layerId.toLowerCase().includes(source),
+  );
 }
 
 function toLngLat(value: unknown): [number, number] | null {
@@ -486,14 +533,14 @@ function extractTooltipRecord(object: unknown): TooltipRecord | null {
   if (typeof candidate.label === "string") {
     return {
       label: candidate.label,
-      detail: candidate.detail ?? ""
+      detail: candidate.detail ?? "",
     };
   }
 
   if (typeof candidate.properties?.label === "string") {
     return {
       label: candidate.properties.label,
-      detail: candidate.properties.detail ?? ""
+      detail: candidate.properties.detail ?? "",
     };
   }
 

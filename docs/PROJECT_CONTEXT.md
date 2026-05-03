@@ -254,7 +254,7 @@ Update these when relevant:
 If no user instruction overrides this, the most sensible order is:
 
 1. deepen ADS-B from single-snapshot heuristics into track-history analysis
-2. deepen Exa from one query into multi-query evidence gathering and deduplication
+2. add richer Exa observability, diagnostics, and operational runbooks on top of the new multi-query evidence gathering and deduplication flow
 3. upgrade SSE from replayed chunks to true provider streaming
 4. add route-based analysis beyond single-point targets
 5. add stronger map interactions such as fitting, clustering, and time-based layer playback

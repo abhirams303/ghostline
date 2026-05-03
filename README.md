@@ -160,7 +160,7 @@ opsec-mirror/
 ## Known Gaps
 
 - ADS-B and Exa are live, but `strava` and `satellite` still return placeholder findings instead of real vendor responses.
-- Exa currently uses a query-based news/public-web pass, not a deeper multi-query research workflow.
+- Exa now performs multi-query news/public-web gathering with deduplication and scoring, but still lacks richer observability and runbook-grade production operations.
 - SSE currently replays a completed narrative in chunks instead of token-streaming directly from OpenAI.
 - Palantir AIP is still a typed placeholder client.
 
