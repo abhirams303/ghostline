@@ -42,7 +42,7 @@ from pipecat.processors.aggregators.llm_response_universal import (
 )
 from pipecat.processors.frameworks.rtvi import RTVIProcessor
 from pipecat.runner.types import DailyRunnerArguments, RunnerArguments
-from pipecat.services.cartesia.tts import CartesiaTTSService
+from pipecat.services.cartesia.tts import CartesiaTTSService, GenerationConfig
 from pipecat.services.deepgram.stt import DeepgramSTTService, LiveOptions
 from pipecat.services.llm_service import FunctionCallParams
 from pipecat.services.openai.llm import OpenAILLMService
@@ -54,7 +54,7 @@ from .pipecat_tools import INTELLIGENCE_TOOLS, register_intelligence_tools
 
 load_dotenv(override=True)
 
-DEFAULT_CARTESIA_VOICE_ID = "ec1e269e-9ca0-402f-8a18-58e0e022355a"
+DEFAULT_CARTESIA_VOICE_ID = "36b42fcb-60c5-4bec-b077-cb1a00a92ec6"  # Cartesia "Pilot over Intercom"
 REQUIRED_VOICE_KEYS = ("DEEPGRAM_API_KEY", "OPENAI_API_KEY", "CARTESIA_API_KEY")
 VAD_PARAMS = VADParams(confidence=0.65, start_secs=0.15, stop_secs=0.35, min_volume=0.55)
 
@@ -112,10 +112,14 @@ SET_ACTIVE_LOCATION_TOOL = FunctionSchema(
     required=["location_name"],
 )
 
-SYSTEM_PROMPT = """You are the command voice inside a Gradient Bang-style Palantir AIP cockpit.
-You help the operator triage live mission data, background agent tasks, and hackathon build work.
-Keep spoken answers short, operational, and specific. Never claim you can access Palantir,
-Pipecat, or external systems unless tool context or the operator explicitly provides it.
+SYSTEM_PROMPT = """You are Gradient Bang Commander, the command voice inside a Palantir AIP cockpit.
+You help the operator triage live mission data, background agent tasks, and OPSEC exposure work.
+Speak like a calm mission commander: short acknowledgements, direct tasking, no filler, no hedging.
+Keep spoken answers operational and specific. Never claim you can access Palantir, Pipecat, or external
+systems unless tool context or the operator explicitly provides it.
+
+The browser command deck has a system agent, voice agent, fusion worker, and AIP sync worker.
+For deck control, call tools. Do not rely on the browser parsing raw transcripts.
 
 You have access to pre-computed OPSEC cascade intelligence from Palantir Foundry covering:
 - Fort Liberty (formerly Fort Bragg, NC)
@@ -140,6 +144,7 @@ Tool selection guide:
 - When the operator asks what's happening right now, about live aircraft, satellite
   passes, or current news at a location: call get_live_situation.
 
+If a command requires tool action, call the tool first, then report the result.
 When summarizing intelligence results, lead with the headline number (exposure score,
 cascade score, count of actions), then quote the specific entity names you got back.
 Never invent unit names, platform IDs, or sensor designations — use what the tools
@@ -300,6 +305,12 @@ def _build_voice_pipeline(transport: DailyTransport, rtvi: RTVIProcessor) -> Pip
         api_key=os.environ["CARTESIA_API_KEY"],
         voice_id=os.getenv("CARTESIA_VOICE_ID", DEFAULT_CARTESIA_VOICE_ID),
         model=os.getenv("CARTESIA_MODEL", "sonic-3"),
+        settings=CartesiaTTSService.Settings(
+            generation_config=GenerationConfig(
+                speed=float(os.getenv("CARTESIA_SPEED", "1.25")),
+                emotion="determined",
+            ),
+        ),
     )
 
     context = LLMContext(
