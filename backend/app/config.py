@@ -27,6 +27,17 @@ class Settings(BaseSettings):
     use_demo_cache: bool = False
     strava_enabled: bool = False
     adsb_enabled: bool = False
+    adsbexchange_api_key: str | None = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            "OPSEC_MIRROR_ADSBEXCHANGE_API_KEY",
+            "ADSBEXCHANGE_API_KEY",
+        ),
+    )
+    adsb_base_url: str = "https://adsbexchange.com"
+    adsb_timeout_seconds: float = 10.0
+    adsb_max_aircraft: int = 25
+    adsb_low_altitude_threshold_ft: int = 5000
     satellite_enabled: bool = True
     exa_enabled: bool = False
     openai_api_key: str | None = Field(

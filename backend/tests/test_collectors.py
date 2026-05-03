@@ -3,6 +3,7 @@ from pathlib import Path
 
 from fastapi.testclient import TestClient
 
+from app.collectors.adsb import ADSBCollector
 from app.config import get_settings
 from app.main import create_app
 
@@ -10,6 +11,9 @@ from app.main import create_app
 def make_client(tmp_path: Path, monkeypatch) -> tuple[TestClient, Path]:
     database_path = tmp_path / "opsec-mirror-test.sqlite3"
     monkeypatch.setenv("OPSEC_MIRROR_DATABASE_PATH", str(database_path))
+    monkeypatch.setenv("OPSEC_MIRROR_ADSB_ENABLED", "false")
+    monkeypatch.delenv("ADSBEXCHANGE_API_KEY", raising=False)
+    monkeypatch.delenv("OPSEC_MIRROR_ADSBEXCHANGE_API_KEY", raising=False)
     get_settings.cache_clear()
     return TestClient(create_app()), database_path
 
@@ -106,8 +110,75 @@ def test_repeated_live_runs_dedupe_source_documents(tmp_path: Path, monkeypatch)
         run_document_count = connection.execute("SELECT COUNT(*) FROM run_documents").fetchone()[0]
 
     assert run_count == 2
-    assert finding_count == 8
-    assert document_count == 4
-    assert run_document_count == 8
+    assert finding_count == 6
+    assert document_count == 3
+    assert run_document_count == 6
+
+    get_settings.cache_clear()
+
+
+def test_adsb_collector_normalizes_live_payload(tmp_path: Path, monkeypatch) -> None:
+    client, database_path = make_client(tmp_path, monkeypatch)
+    monkeypatch.setenv("OPSEC_MIRROR_ADSB_ENABLED", "true")
+    monkeypatch.setenv("ADSBEXCHANGE_API_KEY", "test-uuid")
+    get_settings.cache_clear()
+
+    sample_payload = {
+        "ac": [
+            {
+                "hex": "abc123",
+                "flight": "TEST123 ",
+                "lat": 35.16,
+                "lon": -79.02,
+                "alt_baro": 3200,
+                "gs": 180,
+                "track": 91,
+                "seen": 1.2,
+            },
+            {
+                "hex": "def456",
+                "flight": "TEST456 ",
+                "lat": 35.12,
+                "lon": -79.01,
+                "alt_baro": "ground",
+                "gs": 22,
+                "track": 10,
+                "seen": 0.5,
+            },
+        ]
+    }
+
+    async def fake_fetch(self, request):
+        return sample_payload
+
+    monkeypatch.setattr(ADSBCollector, "_fetch_aircraft_payload", fake_fetch)
+
+    response = client.post(
+        "/analyze",
+        json={
+            "target": {
+                "name": "Fort Liberty",
+                "lat": 35.1414,
+                "lon": -79.006,
+                "radius_km": 20
+            },
+            "mode": "live"
+        },
+    )
+
+    assert response.status_code == 200
+    body = response.json()
+    adsb_findings = [finding for finding in body["findings"] if finding["source"] == "adsb"]
+    adsb_layers = [layer for layer in body["layers"] if layer["id"] == "adsb-live-markers"]
+
+    assert len(adsb_findings) == 2
+    assert adsb_layers
+    assert adsb_layers[0]["type"] == "marker"
+    assert adsb_layers[0]["data"][0]["hex"] == "abc123"
+
+    with sqlite3.connect(database_path) as connection:
+        finding_count = connection.execute("SELECT COUNT(*) FROM findings").fetchone()[0]
+
+    assert finding_count == len(body["findings"])
 
     get_settings.cache_clear()

@@ -29,7 +29,8 @@ Implemented now:
 - live-by-default analysis path
 - local SQLite persistence for runs, findings, and deduped source evidence
 - cached demo JSON payloads for specific preset locations
-- placeholder collectors for `strava`, `adsb`, `satellite`, and `exa`
+- live ADS-B Exchange collector
+- placeholder collectors for `strava`, `satellite`, and `exa`
 - OpenAI-backed synthesis when `OPENAI_API_KEY` is configured
 - local fallback narrative generation when OpenAI is not configured or the request fails
 
@@ -101,7 +102,7 @@ Each collector should stay isolated in `backend/app/collectors/`.
 Current expectation:
 
 - `strava.py`: movement or heat-signature style findings
-- `adsb.py`: aircraft track and timing-style findings
+- `adsb.py`: live snapshot of nearby aircraft with normalized markers and aerial-exposure findings
 - `satellite.py`: revisit-window and imaging opportunity findings
 - `exa.py`: public-web or news enrichment
 
@@ -251,7 +252,7 @@ Update these when relevant:
 
 If no user instruction overrides this, the most sensible order is:
 
-1. wire one real collector end-to-end
+1. deepen ADS-B from single-snapshot heuristics into track-history analysis
 2. replace map-shell placeholders with actual deck.gl rendering
 3. upgrade SSE from replayed chunks to true provider streaming
 4. add route-based analysis beyond single-point targets

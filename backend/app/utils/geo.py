@@ -15,3 +15,7 @@ def haversine_km(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
 
 def slugify_location(name: str) -> str:
     return name.strip().lower().replace(" ", "_").replace("-", "_")
+
+
+def km_to_nautical_miles(distance_km: float) -> float:
+    return distance_km * 0.539957

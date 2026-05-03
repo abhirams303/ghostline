@@ -18,7 +18,7 @@ The backend:
 ## Current Collector Posture
 
 - `Strava`: interface scaffold with live-path placeholder output
-- `ADSB`: interface scaffold with live-path placeholder output
+- `ADSB`: live ADS-B Exchange snapshot collector with normalized aircraft markers and heuristic findings
 - `Satellite`: interface scaffold with revisit-window placeholder output
 - `Exa`: enrichment scaffold, disabled by policy until wired
 
@@ -28,6 +28,7 @@ The backend:
 - No scraping-heavy implementation baked into the initial scaffold
 - Cached demo packs remain available for rehearsal and backup
 - The current SSE endpoint replays narrative chunks after synthesis; it is not yet a true provider-token stream
+- The ADS-B collector currently uses one live snapshot per analysis, not burst sampling or full historical track retrieval
 
 ## Persistence Posture
 
