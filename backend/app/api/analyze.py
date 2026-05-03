@@ -59,6 +59,20 @@ async def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
             "no_data",
             "ok",
         }:
+            details = next(
+                (
+                    {
+                        key: value
+                        for key, value in finding.metadata.items()
+                        if isinstance(value, (str, int, float, bool))
+                        or value is None
+                    }
+                    for finding in source_findings
+                    if finding.metadata.get("status") == explicit_status
+                ),
+                {},
+            )
+            details.setdefault("finding_count", len(source_findings))
             source_statuses.append(
                 SourceStatus(
                     source=source,
@@ -71,19 +85,7 @@ async def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
                         ),
                         f"{source} collector reported {explicit_status}.",
                     ),
-                    details=next(
-                        (
-                            {
-                                key: value
-                                for key, value in finding.metadata.items()
-                                if isinstance(value, (str, int, float, bool))
-                                or value is None
-                            }
-                            for finding in source_findings
-                            if finding.metadata.get("status") == explicit_status
-                        ),
-                        {},
-                    ),
+                    details=details,
                 )
             )
             continue
