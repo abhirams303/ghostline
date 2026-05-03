@@ -31,6 +31,15 @@ User flow:
 4. Backend query APIs resolve cached or live Ghostline data, including the remote MissionReport adapter.
 5. The frontend renders command activity, score strips, findings, layer toggles, and the live Mapbox + deck.gl surface.
 
+## Command Deck Integration
+
+The primary local UI is the command deck at `http://localhost:3000`.
+
+- Typed location commands such as `show naval base san diego` or `go to fort liberty` focus the map immediately.
+- Assessment commands such as `analyze naval base san diego` call `GET /voice/mission_report` on the voice bridge first.
+- If the voice bridge cannot return a MissionReport, the frontend falls back to `/voice/get_assessment`, then the original `/analyze` API shape, then local demo context.
+- Pipecat voice connection starts through `POST /api/pipecat/start`; live voice requires the Pipecat Cloud and provider keys listed in the env templates.
+
 ## Stack
 
 - Frontend: Next.js 16, React 19, Tailwind CSS, Mapbox, deck.gl
@@ -77,7 +86,7 @@ Frontend only:
 pnpm dev:frontend
 ```
 
-Backend only:
+Command-deck backend bridge only:
 
 ```powershell
 pnpm dev:backend
@@ -109,6 +118,13 @@ python -m pytest
 cd ..
 ```
 
+Browser smoke path:
+
+1. Start `pnpm dev`.
+2. Open `http://localhost:3000`.
+3. Enter `analyze naval base san diego`.
+4. Confirm the UI shows `NAVAL BASE SAN DIEGO` and the voice bridge logs a `GET /voice/mission_report` request.
+
 Manual Strava heatmap smoke check:
 
 ```powershell
@@ -132,6 +148,7 @@ Important notes:
 - The frontend reads `frontend/.env.local`.
 - Live analysis persistence defaults to `backend/data/runtime/opsec_mirror.sqlite3`.
 - Set `NEXT_PUBLIC_MAPBOX_TOKEN` in `frontend/.env.local` to enable the real basemap.
+- Set `PIPECAT_CLOUD_API_KEY` in `frontend/.env.local` to enable live Pipecat voice startup through the Next.js API route.
 - Set `OPENAI_API_KEY` in `backend/.env` to enable real synthesis.
 - Set `ADSBEXCHANGE_API_KEY` in `backend/.env` to enable the live ADS-B collector.
 - Set `EXA_API_KEY` in `backend/.env` to enable the live Exa news/web collector.
@@ -143,8 +160,8 @@ Important notes:
 
 ```text
 opsec-mirror/
-|-- backend/                # FastAPI service, models, collectors, synthesis
-|-- frontend/               # Next.js app shell
+|-- backend/                # FastAPI app plus Ghostline voice bridge/query APIs
+|-- frontend/               # Next.js command deck
 |-- docs/                   # Architecture, ethics, demo script, agent context
 |-- scripts/                # Setup, deploy, and cache helper scripts
 |-- AGENTS.md               # Agent operating instructions for this repo
@@ -162,11 +179,13 @@ opsec-mirror/
 ## Team Conventions
 
 - Default mode is `live`; use `demo` only for rehearsed or offline-safe runs.
-- Cached demo files in `backend/data/cached/` are committed artifacts, not throwaway output.
+- Cached demo files in `backend/data/cached/` and `backend/ai/demo_cache/` are committed artifacts, not throwaway output.
 - Keep collector integrations isolated to `backend/app/collectors/`.
+- Keep command-deck data adapters isolated to `frontend/src/services/`.
 - Keep API contract changes mirrored across:
   - `backend/app/models/`
   - `frontend/src/types/findings.ts`
+  - `frontend/src/domain/types.ts`
   - `docs/PROJECT_CONTEXT.md`
 
 ## Known Gaps

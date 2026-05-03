@@ -29,3 +29,27 @@ Before making non-trivial changes, read `docs/PROJECT_CONTEXT.md`.
 - Treat that file as the quickest project brief for architecture, current status, guardrails, and next priorities
 - If you change contracts, collector posture, docs, or team workflows, keep `docs/PROJECT_CONTEXT.md` in sync
 - If the README and `docs/PROJECT_CONTEXT.md` disagree, prefer the project-context file for implementation details and update the README
+
+## Command Deck Runtime
+
+The primary local UI is the Ghostline command deck.
+
+- Frontend: `pnpm dev:frontend`, served on `http://localhost:3000`
+- Backend bridge: `pnpm dev:backend`, served on `http://localhost:8000` from `backend.ai.voice_server:app`
+- Root dev: `pnpm dev` starts both
+
+The deck's preferred integration path is:
+
+1. `GET /voice/mission_report?location=...`
+2. fallback `GET /voice/get_assessment?location=...`
+3. fallback original `POST /analyze`
+4. fallback local demo context
+
+When changing the command deck, verify at minimum:
+
+- `pnpm --filter @opsec-mirror/frontend lint`
+- `pnpm --filter @opsec-mirror/frontend build`
+- `cd backend; python -m pytest`
+- a browser smoke test on `http://localhost:3000` with `analyze naval base san diego`
+
+Do not commit local verification artifacts such as `.codex-*`, `test-results/`, `playwright-report/`, `.next/`, runtime databases, or log files.

@@ -81,28 +81,42 @@ If you are changing a contract, these files matter first:
 - backend finding schema: `backend/app/models/finding.py`
 - backend response schema: `backend/app/models/report.py`
 - frontend mirrored types: `frontend/src/types/findings.ts`
+- command deck report types: `frontend/src/domain/types.ts`
+- command deck backend adapter: `frontend/src/services/palantirAdapter.ts`
+- voice bridge MissionReport adapter: `backend/ai/frontend_adapter.py`
+- voice bridge route surface: `backend/ai/voice_server.py`
 - geocode endpoint: `backend/app/api/geocode.py`
 - main analyze endpoint: `backend/app/api/analyze.py`
 - narrative stream behavior: `backend/app/api/stream.py`
 
 ## Current Runtime Behavior
 
+### Command Deck Mode
+
+- frontend runs as a command deck on `http://localhost:3000`
+- root `pnpm dev:backend` runs `backend.ai.voice_server:app` on `http://localhost:8000`
+- assessment commands call `/voice/mission_report` first
+- supported-location geocoding falls back through `/voice/get_assessment`
+- custom target strings fall back through backend `/geocode` and then Mapbox when configured
+- the original `/analyze` path remains as a compatibility fallback
+
 ### Analyze Mode
 
-- frontend defaults to `live`
-- preset targets resolve locally; custom target strings resolve through backend `/geocode`
+- frontend command-deck reports default to `live`
 - backend uses cached JSON only when request mode is `demo`
 - optional demo fallback can still be enabled through backend env
 
 ### Demo Targets
 
-Cached demo payloads exist for:
+Cached app payloads exist for:
 
 - `Fort Liberty`
 - `Norfolk Naval`
 - `Creech AFB`
 
 They live under `backend/data/cached/`.
+
+Voice bridge demo-cache payloads also exist under `backend/ai/demo_cache/` for the command deck and voice-agent locations, including `Fort Liberty`, `Naval Station Norfolk`, `Creech AFB`, `Joint Base Lewis-McChord`, `Naval Base San Diego`, and `Shack15`.
 
 ## Collector Posture
 
@@ -238,6 +252,8 @@ Run backend:
 pnpm dev:backend
 ```
 
+This starts the command-deck voice bridge, not the original `app.main` FastAPI service.
+
 Run frontend lint:
 
 ```powershell
@@ -264,6 +280,12 @@ cd backend
 python scripts/smoke_strava.py
 ```
 
+Browser smoke check:
+
+```text
+Open http://localhost:3000, enter "analyze naval base san diego", and confirm the deck updates to NAVAL BASE SAN DIEGO after a /voice/mission_report request.
+```
+
 ## If You Change Something Important
 
 Update these when relevant:
@@ -271,6 +293,8 @@ Update these when relevant:
 - `README.md`
 - `docs/ARCHITECTURE.md`
 - `docs/PROJECT_CONTEXT.md`
+- `AGENTS.md`
+- `.gitignore` for generated local artifacts
 - env example files
 - mirrored frontend and backend types
 
