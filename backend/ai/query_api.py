@@ -57,17 +57,47 @@ ID_PREFIX_TO_TYPE: list[tuple[str, str]] = [
 
 UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$", re.I)
 
-# Spoken-name aliases the substring matcher would otherwise miss. Lowercased keys.
+# Spoken-name aliases the substring matcher would otherwise miss.
+# All keys are NORMALIZED form (lowercased, dashes/underscores → spaces, single
+# spaces) — see _normalize_location_query. The frontend passes slug forms like
+# "norfolk-naval" and "fort-liberty"; the voice agent passes spoken forms like
+# "JBLM" or "Bragg"; both flow through the same alias table after normalization.
 LOCATION_ALIASES: dict[str, str] = {
-    "jblm": "Joint Base Lewis-McChord",
-    "lewis mcchord": "Joint Base Lewis-McChord",
-    "lewis-mcchord": "Joint Base Lewis-McChord",
+    # Fort Liberty (formerly Fort Bragg)
+    "fort liberty": "Fort Liberty",
     "fort bragg": "Fort Liberty",
     "bragg": "Fort Liberty",
     "liberty": "Fort Liberty",
+    # Naval Station Norfolk
+    "norfolk naval": "Naval Station Norfolk",
+    "naval station norfolk": "Naval Station Norfolk",
     "norfolk": "Naval Station Norfolk",
+    # Joint Base Lewis-McChord
+    "joint base lewis mcchord": "Joint Base Lewis-McChord",
+    "jblm": "Joint Base Lewis-McChord",
+    "lewis mcchord": "Joint Base Lewis-McChord",
+    # Naval Base San Diego
+    "naval base san diego": "Naval Base San Diego",
     "san diego": "Naval Base San Diego",
+    "nbsd": "Naval Base San Diego",
+    # Shack15
+    "shack15": "Shack15",
+    "shack 15": "Shack15",
+    "shack fifteen": "Shack15",
 }
+
+
+def _normalize_location_query(query: str) -> str:
+    """Lowercase, replace dashes/underscores with spaces, collapse whitespace.
+
+    Lets us match slug forms ('norfolk-naval', 'joint_base_lewis_mcchord') and
+    spoken forms ('Norfolk Naval', 'JBLM') through the same alias table.
+    """
+    if not query:
+        return ""
+    q = query.lower().strip()
+    q = q.replace("-", " ").replace("_", " ")
+    return " ".join(q.split())
 
 # Regex to lift "Recommended actions. One: ... Two: ..." style numbered actions
 # out of a threat brief paragraph.
@@ -246,38 +276,65 @@ def _entity_name_map(client: FoundryClient) -> dict[str, dict[str, str]]:
     return out
 
 
-def _resolve_location_name(client: FoundryClient, query: str) -> str | None:
-    """Map a fuzzy input ('Norfolk') to the canonical locationName ('Naval Station Norfolk').
+def _canonical_locations(client: FoundryClient) -> list[str]:
+    """Cached sorted list of canonical OpsecAssessment.locationName values."""
+    key = ("locations_canonical",)
+    cached = _cache_get(key)
+    if cached is not None:
+        return cached
+    try:
+        assessments = client.list_objects("OpsecAssessment", page_size=200)
+    except FoundryError as exc:
+        log.error("list OpsecAssessment failed: %s", exc)
+        return []
+    canonical = sorted({a.get("locationName") for a in assessments if a.get("locationName")})
+    _cache_put(key, canonical)
+    return canonical
 
-    Uses every distinct locationName found on OpsecAssessment objects as the
-    candidate set — those are the sites we've actually populated.
-    """
+
+def _no_data_error(client: FoundryClient, query: str) -> dict[str, str]:
+    """Build the resolution-failure error dict listing available locations.
+
+    Used when the operator passes a slug or name we don't have populated
+    (e.g. "creech-afb"). The available list comes from the same canonical
+    cache that the resolver uses, so it's free after the first call."""
+    available = _canonical_locations(client)
+    suffix = f" Available: {', '.join(available)}." if available else ""
+    return {"error": f"No data for {query!r}.{suffix}"}
+
+
+def _resolve_location_name(client: FoundryClient, query: str) -> str | None:
+    """Map a fuzzy input to the canonical locationName.
+
+    Handles three input shapes via _normalize_location_query:
+      - slug forms: 'norfolk-naval', 'joint_base_lewis_mcchord'
+      - voice/spoken forms: 'JBLM', 'Bragg', 'Norfolk Naval'
+      - canonical forms: 'Naval Station Norfolk'
+
+    Uses every distinct locationName on OpsecAssessment as the candidate
+    set — those are the sites we've actually populated."""
     if not query:
         return None
-    key = ("locations_canonical",)
-    canonical = _cache_get(key)
-    if canonical is None:
-        try:
-            assessments = client.list_objects("OpsecAssessment", page_size=200)
-        except FoundryError as exc:
-            log.error("list OpsecAssessment failed: %s", exc)
-            return None
-        canonical = sorted({a.get("locationName") for a in assessments if a.get("locationName")})
-        _cache_put(key, canonical)
-    q = query.lower().strip()
-    # 1) Spoken aliases ("JBLM", "Fort Bragg" -> "Fort Liberty") — voice-friendly.
-    aliased = LOCATION_ALIASES.get(q)
+    canonical = _canonical_locations(client)
+    if not canonical:
+        return None
+    qn = _normalize_location_query(query)
+    if not qn:
+        return None
+    # 1) Alias table (keys are pre-normalized).
+    aliased = LOCATION_ALIASES.get(qn)
     if aliased and aliased in canonical:
         return aliased
-    # 2) Exact (case-insensitive) wins.
+    # 2) Exact normalized match against canonical names.
     for name in canonical:
-        if name.lower() == q:
+        if _normalize_location_query(name) == qn:
             return name
-    # 3) Substring — prefer matches that start with the query (more specific).
-    starts = [n for n in canonical if n.lower().startswith(q)]
+    # 3) Prefix match (more specific) on normalized canonical names.
+    starts = [n for n in canonical if _normalize_location_query(n).startswith(qn)]
     if starts:
         return min(starts, key=len)
-    contains = [n for n in canonical if q in n.lower()]
+    # 4) Substring match.
+    contains = [n for n in canonical if qn in _normalize_location_query(n)]
     if contains:
         return min(contains, key=len)
     return None
@@ -362,10 +419,10 @@ def get_assessment(location: str) -> dict[str, Any]:
         return _disk_or_error("get_assessment", key_args, {"error": "Foundry not configured"})
     canonical = _resolve_location_name(client, location)
     if canonical is None:
-        return _disk_or_error("get_assessment", key_args, {"error": f"No assessment found for {location!r}"})
+        return _disk_or_error("get_assessment", key_args, _no_data_error(client, location))
     assessment = _latest_assessment_for(client, canonical)
     if assessment is None:
-        return _disk_or_error("get_assessment", key_args, {"error": f"No assessment found for {canonical!r}"})
+        return _disk_or_error("get_assessment", key_args, _no_data_error(client, canonical))
 
     score = int(assessment.get("exposureScore") or 0)
     aid = assessment.get("assessmentId") or ""
@@ -420,10 +477,10 @@ def get_cascade(location: str) -> dict[str, Any]:
         return _disk_or_error("get_cascade", key_args, {"error": "Foundry not configured"})
     canonical = _resolve_location_name(client, location)
     if canonical is None:
-        return _disk_or_error("get_cascade", key_args, {"error": f"No cascade found for {location!r}"})
+        return _disk_or_error("get_cascade", key_args, _no_data_error(client, location))
     cascade = _latest_cascade_for(client, canonical)
     if cascade is None:
-        return _disk_or_error("get_cascade", key_args, {"error": f"No cascade found for {canonical!r}"})
+        return _disk_or_error("get_cascade", key_args, _no_data_error(client, canonical))
 
     name_map = _entity_name_map(client)
     chain = cascade.get("chainEntities") or []
@@ -633,12 +690,12 @@ def recommend_mitigations(location: str) -> dict[str, Any]:
         return _disk_or_error("recommend_mitigations", key_args, {"error": "Foundry not configured"})
     canonical = _resolve_location_name(client, location)
     if canonical is None:
-        return _disk_or_error("recommend_mitigations", key_args, {"error": f"No data for {location!r}"})
+        return _disk_or_error("recommend_mitigations", key_args, _no_data_error(client, location))
 
     cascade = _latest_cascade_for(client, canonical)
     assessment = _latest_assessment_for(client, canonical)
     if cascade is None and assessment is None:
-        return _disk_or_error("recommend_mitigations", key_args, {"error": f"No mitigations available for {canonical!r}"})
+        return _disk_or_error("recommend_mitigations", key_args, _no_data_error(client, canonical))
 
     primary = cascade.get("recommendedUpstreamMitigation") if cascade else ""
     alternatives = _extract_alternative_mitigations(

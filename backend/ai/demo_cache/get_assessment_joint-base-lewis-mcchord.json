@@ -1,8 +1,8 @@
 {
-  "_cached_at": "2026-05-03T15:07:07.591281+00:00",
+  "_cached_at": "2026-05-03T15:38:17.126819+00:00",
   "_function": "get_assessment",
   "_args": [
-    "jblm"
+    "joint-base-lewis-mcchord"
   ],
   "value": {
     "location": "Joint Base Lewis-McChord",

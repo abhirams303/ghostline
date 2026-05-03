@@ -1,0 +1,937 @@
+{
+  "_cached_at": "2026-05-03T15:38:19.030395+00:00",
+  "_function": "get_full_picture",
+  "_args": [
+    "joint-base-lewis-mcchord"
+  ],
+  "value": {
+    "assessment": {
+      "location": "Joint Base Lewis-McChord",
+      "exposure_score": 42,
+      "risk_level": "MEDIUM",
+      "strava_score": 0,
+      "aircraft_score": 63,
+      "satellite_score": 93,
+      "brief": "Commander. Joint Base Lewis-McChord. HIGH OPSEC exposure identified across two vectors.\n\nHIGH \u2014 Aircraft. 25 military flights logged on public ADS-B trackers in the last 7 days. Callsigns RAGE80 and STING54 show a recurring pattern on Tuesday, Friday, and Sunday between 0600 and 1000. Predictable flight windows create targetable vulnerabilities.\n\nHIGH \u2014 Satellite imaging. Sentinel-2A pass in approximately 6 minutes at 10 degrees elevation. 19 passes within the next 24 hours. High frequency of imaging opportunities increases risk of outdoor activities being captured.\n\nMINIMAL \u2014 Fitness activity. No Strava heatmap data available. No predictable personnel movement patterns exposed.\n\nComposite exposure score: 42 out of 100. Risk level: MEDIUM.\n\nRecommended actions. One: file FAA LADD blocking for callsigns RAGE80 and STING54 immediately. Two: adjust flight schedules to reduce predictability, especially during 0600 to 1000 windows. Three: reschedule outdoor activities to avoid satellite pass times. Four: maintain current OPSEC protocols for fitness tracking to ensure continued minimal exposure.\n\n[Note: ADS-B traffic is synthetic for V1 \u2014 derived from the populated Units/Platforms ontology. To be replaced by Member A's real ADS-B Exchange capture when available.]",
+      "lat": 47.0308343,
+      "lon": -122.5074136,
+      "assessment_id": "99285f11-cd7d-55c2-aa82-1b5dd2aedae4",
+      "assessment_timestamp": "2026-05-03T07:45:50.915Z",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/OpsecAssessment/99285f11-cd7d-55c2-aa82-1b5dd2aedae4"
+    },
+    "cascade": {
+      "location": "Joint Base Lewis-McChord",
+      "lat": 47.0308343,
+      "lon": -122.5074136,
+      "chain_depth": 13,
+      "linked_units": [
+        {
+          "id": "unit_593rd_expeditionary_sustainment_command",
+          "name": "593rd Expeditionary Sustainment Command"
+        },
+        {
+          "id": "unit_17th_field_artillery_brigade_united_states",
+          "name": "17th Field Artillery Brigade (United States)"
+        },
+        {
+          "id": "unit_2nd_infantry_division_united_states",
+          "name": "2nd Infantry Division (United States)"
+        },
+        {
+          "id": "unit_25th_infantry_division_united_states",
+          "name": "25th Infantry Division (United States)"
+        },
+        {
+          "id": "unit_7th_infantry_division_united_states",
+          "name": "7th Infantry Division (United States)"
+        },
+        {
+          "id": "unit_555th_engineer_brigade_united_states",
+          "name": "555th Engineer Brigade (United States)"
+        },
+        {
+          "id": "unit_16th_combat_aviation_brigade_united_states",
+          "name": "16th Combat Aviation Brigade (United States)"
+        },
+        {
+          "id": "unit_i_corps_united_states",
+          "name": "I Corps (United States)"
+        },
+        {
+          "id": "unit_201st_expeditionary_military_intelligence_brigade",
+          "name": "201st Expeditionary Military Intelligence Brigade"
+        },
+        {
+          "id": "unit_australian_defence_force",
+          "name": "Australian Defence Force"
+        },
+        {
+          "id": "unit_stryker_brigade_combat_team",
+          "name": "Stryker Brigade Combat Team"
+        },
+        {
+          "id": "unit_marine_military",
+          "name": "Marine (military)"
+        }
+      ],
+      "linked_platforms": [
+        {
+          "id": "plat_stryker__unit_7th_infantry_division_unite",
+          "name": "Stryker"
+        }
+      ],
+      "linked_sensors": [],
+      "intelligence_compromised": "The surface exposure at Joint Base Lewis-McChord, with a composite base exposure score of 42, propagates through linked units such as the \"593rd Expeditionary Sustainment Command\" and the \"17th Field Artillery Brigade (United States)\". The \"Stryker Brigade Combat Team\" operates the \"Stryker\" platform, which is linked to the \"7th Infantry Division (United States)\". Although no sensors or comms assets are directly linked, the exposure of aircraft movements (63/100) and satellite imaging (93/100) could reveal operational patterns and readiness levels. This compromises specific operational intelligence, such as deployment schedules and logistical operations, which adversaries couldn't deduce from any single source alone.",
+      "adversary_action_likely": "An adversary could exploit the cascaded intelligence to time their actions against the \"Stryker Brigade Combat Team\" by predicting deployment schedules. They might also target logistical vulnerabilities of the \"593rd Expeditionary Sustainment Command\" to disrupt supply chains. Additionally, they could use the aircraft movement data to anticipate and counteract artillery operations by the \"17th Field Artillery Brigade (United States)\".",
+      "recommended_mitigation": "Implement stricter OPSEC measures for the \"Stryker\" platform, such as limiting public access to movement data, to reduce the exposure of linked units like the \"7th Infantry Division (United States)\".",
+      "cascade_score": 86,
+      "risk_level": "HIGH",
+      "confidence": "medium",
+      "cascade_id": "cascade_joint_base_lewis_mcchord_2026-05-03_v2",
+      "source_assessment_id": "99285f11-cd7d-55c2-aa82-1b5dd2aedae4",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/CascadeRisk/cascade_joint_base_lewis_mcchord_2026-05-03_v2"
+    },
+    "adversary_actions": [
+      {
+        "action_id": "action_cascade_joint_base_lewis_mcchord_2026-05-03_v2_0",
+        "action_type": "surveillance",
+        "target_entity_name": "Stryker Brigade Combat Team",
+        "target_entity_id": "unit_stryker_brigade_combat_team",
+        "capability_required": "satellite imaging and analysis tools to monitor and predict movement patterns",
+        "timeline": "immediate",
+        "rationale": "By using satellite imaging to monitor the Stryker Brigade Combat Team's movements, an adversary can predict deployment schedules and plan accordingly to exploit any operational weaknesses.",
+        "confidence": "medium",
+        "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_joint_base_lewis_mcchord_2026-05-03_v2_0"
+      },
+      {
+        "action_id": "action_cascade_joint_base_lewis_mcchord_2026-05-03_v2_1",
+        "action_type": "interdiction",
+        "target_entity_name": "593rd Expeditionary Sustainment Command",
+        "target_entity_id": "unit_593rd_expeditionary_sustainment_command",
+        "capability_required": "cyber capabilities to disrupt logistical software systems",
+        "timeline": "weeks",
+        "rationale": "Targeting the logistical operations of the 593rd Expeditionary Sustainment Command can disrupt supply chains, which are critical for sustaining military operations, thereby exploiting the cascade exposure.",
+        "confidence": "medium",
+        "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_joint_base_lewis_mcchord_2026-05-03_v2_1"
+      },
+      {
+        "action_id": "action_cascade_joint_base_lewis_mcchord_2026-05-03_v2_2",
+        "action_type": "disruption",
+        "target_entity_name": "17th Field Artillery Brigade (United States)",
+        "target_entity_id": "unit_17th_field_artillery_brigade_united_states",
+        "capability_required": "jamming equipment to interfere with communication and coordination during artillery operations",
+        "timeline": "days",
+        "rationale": "By disrupting communications of the 17th Field Artillery Brigade, an adversary can hinder artillery operations, exploiting the compromised aircraft movement data to anticipate and counteract their actions.",
+        "confidence": "medium",
+        "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_joint_base_lewis_mcchord_2026-05-03_v2_2"
+      }
+    ],
+    "current_state": {
+      "center": {
+        "lat": 47.0308343,
+        "lon": -122.5074136
+      },
+      "location_name": "Joint Base Lewis-McChord",
+      "aircraft": {
+        "center": {
+          "lat": 47.0308343,
+          "lon": -122.5074136
+        },
+        "radius_nm": 25,
+        "aircraft_count": 39,
+        "military_count": 0,
+        "aircraft": [
+          {
+            "hex": "A32C1E",
+            "fr24_id": "3f84f8af",
+            "callsign": "SKW4075",
+            "registration": "N303SY",
+            "lat": 46.6734,
+            "lon": -122.7348,
+            "altitude": 14600,
+            "speed": 349,
+            "heading": 358,
+            "aircraft_type": "E75L",
+            "airline_icao": "DAL",
+            "is_military": false
+          },
+          {
+            "hex": "ACC1EB",
+            "fr24_id": "3f84d2c1",
+            "callsign": "ASA1413",
+            "registration": "N921AK",
+            "lat": 46.809,
+            "lon": -122.7098,
+            "altitude": 12625,
+            "speed": 332,
+            "heading": 39,
+            "aircraft_type": "B39M",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "ABC9A1",
+            "fr24_id": "3f853430",
+            "callsign": "RFS730",
+            "registration": "N859JT",
+            "lat": 47.3681,
+            "lon": -122.6673,
+            "altitude": 2175,
+            "speed": 96,
+            "heading": 315,
+            "aircraft_type": "C172",
+            "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "A9918B",
+            "fr24_id": "3f854110",
+            "callsign": "N7154G",
+            "registration": "N7154G",
+            "lat": 47.2768,
+            "lon": -122.3409,
+            "altitude": 1575,
+            "speed": 99,
+            "heading": 99,
+            "aircraft_type": "C172",
+            "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "A28AB5",
+            "fr24_id": "3f854320",
+            "callsign": "LXJ263",
+            "registration": "N263FX",
+            "lat": 47.2547,
+            "lon": -122.3344,
+            "altitude": 22325,
+            "speed": 318,
+            "heading": 156,
+            "aircraft_type": "E545",
+            "airline_icao": "LXJ",
+            "is_military": false
+          },
+          {
+            "hex": "76CDBA",
+            "fr24_id": "3f833d90",
+            "callsign": "SIA28",
+            "registration": "9V-SMZ",
+            "lat": 47.0696,
+            "lon": -122.3214,
+            "altitude": 5950,
+            "speed": 206,
+            "heading": 359,
+            "aircraft_type": "A359",
+            "airline_icao": "SIA",
+            "is_military": false
+          },
+          {
+            "hex": "A2CE05",
+            "fr24_id": "3f84bc34",
+            "callsign": "ASA605",
+            "registration": "N280AK",
+            "lat": 47.2504,
+            "lon": -122.3196,
+            "altitude": 3975,
+            "speed": 215,
+            "heading": 1,
+            "aircraft_type": "B739",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "A9873D",
+            "fr24_id": "3f846d7d",
+            "callsign": "ASA625",
+            "registration": "N713AL",
+            "lat": 47.3144,
+            "lon": -122.319,
+            "altitude": 3000,
+            "speed": 180,
+            "heading": 1,
+            "aircraft_type": "B39M",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "A4A484",
+            "fr24_id": "3f843fc0",
+            "callsign": "DAL354",
+            "registration": "N399DA",
+            "lat": 47.3684,
+            "lon": -122.3187,
+            "altitude": 1750,
+            "speed": 147,
+            "heading": 356,
+            "aircraft_type": "B738",
+            "airline_icao": "DAL",
+            "is_military": false
+          },
+          {
+            "hex": "A05B7E",
+            "fr24_id": "3f846dd2",
+            "callsign": "DAL804",
+            "registration": "N122DU",
+            "lat": 47.426,
+            "lon": -122.3183,
+            "altitude": 650,
+            "speed": 122,
+            "heading": 359,
+            "aircraft_type": "BCS1",
+            "airline_icao": "DAL",
+            "is_military": false
+          },
+          {
+            "hex": "A44357",
+            "fr24_id": "3f843b2e",
+            "callsign": "ASA900",
+            "registration": "N374HA",
+            "lat": 47.4445,
+            "lon": -122.3094,
+            "altitude": 0,
+            "speed": 9,
+            "heading": 149,
+            "aircraft_type": "A332",
+            "airline_icao": "HAL",
+            "is_military": false
+          },
+          {
+            "hex": "A2E9A3",
+            "fr24_id": "3f853ad3",
+            "callsign": "SKW4070",
+            "registration": "N287SY",
+            "lat": 47.4321,
+            "lon": -122.3081,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 351,
+            "aircraft_type": "E75L",
+            "airline_icao": "DAL",
+            "is_military": false
+          },
+          {
+            "hex": "A61B4E",
+            "fr24_id": "3f853bcc",
+            "callsign": "ASA312",
+            "registration": "N493AS",
+            "lat": 47.4318,
+            "lon": -122.3066,
+            "altitude": 0,
+            "speed": 1,
+            "heading": 250,
+            "aircraft_type": "B739",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "ACB824",
+            "fr24_id": "3f853825",
+            "callsign": "ASA1529",
+            "registration": "N919AK",
+            "lat": 47.4439,
+            "lon": -122.3063,
+            "altitude": 0,
+            "speed": 11,
+            "heading": 180,
+            "aircraft_type": "B39M",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "A6F96C",
+            "fr24_id": "3f84b9e7",
+            "callsign": "ASA774",
+            "registration": "N549AS",
+            "lat": 47.1687,
+            "lon": -122.3059,
+            "altitude": 5400,
+            "speed": 215,
+            "heading": 340,
+            "aircraft_type": "B738",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "A3A152",
+            "fr24_id": "3f8502b7",
+            "callsign": "DAL1358",
+            "registration": "N333DU",
+            "lat": 47.4331,
+            "lon": -122.3056,
+            "altitude": 0,
+            "speed": 9,
+            "heading": 180,
+            "aircraft_type": "BCS3",
+            "airline_icao": "DAL",
+            "is_military": false
+          },
+          {
+            "hex": "A62825",
+            "fr24_id": "3f8543db",
+            "callsign": "UAL2121",
+            "registration": "N496UA",
+            "lat": 47.4404,
+            "lon": -122.3054,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 180,
+            "aircraft_type": "A320",
+            "airline_icao": "UAL",
+            "is_military": false
+          },
+          {
+            "hex": "A15C54",
+            "fr24_id": "3f8539d9",
+            "callsign": "SKW3063",
+            "registration": "N187SY",
+            "lat": 47.444,
+            "lon": -122.3054,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 182,
+            "aircraft_type": "E75L",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "A19526",
+            "fr24_id": "3f8542fa",
+            "callsign": "N20053",
+            "registration": "N20053",
+            "lat": 47.1025,
+            "lon": -122.3054,
+            "altitude": 1475,
+            "speed": 102,
+            "heading": 180,
+            "aircraft_type": "C172",
+            "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "A44570",
+            "fr24_id": "3f8453d6",
+            "callsign": "DAL966",
+            "registration": "N3743H",
+            "lat": 47.4431,
+            "lon": -122.3052,
+            "altitude": 0,
+            "speed": 6,
+            "heading": 120,
+            "aircraft_type": "B738",
+            "airline_icao": "DAL",
+            "is_military": false
+          },
+          {
+            "hex": "A6657E",
+            "fr24_id": "3f84ebe7",
+            "callsign": "N511DN",
+            "registration": "N511DN",
+            "lat": 47.4386,
+            "lon": -122.3039,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 81,
+            "aircraft_type": "A359",
+            "airline_icao": "DAL",
+            "is_military": false
+          },
+          {
+            "hex": "A2DAC7",
+            "fr24_id": "3f853b04",
+            "callsign": "SKW3736",
+            "registration": "N283SY",
+            "lat": 47.4375,
+            "lon": -122.3013,
+            "altitude": 0,
+            "speed": 12,
+            "heading": 258,
+            "aircraft_type": "E75L",
+            "airline_icao": "DAL",
+            "is_military": false
+          },
+          {
+            "hex": "AB5DB8",
+            "fr24_id": "3f85053e",
+            "callsign": "SCX8772",
+            "registration": "N831SY",
+            "lat": 47.4378,
+            "lon": -122.3,
+            "altitude": 0,
+            "speed": 11,
+            "heading": 216,
+            "aircraft_type": "B738",
+            "airline_icao": "SCX",
+            "is_military": false
+          },
+          {
+            "hex": "A4960C",
+            "fr24_id": "3f852a58",
+            "callsign": "ASA901",
+            "registration": "N395HA",
+            "lat": 47.4402,
+            "lon": -122.2989,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 45,
+            "aircraft_type": "A332",
+            "airline_icao": "HAL",
+            "is_military": false
+          },
+          {
+            "hex": "A04E00",
+            "fr24_id": "3f853aba",
+            "callsign": "DAL326",
+            "registration": "N119DU",
+            "lat": 47.4383,
+            "lon": -122.2984,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 64,
+            "aircraft_type": "BCS1",
+            "airline_icao": "DAL",
+            "is_military": false
+          },
+          {
+            "hex": "A0757F",
+            "fr24_id": "3f8452e7",
+            "callsign": "DAL780",
+            "registration": "N129DU",
+            "lat": 47.4381,
+            "lon": -122.298,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 42,
+            "aircraft_type": "BCS1",
+            "airline_icao": "DAL",
+            "is_military": false
+          },
+          {
+            "hex": "A059FD",
+            "fr24_id": "3f854838",
+            "callsign": "N12110",
+            "registration": "N12110",
+            "lat": 47.1249,
+            "lon": -122.2862,
+            "altitude": 1200,
+            "speed": 79,
+            "heading": 1,
+            "aircraft_type": "C172",
+            "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "A32A59",
+            "fr24_id": "3f854799",
+            "callsign": "RFS605",
+            "registration": "N3029F",
+            "lat": 47.3298,
+            "lon": -122.2451,
+            "altitude": 1000,
+            "speed": 96,
+            "heading": 177,
+            "aircraft_type": "C162",
+            "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "A36B6D",
+            "fr24_id": "3f8546d2",
+            "callsign": "N3196C",
+            "registration": "N3196C",
+            "lat": 47.1603,
+            "lon": -122.2173,
+            "altitude": 2500,
+            "speed": 139,
+            "heading": 270,
+            "aircraft_type": "C180",
+            "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "A30F85",
+            "fr24_id": "3f85331e",
+            "callsign": "ASA777",
+            "registration": "N297AK",
+            "lat": 46.9855,
+            "lon": -122.1902,
+            "altitude": 28000,
+            "speed": 456,
+            "heading": 183,
+            "aircraft_type": "B739",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "A9E935",
+            "fr24_id": "3f854526",
+            "callsign": "N738EP",
+            "registration": "N738EP",
+            "lat": 47.3534,
+            "lon": -122.1761,
+            "altitude": 1500,
+            "speed": 105,
+            "heading": 178,
+            "aircraft_type": "C172",
+            "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "A4A95B",
+            "fr24_id": "3f854679",
+            "callsign": "RFS718",
+            "registration": "N4QP",
+            "lat": 47.3558,
+            "lon": -122.1528,
+            "altitude": 1975,
+            "speed": 95,
+            "heading": 59,
+            "aircraft_type": "C172",
+            "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "A9A419",
+            "fr24_id": "3f84b977",
+            "callsign": "FFT4545",
+            "registration": "N720FR",
+            "lat": 47.2673,
+            "lon": -122.1147,
+            "altitude": 6950,
+            "speed": 241,
+            "heading": 234,
+            "aircraft_type": "A321",
+            "airline_icao": "FFT",
+            "is_military": false
+          },
+          {
+            "hex": "AB3C0A",
+            "fr24_id": "3f85321e",
+            "callsign": "ASA352",
+            "registration": "N823AK",
+            "lat": 47.1615,
+            "lon": -122.1121,
+            "altitude": 16825,
+            "speed": 371,
+            "heading": 171,
+            "aircraft_type": "B38M",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "AA8A55",
+            "fr24_id": "3f854854",
+            "callsign": "N7789C",
+            "registration": "N7789C",
+            "lat": 47.1445,
+            "lon": -122.0941,
+            "altitude": 1125,
+            "speed": 62,
+            "heading": 197,
+            "aircraft_type": "PA18",
+            "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "A822D6",
+            "fr24_id": "3f853583",
+            "callsign": "QXE2122",
+            "registration": "N623QX",
+            "lat": 47.3304,
+            "lon": -122.0447,
+            "altitude": 14625,
+            "speed": 345,
+            "heading": 176,
+            "aircraft_type": "E75L",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "AB1BF9",
+            "fr24_id": "3f853209",
+            "callsign": "ASA1481",
+            "registration": "N815AK",
+            "lat": 46.9068,
+            "lon": -121.9977,
+            "altitude": 22975,
+            "speed": 402,
+            "heading": 165,
+            "aircraft_type": "B38M",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "C02059",
+            "fr24_id": "3f84d53e",
+            "callsign": "CFMGM",
+            "registration": "C-FMGM",
+            "lat": 46.8382,
+            "lon": -121.9633,
+            "altitude": 3200,
+            "speed": 7,
+            "heading": 351,
+            "aircraft_type": "KMAX",
+            "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "A54AAE",
+            "fr24_id": "3f849395",
+            "callsign": "ASA563",
+            "registration": "N440AS",
+            "lat": 47.2485,
+            "lon": -121.9479,
+            "altitude": 8825,
+            "speed": 242,
+            "heading": 284,
+            "aircraft_type": "B739",
+            "airline_icao": "ASA",
+            "is_military": false
+          }
+        ],
+        "queried_at": "2026-05-03T15:38:17.835683+00:00",
+        "source": "flightradar24",
+        "data_available": true
+      },
+      "satellite": {
+        "next_pass": {
+          "satellite": "Sentinel-1A",
+          "rise_utc": "2026-05-03T16:21:03.449474+00:00",
+          "set_utc": "2026-05-03T16:25:36.494463+00:00",
+          "max_elevation_deg": 13.51147821400865,
+          "duration_seconds": 273.044989,
+          "ground_track": [
+            {
+              "lat": 61.54983914684227,
+              "lon": -139.68679095450332,
+              "time_offset_sec": 0
+            },
+            {
+              "lat": 59.80706192129628,
+              "lon": -140.8870147528724,
+              "time_offset_sec": 30
+            },
+            {
+              "lat": 58.055869542965674,
+              "lon": -141.98041999604456,
+              "time_offset_sec": 60
+            },
+            {
+              "lat": 56.29747907788474,
+              "lon": -142.98338904212744,
+              "time_offset_sec": 90
+            },
+            {
+              "lat": 54.53287037495017,
+              "lon": -143.9092172972529,
+              "time_offset_sec": 120
+            },
+            {
+              "lat": 52.762840983607184,
+              "lon": -144.7687959304617,
+              "time_offset_sec": 150
+            },
+            {
+              "lat": 50.98804686527902,
+              "lon": -145.57112488109453,
+              "time_offset_sec": 180
+            },
+            {
+              "lat": 49.20903295605244,
+              "lon": -146.32370236483393,
+              "time_offset_sec": 210
+            },
+            {
+              "lat": 47.42625638135309,
+              "lon": -147.03282359052346,
+              "time_offset_sec": 240
+            },
+            {
+              "lat": 45.64010428260663,
+              "lon": -147.70381206105387,
+              "time_offset_sec": 270
+            }
+          ]
+        },
+        "passes_in_window": 18,
+        "all_passes": [
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-03T16:21:03.449474+00:00",
+            "set_utc": "2026-05-03T16:25:36.494463+00:00",
+            "max_elevation_deg": 13.51147821400865,
+            "duration_seconds": 273.044989
+          },
+          {
+            "satellite": "Sentinel-1B",
+            "rise_utc": "2026-05-03T16:42:39.305693+00:00",
+            "set_utc": "2026-05-03T16:45:45.944994+00:00",
+            "max_elevation_deg": 11.812080871552746,
+            "duration_seconds": 186.639301
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-03T18:07:11.862890+00:00",
+            "set_utc": "2026-05-03T18:15:46.690434+00:00",
+            "max_elevation_deg": 25.57217740770954,
+            "duration_seconds": 514.827544
+          },
+          {
+            "satellite": "Sentinel-1B",
+            "rise_utc": "2026-05-03T18:15:38.811780+00:00",
+            "set_utc": "2026-05-03T18:23:51.011926+00:00",
+            "max_elevation_deg": 70.53004231438636,
+            "duration_seconds": 492.200146
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-03T18:17:13.027161+00:00",
+            "set_utc": "2026-05-03T18:26:23.325484+00:00",
+            "max_elevation_deg": 30.83744944659794,
+            "duration_seconds": 550.298323
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-03T19:46:11.940548+00:00",
+            "set_utc": "2026-05-03T19:56:08.494222+00:00",
+            "max_elevation_deg": 47.36490751781761,
+            "duration_seconds": 596.553674
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-03T19:56:31.870961+00:00",
+            "set_utc": "2026-05-03T20:06:09.397340+00:00",
+            "max_elevation_deg": 39.46662287318922,
+            "duration_seconds": 577.526379
+          },
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-04T00:13:44.223707+00:00",
+            "set_utc": "2026-05-04T00:20:16.075333+00:00",
+            "max_elevation_deg": 18.879584097223933,
+            "duration_seconds": 391.851626
+          },
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-04T01:49:29.846093+00:00",
+            "set_utc": "2026-05-04T01:58:51.947932+00:00",
+            "max_elevation_deg": 61.19877942442054,
+            "duration_seconds": 562.101839
+          },
+          {
+            "satellite": "Sentinel-1B",
+            "rise_utc": "2026-05-04T03:33:20.531790+00:00",
+            "set_utc": "2026-05-04T03:37:25.235512+00:00",
+            "max_elevation_deg": 13.54741937221784,
+            "duration_seconds": 244.703722
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-04T04:03:14.278368+00:00",
+            "set_utc": "2026-05-04T04:05:33.477009+00:00",
+            "max_elevation_deg": 10.703721509581396,
+            "duration_seconds": 139.198641
+          },
+          {
+            "satellite": "Sentinel-1B",
+            "rise_utc": "2026-05-04T05:05:50.778290+00:00",
+            "set_utc": "2026-05-04T05:14:01.862852+00:00",
+            "max_elevation_deg": 70.43370393879046,
+            "duration_seconds": 491.084562
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-04T05:27:38.490127+00:00",
+            "set_utc": "2026-05-04T05:37:40.857409+00:00",
+            "max_elevation_deg": 50.868899738662826,
+            "duration_seconds": 602.367282
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-04T05:37:43.466286+00:00",
+            "set_utc": "2026-05-04T05:47:58.440178+00:00",
+            "max_elevation_deg": 61.53212641277086,
+            "duration_seconds": 614.973892
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-04T07:08:14.388025+00:00",
+            "set_utc": "2026-05-04T07:16:33.162387+00:00",
+            "max_elevation_deg": 23.808987789208295,
+            "duration_seconds": 498.774362
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-04T07:18:59.360266+00:00",
+            "set_utc": "2026-05-04T07:26:28.002693+00:00",
+            "max_elevation_deg": 19.705130838805427,
+            "duration_seconds": 448.642427
+          },
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-04T13:45:14.988533+00:00",
+            "set_utc": "2026-05-04T13:53:14.946904+00:00",
+            "max_elevation_deg": 26.775366559379737,
+            "duration_seconds": 479.958371
+          },
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-04T15:22:35.030041+00:00",
+            "set_utc": "2026-05-04T15:31:19.952642+00:00",
+            "max_elevation_deg": 38.599823328489265,
+            "duration_seconds": 524.922601
+          }
+        ],
+        "queried_at": "2026-05-03T15:38:17.540727+00:00",
+        "data_available": true
+      },
+      "news": {
+        "article_count": 4,
+        "articles": [
+          {
+            "title": "Multi-car crash kills 3 people at Lake Chelan, WA | FOX 13 Seattle",
+            "url": "https://www.fox13seattle.com/news/crash-kills-3-lake-chelan-wa",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "Multi-car crash kills 3 people at Lake Chelan, WA | FOX 13 Seattle\n\nRiver Flood Warning is in effect, Chelan County\n\nCHELAN COUNTY, Wash. - Several people have been killed at a crash involving three vehicles at Lake Chelan heading into the weekend. All the victims were from Washington.\n\nWhat we know...",
+            "score": 1
+          },
+          {
+            "title": "SRTC Transportation Blog: I-5 to be Widened Near JBLM",
+            "url": "http://srtctransportation.blogspot.com/2015/08/i-5-to-be-widened-near-jblm.html",
+            "published_at": "2026-05-03T00:00:00.000Z",
+            "snippet": "SRTC Transportation Blog: I-5 to be Widened Near JBLM\n\nIf you drive to Olympia more than about once a year, you know what a cluster I-5 can turn into near Joint Base Lewis McChord. I make the drive about every six weeks, year round, always on Friday, and unless you hit I-5 before 1 p.m., it's bumper...",
+            "score": 0.6666666666666667
+          },
+          {
+            "title": "U.S. warns European allies of weapons delivery delays - UPI.com",
+            "url": "https://www.upi.com/Top_News/US/2026/05/02/pentagon-warns-allies-weapons-delivery-delays/3481777751004/",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "U.S. warns European allies of weapons delivery delays - UPI.com\n\nMay 2, 2026 / 3:50 PM\n\nWith U.S. munitions stockpiles reportedly lower than military leaders would like, the Pentagon has started warning allies that increased delays in weapons system deliveries -- ammunition for the High Mobility Art...",
+            "score": 0.33333333333333337
+          },
+          {
+            "title": "Toxic Cloud Chaos On Padden Parkway After Acid Rollover",
+            "url": "https://hoodline.com/2026/05/toxic-cloud-chaos-on-padden-parkway-after-acid-rollover/",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "Toxic Cloud Chaos On Padden Parkway After Acid Rollover\n\nReal Estate & Development\n\nScience, Tech & Medicine\n\nMore forecasts: Atlanta 30 day forecast\n\n# Toxic Cloud Chaos On Padden Parkway After Acid Rollover\n\nPublished on May 02, 2026\n\nA rolling cloud of visible fumes shut down NE Padden Parkway in...",
+            "score": 0
+          }
+        ],
+        "queried_at": "2026-05-03T15:38:17.878383+00:00",
+        "data_available": true
+      },
+      "sources_succeeded": [
+        "aircraft",
+        "satellite",
+        "news"
+      ],
+      "queried_at": "2026-05-03T15:38:17.879471+00:00"
+    },
+    "provenance_summary": {
+      "total_entities": 13,
+      "high_confidence_count": 12,
+      "sources": [
+        "wikipedia"
+      ]
+    }
+  }
+}

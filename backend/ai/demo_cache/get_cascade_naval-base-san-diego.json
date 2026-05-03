@@ -1,8 +1,8 @@
 {
-  "_cached_at": "2026-05-03T09:29:01.423363+00:00",
+  "_cached_at": "2026-05-03T15:38:19.689468+00:00",
   "_function": "get_cascade",
   "_args": [
-    "naval base san diego"
+    "naval-base-san-diego"
   ],
   "value": {
     "location": "Naval Base San Diego",

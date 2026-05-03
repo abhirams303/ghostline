@@ -1,5 +1,5 @@
 {
-  "_cached_at": "2026-05-03T09:29:01.213172+00:00",
+  "_cached_at": "2026-05-03T15:07:09.705940+00:00",
   "_function": "get_full_picture",
   "_args": [
     "jblm"
@@ -138,15 +138,267 @@
           "lon": -122.5074136
         },
         "radius_nm": 25,
-        "aircraft_count": 7,
-        "military_count": 0,
+        "aircraft_count": 30,
+        "military_count": 1,
         "aircraft": [
           {
-            "hex": "A38C66",
-            "fr24_id": "3f831b43",
-            "callsign": "DAL2442",
-            "registration": "N328DU",
-            "lat": 47.4426,
+            "hex": "AB63D7",
+            "fr24_id": "3f84bfc1",
+            "callsign": "DAL2844",
+            "registration": "N833DN",
+            "lat": 46.7861,
+            "lon": -122.7312,
+            "altitude": 12750,
+            "speed": 335,
+            "heading": 20,
+            "aircraft_type": "B739",
+            "airline_icao": "DAL",
+            "is_military": false
+          },
+          {
+            "hex": "AE04F3",
+            "fr24_id": "3f8528b2",
+            "callsign": "PAT992",
+            "registration": "84-00164",
+            "lat": 47.2637,
+            "lon": -122.6108,
+            "altitude": 10275,
+            "speed": 175,
+            "heading": 51,
+            "aircraft_type": "BE20",
+            "airline_icao": "PAT",
+            "is_military": true
+          },
+          {
+            "hex": "A89D0A",
+            "fr24_id": "3f85160e",
+            "callsign": "QXE2081",
+            "registration": "N654QX",
+            "lat": 46.8917,
+            "lon": -122.6031,
+            "altitude": 10975,
+            "speed": 302,
+            "heading": 43,
+            "aircraft_type": "E75L",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "A2228B",
+            "fr24_id": "3f84c1b9",
+            "callsign": "ASA701",
+            "registration": "N237AK",
+            "lat": 46.9989,
+            "lon": -122.4561,
+            "altitude": 8700,
+            "speed": 270,
+            "heading": 25,
+            "aircraft_type": "B739",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "A8103E",
+            "fr24_id": "3f84b84d",
+            "callsign": "ASA607",
+            "registration": "N619AS",
+            "lat": 47.1397,
+            "lon": -122.3947,
+            "altitude": 5475,
+            "speed": 249,
+            "heading": 24,
+            "aircraft_type": "B737",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "",
+            "fr24_id": "3f85258c",
+            "callsign": "C340",
+            "registration": "",
+            "lat": 47.1743,
+            "lon": -122.3435,
+            "altitude": 1800,
+            "speed": 181,
+            "heading": 271,
+            "aircraft_type": "C340",
+            "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "A5D007",
+            "fr24_id": "3f84cab6",
+            "callsign": "ASA754",
+            "registration": "N474AS",
+            "lat": 47.2236,
+            "lon": -122.3404,
+            "altitude": 4600,
+            "speed": 225,
+            "heading": 25,
+            "aircraft_type": "B739",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "A6705C",
+            "fr24_id": "3f84935c",
+            "callsign": "ASA1306",
+            "registration": "N514AS",
+            "lat": 46.9401,
+            "lon": -122.3192,
+            "altitude": 24875,
+            "speed": 425,
+            "heading": 166,
+            "aircraft_type": "B738",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "A2ED5A",
+            "fr24_id": "3f8506be",
+            "callsign": "SKW3968",
+            "registration": "N288SY",
+            "lat": 47.3785,
+            "lon": -122.3186,
+            "altitude": 1525,
+            "speed": 126,
+            "heading": 355,
+            "aircraft_type": "E75L",
+            "airline_icao": "DAL",
+            "is_military": false
+          },
+          {
+            "hex": "A9672C",
+            "fr24_id": "3f851c17",
+            "callsign": "ASA26",
+            "registration": "N705AL",
+            "lat": 47.4361,
+            "lon": -122.308,
+            "altitude": 0,
+            "speed": 86,
+            "heading": 2,
+            "aircraft_type": "B39M",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "A880B0",
+            "fr24_id": "3f8522af",
+            "callsign": "QXE2183",
+            "registration": "N647QX",
+            "lat": 47.4317,
+            "lon": -122.3068,
+            "altitude": 0,
+            "speed": 6,
+            "heading": 264,
+            "aircraft_type": "E75L",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "AAF831",
+            "fr24_id": "3f851f61",
+            "callsign": "ASA1475",
+            "registration": "N806AK",
+            "lat": 47.431,
+            "lon": -122.3064,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 89,
+            "aircraft_type": "B38M",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "A5C899",
+            "fr24_id": "3f84c70a",
+            "callsign": "ASA305",
+            "registration": "N472AS",
+            "lat": 47.4435,
+            "lon": -122.3063,
+            "altitude": 0,
+            "speed": 14,
+            "heading": 180,
+            "aircraft_type": "B739",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "A8C840",
+            "fr24_id": "3f8527cc",
+            "callsign": "QXE2365",
+            "registration": "N665QX",
+            "lat": 47.4455,
+            "lon": -122.3061,
+            "altitude": 0,
+            "speed": 13,
+            "heading": 208,
+            "aircraft_type": "E75L",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "AD928B",
+            "fr24_id": "3f85250d",
+            "callsign": "ASA606",
+            "registration": "N974AK",
+            "lat": 47.432,
+            "lon": -122.3061,
+            "altitude": 0,
+            "speed": 3,
+            "heading": 216,
+            "aircraft_type": "B39M",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "A871D4",
+            "fr24_id": "3f85252b",
+            "callsign": "QXE2202",
+            "registration": "N643QX",
+            "lat": 47.433,
+            "lon": -122.3056,
+            "altitude": 0,
+            "speed": 5,
+            "heading": 180,
+            "aircraft_type": "E75L",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "ACFBFD",
+            "fr24_id": "3f85272a",
+            "callsign": "ASA507",
+            "registration": "N936AK",
+            "lat": 47.4349,
+            "lon": -122.3056,
+            "altitude": 0,
+            "speed": 13,
+            "heading": 180,
+            "aircraft_type": "B39M",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "A46D4E",
+            "fr24_id": "3f852af5",
+            "callsign": "UAL2851",
+            "registration": "N38458",
+            "lat": 47.4413,
+            "lon": -122.3054,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 177,
+            "aircraft_type": "B739",
+            "airline_icao": "UAL",
+            "is_military": false
+          },
+          {
+            "hex": "A3A152",
+            "fr24_id": "3f8502b7",
+            "callsign": "DAL1358",
+            "registration": "N333DU",
+            "lat": 47.4425,
             "lon": -122.3046,
             "altitude": 0,
             "speed": 1,
@@ -156,288 +408,371 @@
             "is_military": false
           },
           {
-            "hex": "A339B1",
-            "fr24_id": "3f840243",
-            "callsign": "DAL1015",
-            "registration": "N307DU",
-            "lat": 47.4351,
-            "lon": -122.3045,
+            "hex": "AA9C5B",
+            "fr24_id": "3f852aca",
+            "callsign": "ASA121",
+            "registration": "N783HA",
+            "lat": 47.4398,
+            "lon": -122.304,
             "altitude": 0,
             "speed": 0,
-            "heading": 132,
+            "heading": 208,
+            "aircraft_type": "B789",
+            "airline_icao": "ASA",
+            "is_military": false
+          },
+          {
+            "hex": "A6657E",
+            "fr24_id": "3f84ebe7",
+            "callsign": "N511DN",
+            "registration": "N511DN",
+            "lat": 47.4386,
+            "lon": -122.3039,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 81,
+            "aircraft_type": "A359",
+            "airline_icao": "DAL",
+            "is_military": false
+          },
+          {
+            "hex": "AC6445",
+            "fr24_id": "3f84da1e",
+            "callsign": "AAL885",
+            "registration": "N898NN",
+            "lat": 47.4382,
+            "lon": -122.3015,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 11,
+            "aircraft_type": "B738",
+            "airline_icao": "AAL",
+            "is_military": false
+          },
+          {
+            "hex": "A4960C",
+            "fr24_id": "3f852a58",
+            "callsign": null,
+            "registration": "N395HA",
+            "lat": 47.4403,
+            "lon": -122.299,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 180,
+            "aircraft_type": "A332",
+            "airline_icao": "HAL",
+            "is_military": false
+          },
+          {
+            "hex": "A3411F",
+            "fr24_id": "3f84f25c",
+            "callsign": "DAL2408",
+            "registration": "N309DU",
+            "lat": 47.4389,
+            "lon": -122.2985,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 109,
             "aircraft_type": "BCS3",
             "airline_icao": "DAL",
             "is_military": false
           },
           {
-            "hex": "A54C60",
-            "fr24_id": "3f8415f6",
-            "callsign": "N440UA",
-            "registration": "N440UA",
-            "lat": 47.4416,
-            "lon": -122.3044,
+            "hex": "A04E00",
+            "fr24_id": "3f84c5c2",
+            "callsign": "DAL2360",
+            "registration": "N119DU",
+            "lat": 47.4383,
+            "lon": -122.2985,
             "altitude": 0,
             "speed": 0,
-            "heading": 272,
-            "aircraft_type": "A320",
-            "airline_icao": "UAL",
-            "is_military": false
-          },
-          {
-            "hex": "A037B2",
-            "fr24_id": "3f840d4b",
-            "callsign": "DAL2105",
-            "registration": "N113DQ",
-            "lat": 47.4352,
-            "lon": -122.3039,
-            "altitude": 0,
-            "speed": 1,
-            "heading": 90,
+            "heading": 64,
             "aircraft_type": "BCS1",
             "airline_icao": "DAL",
             "is_military": false
           },
           {
-            "hex": "A06A5A",
-            "fr24_id": "3f83fac8",
-            "callsign": "DAL1412",
-            "registration": "N126DU",
-            "lat": 47.4417,
-            "lon": -122.3032,
-            "altitude": 0,
-            "speed": 1,
-            "heading": 300,
-            "aircraft_type": "BCS1",
+            "hex": "AC0CF8",
+            "fr24_id": "3f850a96",
+            "callsign": "DAL1628",
+            "registration": "N876DN",
+            "lat": 46.6886,
+            "lon": -122.2859,
+            "altitude": 27925,
+            "speed": 466,
+            "heading": 160,
+            "aircraft_type": "B739",
             "airline_icao": "DAL",
             "is_military": false
           },
           {
-            "hex": "A04B24",
-            "fr24_id": "3f83735a",
-            "callsign": "AAL1774",
-            "registration": "N118NN",
-            "lat": 47.4463,
-            "lon": -122.2988,
-            "altitude": 0,
-            "speed": 0,
-            "heading": 222,
-            "aircraft_type": "A321",
-            "airline_icao": "AAL",
+            "hex": "C05F09",
+            "fr24_id": "3f84d98b",
+            "callsign": "JZA841",
+            "registration": "C-GJZS",
+            "lat": 47.2495,
+            "lon": -122.2752,
+            "altitude": 30000,
+            "speed": 439,
+            "heading": 359,
+            "aircraft_type": "CRJ9",
+            "airline_icao": "ACA",
             "is_military": false
           },
           {
-            "hex": "A96481",
-            "fr24_id": "3f83e4d1",
-            "callsign": "N704MD",
-            "registration": "N704MD",
-            "lat": 47.3973,
-            "lon": -122.2327,
-            "altitude": 1525,
-            "speed": 141,
-            "heading": 189,
-            "aircraft_type": "C208",
+            "hex": "ACDEA4",
+            "fr24_id": "3f852afe",
+            "callsign": "RFS733",
+            "registration": "N9283A",
+            "lat": 47.413,
+            "lon": -122.2037,
+            "altitude": 1400,
+            "speed": 82,
+            "heading": 11,
+            "aircraft_type": "C172",
             "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "A2E5EC",
+            "fr24_id": "3f84feed",
+            "callsign": "SKW3790",
+            "registration": "N286SY",
+            "lat": 47.4217,
+            "lon": -122.1757,
+            "altitude": 7925,
+            "speed": 286,
+            "heading": 180,
+            "aircraft_type": "E75L",
+            "airline_icao": "DAL",
+            "is_military": false
+          },
+          {
+            "hex": "A28A2C",
+            "fr24_id": "3f851cb7",
+            "callsign": "ASA405",
+            "registration": "N263AK",
+            "lat": 47.4089,
+            "lon": -121.9602,
+            "altitude": 11075,
+            "speed": 343,
+            "heading": 181,
+            "aircraft_type": "B739",
+            "airline_icao": "ASA",
             "is_military": false
           }
         ],
-        "queried_at": "2026-05-03T09:28:59.830532+00:00",
+        "queried_at": "2026-05-03T15:07:08.367555+00:00",
         "source": "flightradar24",
         "data_available": true
       },
       "satellite": {
         "next_pass": {
           "satellite": "Sentinel-1A",
-          "rise_utc": "2026-05-03T13:06:40.993481+00:00",
-          "set_utc": "2026-05-03T13:09:34.478679+00:00",
-          "max_elevation_deg": 11.218473272818727,
-          "duration_seconds": 173.485198,
+          "rise_utc": "2026-05-03T16:21:03.457923+00:00",
+          "set_utc": "2026-05-03T16:25:36.518442+00:00",
+          "max_elevation_deg": 13.511476123499477,
+          "duration_seconds": 273.060519,
           "ground_track": [
             {
-              "lat": 50.59179735012028,
-              "lon": -96.37145597032377,
+              "lat": 61.549349642227114,
+              "lon": -139.68714581856577,
               "time_offset_sec": 0
             },
             {
-              "lat": 48.81190493627593,
-              "lon": -97.11383890862604,
+              "lat": 59.80656984817194,
+              "lon": -140.88733687681994,
               "time_offset_sec": 30
             },
             {
-              "lat": 47.028341594674664,
-              "lon": -97.81402935142036,
+              "lat": 58.05537528395961,
+              "lon": -141.9807145077442,
               "time_offset_sec": 60
             },
             {
-              "lat": 45.241480873612176,
-              "lon": -98.47716035139592,
+              "lat": 56.29698293936197,
+              "lon": -142.98366008374163,
               "time_offset_sec": 90
             },
             {
-              "lat": 43.45164280992758,
-              "lon": -99.10760871430382,
+              "lat": 54.53237260499585,
+              "lon": -143.90946824700234,
               "time_offset_sec": 120
             },
             {
-              "lat": 41.659104193871386,
-              "lon": -99.70913027124057,
+              "lat": 52.76234178525112,
+              "lon": -144.76902956845476,
               "time_offset_sec": 150
+            },
+            {
+              "lat": 50.9875464063836,
+              "lon": -145.57134351459115,
+              "time_offset_sec": 180
+            },
+            {
+              "lat": 49.20853137677238,
+              "lon": -146.32390792387483,
+              "time_offset_sec": 210
+            },
+            {
+              "lat": 47.425753799841324,
+              "lon": -147.03301770163856,
+              "time_offset_sec": 240
+            },
+            {
+              "lat": 45.63960079941201,
+              "lon": -147.70399610462437,
+              "time_offset_sec": 270
             }
           ]
         },
-        "passes_in_window": 18,
+        "passes_in_window": 17,
         "all_passes": [
           {
             "satellite": "Sentinel-1A",
-            "rise_utc": "2026-05-03T13:06:40.993481+00:00",
-            "set_utc": "2026-05-03T13:09:34.478679+00:00",
-            "max_elevation_deg": 11.218473272818727,
-            "duration_seconds": 173.485198
-          },
-          {
-            "satellite": "Sentinel-1A",
-            "rise_utc": "2026-05-03T14:41:39.812459+00:00",
-            "set_utc": "2026-05-03T14:51:09.142463+00:00",
-            "max_elevation_deg": 89.9413405357843,
-            "duration_seconds": 569.330004
-          },
-          {
-            "satellite": "Sentinel-1A",
-            "rise_utc": "2026-05-03T16:21:03.463395+00:00",
-            "set_utc": "2026-05-03T16:25:36.506815+00:00",
-            "max_elevation_deg": 13.511476629607493,
-            "duration_seconds": 273.04342
+            "rise_utc": "2026-05-03T16:21:03.457923+00:00",
+            "set_utc": "2026-05-03T16:25:36.518442+00:00",
+            "max_elevation_deg": 13.511476123499477,
+            "duration_seconds": 273.060519
           },
           {
             "satellite": "Sentinel-1B",
-            "rise_utc": "2026-05-03T16:42:39.353369+00:00",
-            "set_utc": "2026-05-03T16:45:45.940890+00:00",
-            "max_elevation_deg": 11.812081670839493,
-            "duration_seconds": 186.587521
+            "rise_utc": "2026-05-03T16:42:39.323556+00:00",
+            "set_utc": "2026-05-03T16:45:45.950023+00:00",
+            "max_elevation_deg": 11.812082877862217,
+            "duration_seconds": 186.626467
           },
           {
             "satellite": "Sentinel-2B",
-            "rise_utc": "2026-05-03T18:07:11.857539+00:00",
-            "set_utc": "2026-05-03T18:15:46.704032+00:00",
-            "max_elevation_deg": 25.57217857192001,
-            "duration_seconds": 514.846493
+            "rise_utc": "2026-05-03T18:07:11.852792+00:00",
+            "set_utc": "2026-05-03T18:15:46.699204+00:00",
+            "max_elevation_deg": 25.572174802679204,
+            "duration_seconds": 514.846412
           },
           {
             "satellite": "Sentinel-1B",
-            "rise_utc": "2026-05-03T18:15:38.824051+00:00",
-            "set_utc": "2026-05-03T18:23:50.990522+00:00",
-            "max_elevation_deg": 70.53006646945447,
-            "duration_seconds": 492.166471
+            "rise_utc": "2026-05-03T18:15:38.833224+00:00",
+            "set_utc": "2026-05-03T18:23:50.996718+00:00",
+            "max_elevation_deg": 70.52994963853028,
+            "duration_seconds": 492.163494
           },
           {
             "satellite": "Sentinel-2A",
-            "rise_utc": "2026-05-03T18:17:13.039915+00:00",
-            "set_utc": "2026-05-03T18:26:23.342221+00:00",
-            "max_elevation_deg": 30.837446659842055,
-            "duration_seconds": 550.302306
+            "rise_utc": "2026-05-03T18:17:13.035529+00:00",
+            "set_utc": "2026-05-03T18:26:23.347129+00:00",
+            "max_elevation_deg": 30.837452210118247,
+            "duration_seconds": 550.3116
           },
           {
             "satellite": "Sentinel-2B",
-            "rise_utc": "2026-05-03T19:46:11.928800+00:00",
-            "set_utc": "2026-05-03T19:56:08.558716+00:00",
-            "max_elevation_deg": 47.364892735191866,
-            "duration_seconds": 596.629916
+            "rise_utc": "2026-05-03T19:46:11.948273+00:00",
+            "set_utc": "2026-05-03T19:56:08.564550+00:00",
+            "max_elevation_deg": 47.36490504695899,
+            "duration_seconds": 596.616277
           },
           {
             "satellite": "Sentinel-2A",
-            "rise_utc": "2026-05-03T19:56:31.862311+00:00",
-            "set_utc": "2026-05-03T20:06:09.361734+00:00",
-            "max_elevation_deg": 39.46662913517437,
-            "duration_seconds": 577.499423
+            "rise_utc": "2026-05-03T19:56:31.867300+00:00",
+            "set_utc": "2026-05-03T20:06:09.442844+00:00",
+            "max_elevation_deg": 39.466633364072166,
+            "duration_seconds": 577.575544
           },
           {
             "satellite": "Sentinel-1A",
-            "rise_utc": "2026-05-04T00:13:44.115198+00:00",
-            "set_utc": "2026-05-04T00:20:16.077104+00:00",
-            "max_elevation_deg": 18.879581750762757,
-            "duration_seconds": 391.961906
+            "rise_utc": "2026-05-04T00:13:44.126906+00:00",
+            "set_utc": "2026-05-04T00:20:16.064108+00:00",
+            "max_elevation_deg": 18.879580970628474,
+            "duration_seconds": 391.937202
           },
           {
             "satellite": "Sentinel-1A",
-            "rise_utc": "2026-05-04T01:49:29.842633+00:00",
-            "set_utc": "2026-05-04T01:58:51.882232+00:00",
-            "max_elevation_deg": 61.198763478258705,
-            "duration_seconds": 562.039599
+            "rise_utc": "2026-05-04T01:49:29.854301+00:00",
+            "set_utc": "2026-05-04T01:58:51.872737+00:00",
+            "max_elevation_deg": 61.19877003140494,
+            "duration_seconds": 562.018436
           },
           {
             "satellite": "Sentinel-1B",
-            "rise_utc": "2026-05-04T03:33:20.510386+00:00",
-            "set_utc": "2026-05-04T03:37:25.238208+00:00",
-            "max_elevation_deg": 13.547418676237779,
-            "duration_seconds": 244.727822
+            "rise_utc": "2026-05-04T03:33:20.446456+00:00",
+            "set_utc": "2026-05-04T03:37:25.220385+00:00",
+            "max_elevation_deg": 13.54741998269202,
+            "duration_seconds": 244.773929
           },
           {
             "satellite": "Sentinel-2A",
-            "rise_utc": "2026-05-04T04:03:14.219064+00:00",
-            "set_utc": "2026-05-04T04:05:33.466066+00:00",
-            "max_elevation_deg": 10.70372192695845,
-            "duration_seconds": 139.247002
+            "rise_utc": "2026-05-04T04:03:14.177020+00:00",
+            "set_utc": "2026-05-04T04:05:33.471900+00:00",
+            "max_elevation_deg": 10.703720692123394,
+            "duration_seconds": 139.29488
           },
           {
             "satellite": "Sentinel-1B",
-            "rise_utc": "2026-05-04T05:05:50.781066+00:00",
-            "set_utc": "2026-05-04T05:14:01.854443+00:00",
-            "max_elevation_deg": 70.43367439890957,
-            "duration_seconds": 491.073377
+            "rise_utc": "2026-05-04T05:05:50.787302+00:00",
+            "set_utc": "2026-05-04T05:14:01.988017+00:00",
+            "max_elevation_deg": 70.43372669845495,
+            "duration_seconds": 491.200715
           },
           {
             "satellite": "Sentinel-2B",
-            "rise_utc": "2026-05-04T05:27:38.406281+00:00",
-            "set_utc": "2026-05-04T05:37:40.845500+00:00",
-            "max_elevation_deg": 50.868920952676696,
-            "duration_seconds": 602.439219
+            "rise_utc": "2026-05-04T05:27:38.485500+00:00",
+            "set_utc": "2026-05-04T05:37:40.838982+00:00",
+            "max_elevation_deg": 50.86892178484479,
+            "duration_seconds": 602.353482
           },
           {
             "satellite": "Sentinel-2A",
-            "rise_utc": "2026-05-04T05:37:43.455343+00:00",
-            "set_utc": "2026-05-04T05:47:58.428149+00:00",
-            "max_elevation_deg": 61.53215531461595,
-            "duration_seconds": 614.972806
+            "rise_utc": "2026-05-04T05:37:43.461136+00:00",
+            "set_utc": "2026-05-04T05:47:58.421269+00:00",
+            "max_elevation_deg": 61.532145421628066,
+            "duration_seconds": 614.960133
           },
           {
             "satellite": "Sentinel-2B",
-            "rise_utc": "2026-05-04T07:08:14.401624+00:00",
-            "set_utc": "2026-05-04T07:16:33.177595+00:00",
-            "max_elevation_deg": 23.808985354622404,
-            "duration_seconds": 498.775971
+            "rise_utc": "2026-05-04T07:08:14.393819+00:00",
+            "set_utc": "2026-05-04T07:16:33.165445+00:00",
+            "max_elevation_deg": 23.808986313136185,
+            "duration_seconds": 498.771626
           },
           {
             "satellite": "Sentinel-2A",
-            "rise_utc": "2026-05-04T07:18:59.373664+00:00",
-            "set_utc": "2026-05-04T07:26:27.918928+00:00",
-            "max_elevation_deg": 19.705128048197327,
-            "duration_seconds": 448.545264
+            "rise_utc": "2026-05-04T07:18:59.365175+00:00",
+            "set_utc": "2026-05-04T07:26:27.984266+00:00",
+            "max_elevation_deg": 19.70513100098806,
+            "duration_seconds": 448.619091
+          },
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-04T13:45:14.949668+00:00",
+            "set_utc": "2026-05-04T13:53:14.926023+00:00",
+            "max_elevation_deg": 26.775367386040436,
+            "duration_seconds": 479.976355
           }
         ],
-        "queried_at": "2026-05-03T09:28:59.602253+00:00",
+        "queried_at": "2026-05-03T15:07:08.076472+00:00",
         "data_available": true
       },
       "news": {
         "article_count": 4,
         "articles": [
           {
-            "title": "US military to be an 'AI-first' fighting force as Pentagon signs deal with seven tech giants | LBC",
-            "url": "https://www.lbc.co.uk/article/us-military-ai-first-fighting-force-pentagon-deal-tech-giants-5HjdYcP_2/",
-            "published_at": "2026-05-02T00:00:00.000Z",
-            "snippet": "US military to be an 'AI-first' fighting force as Pentagon signs deal with seven tech giants | LBC\n\nOn Air Now\n\n# US military to be an 'AI-first' fighting force as Pentagon signs deal with seven tech giants\n\nThe Pentagon has said that AI technology would now be used for any \"lawful operational use\"\n...",
-            "score": 1
-          },
-          {
             "title": "Multi-car crash kills 3 people at Lake Chelan, WA | FOX 13 Seattle",
             "url": "https://www.fox13seattle.com/news/crash-kills-3-lake-chelan-wa",
             "published_at": "2026-05-02T00:00:00.000Z",
             "snippet": "Multi-car crash kills 3 people at Lake Chelan, WA | FOX 13 Seattle\n\nRiver Flood Warning is in effect, Chelan County\n\nCHELAN COUNTY, Wash. - Several people have been killed at a crash involving three vehicles at Lake Chelan heading into the weekend. All the victims were from Washington.\n\nWhat we know...",
+            "score": 1
+          },
+          {
+            "title": "SRTC Transportation Blog: I-5 to be Widened Near JBLM",
+            "url": "http://srtctransportation.blogspot.com/2015/08/i-5-to-be-widened-near-jblm.html",
+            "published_at": "2026-05-03T00:00:00.000Z",
+            "snippet": "SRTC Transportation Blog: I-5 to be Widened Near JBLM\n\nIf you drive to Olympia more than about once a year, you know what a cluster I-5 can turn into near Joint Base Lewis McChord. I make the drive about every six weeks, year round, always on Friday, and unless you hit I-5 before 1 p.m., it's bumper...",
             "score": 0.6666666666666667
           },
           {
-            "title": "Pentagon strikes AI deals with Microsoft, Amazon, and NVIDIA",
-            "url": "https://www.newsbytesapp.com/news/science/pentagon-inks-deals-with-nvidia-microsoft-aws/story",
+            "title": "U.S. warns European allies of weapons delivery delays - UPI.com",
+            "url": "https://www.upi.com/Top_News/US/2026/05/02/pentagon-warns-allies-weapons-delivery-delays/3481777751004/",
             "published_at": "2026-05-02T00:00:00.000Z",
-            "snippet": "Pentagon strikes AI deals with Microsoft, Amazon, and NVIDIA {ced(ce('ie-0'))});}\"/>\n\nLOADING...\n\nThe deals are for classified networks\n\n# Pentagon strikes AI deals with Microsoft, Amazon, and NVIDIA\n\nMay 02, 2026\n\n03:30 pm\n\n---\n\nWhat's the story\n\nThe US Department of Defense (DoD) has signed deals ...",
+            "snippet": "U.S. warns European allies of weapons delivery delays - UPI.com\n\nMay 2, 2026 / 3:50 PM\n\nWith U.S. munitions stockpiles reportedly lower than military leaders would like, the Pentagon has started warning allies that increased delays in weapons system deliveries -- ammunition for the High Mobility Art...",
             "score": 0.33333333333333337
           },
           {
@@ -448,7 +783,7 @@
             "score": 0
           }
         ],
-        "queried_at": "2026-05-03T09:28:59.900525+00:00",
+        "queried_at": "2026-05-03T15:07:08.456024+00:00",
         "data_available": true
       },
       "sources_succeeded": [
@@ -456,7 +791,7 @@
         "satellite",
         "news"
       ],
-      "queried_at": "2026-05-03T09:28:59.901764+00:00"
+      "queried_at": "2026-05-03T15:07:08.457839+00:00"
     },
     "provenance_summary": {
       "total_entities": 13,

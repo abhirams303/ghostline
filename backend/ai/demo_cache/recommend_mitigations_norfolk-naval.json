@@ -1,8 +1,8 @@
 {
-  "_cached_at": "2026-05-03T15:10:30.987024+00:00",
+  "_cached_at": "2026-05-03T15:38:54.964594+00:00",
   "_function": "recommend_mitigations",
   "_args": [
-    "norfolk"
+    "norfolk-naval"
   ],
   "value": {
     "location": "Naval Station Norfolk",
