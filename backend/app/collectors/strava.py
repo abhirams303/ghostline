@@ -7,8 +7,12 @@ from functools import lru_cache
 from pathlib import Path
 
 import httpx
-import mercantile
 from dotenv import dotenv_values
+
+try:
+    import mercantile
+except ModuleNotFoundError:
+    mercantile = None
 
 from app.collectors.base import BaseCollector
 from app.config import get_settings
@@ -93,6 +97,12 @@ async def _fetch_tile(
 
 
 async def collect_strava_heatmap(lat: float, lon: float, zoom: int = 13) -> dict:
+    if mercantile is None:
+        raise RuntimeError(
+            "Strava collection requires the optional 'mercantile' dependency. "
+            "Install backend dependencies with `python -m pip install -e .[dev]` from `backend/`."
+        )
+
     center = mercantile.tile(lon, lat, zoom)
     coords = [
         (center.x + dx, center.y + dy)
