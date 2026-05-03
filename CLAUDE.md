@@ -145,7 +145,8 @@ All real, all public, all attributable. Never fabricate data — every entity in
 - `backend/ai/` — where new modules live. Existing files are from the earlier architecture — see "Existing modules: reuse decisions" below.
 - `backend/data/cached/` — cached OSINT samples (Fort Liberty, Norfolk Naval, Creech AFB). Cache raw API responses here for audit and replay.
 - `scripts/` — one-off scripts (`test_foundry.py` lives here).
-- `backend/app/` — legacy FastAPI scaffold (collectors, synthesis, SQLite, SSE). **Do not add new FastAPI endpoints** — that is the teammate's lane.
+- `backend/app/` — legacy `OPSEC Mirror` FastAPI scaffold (collectors, synthesis, SQLite, SSE). Don't extend it.
+- `backend/ai/voice_server.py` — the **only** sanctioned HTTP surface for cross-team consumers (Pipecat voice agent + deck.gl frontend). Thin FastAPI wrapper over `query_api` / `realtime_enrichment` — all real logic lives in the underlying Python modules; this file is transport only. Add new endpoints here if (and only if) cross-team consumers need them; don't add them to `backend/app/`.
 
 ## Existing modules: reuse decisions
 
@@ -191,5 +192,5 @@ pnpm lint && pnpm build
 - Don't fabricate ontology data — every entity must have a real `source_url`
 - Don't write to Palantir without `--dry-run` verification first
 - Don't modify object type schemas during the build (locked in via AI FDE)
-- Don't create our own FastAPI endpoints — the Pipecat agent is the consumer, not us
+- Don't extend the legacy `backend/app/` FastAPI scaffold. New cross-team endpoints belong in `backend/ai/voice_server.py` (the thin transport wrapper over `query_api` / `realtime_enrichment`) — keep real logic in the underlying Python modules so it stays testable without HTTP.
 - Don't push broken code to `main` — work on `voice-agent`
