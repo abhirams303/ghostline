@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "1st Special Forces Command (Airborne)",
+  "displaytitle": "<span class=\"mw-page-title-main\">1st Special Forces Command (Airborne)</span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q19870432",
+  "titles": {
+    "canonical": "1st_Special_Forces_Command_(Airborne)",
+    "normalized": "1st Special Forces Command (Airborne)",
+    "display": "<span class=\"mw-page-title-main\">1st Special Forces Command (Airborne)</span>"
+  },
+  "pageid": 45507377,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/United_States_Army_Special_Forces_SSI_%281958-2015%29.png/330px-United_States_Army_Special_Forces_SSI_%281958-2015%29.png",
+    "width": 330,
+    "height": 510
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/5/58/United_States_Army_Special_Forces_SSI_%281958-2015%29.png",
+    "width": 375,
+    "height": 580
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1347610482",
+  "tid": "f831b7d7-32ab-11f1-a63b-cf99f6117321",
+  "timestamp": "2026-04-07T18:02:41Z",
+  "description": "Division-sized component of US Army Special Operations Command",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/1st_Special_Forces_Command_(Airborne)",
+      "revisions": "https://en.wikipedia.org/wiki/1st_Special_Forces_Command_(Airborne)?action=history",
+      "edit": "https://en.wikipedia.org/wiki/1st_Special_Forces_Command_(Airborne)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:1st_Special_Forces_Command_(Airborne)"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/1st_Special_Forces_Command_(Airborne)",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/1st_Special_Forces_Command_(Airborne)",
+      "edit": "https://en.wikipedia.org/wiki/1st_Special_Forces_Command_(Airborne)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:1st_Special_Forces_Command_(Airborne)"
+    }
+  },
+  "extract": "The 1st Special Forces Command (Airborne) is a division-level special operations forces command within the United States Army Special Operations Command. The command was first established in 1989 and reorganized in 2014 grouping together the Army Special Forces (a.k.a. \"the Green Berets\"), psychological operations, civil affairs, and support troops into a single organization operating out of its headquarters at Fort Bragg, North Carolina.",
+  "extract_html": "<p>The <b>1st Special Forces Command (Airborne)</b> is a division-level special operations forces command within the United States Army Special Operations Command. The command was first established in 1989 and reorganized in 2014 grouping together the Army Special Forces (a.k.a. \"the Green Berets\"), psychological operations, civil affairs, and support troops into a single organization operating out of its headquarters at Fort Bragg, North Carolina.</p>"
+}

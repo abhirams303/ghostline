@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Destroyer Squadron 26",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Destroyer Squadron 26</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q17017978",
+  "titles": {
+    "canonical": "Destroyer_Squadron_26",
+    "normalized": "Destroyer Squadron 26",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Destroyer Squadron 26</span></span>"
+  },
+  "pageid": 38738953,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Destroyer_Squadron_26_crest.png",
+    "width": 200,
+    "height": 235
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Destroyer_Squadron_26_crest.png",
+    "width": 200,
+    "height": 235
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1334618942",
+  "tid": "b0a5bcbb-f94b-11f0-be67-505fef364861",
+  "timestamp": "2026-01-24T17:39:53Z",
+  "description": "Military unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Destroyer_Squadron_26",
+      "revisions": "https://en.wikipedia.org/wiki/Destroyer_Squadron_26?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Destroyer_Squadron_26?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Destroyer_Squadron_26"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Destroyer_Squadron_26",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Destroyer_Squadron_26",
+      "edit": "https://en.wikipedia.org/wiki/Destroyer_Squadron_26?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Destroyer_Squadron_26"
+    }
+  },
+  "extract": "Destroyer Squadron 26 is a destroyer squadron of the United States Navy. It was first created in 1950. It has seen action in the Korean War, service in the Atlantic, and in the Vietnam War. For a period, it became the 'Mod Squad', trialing ships commanded by officers one rank junior to the usual appointment rank.",
+  "extract_html": "<p><b>Destroyer Squadron 26</b> is a destroyer squadron of the United States Navy. It was first created in 1950. It has seen action in the Korean War, service in the Atlantic, and in the Vietnam War. For a period, it became the 'Mod Squad', trialing ships commanded by officers one rank junior to the usual appointment rank.</p>"
+}

@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "18th Field Artillery Brigade",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">18th Field Artillery Brigade</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q11600375",
+  "titles": {
+    "canonical": "18th_Field_Artillery_Brigade",
+    "normalized": "18th Field Artillery Brigade",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">18th Field Artillery Brigade</span></span>"
+  },
+  "pageid": 18406927,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/b/b1/18thFABDENOTAB.png",
+    "width": 183,
+    "height": 273
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/b/b1/18thFABDENOTAB.png",
+    "width": 183,
+    "height": 273
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1344045909",
+  "tid": "2b5cc988-225d-11f1-8ced-511628a79bcf",
+  "timestamp": "2026-03-17T23:58:18Z",
+  "description": "Military unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/18th_Field_Artillery_Brigade",
+      "revisions": "https://en.wikipedia.org/wiki/18th_Field_Artillery_Brigade?action=history",
+      "edit": "https://en.wikipedia.org/wiki/18th_Field_Artillery_Brigade?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:18th_Field_Artillery_Brigade"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/18th_Field_Artillery_Brigade",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/18th_Field_Artillery_Brigade",
+      "edit": "https://en.wikipedia.org/wiki/18th_Field_Artillery_Brigade?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:18th_Field_Artillery_Brigade"
+    }
+  },
+  "extract": "The 18th Field Artillery Brigade is the XVIII Airborne Corps field artillery brigade, based at Fort Bragg, North Carolina.",
+  "extract_html": "<p>The <b>18th Field Artillery Brigade</b> is the XVIII Airborne Corps field artillery brigade, based at Fort Bragg, North Carolina.</p>"
+}

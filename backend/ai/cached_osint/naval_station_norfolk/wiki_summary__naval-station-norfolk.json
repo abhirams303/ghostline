@@ -1,0 +1,53 @@
+{
+  "type": "standard",
+  "title": "Naval Station Norfolk",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Naval Station Norfolk</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q1627684",
+  "titles": {
+    "canonical": "Naval_Station_Norfolk",
+    "normalized": "Naval Station Norfolk",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Naval Station Norfolk</span></span>"
+  },
+  "pageid": 896196,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/9_Flattops_at_Norfolk_naval_base%2C_December_20%2C_2012.jpg/330px-9_Flattops_at_Norfolk_naval_base%2C_December_20%2C_2012.jpg",
+    "width": 330,
+    "height": 179
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/e/eb/9_Flattops_at_Norfolk_naval_base%2C_December_20%2C_2012.jpg",
+    "width": 2580,
+    "height": 1400
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1340843767",
+  "tid": "c4a976dc-1443-11f1-8f18-9d3edb9c3bd9",
+  "timestamp": "2026-02-28T01:21:12Z",
+  "description": "United States Navy base in Virginia",
+  "description_source": "local",
+  "coordinates": {
+    "lat": 36.945,
+    "lon": -76.31305556
+  },
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Naval_Station_Norfolk",
+      "revisions": "https://en.wikipedia.org/wiki/Naval_Station_Norfolk?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Naval_Station_Norfolk?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Naval_Station_Norfolk"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Naval_Station_Norfolk",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Naval_Station_Norfolk",
+      "edit": "https://en.wikipedia.org/wiki/Naval_Station_Norfolk?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Naval_Station_Norfolk"
+    }
+  },
+  "extract": "Naval Station Norfolk is a United States Navy base in Norfolk, Virginia, that is the headquarters and home port of the U.S. Navy's Fleet Forces Command. The installation occupies about 4 miles (6.4 km) of waterfront space and 11 miles (18 km) of pier and wharf space of the Hampton Roads peninsula known as Sewell's Point. It is the world's largest naval station, with the largest concentration of U.S. Navy forces through 75 ships alongside 14 piers and with 134 aircraft and 11 aircraft hangars at the adjacently operated Chambers Field. Port Services controls more than 3,100 ships' movements annually as they arrive and depart their berths.",
+  "extract_html": "<p><b>Naval Station Norfolk</b> is a United States Navy base in Norfolk, Virginia, that is the headquarters and home port of the U.S. Navy's Fleet Forces Command. The installation occupies about 4 miles (6.4 km) of waterfront space and 11 miles (18 km) of pier and wharf space of the Hampton Roads peninsula known as Sewell's Point. It is the world's largest naval station, with the largest concentration of U.S. Navy forces through 75 ships alongside 14 piers and with 134 aircraft and 11 aircraft hangars at the adjacently operated Chambers Field. Port Services controls more than 3,100 ships' movements annually as they arrive and depart their berths.</p>"
+}

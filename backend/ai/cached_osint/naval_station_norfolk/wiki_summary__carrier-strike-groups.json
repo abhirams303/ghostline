@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Carrier strike group",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Carrier strike group</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q4307465",
+  "titles": {
+    "canonical": "Carrier_strike_group",
+    "normalized": "Carrier strike group",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Carrier strike group</span></span>"
+  },
+  "pageid": 7056250,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/US_Navy_031130-N-3653A-002_USS_George_Washington_%28CVN_73%29_Carrier_Strike_Group_formation_sails_in_the_Atlantic_Ocean.jpg/330px-US_Navy_031130-N-3653A-002_USS_George_Washington_%28CVN_73%29_Carrier_Strike_Group_formation_sails_in_the_Atlantic_Ocean.jpg",
+    "width": 330,
+    "height": 236
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/c/cd/US_Navy_031130-N-3653A-002_USS_George_Washington_%28CVN_73%29_Carrier_Strike_Group_formation_sails_in_the_Atlantic_Ocean.jpg",
+    "width": 2100,
+    "height": 1500
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1343931250",
+  "tid": "9ced38c1-21cd-11f1-8048-74b778ec5300",
+  "timestamp": "2026-03-17T06:50:41Z",
+  "description": "US Navy unit with aircraft carrier",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Carrier_strike_group",
+      "revisions": "https://en.wikipedia.org/wiki/Carrier_strike_group?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Carrier_strike_group?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Carrier_strike_group"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Carrier_strike_group",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Carrier_strike_group",
+      "edit": "https://en.wikipedia.org/wiki/Carrier_strike_group?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Carrier_strike_group"
+    }
+  },
+  "extract": "A carrier strike group (CSG) is a type of carrier battle group of the United States Navy. It is an operational formation composed of roughly 7,500 personnel, usually an aircraft carrier, at least one cruiser, a destroyer squadron of at least two destroyers or frigates, and a carrier air wing of 65 to 70 aircraft. A carrier strike group, on occasion, also includes submarines, attached logistics ships and a supply ship. The carrier strike group commander operationally reports to the commander of the numbered fleet, who is operationally responsible for the area of waters in which the carrier strike group is operating.",
+  "extract_html": "<p>A <b>carrier strike group</b> (<b>CSG</b>) is a type of carrier battle group of the United States Navy. It is an operational formation composed of roughly 7,500 personnel, usually an aircraft carrier, at least one cruiser, a destroyer squadron of at least two destroyers or frigates, and a carrier air wing of 65 to 70 aircraft. A carrier strike group, on occasion, also includes submarines, attached logistics ships and a supply ship. The carrier strike group commander operationally reports to the commander of the numbered fleet, who is operationally responsible for the area of waters in which the carrier strike group is operating.</p>"
+}

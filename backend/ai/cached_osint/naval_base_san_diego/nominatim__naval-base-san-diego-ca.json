@@ -1,0 +1,23 @@
+[
+  {
+    "place_id": 318612213,
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "relation",
+    "osm_id": 6992107,
+    "lat": "32.6734868",
+    "lon": "-117.1207744",
+    "class": "landuse",
+    "type": "military",
+    "place_rank": 24,
+    "importance": 0.46600327419680004,
+    "addresstype": "military",
+    "name": "Naval Base San Diego",
+    "display_name": "Naval Base San Diego, National City, San Diego County, California, 92136, United States",
+    "boundingbox": [
+      "32.6584031",
+      "32.6927448",
+      "-117.1356814",
+      "-117.1096454"
+    ]
+  }
+]

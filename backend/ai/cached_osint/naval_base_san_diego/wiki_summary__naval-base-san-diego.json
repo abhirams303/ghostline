@@ -1,0 +1,53 @@
+{
+  "type": "standard",
+  "title": "Naval Base San Diego",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Naval Base San Diego</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q743898",
+  "titles": {
+    "canonical": "Naval_Base_San_Diego",
+    "normalized": "Naval Base San Diego",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Naval Base San Diego</span></span>"
+  },
+  "pageid": 1482249,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/An_MH-60R_Sea_Hawk_helicopter_flies_over_San_Diego._%2824546100368%29.jpg/330px-An_MH-60R_Sea_Hawk_helicopter_flies_over_San_Diego._%2824546100368%29.jpg",
+    "width": 330,
+    "height": 201
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/a/a4/An_MH-60R_Sea_Hawk_helicopter_flies_over_San_Diego._%2824546100368%29.jpg",
+    "width": 2000,
+    "height": 1220
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1348340979",
+  "tid": "d2dfd813-361e-11f1-9df6-83543aaafc4e",
+  "timestamp": "2026-04-12T03:22:24Z",
+  "description": "US Navy facility in California",
+  "description_source": "local",
+  "coordinates": {
+    "lat": 32.6847619,
+    "lon": -117.1299637
+  },
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Naval_Base_San_Diego",
+      "revisions": "https://en.wikipedia.org/wiki/Naval_Base_San_Diego?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Naval_Base_San_Diego?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Naval_Base_San_Diego"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Naval_Base_San_Diego",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Naval_Base_San_Diego",
+      "edit": "https://en.wikipedia.org/wiki/Naval_Base_San_Diego?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Naval_Base_San_Diego"
+    }
+  },
+  "extract": "Naval Base San Diego is a United States Navy base in San Diego, California. It is the world's second largest surface ship naval base, after Naval Station Norfolk. Naval Base San Diego is the principal homeport of the United States Pacific Fleet, consisting of over 50 ships and over 150 tenant commands. The base is composed of 13 piers stretched over 1,600 acres (650 ha) of land and 326 acres (132 ha) of water. The total on base population is over 24,000 military personnel and over 10,000 civilians.",
+  "extract_html": "<p><b>Naval Base San Diego</b> is a United States Navy base in San Diego, California. It is the world's second largest surface ship naval base, after Naval Station Norfolk. Naval Base San Diego is the principal homeport of the United States Pacific Fleet, consisting of over 50 ships and over 150 tenant commands. The base is composed of 13 piers stretched over 1,600 acres (650 ha) of land and 326 acres (132 ha) of water. The total on base population is over 24,000 military personnel and over 10,000 civilians.</p>"
+}

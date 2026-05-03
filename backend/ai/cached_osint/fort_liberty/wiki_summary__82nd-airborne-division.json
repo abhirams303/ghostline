@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "82nd Airborne Division",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">82nd Airborne Division</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q2358",
+  "titles": {
+    "canonical": "82nd_Airborne_Division",
+    "normalized": "82nd Airborne Division",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">82nd Airborne Division</span></span>"
+  },
+  "pageid": 113459,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/82nd_Airborne_Division_CSIB.svg/330px-82nd_Airborne_Division_CSIB.svg.png",
+    "width": 330,
+    "height": 464
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/82nd_Airborne_Division_CSIB.svg/330px-82nd_Airborne_Division_CSIB.svg.png",
+    "width": 286,
+    "height": 402
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1349238487",
+  "tid": "731e5f96-3985-11f1-8b49-763efa5ce897",
+  "timestamp": "2026-04-16T11:14:35Z",
+  "description": "Airborne division of the United States Army",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/82nd_Airborne_Division",
+      "revisions": "https://en.wikipedia.org/wiki/82nd_Airborne_Division?action=history",
+      "edit": "https://en.wikipedia.org/wiki/82nd_Airborne_Division?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:82nd_Airborne_Division"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/82nd_Airborne_Division",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/82nd_Airborne_Division",
+      "edit": "https://en.wikipedia.org/wiki/82nd_Airborne_Division?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:82nd_Airborne_Division"
+    }
+  },
+  "extract": "The 82nd Airborne Division is a United States Army airborne infantry division that specializes in parachute assault, based in Fort Bragg, North Carolina. Currently, the division is commanded by Major General Brandon Tegtmeier.",
+  "extract_html": "<p>The <b>82nd Airborne Division</b> is a United States Army airborne infantry division that specializes in parachute assault, based in Fort Bragg, North Carolina. Currently, the division is commanded by Major General Brandon Tegtmeier.</p>"
+}

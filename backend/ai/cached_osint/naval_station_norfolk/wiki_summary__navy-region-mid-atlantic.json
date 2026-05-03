@@ -1,0 +1,53 @@
+{
+  "type": "standard",
+  "title": "Navy Region Mid-Atlantic",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Navy Region Mid-Atlantic</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q27627961",
+  "titles": {
+    "canonical": "Navy_Region_Mid-Atlantic",
+    "normalized": "Navy Region Mid-Atlantic",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Navy Region Mid-Atlantic</span></span>"
+  },
+  "pageid": 51128052,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Navy_Region_Mid-Atlantic.jpg/330px-Navy_Region_Mid-Atlantic.jpg",
+    "width": 330,
+    "height": 330
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Navy_Region_Mid-Atlantic.jpg",
+    "width": 3000,
+    "height": 3000
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1334683979",
+  "tid": "d274634d-f98e-11f0-a458-2f285df82ae4",
+  "timestamp": "2026-01-25T01:40:26Z",
+  "description": "One of eleven naval regions of the U.S. Navy",
+  "description_source": "local",
+  "coordinates": {
+    "lat": 36.9486,
+    "lon": -76.3084
+  },
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Navy_Region_Mid-Atlantic",
+      "revisions": "https://en.wikipedia.org/wiki/Navy_Region_Mid-Atlantic?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Navy_Region_Mid-Atlantic?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Navy_Region_Mid-Atlantic"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Navy_Region_Mid-Atlantic",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Navy_Region_Mid-Atlantic",
+      "edit": "https://en.wikipedia.org/wiki/Navy_Region_Mid-Atlantic?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Navy_Region_Mid-Atlantic"
+    }
+  },
+  "extract": "Navy Region Mid-Atlantic is one of eleven current naval regions responsible to Commander, Navy Installations Command for the operation and management of Naval shore installations in Wisconsin, Illinois, Michigan, Indiana, Ohio, Kentucky, North Carolina, Virginia, West Virginia, Maryland, Delaware, Pennsylvania, New Jersey, New York, Connecticut, Rhode Island, Massachusetts, Vermont, New Hampshire, and Maine.",
+  "extract_html": "<p><b>Navy Region Mid-Atlantic</b> is one of eleven current naval regions responsible to Commander, Navy Installations Command for the operation and management of Naval shore installations in Wisconsin, Illinois, Michigan, Indiana, Ohio, Kentucky, North Carolina, Virginia, West Virginia, Maryland, Delaware, Pennsylvania, New Jersey, New York, Connecticut, Rhode Island, Massachusetts, Vermont, New Hampshire, and Maine.</p>"
+}

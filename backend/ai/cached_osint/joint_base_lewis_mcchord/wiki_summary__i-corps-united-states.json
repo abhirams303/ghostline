@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "I Corps (United States)",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">I Corps (United States)</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q1652977",
+  "titles": {
+    "canonical": "I_Corps_(United_States)",
+    "normalized": "I Corps (United States)",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">I Corps (United States)</span></span>"
+  },
+  "pageid": 223102,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/U.S._I_Corps_CSIB.svg/330px-U.S._I_Corps_CSIB.svg.png",
+    "width": 330,
+    "height": 330
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/U.S._I_Corps_CSIB.svg/500px-U.S._I_Corps_CSIB.svg.png",
+    "width": 500,
+    "height": 500
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1351859789",
+  "tid": "5dde2119-44af-11f1-945d-2e4c55118c26",
+  "timestamp": "2026-04-30T16:12:21Z",
+  "description": "Corps of the United States Army",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/I_Corps_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/I_Corps_(United_States)?action=history",
+      "edit": "https://en.wikipedia.org/wiki/I_Corps_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:I_Corps_(United_States)"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/I_Corps_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/I_Corps_(United_States)",
+      "edit": "https://en.wikipedia.org/wiki/I_Corps_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:I_Corps_(United_States)"
+    }
+  },
+  "extract": "The I Corps is a corps of the United States Army headquartered in Joint Base Lewis-McChord, Washington. It is a major formation of United States Army Pacific (USARPAC) and its current mission involves administrative oversight of army units in the Asia-Pacific region, including the Pacific Pathways program.",
+  "extract_html": "<p>The <b>I Corps</b> is a corps of the United States Army headquartered in Joint Base Lewis-McChord, Washington. It is a major formation of United States Army Pacific (USARPAC) and its current mission involves administrative oversight of army units in the Asia-Pacific region, including the Pacific Pathways program.</p>"
+}

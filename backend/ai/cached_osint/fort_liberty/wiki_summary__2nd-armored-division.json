@@ -1,0 +1,39 @@
+{
+  "type": "disambiguation",
+  "title": "2nd Division",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">2nd Division</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q209767",
+  "titles": {
+    "canonical": "2nd_Division",
+    "normalized": "2nd Division",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">2nd Division</span></span>"
+  },
+  "pageid": 416524,
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1318389822",
+  "tid": "820606b0-b02b-11f0-b3f4-78cbd32156e3",
+  "timestamp": "2025-10-23T16:15:36Z",
+  "description": "Topics referred to by the same term",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/2nd_Division",
+      "revisions": "https://en.wikipedia.org/wiki/2nd_Division?action=history",
+      "edit": "https://en.wikipedia.org/wiki/2nd_Division?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:2nd_Division"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/2nd_Division",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/2nd_Division",
+      "edit": "https://en.wikipedia.org/wiki/2nd_Division?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:2nd_Division"
+    }
+  },
+  "extract": "2nd Division may refer to the following military units:",
+  "extract_html": "<p><b>2nd Division</b> may refer to the following military units:</p>"
+}

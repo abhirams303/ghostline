@@ -1,0 +1,53 @@
+{
+  "type": "standard",
+  "title": "Military Sealift Command",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Military Sealift Command</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q333386",
+  "titles": {
+    "canonical": "Military_Sealift_Command",
+    "normalized": "Military Sealift Command",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Military Sealift Command</span></span>"
+  },
+  "pageid": 528551,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/MSC_Seal.png/330px-MSC_Seal.png",
+    "width": 330,
+    "height": 330
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/9/98/MSC_Seal.png",
+    "width": 1470,
+    "height": 1470
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1343238470",
+  "tid": "be2bedfb-1e8c-11f1-96f3-207c8794db62",
+  "timestamp": "2026-03-13T03:28:46Z",
+  "description": "United States Navy command for logistics",
+  "description_source": "local",
+  "coordinates": {
+    "lat": 36.94416667,
+    "lon": -76.27722222
+  },
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Military_Sealift_Command",
+      "revisions": "https://en.wikipedia.org/wiki/Military_Sealift_Command?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Military_Sealift_Command?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Military_Sealift_Command"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Military_Sealift_Command",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Military_Sealift_Command",
+      "edit": "https://en.wikipedia.org/wiki/Military_Sealift_Command?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Military_Sealift_Command"
+    }
+  },
+  "extract": "The Military Sealift Command (MSC) is an organization that controls the replenishment and military transport ships of the United States Navy. Military Sealift Command has the responsibility for providing sealift and ocean transportation for all US military services as well as for other government agencies. It first came into existence on 9 July 1949 when the Military Sea Transportation Service (MSTS) became solely responsible for the Department of Defense's ocean transport needs. The MSTS was renamed the Military Sealift Command in 1970.",
+  "extract_html": "<p>The <b>Military Sealift Command</b> (<b>MSC</b>) is an organization that controls the replenishment and military transport ships of the United States Navy. Military Sealift Command has the responsibility for providing sealift and ocean transportation for all US military services as well as for other government agencies. It first came into existence on 9 July 1949 when the <b>Military Sea Transportation Service</b> (<b>MSTS</b>) became solely responsible for the Department of Defense's ocean transport needs. The MSTS was renamed the Military Sealift Command in 1970.</p>"
+}

@@ -1,0 +1,39 @@
+{
+  "type": "disambiguation",
+  "title": "100th Division",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">100th Division</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q4028180",
+  "titles": {
+    "canonical": "100th_Division",
+    "normalized": "100th Division",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">100th Division</span></span>"
+  },
+  "pageid": 14055934,
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "728390519",
+  "tid": "dc7dc30f-425d-11e6-b72d-b89956ab7737",
+  "timestamp": "2016-07-05T03:09:18Z",
+  "description": "Topics referred to by the same term",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/100th_Division",
+      "revisions": "https://en.wikipedia.org/wiki/100th_Division?action=history",
+      "edit": "https://en.wikipedia.org/wiki/100th_Division?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:100th_Division"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/100th_Division",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/100th_Division",
+      "edit": "https://en.wikipedia.org/wiki/100th_Division?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:100th_Division"
+    }
+  },
+  "extract": "In military terms, 100th Division or 100th Infantry Division may refer to:Infantry divisions100th Light Infantry Division (Germany)\n100th Jäger Division (Wehrmacht)\n100th Division \n100th Guards Rifle Division \n100th Division \n",
+  "extract_html": "<p>In military terms, <b>100th Division</b> or <b>100th Infantry Division</b> may refer to:</p><dl><dt>Infantry divisions</dt><dd></dd></dl><ul><li>100th Light Infantry Division (Germany)</li>\n<li>100th Jäger Division (Wehrmacht)</li>\n<li>100th Division </li>\n<li>100th Guards Rifle Division </li>\n<li>100th Division </li></ul>\n"
+}

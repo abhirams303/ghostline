@@ -1,0 +1,53 @@
+{
+  "type": "standard",
+  "title": "Fort Bragg",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Fort Bragg</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q991369",
+  "titles": {
+    "canonical": "Fort_Bragg",
+    "normalized": "Fort Bragg",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Fort Bragg</span></span>"
+  },
+  "pageid": 127847,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Fort_Bragg_1st_Brigade_barracks.jpg/330px-Fort_Bragg_1st_Brigade_barracks.jpg",
+    "width": 330,
+    "height": 212
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Fort_Bragg_1st_Brigade_barracks.jpg",
+    "width": 1500,
+    "height": 962
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1351352124",
+  "tid": "40505522-4232-11f1-a748-5e25647510e7",
+  "timestamp": "2026-04-27T12:11:42Z",
+  "description": "U.S. Army installation in North Carolina",
+  "description_source": "local",
+  "coordinates": {
+    "lat": 35.13916667,
+    "lon": -78.99916667
+  },
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Fort_Bragg",
+      "revisions": "https://en.wikipedia.org/wiki/Fort_Bragg?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Fort_Bragg?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Fort_Bragg"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Fort_Bragg",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Fort_Bragg",
+      "edit": "https://en.wikipedia.org/wiki/Fort_Bragg?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Fort_Bragg"
+    }
+  },
+  "extract": "Fort Bragg is a U.S. Army military installation located in North Carolina. It ranks among the largest military bases in the world by population, with more than 52,000 military personnel.",
+  "extract_html": "<p><b>Fort Bragg</b> is a U.S. Army military installation located in North Carolina. It ranks among the largest military bases in the world by population, with more than 52,000 military personnel.</p>"
+}

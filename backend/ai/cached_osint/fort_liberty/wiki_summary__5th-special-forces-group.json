@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "5th Special Forces Group (United States)",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">5th Special Forces Group (United States)</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q4641457",
+  "titles": {
+    "canonical": "5th_Special_Forces_Group_(United_States)",
+    "normalized": "5th Special Forces Group (United States)",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">5th Special Forces Group (United States)</span></span>"
+  },
+  "pageid": 10268731,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/5th_SFG_Beret_Flash.png/330px-5th_SFG_Beret_Flash.png",
+    "width": 330,
+    "height": 396
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/0/08/5th_SFG_Beret_Flash.png",
+    "width": 569,
+    "height": 683
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1346286697",
+  "tid": "d0d15ee6-2c9f-11f1-b41c-2b36b4f18541",
+  "timestamp": "2026-03-31T01:20:34Z",
+  "description": "Military unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/5th_Special_Forces_Group_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/5th_Special_Forces_Group_(United_States)?action=history",
+      "edit": "https://en.wikipedia.org/wiki/5th_Special_Forces_Group_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:5th_Special_Forces_Group_(United_States)"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/5th_Special_Forces_Group_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/5th_Special_Forces_Group_(United_States)",
+      "edit": "https://en.wikipedia.org/wiki/5th_Special_Forces_Group_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:5th_Special_Forces_Group_(United_States)"
+    }
+  },
+  "extract": "The 5th Special Forces Group (Airborne) (5th SFG (A), 5th Group) is one of the most decorated active duty United States Army Special Forces groups. The 5th SFG (A) saw extensive action in the Vietnam War and played a pivotal role in the early months of Operation Enduring Freedom. 5th Group is designed to deploy and execute nine doctrinal missions: unconventional warfare, foreign internal defense, direct action, counter-insurgency, special reconnaissance, counter-terrorism, information operations, counterproliferation of weapon of mass destruction, and security force assistance.",
+  "extract_html": "<p>The <b>5th Special Forces Group (Airborne)</b> (5th SFG (A), 5th Group) is one of the most decorated active duty United States Army Special Forces groups. The 5th SFG (A) saw extensive action in the Vietnam War and played a pivotal role in the early months of Operation Enduring Freedom. 5th Group is designed to deploy and execute nine doctrinal missions: unconventional warfare, foreign internal defense, direct action, counter-insurgency, special reconnaissance, counter-terrorism, information operations, counterproliferation of weapon of mass destruction, and security force assistance.</p>"
+}

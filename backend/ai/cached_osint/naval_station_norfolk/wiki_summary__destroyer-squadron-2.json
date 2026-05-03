@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Destroyer Squadron 2",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Destroyer Squadron 2</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q5265371",
+  "titles": {
+    "canonical": "Destroyer_Squadron_2",
+    "normalized": "Destroyer Squadron 2",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Destroyer Squadron 2</span></span>"
+  },
+  "pageid": 35805102,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Destroyer_Squadron_2_%28United_States_Navy%29_insignia%2C_2020.png",
+    "width": 242,
+    "height": 273
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Destroyer_Squadron_2_%28United_States_Navy%29_insignia%2C_2020.png",
+    "width": 242,
+    "height": 273
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1344944902",
+  "tid": "68d6b206-26b6-11f1-ae76-6cab80b93045",
+  "timestamp": "2026-03-23T12:47:11Z",
+  "description": "Military unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Destroyer_Squadron_2",
+      "revisions": "https://en.wikipedia.org/wiki/Destroyer_Squadron_2?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Destroyer_Squadron_2?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Destroyer_Squadron_2"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Destroyer_Squadron_2",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Destroyer_Squadron_2",
+      "edit": "https://en.wikipedia.org/wiki/Destroyer_Squadron_2?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Destroyer_Squadron_2"
+    }
+  },
+  "extract": "Destroyer Squadron 2 is a destroyer squadron of the United States Navy. It is administratively part of Commander, Naval Surface Force Atlantic. Destroyer Squadron 2 is assigned to Carrier Strike Group Twelve.\nAs of 2023, the following destroyers are assigned to this squadron: USS Stout (DDG-55), USS McFaul (DDG-74), USS Oscar Austin (DDG-79), USS Bulkeley (DDG-84), USS Mason (DDG-87).",
+  "extract_html": "<p><b>Destroyer Squadron 2</b> is a destroyer squadron of the United States Navy. It is administratively part of Commander, Naval Surface Force Atlantic. Destroyer Squadron 2 is assigned to Carrier Strike Group Twelve.\nAs of 2023, the following destroyers are assigned to this squadron: <span>USS <i>Stout</i> (DDG-55)</span>, <span>USS <i>McFaul</i> (DDG-74)</span>, <span>USS <i>Oscar Austin</i> (DDG-79)</span>, <span>USS <i>Bulkeley</i> (DDG-84)</span>, <span>USS <i>Mason</i> (DDG-87)</span>.</p>"
+}

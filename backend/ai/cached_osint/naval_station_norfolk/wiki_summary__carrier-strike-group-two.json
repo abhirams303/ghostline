@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Carrier Strike Group 2",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Carrier Strike Group 2</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q2940268",
+  "titles": {
+    "canonical": "Carrier_Strike_Group_2",
+    "normalized": "Carrier Strike Group 2",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Carrier Strike Group 2</span></span>"
+  },
+  "pageid": 28570791,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Carrier_Strike_Group_Two_logo.PNG/330px-Carrier_Strike_Group_Two_logo.PNG",
+    "width": 330,
+    "height": 331
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/0/06/Carrier_Strike_Group_Two_logo.PNG",
+    "width": 558,
+    "height": 559
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1348886650",
+  "tid": "65a89263-383a-11f1-bc34-7c6869247e6f",
+  "timestamp": "2026-04-14T19:44:49Z",
+  "description": "Military unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Carrier_Strike_Group_2",
+      "revisions": "https://en.wikipedia.org/wiki/Carrier_Strike_Group_2?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Carrier_Strike_Group_2?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Carrier_Strike_Group_2"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Carrier_Strike_Group_2",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Carrier_Strike_Group_2",
+      "edit": "https://en.wikipedia.org/wiki/Carrier_Strike_Group_2?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Carrier_Strike_Group_2"
+    }
+  },
+  "extract": "Carrier Strike Group 2 is a U.S. Navy carrier strike group, tracing its history originally to 1931. The aircraft carrier USS Dwight D. Eisenhower is the strike group's current flagship. As of Aug 2020, other units assigned to Carrier Strike Group 2 included the nine squadrons of Carrier Air Wing Three; the Ticonderoga-class cruisers USS Philippine Sea (CG-58); USS Monterey (CG-61), USS Vella Gulf (CG-72) and the Arleigh Burke-class destroyers USS Mitscher (DDG-57), USS Laboon , USS Mahan (DDG-72), and USS Thomas Hudner (DDG-116) from Destroyer Squadron 22.",
+  "extract_html": "<p><b>Carrier Strike Group 2</b> is a U.S. Navy carrier strike group, tracing its history originally to 1931. The aircraft carrier <span>USS <i>Dwight D. Eisenhower</i></span> is the strike group's current flagship. As of Aug 2020, other units assigned to Carrier Strike Group 2 included the nine squadrons of Carrier Air Wing Three; the <span><i>Ticonderoga</i>-class cruisers</span> <span>USS <i>Philippine Sea</i> (CG-58)</span>; <span><i>USS Monterey</i> (CG-61)</span>, <span>USS <i>Vella Gulf</i> (CG-72)</span> and the <span><i>Arleigh Burke</i>-class destroyers</span> <span>USS <i>Mitscher</i> (DDG-57)</span>, <span>USS <i>Laboon</i> </span>, <span>USS <i>Mahan</i> (DDG-72)</span>, and <span>USS <i>Thomas Hudner</i> (DDG-116)</span> from Destroyer Squadron 22.</p>"
+}

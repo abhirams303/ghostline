@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Carrier Strike Group 10",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Carrier Strike Group 10</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q2940256",
+  "titles": {
+    "canonical": "Carrier_Strike_Group_10",
+    "normalized": "Carrier Strike Group 10",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Carrier Strike Group 10</span></span>"
+  },
+  "pageid": 28486243,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Carrier_Strike_Group_10_crest.png/330px-Carrier_Strike_Group_10_crest.png",
+    "width": 330,
+    "height": 330
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/2/24/Carrier_Strike_Group_10_crest.png",
+    "width": 2133,
+    "height": 2133
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1350848143",
+  "tid": "9756f0d8-3fd0-11f1-86cf-e9e1a876eef7",
+  "timestamp": "2026-04-24T11:27:35Z",
+  "description": "Military unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Carrier_Strike_Group_10",
+      "revisions": "https://en.wikipedia.org/wiki/Carrier_Strike_Group_10?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Carrier_Strike_Group_10?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Carrier_Strike_Group_10"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Carrier_Strike_Group_10",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Carrier_Strike_Group_10",
+      "edit": "https://en.wikipedia.org/wiki/Carrier_Strike_Group_10?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Carrier_Strike_Group_10"
+    }
+  },
+  "extract": "Carrier Strike Group 10, is a U.S. Navy carrier strike group. As of August 2022, CSG-10 consists of USS George H.W. Bush (CVN-77), the strike group's current flagship, with Carrier Air Wing Seven embarked on board, and ships of Destroyer Squadron 26.",
+  "extract_html": "<p><b>Carrier Strike Group 10</b>, is a U.S. Navy carrier strike group. As of August 2022, CSG-10 consists of <span>USS <i>George H.W. Bush</i> (CVN-77)</span>, the strike group's current flagship, with Carrier Air Wing Seven embarked on board, and ships of Destroyer Squadron 26.</p>"
+}

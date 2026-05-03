@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Joint Special Operations Command",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Joint Special Operations Command</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q31901",
+  "titles": {
+    "canonical": "Joint_Special_Operations_Command",
+    "normalized": "Joint Special Operations Command",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Joint Special Operations Command</span></span>"
+  },
+  "pageid": 2635111,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Seal_of_the_Joint_Special_Operations_Command_%28JSOC%29.svg/330px-Seal_of_the_Joint_Special_Operations_Command_%28JSOC%29.svg.png",
+    "width": 330,
+    "height": 330
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Seal_of_the_Joint_Special_Operations_Command_%28JSOC%29.svg/960px-Seal_of_the_Joint_Special_Operations_Command_%28JSOC%29.svg.png",
+    "width": 543,
+    "height": 543
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1351584901",
+  "tid": "a3380d33-4350-11f1-b25e-8e4d0dadadd6",
+  "timestamp": "2026-04-28T22:21:44Z",
+  "description": "Joint component command of USSOCOM",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Joint_Special_Operations_Command",
+      "revisions": "https://en.wikipedia.org/wiki/Joint_Special_Operations_Command?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Joint_Special_Operations_Command?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Joint_Special_Operations_Command"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Joint_Special_Operations_Command",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Joint_Special_Operations_Command",
+      "edit": "https://en.wikipedia.org/wiki/Joint_Special_Operations_Command?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Joint_Special_Operations_Command"
+    }
+  },
+  "extract": "The Joint Special Operations Command (JSOC) is a joint component command of the United States Special Operations Command (USSOCOM) and is charged with studying special operations requirements and techniques to ensure interoperability and equipment standardization, to plan and conduct special operations exercises and training, to develop joint special operations tactics, and to execute special operations missions worldwide. It was established in 1980 on recommendation of Colonel Charlie Beckwith, in the aftermath of the failure of Operation Eagle Claw. It is headquartered at Pope Field.",
+  "extract_html": "<p>The <b>Joint Special Operations Command</b> (<b>JSOC</b>) is a joint component command of the United States Special Operations Command (USSOCOM) and is charged with studying special operations requirements and techniques to ensure interoperability and equipment standardization, to plan and conduct special operations exercises and training, to develop joint special operations tactics, and to execute special operations missions worldwide. It was established in 1980 on recommendation of Colonel Charlie Beckwith, in the aftermath of the failure of Operation Eagle Claw. It is headquartered at Pope Field.</p>"
+}

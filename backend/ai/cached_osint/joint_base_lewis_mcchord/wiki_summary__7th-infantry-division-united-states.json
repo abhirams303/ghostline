@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "7th Infantry Division (United States)",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">7th Infantry Division (United States)</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q261179",
+  "titles": {
+    "canonical": "7th_Infantry_Division_(United_States)",
+    "normalized": "7th Infantry Division (United States)",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">7th Infantry Division (United States)</span></span>"
+  },
+  "pageid": 330666,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/7th_Infantry_Division_SSI_%281973-2015%29.svg/330px-7th_Infantry_Division_SSI_%281973-2015%29.svg.png",
+    "width": 330,
+    "height": 332
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/7th_Infantry_Division_SSI_%281973-2015%29.svg/960px-7th_Infantry_Division_SSI_%281973-2015%29.svg.png",
+    "width": 709,
+    "height": 713
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1352060052",
+  "tid": "986eba77-4596-11f1-b7df-c0b49aa400bd",
+  "timestamp": "2026-05-01T19:47:33Z",
+  "description": "Active US Army formation",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/7th_Infantry_Division_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/7th_Infantry_Division_(United_States)?action=history",
+      "edit": "https://en.wikipedia.org/wiki/7th_Infantry_Division_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:7th_Infantry_Division_(United_States)"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/7th_Infantry_Division_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/7th_Infantry_Division_(United_States)",
+      "edit": "https://en.wikipedia.org/wiki/7th_Infantry_Division_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:7th_Infantry_Division_(United_States)"
+    }
+  },
+  "extract": "The 7th Infantry Division / Multi-Domain Command Pacific is an active duty division of the United States Army based at Joint Base Lewis-McChord. It is charged with maintaining the capability of two Stryker infantry brigade combat teams, a combat aviation brigade, and a Division Artillery Unit, as well as preparing units for several U.S. Army Pacific yearly exercises. The 7th Infantry Division is the only active-duty multi-component division headquarters in the Army. Brigadier General Bernard J. Harrington commands the division. The 7th Infantry Division is also home to two of the Army's newest enabling battlefield capabilities, the Multi Domain Task Force and the Intelligence, Information, Cyber, Electronic Warfare and Space Capabilities, or I2CEWS battalion.",
+  "extract_html": "<p>The <b>7th Infantry Division / Multi-Domain Command Pacific</b> is an active duty division of the United States Army based at Joint Base Lewis-McChord. It is charged with maintaining the capability of two Stryker infantry brigade combat teams, a combat aviation brigade, and a Division Artillery Unit, as well as preparing units for several U.S. Army Pacific yearly exercises. The 7th Infantry Division is the only active-duty multi-component division headquarters in the Army. Brigadier General Bernard J. Harrington commands the division. The 7th Infantry Division is also home to two of the Army's newest enabling battlefield capabilities, the Multi Domain Task Force and the Intelligence, Information, Cyber, Electronic Warfare and Space Capabilities, or I2CEWS battalion.</p>"
+}

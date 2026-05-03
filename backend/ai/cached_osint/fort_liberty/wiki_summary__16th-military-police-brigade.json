@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "16th Military Police Brigade (United States)",
+  "displaytitle": "<span class=\"mw-page-title-main\">16th Military Police Brigade (United States)</span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q4552197",
+  "titles": {
+    "canonical": "16th_Military_Police_Brigade_(United_States)",
+    "normalized": "16th Military Police Brigade (United States)",
+    "display": "<span class=\"mw-page-title-main\">16th Military Police Brigade (United States)</span>"
+  },
+  "pageid": 1425546,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/7/71/16th_Military_Police_Brigade_SSI.jpg",
+    "width": 185,
+    "height": 222
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/7/71/16th_Military_Police_Brigade_SSI.jpg",
+    "width": 185,
+    "height": 222
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1346546661",
+  "tid": "f363957f-2dd1-11f1-b919-4b5853cbe97d",
+  "timestamp": "2026-04-01T13:51:58Z",
+  "description": "Military unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/16th_Military_Police_Brigade_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/16th_Military_Police_Brigade_(United_States)?action=history",
+      "edit": "https://en.wikipedia.org/wiki/16th_Military_Police_Brigade_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:16th_Military_Police_Brigade_(United_States)"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/16th_Military_Police_Brigade_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/16th_Military_Police_Brigade_(United_States)",
+      "edit": "https://en.wikipedia.org/wiki/16th_Military_Police_Brigade_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:16th_Military_Police_Brigade_(United_States)"
+    }
+  },
+  "extract": "The 16th Military Police Brigade is a military police brigade of the United States Army headquartered at Fort Bragg, North Carolina. This brigade has the only airborne-qualified military police units in the U.S. Army, outside of the 82nd MP Company of the 82nd Airborne Division. It provides law enforcement and police duties to Fort Bragg, and for the XVIII Airborne Corps when deployed. As a brigade with organic airborne units, it is authorized a beret flash and parachute wing trimming, and the shoulder sleeve insignia was authorized to be worn with an airborne tab. According to U.S. Army's Institute of Heraldry, the shoulder sleeve insignia \"was amended to delete the airborne tab effective 16 October 2008\" when jump status of the brigade was terminated; however, various elements of the brigade remain on jump status.",
+  "extract_html": "<p>The <b>16th Military Police Brigade</b> is a military police brigade of the United States Army headquartered at Fort Bragg, North Carolina. This brigade has the only airborne-qualified military police units in the U.S. Army, outside of the 82nd MP Company of the 82nd Airborne Division. It provides law enforcement and police duties to Fort Bragg, and for the XVIII Airborne Corps when deployed. As a brigade with organic airborne units, it is authorized a beret flash and parachute wing trimming, and the shoulder sleeve insignia was authorized to be worn with an airborne tab. According to U.S. Army's Institute of Heraldry, the shoulder sleeve insignia \"was amended to delete the airborne tab effective 16 October 2008\" when jump status of the brigade was terminated; however, various elements of the brigade remain on jump status.</p>"
+}

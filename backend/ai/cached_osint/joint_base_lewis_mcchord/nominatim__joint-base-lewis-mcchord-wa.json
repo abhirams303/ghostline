@@ -1,0 +1,23 @@
+[
+  {
+    "place_id": 325432931,
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "relation",
+    "osm_id": 237502,
+    "lat": "47.0308343",
+    "lon": "-122.5074136",
+    "class": "landuse",
+    "type": "military",
+    "place_rank": 24,
+    "importance": 0.46188646869027183,
+    "addresstype": "military",
+    "name": "Joint Base Lewis-McChord",
+    "display_name": "Joint Base Lewis-McChord, Pierce County, Washington, United States",
+    "boundingbox": [
+      "46.9014667",
+      "47.1594842",
+      "-122.8020123",
+      "-122.3698545"
+    ]
+  }
+]

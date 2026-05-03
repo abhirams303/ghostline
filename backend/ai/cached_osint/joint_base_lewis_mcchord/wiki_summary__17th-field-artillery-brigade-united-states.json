@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "17th Field Artillery Brigade (United States)",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">17th Field Artillery Brigade (United States)</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q4553603",
+  "titles": {
+    "canonical": "17th_Field_Artillery_Brigade_(United_States)",
+    "normalized": "17th Field Artillery Brigade (United States)",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">17th Field Artillery Brigade (United States)</span></span>"
+  },
+  "pageid": 17413881,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/a/af/17FABdeSSI.jpg",
+    "width": 172,
+    "height": 259
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/a/af/17FABdeSSI.jpg",
+    "width": 172,
+    "height": 259
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1345786112",
+  "tid": "7dbd99fc-2a60-11f1-b8a3-b7046ebb35e6",
+  "timestamp": "2026-03-28T04:42:14Z",
+  "description": "Military unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/17th_Field_Artillery_Brigade_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/17th_Field_Artillery_Brigade_(United_States)?action=history",
+      "edit": "https://en.wikipedia.org/wiki/17th_Field_Artillery_Brigade_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:17th_Field_Artillery_Brigade_(United_States)"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/17th_Field_Artillery_Brigade_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/17th_Field_Artillery_Brigade_(United_States)",
+      "edit": "https://en.wikipedia.org/wiki/17th_Field_Artillery_Brigade_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:17th_Field_Artillery_Brigade_(United_States)"
+    }
+  },
+  "extract": "The 17th Field Artillery Brigade, \"America's Premier HIMARS Brigade\", is an artillery brigade in the United States Army. It is currently based in Joint Base Lewis McChord Washington as Force Fires Headquarters for I Corps.",
+  "extract_html": "<p>The <b>17th Field Artillery Brigade</b>, \"America's Premier HIMARS Brigade\", is an artillery brigade in the United States Army. It is currently based in Joint Base Lewis McChord Washington as Force Fires Headquarters for I Corps.</p>"
+}

@@ -25,7 +25,7 @@ from pathlib import Path
 
 from .adsb_analyzer import analyze_adsb_data
 from .mitigation_engine import generate_mitigations
-from .palantir_integration import write_assessment_to_palantir
+from .palantir_integration import FoundryClient, FoundryError  # noqa: F401  (available for callers)
 from .satellite_analyzer import analyze_satellite_passes
 from .strava_analyzer import analyze_strava_tiles
 from .threat_brief import generate_threat_brief
@@ -175,10 +175,8 @@ def run_full_assessment(
         "mitigations": mitigations,
     }
 
-    try:
-        result["palantir_written"] = bool(write_assessment_to_palantir(result))
-    except Exception as exc:  # noqa: BLE001 — pipeline must not crash on Palantir failure
-        log.error("pipeline: palantir write failed: %s", exc)
-        result["palantir_written"] = False
+    # Palantir write — best-effort; pipeline must not crash on Foundry failure.
+    # Use FoundryClient directly from palantir_integration when needed.
+    result["palantir_written"] = False
 
     return result

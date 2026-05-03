@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "United States Army Reserve Command",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">United States Army Reserve Command</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q7889518",
+  "titles": {
+    "canonical": "United_States_Army_Reserve_Command",
+    "normalized": "United States Army Reserve Command",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">United States Army Reserve Command</span></span>"
+  },
+  "pageid": 27544635,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/US_Army_Reserve_Command_SSI.svg/330px-US_Army_Reserve_Command_SSI.svg.png",
+    "width": 330,
+    "height": 330
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/US_Army_Reserve_Command_SSI.svg/960px-US_Army_Reserve_Command_SSI.svg.png",
+    "width": 902,
+    "height": 902
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1346486135",
+  "tid": "6a6a3e9c-2d74-11f1-b2e8-107d8f7adb29",
+  "timestamp": "2026-04-01T02:42:25Z",
+  "description": "US Army command responsible for all Army Reserve units",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/United_States_Army_Reserve_Command",
+      "revisions": "https://en.wikipedia.org/wiki/United_States_Army_Reserve_Command?action=history",
+      "edit": "https://en.wikipedia.org/wiki/United_States_Army_Reserve_Command?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:United_States_Army_Reserve_Command"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/United_States_Army_Reserve_Command",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/United_States_Army_Reserve_Command",
+      "edit": "https://en.wikipedia.org/wiki/United_States_Army_Reserve_Command?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:United_States_Army_Reserve_Command"
+    }
+  },
+  "extract": "The United States Army Reserve Command (USARC) commands all United States Army Reserve units, and is responsible for overseeing unit staffing, training, management, and deployment. Approximately 205,000 Army Reserve soldiers are assigned to USARC. The major subordinate commands that report directly to USARC consist of operational commands, functional commands, support commands, and training commands. In turn, USARC itself reports to the Office of the Chief of Army Reserve within the Headquarters, Department of the Army. USARC is headquartered at Fort Bragg in North Carolina.",
+  "extract_html": "<p>The <b>United States Army Reserve Command</b> (<b>USARC</b>) commands all United States Army Reserve units, and is responsible for overseeing unit staffing, training, management, and deployment. Approximately 205,000 Army Reserve soldiers are assigned to USARC. The major subordinate commands that report directly to USARC consist of operational commands, functional commands, support commands, and training commands. In turn, USARC itself reports to the Office of the Chief of Army Reserve within the Headquarters, Department of the Army. USARC is headquartered at Fort Bragg in North Carolina.</p>"
+}

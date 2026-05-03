@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "1st Theater Sustainment Command",
+  "displaytitle": "<span class=\"mw-page-title-main\">1st Theater Sustainment Command</span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q4596641",
+  "titles": {
+    "canonical": "1st_Theater_Sustainment_Command",
+    "normalized": "1st Theater Sustainment Command",
+    "display": "<span class=\"mw-page-title-main\">1st Theater Sustainment Command</span>"
+  },
+  "pageid": 3991361,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/1st_Sustainment_Command_CSIB.svg/330px-1st_Sustainment_Command_CSIB.svg.png",
+    "width": 330,
+    "height": 330
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/1st_Sustainment_Command_CSIB.svg/500px-1st_Sustainment_Command_CSIB.svg.png",
+    "width": 500,
+    "height": 500
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1346305060",
+  "tid": "7fca64c3-2cb1-11f1-88af-0cb09f4dbb83",
+  "timestamp": "2026-03-31T03:27:09Z",
+  "description": "Military unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/1st_Theater_Sustainment_Command",
+      "revisions": "https://en.wikipedia.org/wiki/1st_Theater_Sustainment_Command?action=history",
+      "edit": "https://en.wikipedia.org/wiki/1st_Theater_Sustainment_Command?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:1st_Theater_Sustainment_Command"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/1st_Theater_Sustainment_Command",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/1st_Theater_Sustainment_Command",
+      "edit": "https://en.wikipedia.org/wiki/1st_Theater_Sustainment_Command?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:1st_Theater_Sustainment_Command"
+    }
+  },
+  "extract": "The 1st Theater Sustainment Command is a major subordinate unit of United States Army Central at Fort Knox, Kentucky, United States.",
+  "extract_html": "<p>The <b>1st Theater Sustainment Command</b> is a major subordinate unit of United States Army Central at Fort Knox, Kentucky, United States.</p>"
+}

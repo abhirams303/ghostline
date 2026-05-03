@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "555th Engineer Brigade (United States)",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">555th Engineer Brigade (United States)</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q4640577",
+  "titles": {
+    "canonical": "555th_Engineer_Brigade_(United_States)",
+    "normalized": "555th Engineer Brigade (United States)",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">555th Engineer Brigade (United States)</span></span>"
+  },
+  "pageid": 14727330,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/555th_Engineer_Brigade.svg/330px-555th_Engineer_Brigade.svg.png",
+    "width": 330,
+    "height": 314
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/555th_Engineer_Brigade.svg/960px-555th_Engineer_Brigade.svg.png",
+    "width": 860,
+    "height": 818
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1352065896",
+  "tid": "4466d3c1-459c-11f1-93d3-31b6a8ace31a",
+  "timestamp": "2026-05-01T20:28:09Z",
+  "description": "Military unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/555th_Engineer_Brigade_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/555th_Engineer_Brigade_(United_States)?action=history",
+      "edit": "https://en.wikipedia.org/wiki/555th_Engineer_Brigade_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:555th_Engineer_Brigade_(United_States)"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/555th_Engineer_Brigade_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/555th_Engineer_Brigade_(United_States)",
+      "edit": "https://en.wikipedia.org/wiki/555th_Engineer_Brigade_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:555th_Engineer_Brigade_(United_States)"
+    }
+  },
+  "extract": "The 555th Engineer Brigade \"Triple Nickel\" is a combat engineer brigade of the United States Army based at Joint Base Lewis-McChord, Washington. The brigade is a Corps separate falling directly under I Corps. The 555 numbering was first used in 1947, but the brigade traces its history to a group active under the 1103d designation from 1943 to 1946. The current Commander of the 555th Engineer Brigade is COL Ada Cotto, who took command on October 2nd, 2025.",
+  "extract_html": "<p>The <b>555th Engineer Brigade</b> \"Triple Nickel\" is a combat engineer brigade of the United States Army based at Joint Base Lewis-McChord, Washington. The brigade is a Corps separate falling directly under I Corps. The 555 numbering was first used in 1947, but the brigade traces its history to a group active under the 1103d designation from 1943 to 1946. The current Commander of the 555th Engineer Brigade is COL Ada Cotto, who took command on October 2nd, 2025.</p>"
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "place_id": 345541347,
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "relation",
+    "osm_id": 176940,
+    "lat": "35.1403110",
+    "lon": "-79.1541465",
+    "class": "place",
+    "type": "locality",
+    "place_rank": 25,
+    "importance": 0.4972281131815571,
+    "addresstype": "locality",
+    "name": "Fort Bragg",
+    "display_name": "Fort Bragg, Hoke County, North Carolina, United States",
+    "boundingbox": [
+      "35.0306104",
+      "35.2512395",
+      "-79.3814458",
+      "-78.9447240"
+    ]
+  }
+]

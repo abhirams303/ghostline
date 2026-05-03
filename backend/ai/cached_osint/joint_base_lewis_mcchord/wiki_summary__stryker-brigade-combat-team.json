@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Brigade Combat Team",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Brigade Combat Team</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q915341",
+  "titles": {
+    "canonical": "Brigade_Combat_Team",
+    "normalized": "Brigade Combat Team",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Brigade Combat Team</span></span>"
+  },
+  "pageid": 82689675,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Brigade_Combat_Team_cropped.jpg/330px-Brigade_Combat_Team_cropped.jpg",
+    "width": 330,
+    "height": 227
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Brigade_Combat_Team_cropped.jpg",
+    "width": 1584,
+    "height": 1089
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1347967429",
+  "tid": "9fa31b63-345f-11f1-9a64-1da9c6ab34dc",
+  "timestamp": "2026-04-09T22:01:13Z",
+  "description": "Basic deployable unit of maneuver in the U.S. Army",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Brigade_Combat_Team",
+      "revisions": "https://en.wikipedia.org/wiki/Brigade_Combat_Team?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Brigade_Combat_Team?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Brigade_Combat_Team"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Brigade_Combat_Team",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Brigade_Combat_Team",
+      "edit": "https://en.wikipedia.org/wiki/Brigade_Combat_Team?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Brigade_Combat_Team"
+    }
+  },
+  "extract": "The Brigade Combat Team (BCT) was the basic deployable unit of maneuver in the United States Army from about 2011-2016.",
+  "extract_html": "<p>The <b>Brigade Combat Team</b> (<b>BCT</b>) was the basic deployable unit of maneuver in the United States Army from about 2011-2016.</p>"
+}

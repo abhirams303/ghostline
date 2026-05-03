@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "201st Expeditionary Military Intelligence Brigade",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">201st Expeditionary Military Intelligence Brigade</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q4630381",
+  "titles": {
+    "canonical": "201st_Expeditionary_Military_Intelligence_Brigade",
+    "normalized": "201st Expeditionary Military Intelligence Brigade",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">201st Expeditionary Military Intelligence Brigade</span></span>"
+  },
+  "pageid": 25712749,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/201st_Battlefield_Surveillance_Brigade.svg/330px-201st_Battlefield_Surveillance_Brigade.svg.png",
+    "width": 330,
+    "height": 415
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/201st_Battlefield_Surveillance_Brigade.svg/500px-201st_Battlefield_Surveillance_Brigade.svg.png",
+    "width": 471,
+    "height": 592
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1344370624",
+  "tid": "d35cc8bb-23fc-11f1-9c21-37bede08fc64",
+  "timestamp": "2026-03-20T01:33:41Z",
+  "description": "Military unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/201st_Expeditionary_Military_Intelligence_Brigade",
+      "revisions": "https://en.wikipedia.org/wiki/201st_Expeditionary_Military_Intelligence_Brigade?action=history",
+      "edit": "https://en.wikipedia.org/wiki/201st_Expeditionary_Military_Intelligence_Brigade?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:201st_Expeditionary_Military_Intelligence_Brigade"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/201st_Expeditionary_Military_Intelligence_Brigade",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/201st_Expeditionary_Military_Intelligence_Brigade",
+      "edit": "https://en.wikipedia.org/wiki/201st_Expeditionary_Military_Intelligence_Brigade?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:201st_Expeditionary_Military_Intelligence_Brigade"
+    }
+  },
+  "extract": "The 201st Expeditionary Military Intelligence Brigade is located at Joint Base Lewis-McChord, Washington. The 201st was originally named the 201st Military Intelligence Brigade and on 3 July 2008 it became the Army's third active duty battlefield surveillance brigade and was renamed the 201st Battlefield Surveillance Brigade (BfSB). The US Army reorganized BfSBs and the 201st was realigned into a new expeditionary military intelligence brigade.",
+  "extract_html": "<p>The <b>201st Expeditionary Military Intelligence Brigade</b> is located at Joint Base Lewis-McChord, Washington. The 201st was originally named the 201st Military Intelligence Brigade and on 3 July 2008 it became the Army's third active duty battlefield surveillance brigade and was renamed the 201st Battlefield Surveillance Brigade (BfSB). The US Army reorganized BfSBs and the 201st was realigned into a new expeditionary military intelligence brigade.</p>"
+}

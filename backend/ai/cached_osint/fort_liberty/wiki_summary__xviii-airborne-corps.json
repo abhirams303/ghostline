@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "XVIII Airborne Corps",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">XVIII Airborne Corps</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q582971",
+  "titles": {
+    "canonical": "XVIII_Airborne_Corps",
+    "normalized": "XVIII Airborne Corps",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">XVIII Airborne Corps</span></span>"
+  },
+  "pageid": 248571,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/The_XVIII_Army_Airborne_Corps_shoulder_sleeve_insignia.svg/330px-The_XVIII_Army_Airborne_Corps_shoulder_sleeve_insignia.svg.png",
+    "width": 330,
+    "height": 452
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/The_XVIII_Army_Airborne_Corps_shoulder_sleeve_insignia.svg/960px-The_XVIII_Army_Airborne_Corps_shoulder_sleeve_insignia.svg.png",
+    "width": 512,
+    "height": 701
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1352055372",
+  "tid": "6ce9cf8c-4592-11f1-9197-376409e23a4d",
+  "timestamp": "2026-05-01T19:17:42Z",
+  "description": "One of four active corps of the U.S. Army, currently part of U.S. Army Forces Command",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/XVIII_Airborne_Corps",
+      "revisions": "https://en.wikipedia.org/wiki/XVIII_Airborne_Corps?action=history",
+      "edit": "https://en.wikipedia.org/wiki/XVIII_Airborne_Corps?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:XVIII_Airborne_Corps"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/XVIII_Airborne_Corps",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/XVIII_Airborne_Corps",
+      "edit": "https://en.wikipedia.org/wiki/XVIII_Airborne_Corps?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:XVIII_Airborne_Corps"
+    }
+  },
+  "extract": "The XVIII Airborne Corps is a corps of the United States Army that has been in existence since 1942 and saw extensive service during World War II. The corps is designed for rapid deployment anywhere in the world and is referred to as \"America's Contingency Corps.\" Its headquarters are at Fort Bragg, North Carolina.",
+  "extract_html": "<p>The <b>XVIII Airborne Corps</b> is a corps of the United States Army that has been in existence since 1942 and saw extensive service during World War II. The corps is designed for rapid deployment anywhere in the world and is referred to as \"America's Contingency Corps.\" Its headquarters are at Fort Bragg, North Carolina.</p>"
+}

@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "20th Engineer Brigade (United States)",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">20th Engineer Brigade (United States)</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q4630744",
+  "titles": {
+    "canonical": "20th_Engineer_Brigade_(United_States)",
+    "normalized": "20th Engineer Brigade (United States)",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">20th Engineer Brigade (United States)</span></span>"
+  },
+  "pageid": 2288558,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/20th_Engineer_Brigade_CSIB.png/330px-20th_Engineer_Brigade_CSIB.png",
+    "width": 330,
+    "height": 330
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/0/0e/20th_Engineer_Brigade_CSIB.png",
+    "width": 857,
+    "height": 857
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1350039585",
+  "tid": "cb8982dd-3c51-11f1-a049-89257aac0cbf",
+  "timestamp": "2026-04-20T00:42:23Z",
+  "description": "Military unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/20th_Engineer_Brigade_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/20th_Engineer_Brigade_(United_States)?action=history",
+      "edit": "https://en.wikipedia.org/wiki/20th_Engineer_Brigade_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:20th_Engineer_Brigade_(United_States)"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/20th_Engineer_Brigade_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/20th_Engineer_Brigade_(United_States)",
+      "edit": "https://en.wikipedia.org/wiki/20th_Engineer_Brigade_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:20th_Engineer_Brigade_(United_States)"
+    }
+  },
+  "extract": "The 20th Engineer Brigade is a combat engineer brigade assigned to the XVIII Airborne Corps of the United States Army stationed at Fort Bragg. Although the brigade was identified as an airborne unit, not all of its subordinate units were airborne qualified—despite the airborne tab as part of the unit patch. Soldiers of the 20th Engineer Brigade provide various supportive duties to other Army units, including construction, engineering, and mechanical work on other Army projects.",
+  "extract_html": "<p>The <b>20th Engineer Brigade</b> is a combat engineer brigade assigned to the XVIII Airborne Corps of the United States Army stationed at Fort Bragg. Although the brigade was identified as an airborne unit, not all of its subordinate units were airborne qualified—despite the airborne tab as part of the unit patch. Soldiers of the 20th Engineer Brigade provide various supportive duties to other Army units, including construction, engineering, and mechanical work on other Army projects.</p>"
+}

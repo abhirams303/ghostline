@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "82nd Sustainment Brigade",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">82nd Sustainment Brigade</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q4644670",
+  "titles": {
+    "canonical": "82nd_Sustainment_Brigade",
+    "normalized": "82nd Sustainment Brigade",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">82nd Sustainment Brigade</span></span>"
+  },
+  "pageid": 16353970,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/5/5e/82SustainBdeDUI.jpg",
+    "width": 255,
+    "height": 301
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/5/5e/82SustainBdeDUI.jpg",
+    "width": 255,
+    "height": 301
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1309276209",
+  "tid": "9fb1bb54-887d-11f0-8769-664a9e2f8b55",
+  "timestamp": "2025-09-03T04:22:38Z",
+  "description": "Military unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/82nd_Sustainment_Brigade",
+      "revisions": "https://en.wikipedia.org/wiki/82nd_Sustainment_Brigade?action=history",
+      "edit": "https://en.wikipedia.org/wiki/82nd_Sustainment_Brigade?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:82nd_Sustainment_Brigade"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/82nd_Sustainment_Brigade",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/82nd_Sustainment_Brigade",
+      "edit": "https://en.wikipedia.org/wiki/82nd_Sustainment_Brigade?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:82nd_Sustainment_Brigade"
+    }
+  },
+  "extract": "The 82nd Airborne Division Sustainment Brigade is a sustainment brigade of the United States Army based at Fort Bragg, North Carolina. It provides logistical support to and is part of 82nd Airborne Division.",
+  "extract_html": "<p>The <b>82nd Airborne Division Sustainment Brigade</b> is a sustainment brigade of the United States Army based at Fort Bragg, North Carolina. It provides logistical support to and is part of 82nd Airborne Division.</p>"
+}

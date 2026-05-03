@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "44th Medical Brigade",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">44th Medical Brigade</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q4638076",
+  "titles": {
+    "canonical": "44th_Medical_Brigade",
+    "normalized": "44th Medical Brigade",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">44th Medical Brigade</span></span>"
+  },
+  "pageid": 8709111,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/44MCSSI.svg/330px-44MCSSI.svg.png",
+    "width": 330,
+    "height": 411
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/44MCSSI.svg/330px-44MCSSI.svg.png",
+    "width": 285,
+    "height": 355
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1348783546",
+  "tid": "b8e7f898-37d4-11f1-b7fa-97f85add68ad",
+  "timestamp": "2026-04-14T07:37:00Z",
+  "description": "Military unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/44th_Medical_Brigade",
+      "revisions": "https://en.wikipedia.org/wiki/44th_Medical_Brigade?action=history",
+      "edit": "https://en.wikipedia.org/wiki/44th_Medical_Brigade?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:44th_Medical_Brigade"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/44th_Medical_Brigade",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/44th_Medical_Brigade",
+      "edit": "https://en.wikipedia.org/wiki/44th_Medical_Brigade?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:44th_Medical_Brigade"
+    }
+  },
+  "extract": "The 44th Medical Brigade is a US Army unit located at Fort Bragg, North Carolina, providing health care and medical services to the Fort Bragg community, and continuing training in its combat support mission. It was the US Army's second operational medical brigade and, when deployed to the Republic of Vietnam in 1966, the first to support ground combat operations. It has since participated in every major ground combat operation of the United States Army.",
+  "extract_html": "<p>The <b>44th Medical Brigade</b> is a US Army unit located at Fort Bragg, North Carolina, providing health care and medical services to the Fort Bragg community, and continuing training in its combat support mission. It was the US Army's second operational medical brigade and, when deployed to the Republic of Vietnam in 1966, the first to support ground combat operations. It has since participated in every major ground combat operation of the United States Army.</p>"
+}

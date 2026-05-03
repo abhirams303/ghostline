@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Carrier Strike Group 12",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Carrier Strike Group 12</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q5046366",
+  "titles": {
+    "canonical": "Carrier_Strike_Group_12",
+    "normalized": "Carrier Strike Group 12",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Carrier Strike Group 12</span></span>"
+  },
+  "pageid": 36040727,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Carrier_Strike_Group_12_logo.jpg/330px-Carrier_Strike_Group_12_logo.jpg",
+    "width": 330,
+    "height": 332
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/0/01/Carrier_Strike_Group_12_logo.jpg",
+    "width": 1452,
+    "height": 1460
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1350848273",
+  "tid": "c8cfba22-3fd0-11f1-9727-009d48a71265",
+  "timestamp": "2026-04-24T11:28:58Z",
+  "description": "Military unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Carrier_Strike_Group_12",
+      "revisions": "https://en.wikipedia.org/wiki/Carrier_Strike_Group_12?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Carrier_Strike_Group_12?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Carrier_Strike_Group_12"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Carrier_Strike_Group_12",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Carrier_Strike_Group_12",
+      "edit": "https://en.wikipedia.org/wiki/Carrier_Strike_Group_12?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Carrier_Strike_Group_12"
+    }
+  },
+  "extract": "Carrier Strike Group Twelve is one of four U.S. Navy carrier strike groups currently assigned to the United States Fleet Forces Command. USS Gerald R. Ford is the aircraft carrier assigned as the strike group's flagship. Units currently assigned to Carrier Strike Group Twelve include Carrier Air Wing Eight, the Arleigh Burke-class USS Winston S. Churchill (DDG-81) and Destroyer Squadron 2.",
+  "extract_html": "<p><b>Carrier Strike Group Twelve</b> is one of four U.S. Navy carrier strike groups currently assigned to the United States Fleet Forces Command. <span>USS <i>Gerald R. Ford</i></span> is the aircraft carrier assigned as the strike group's flagship. Units currently assigned to Carrier Strike Group Twelve include Carrier Air Wing Eight, the <span><i>Arleigh Burke</i>-class</span> <span>USS <i>Winston S. Churchill</i> (DDG-81)</span> and Destroyer Squadron 2.</p>"
+}

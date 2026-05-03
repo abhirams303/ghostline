@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "525th Military Intelligence Brigade",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">525th Military Intelligence Brigade</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q4640171",
+  "titles": {
+    "canonical": "525th_Military_Intelligence_Brigade",
+    "normalized": "525th Military Intelligence Brigade",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">525th Military Intelligence Brigade</span></span>"
+  },
+  "pageid": 44332869,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/525_BfSB.svg/330px-525_BfSB.svg.png",
+    "width": 330,
+    "height": 402
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/525_BfSB.svg/330px-525_BfSB.svg.png",
+    "width": 300,
+    "height": 365
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1348818055",
+  "tid": "290a74fd-37fd-11f1-bc8a-f7ab9e2100e0",
+  "timestamp": "2026-04-14T12:26:28Z",
+  "description": "Military unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/525th_Military_Intelligence_Brigade",
+      "revisions": "https://en.wikipedia.org/wiki/525th_Military_Intelligence_Brigade?action=history",
+      "edit": "https://en.wikipedia.org/wiki/525th_Military_Intelligence_Brigade?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:525th_Military_Intelligence_Brigade"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/525th_Military_Intelligence_Brigade",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/525th_Military_Intelligence_Brigade",
+      "edit": "https://en.wikipedia.org/wiki/525th_Military_Intelligence_Brigade?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:525th_Military_Intelligence_Brigade"
+    }
+  },
+  "extract": "The 525th Military Intelligence Brigade is a United States Army unit specializing in the collection and analysis of information with potential military value. On 28 October 2014, the unit was reflagged from the \"525th Battlefield Surveillance Brigade\" to an expeditionary military intelligence brigade, the first of its kind.",
+  "extract_html": "<p>The <b>525th Military Intelligence Brigade</b> is a United States Army unit specializing in the collection and analysis of information with potential military value. On 28 October 2014, the unit was reflagged from the \"525th Battlefield Surveillance Brigade\" to an expeditionary military intelligence brigade, the first of its kind.</p>"
+}

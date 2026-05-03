@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Destroyer Squadron 28",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Destroyer Squadron 28</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q16889432",
+  "titles": {
+    "canonical": "Destroyer_Squadron_28",
+    "normalized": "Destroyer Squadron 28",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Destroyer Squadron 28</span></span>"
+  },
+  "pageid": 40294890,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Destroyer_Squadron_28_%28U.S._Navy%29_insignia%2C_2019.png",
+    "width": 281,
+    "height": 364
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Destroyer_Squadron_28_%28U.S._Navy%29_insignia%2C_2019.png",
+    "width": 281,
+    "height": 364
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1345424045",
+  "tid": "5f646d66-28af-11f1-bddf-d0f9cb76787e",
+  "timestamp": "2026-03-26T01:01:51Z",
+  "description": "Military unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Destroyer_Squadron_28",
+      "revisions": "https://en.wikipedia.org/wiki/Destroyer_Squadron_28?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Destroyer_Squadron_28?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Destroyer_Squadron_28"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Destroyer_Squadron_28",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Destroyer_Squadron_28",
+      "edit": "https://en.wikipedia.org/wiki/Destroyer_Squadron_28?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Destroyer_Squadron_28"
+    }
+  },
+  "extract": "Destroyer Squadron 28, is a squadron of warships of the United States Navy. It is an operational component of Carrier Strike Group Eight. The squadron was formed in 1951. DESRON 28 was re-established on 1 September 1995, during the most recent reorganization of the Atlantic Fleet surface force. The mission of DESRON 28 is to provide a fully trained, combat ready force of surface combatants.",
+  "extract_html": "<p><b>Destroyer Squadron 28</b>, is a squadron of warships of the United States Navy. It is an operational component of Carrier Strike Group Eight. The squadron was formed in 1951. DESRON 28 was re-established on 1 September 1995, during the most recent reorganization of the Atlantic Fleet surface force. The mission of DESRON 28 is to provide a fully trained, combat ready force of surface combatants.</p>"
+}

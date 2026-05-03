@@ -1,130 +1,274 @@
-"""Palantir Foundry write path — STUB.
+"""Palantir Foundry REST client — Bearer-token, no SDK, no OAuth.
 
-Once the Foundry team hands over Developer Console credentials, fill in the
-constants below and the `_invoke_create_action` body. Until then,
-`write_assessment_to_palantir` logs the payload and returns False so the
-demo flow keeps moving when run without Foundry.
-
-What we need from the Palantir team onsite
--------------------------------------------
-1. OAuth client_id + client_secret  (Developer Console → "Create application").
-   Scopes required:
-     - api:ontologies-read
-     - api:ontologies-write
-2. Ontology RID  (the NatSec Hackathon Ontology)         e.g. "ri.ontology.main.ontology.<uuid>"
-3. Action API name for "Create OPSEC Assessment"         e.g. "create-opsec-assessment"
-4. Action API name for "Update Exposure Score"           e.g. "update-exposure-score"
-5. The OSDK package name generated for our project       (installed via
-   `pip install <package-from-foundry>` — Foundry serves it directly).
-
-Environment variables to set
-----------------------------
-    FOUNDRY_HOST=https://nshackathon.palantirfoundry.com
-    FOUNDRY_CLIENT_ID=...
-    FOUNDRY_CLIENT_SECRET=...
-    FOUNDRY_ONTOLOGY_RID=...
-
-OSDK call sketch (fill in once package is installed)
-----------------------------------------------------
-    from foundry_sdk_runtime.auth import ConfidentialClientAuth
-    from <generated_osdk_pkg> import FoundryClient
-    from <generated_osdk_pkg>.ontology.actions import create_opsec_assessment
-
-    auth = ConfidentialClientAuth(
-        client_id=os.environ["FOUNDRY_CLIENT_ID"],
-        client_secret=os.environ["FOUNDRY_CLIENT_SECRET"],
-        hostname=os.environ["FOUNDRY_HOST"],
-        scopes=["api:ontologies-read", "api:ontologies-write"],
-    )
-    client = FoundryClient(auth=auth, hostname=os.environ["FOUNDRY_HOST"])
-    client.ontology.actions.create_opsec_assessment(
-        assessment_id=...,
-        location_name=...,
-        latitude=...,
-        longitude=...,
-        exposure_score=...,
-        strava_density_score=...,
-        aircraft_predictability_score=...,
-        satellite_vulnerability_score=...,
-        assessment_timestamp=...,
-        threat_brief=...,
-    )
+Reads FOUNDRY_HOSTNAME, FOUNDRY_TOKEN, and FOUNDRY_ONTOLOGY_RID from the
+project-root .env file. All ontology writes go through apply_action(); reads
+go through get_object / list_objects / get_linked_objects.
 """
-
 from __future__ import annotations
 
 import logging
-import os
-import uuid
-from datetime import datetime, timezone
+import time
+from pathlib import Path
+from typing import Optional
 
+import requests
 from dotenv import load_dotenv
 
-load_dotenv()
+# ---------------------------------------------------------------------------
+# Env loading
+# ---------------------------------------------------------------------------
+
+_ROOT = Path(__file__).resolve().parent.parent.parent
+load_dotenv(_ROOT / ".env")
+
 log = logging.getLogger(__name__)
 
-FOUNDRY_HOST = os.getenv("FOUNDRY_HOST", "https://nshackathon.palantirfoundry.com")
-FOUNDRY_CLIENT_ID = os.getenv("FOUNDRY_CLIENT_ID")
-FOUNDRY_CLIENT_SECRET = os.getenv("FOUNDRY_CLIENT_SECRET")
-FOUNDRY_ONTOLOGY_RID = os.getenv("FOUNDRY_ONTOLOGY_RID")
+# ---------------------------------------------------------------------------
+# Constants — action and link apiNames (verified against live tenant)
+# ---------------------------------------------------------------------------
+
+ACTIONS: dict[str, str] = {
+    "GhostlineGeoFeature":  "create-ghostline-geo-feature",
+    "GhostlineUnit":        "create-ghostline-unit",
+    "GhostlinePlatform":    "create-ghostline-platform",
+    "GhostlineSensor":      "create-ghostline-sensor",
+    "GhostlineCommsAsset":  "create-ghostline-comms-asset",
+    "CascadeRisk":          "create-cascade-risk",
+    "AdversaryAction":      "create-adversary-action",
+    "OpsecAssessment":      "create-opsec-assessment",
+}
+
+# Forward direction (source points to a single target)
+LINKS_FORWARD: dict[tuple[str, str], str] = {
+    ("GhostlineUnit",       "GhostlineGeoFeature"): "geoFeature",
+    ("GhostlineCommsAsset", "GhostlineGeoFeature"): "geoFeature",
+    ("GhostlinePlatform",   "GhostlineUnit"):       "platforms",
+    ("GhostlineSensor",     "GhostlinePlatform"):   "sensors",
+    ("CascadeRisk",         "GhostlineGeoFeature"): "cascadeRisks",
+    ("CascadeRisk",         "OpsecAssessment"):     "analyzedCascadeRisks",
+    ("AdversaryAction",     "CascadeRisk"):         "adversaryActions",
+}
+
+# Reverse direction (collection — one-to-many fanouts)
+LINKS_REVERSE: dict[tuple[str, str], str] = {
+    ("GhostlineGeoFeature", "GhostlineUnit"):       "units",
+    ("GhostlineGeoFeature", "GhostlineCommsAsset"): "commsAssets",
+    ("GhostlineGeoFeature", "CascadeRisk"):         "geoFeature",
+    ("GhostlineUnit",       "GhostlinePlatform"):   "unit",
+    ("GhostlinePlatform",   "GhostlineSensor"):     "platform",
+    ("CascadeRisk",         "AdversaryAction"):     "cascadeRisk",
+    ("OpsecAssessment",     "CascadeRisk"):         "opsecAssessment",
+}
+
+# ---------------------------------------------------------------------------
+# Exceptions
+# ---------------------------------------------------------------------------
 
 
-def _build_action_payload(assessment_result: dict) -> dict:
-    """Map our internal assessment result to the OPSEC Assessment action params."""
-    breakdown = assessment_result.get("score_breakdown", {})
+class FoundryError(RuntimeError):
+    """Foundry-specific failure (HTTP error, missing config, etc.)."""
 
-    def _raw(layer: str) -> int:
-        return int(breakdown.get(layer, {}).get("raw", 0))
 
-    return {
-        "assessment_id": assessment_result.get("assessment_id") or str(uuid.uuid4()),
-        "location_name": assessment_result.get("location", "UNKNOWN"),
-        "latitude": float(assessment_result.get("lat", 0.0)),
-        "longitude": float(assessment_result.get("lon", 0.0)),
-        "exposure_score": int(assessment_result.get("exposure_score", 0)),
-        "strava_density_score": _raw("strava"),
-        "aircraft_predictability_score": _raw("adsb"),
-        "satellite_vulnerability_score": _raw("satellite"),
-        "assessment_timestamp": assessment_result.get(
-            "assessment_timestamp"
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+
+_WRAP_PAIRS = (("<", ">"), ('"', '"'), ("'", "'"), ("`", "`"))
+
+
+def _strip_wrappers(value: str) -> str:
+    """Strip whitespace and a single pair of wrapping <>, "", '', or `` chars."""
+    v = value.strip()
+    for left, right in _WRAP_PAIRS:
+        if len(v) >= 2 and v.startswith(left) and v.endswith(right):
+            v = v[1:-1].strip()
+            break
+    return v
+
+
+def _normalize_hostname(raw: str) -> str:
+    h = _strip_wrappers(raw)
+    for prefix in ("https://", "http://"):
+        if h.startswith(prefix):
+            h = h[len(prefix):]
+    return h.rstrip("/")
+
+
+# ---------------------------------------------------------------------------
+# Client
+# ---------------------------------------------------------------------------
+
+
+class FoundryClient:
+    """Minimal Foundry REST client using a static Bearer token."""
+
+    _RETRY_STATUSES = {429, 500, 502, 503, 504}
+    _MAX_ATTEMPTS = 3
+
+    def __init__(
+        self,
+        hostname: Optional[str] = None,
+        token: Optional[str] = None,
+        ontology_rid: Optional[str] = None,
+        timeout: int = 10,
+    ) -> None:
+        import os
+
+        raw_host = hostname or os.getenv("FOUNDRY_HOSTNAME", "")
+        raw_token = token or os.getenv("FOUNDRY_TOKEN", "")
+        raw_rid = ontology_rid or os.getenv("FOUNDRY_ONTOLOGY_RID", "")
+
+        host = _normalize_hostname(raw_host)
+        tok = _strip_wrappers(raw_token)
+        rid = _strip_wrappers(raw_rid)
+
+        if not host:
+            raise FoundryError("FOUNDRY_HOSTNAME is not set or empty")
+        if not tok:
+            raise FoundryError("FOUNDRY_TOKEN is not set or empty")
+        if not rid:
+            raise FoundryError("FOUNDRY_ONTOLOGY_RID is not set or empty")
+
+        self._base = f"https://{host}"
+        self._rid = rid
+        self._timeout = timeout
+
+        self._session = requests.Session()
+        self._session.headers.update({
+            "Authorization": f"Bearer {tok}",
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+        })
+
+    # ------------------------------------------------------------------
+    # Internal retry helper
+    # ------------------------------------------------------------------
+
+    def _request(
+        self,
+        method: str,
+        path: str,
+        *,
+        params: Optional[dict] = None,
+        json: Optional[dict] = None,
+    ) -> requests.Response:
+        url = f"{self._base}{path}"
+        delay = 1.0
+        last_exc: Optional[Exception] = None
+
+        for attempt in range(1, self._MAX_ATTEMPTS + 1):
+            try:
+                resp = self._session.request(
+                    method, url, params=params, json=json, timeout=self._timeout
+                )
+            except requests.RequestException as exc:
+                last_exc = exc
+                if attempt < self._MAX_ATTEMPTS:
+                    log.debug("Attempt %d/%d failed (network): %s — retrying in %.0fs",
+                              attempt, self._MAX_ATTEMPTS, exc, delay)
+                    time.sleep(delay)
+                    delay *= 2
+                continue
+
+            if resp.status_code not in self._RETRY_STATUSES:
+                return resp
+
+            if attempt < self._MAX_ATTEMPTS:
+                log.debug("Attempt %d/%d got HTTP %d — retrying in %.0fs",
+                          attempt, self._MAX_ATTEMPTS, resp.status_code, delay)
+                time.sleep(delay)
+                delay *= 2
+            else:
+                body_preview = (resp.text or "")[:500]
+                log.error("Terminal failure HTTP %d for %s %s: %s",
+                          resp.status_code, method, url, body_preview)
+                raise FoundryError(
+                    f"HTTP {resp.status_code} from {method} {url}: {body_preview}"
+                )
+
+        # Reached only if all attempts raised RequestException
+        raise FoundryError(
+            f"Network error after {self._MAX_ATTEMPTS} attempts on {method} {url}: {last_exc}"
         )
-        or datetime.now(timezone.utc).isoformat(),
-        "threat_brief": assessment_result.get("brief", ""),
-    }
 
+    # ------------------------------------------------------------------
+    # Public API
+    # ------------------------------------------------------------------
 
-def _invoke_create_action(payload: dict) -> bool:
-    """TODO: replace this stub with a real OSDK call once credentials land.
+    def apply_action(self, action_apiname: str, parameters: dict) -> dict:
+        """Invoke a Foundry action and return the parsed JSON response."""
+        log.info("Invoking action: %s", action_apiname)
+        path = f"/api/v2/ontologies/{self._rid}/actions/{action_apiname}/apply"
+        body = {"parameters": parameters, "options": {"returnEdits": "ALL"}}
+        resp = self._request("POST", path, json=body)
+        if not resp.ok:
+            body_preview = (resp.text or "")[:500]
+            log.error("Action %s failed HTTP %d: %s", action_apiname, resp.status_code, body_preview)
+            raise FoundryError(
+                f"HTTP {resp.status_code} applying action '{action_apiname}': {body_preview}"
+            )
+        return resp.json() if resp.text.strip() else {}
 
-    See the module docstring for the exact code to drop in here.
-    """
-    raise NotImplementedError(
-        "Palantir OSDK call not wired yet — see backend/ai/palantir_integration.py "
-        "module docstring for the credentials and code we need."
-    )
+    def get_object(self, object_type: str, primary_key: str) -> Optional[dict]:
+        """Fetch a single object by primary key. Returns None on 404."""
+        path = f"/api/v2/ontologies/{self._rid}/objects/{object_type}/{primary_key}"
+        resp = self._request("GET", path)
+        if resp.status_code == 404:
+            return None
+        if not resp.ok:
+            raise FoundryError(
+                f"HTTP {resp.status_code} fetching {object_type}/{primary_key}: "
+                f"{(resp.text or '')[:500]}"
+            )
+        return resp.json()
 
+    def list_objects(self, object_type: str, page_size: int = 50) -> list[dict]:
+        """Return the first page of objects of the given type."""
+        path = f"/api/v2/ontologies/{self._rid}/objects/{object_type}"
+        resp = self._request("GET", path, params={"pageSize": page_size})
+        if not resp.ok:
+            raise FoundryError(
+                f"HTTP {resp.status_code} listing {object_type}: "
+                f"{(resp.text or '')[:500]}"
+            )
+        return (resp.json() or {}).get("data", [])
 
-def write_assessment_to_palantir(assessment_result: dict) -> bool:
-    """Push an assessment object into the OPSEC Assessment ontology.
-
-    Returns True on a successful write, False on any failure. Never raises —
-    the demo path must continue even when Foundry is unreachable.
-    """
-    payload = _build_action_payload(assessment_result)
-
-    if not (FOUNDRY_CLIENT_ID and FOUNDRY_CLIENT_SECRET and FOUNDRY_ONTOLOGY_RID):
-        log.warning(
-            "Palantir credentials not configured — skipping write for %s",
-            payload["location_name"],
+    def get_linked_objects(
+        self,
+        source_type: str,
+        source_pk: str,
+        link_apiname: str,
+        page_size: int = 50,
+    ) -> list[dict]:
+        """Return linked objects. Returns [] on 404."""
+        path = (
+            f"/api/v2/ontologies/{self._rid}/objects/"
+            f"{source_type}/{source_pk}/links/{link_apiname}"
         )
-        log.info("Would-write payload: %s", payload)
-        return False
+        resp = self._request("GET", path, params={"pageSize": page_size})
+        if resp.status_code == 404:
+            return []
+        if not resp.ok:
+            raise FoundryError(
+                f"HTTP {resp.status_code} fetching links "
+                f"{source_type}/{source_pk}/{link_apiname}: "
+                f"{(resp.text or '')[:500]}"
+            )
+        return (resp.json() or {}).get("data", [])
 
+
+# ---------------------------------------------------------------------------
+# Smoke test
+# ---------------------------------------------------------------------------
+
+if __name__ == "__main__":
+    import sys
+
+    logging.basicConfig(level=logging.WARNING)
     try:
-        return bool(_invoke_create_action(payload))
-    except NotImplementedError as exc:
-        log.warning("Palantir write skipped: %s", exc)
-        return False
-    except Exception as exc:  # noqa: BLE001
-        log.error("Palantir write failed: %s", exc)
-        return False
+        client = FoundryClient()
+        objects = client.list_objects("OpsecAssessment", page_size=1)
+        print(f"OK: client works ({len(objects)} OpsecAssessment objects in tenant)")
+    except FoundryError as exc:
+        print(f"FoundryError: {exc}", file=sys.stderr)
+        sys.exit(1)

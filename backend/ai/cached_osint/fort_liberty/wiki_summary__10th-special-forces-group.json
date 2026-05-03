@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "10th Special Forces Group (United States)",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">10th Special Forces Group (United States)</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q4547161",
+  "titles": {
+    "canonical": "10th_Special_Forces_Group_(United_States)",
+    "normalized": "10th Special Forces Group (United States)",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">10th Special Forces Group (United States)</span></span>"
+  },
+  "pageid": 8936861,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/USA_-_10th_Special_Forces_Flash.svg/330px-USA_-_10th_Special_Forces_Flash.svg.png",
+    "width": 330,
+    "height": 395
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/USA_-_10th_Special_Forces_Flash.svg/120px-USA_-_10th_Special_Forces_Flash.svg.png",
+    "width": 111,
+    "height": 133
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1350039412",
+  "tid": "adbc1ea2-3c51-11f1-aa3f-20d7644f1e1d",
+  "timestamp": "2026-04-20T00:41:33Z",
+  "description": "US Army Special Forces unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/10th_Special_Forces_Group_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/10th_Special_Forces_Group_(United_States)?action=history",
+      "edit": "https://en.wikipedia.org/wiki/10th_Special_Forces_Group_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:10th_Special_Forces_Group_(United_States)"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/10th_Special_Forces_Group_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/10th_Special_Forces_Group_(United_States)",
+      "edit": "https://en.wikipedia.org/wiki/10th_Special_Forces_Group_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:10th_Special_Forces_Group_(United_States)"
+    }
+  },
+  "extract": "The 10th Special Forces Group (Airborne) (10th SFG (A), or 10th Group) is an active duty United States Army Special Forces (SF) Group. 10th Group is designed to deploy and execute nine doctrinal missions: unconventional warfare (UW), foreign internal defense (FID), direct action (DA), counterinsurgency, special reconnaissance, counterterrorism, information operations, counter-proliferation of weapon of mass destruction, and security force assistance. 10th Group is responsible for operations within the EUCOM area of responsibility, as part of Special Operations Command Europe (SOCEUR).",
+  "extract_html": "<p>The <b>10th Special Forces Group (Airborne)</b> (10th SFG (A), or 10th Group) is an active duty United States Army Special Forces (SF) Group. 10th Group is designed to deploy and execute nine doctrinal missions: unconventional warfare (UW), foreign internal defense (FID), direct action (DA), counterinsurgency, special reconnaissance, counterterrorism, information operations, counter-proliferation of weapon of mass destruction, and security force assistance. 10th Group is responsible for operations within the EUCOM area of responsibility, as part of Special Operations Command Europe (SOCEUR).</p>"
+}

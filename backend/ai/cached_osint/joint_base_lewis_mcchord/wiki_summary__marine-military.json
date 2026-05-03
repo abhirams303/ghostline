@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Marines",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Marines</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q1898583",
+  "titles": {
+    "canonical": "Marines",
+    "normalized": "Marines",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Marines</span></span>"
+  },
+  "pageid": 2933920,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Battle_of_Nassau.jpg/330px-Battle_of_Nassau.jpg",
+    "width": 330,
+    "height": 218
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Battle_of_Nassau.jpg/3840px-Battle_of_Nassau.jpg",
+    "width": 4971,
+    "height": 3285
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1351253497",
+  "tid": "9f26b85b-41bb-11f1-b34e-d5ac5f014876",
+  "timestamp": "2026-04-26T22:02:31Z",
+  "description": "Military organization specialized in amphibious warfare",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Marines",
+      "revisions": "https://en.wikipedia.org/wiki/Marines?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Marines?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Marines"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Marines",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Marines",
+      "edit": "https://en.wikipedia.org/wiki/Marines?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Marines"
+    }
+  },
+  "extract": "Marines are military personnel generally trained to operate on both land and sea, with a particular focus on amphibious warfare. Historically, the main tasks undertaken by marines have included raiding ashore and the boarding of vessels during ship-to-ship combat or capture of prize ships. Marines also assisted in maintaining security, discipline, and order aboard ships. While maintaining many of their historical roles, in modern times, marines also engage in duties including rapid-response operations, humanitarian aid, disaster relief, special operations roles, and counter-terrorism operations. In most nations, marines are an integral part of that state's navy, such as the United Kingdom's Royal Marines or Russia's Naval Infantry; in some countries their marine forces can instead be part of the land army, such as the French Troupes de marine, or, more uncommonly, a nation's marine forces may be an independent military branch such as the United States Marine Corps or the Ukrainian Marine Corps.",
+  "extract_html": "<p><b>Marines</b> are military personnel generally trained to operate on both land and sea, with a particular focus on amphibious warfare. Historically, the main tasks undertaken by marines have included raiding ashore and the boarding of vessels during ship-to-ship combat or capture of prize ships. Marines also assisted in maintaining security, discipline, and order aboard ships. While maintaining many of their historical roles, in modern times, marines also engage in duties including rapid-response operations, humanitarian aid, disaster relief, special operations roles, and counter-terrorism operations. In most nations, marines are an integral part of that state's navy, such as the United Kingdom's Royal Marines or Russia's Naval Infantry; in some countries their marine forces can instead be part of the land army, such as the French <span><i lang=\"fr\">Troupes de marine</i></span>, or, more uncommonly, a nation's marine forces may be an independent military branch such as the United States Marine Corps or the Ukrainian Marine Corps.</p>"
+}

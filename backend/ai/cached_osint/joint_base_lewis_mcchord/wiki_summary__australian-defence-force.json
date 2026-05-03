@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Australian Defence Force",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Australian Defence Force</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q625657",
+  "titles": {
+    "canonical": "Australian_Defence_Force",
+    "normalized": "Australian Defence Force",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Australian Defence Force</span></span>"
+  },
+  "pageid": 67538,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Ensign_of_the_Australian_Defence_Force.svg/330px-Ensign_of_the_Australian_Defence_Force.svg.png",
+    "width": 330,
+    "height": 165
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Ensign_of_the_Australian_Defence_Force.svg/960px-Ensign_of_the_Australian_Defence_Force.svg.png",
+    "width": 512,
+    "height": 256
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1344366974",
+  "tid": "d0f86fd7-23f8-11f1-ab12-be89f6dd31f2",
+  "timestamp": "2026-03-20T01:04:59Z",
+  "description": "National military force of Australia",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Australian_Defence_Force",
+      "revisions": "https://en.wikipedia.org/wiki/Australian_Defence_Force?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Australian_Defence_Force?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Australian_Defence_Force"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Australian_Defence_Force",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Australian_Defence_Force",
+      "edit": "https://en.wikipedia.org/wiki/Australian_Defence_Force?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Australian_Defence_Force"
+    }
+  },
+  "extract": "The Australian Defence Force (ADF) is the military organisation responsible for the defence of Australia and its national interests. It consists of three services: the Royal Australian Navy (RAN), the Australian Army and the Royal Australian Air Force (RAAF). The ADF has a strength of just over 90,000 personnel and is supported by the Department of Defence alongside other civilian entities also members of the Australian Defence Organisation.",
+  "extract_html": "<p>The <b>Australian Defence Force</b> (<b>ADF</b>) is the military organisation responsible for the defence of Australia and its national interests. It consists of three services: the Royal Australian Navy (RAN), the Australian Army and the Royal Australian Air Force (RAAF). The ADF has a strength of just over 90,000 personnel and is supported by the Department of Defence alongside other civilian entities also members of the Australian Defence Organisation.</p>"
+}

@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Navy Warfare Development Command",
+  "displaytitle": "<span class=\"mw-page-title-main\">Navy Warfare Development Command</span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q6982694",
+  "titles": {
+    "canonical": "Navy_Warfare_Development_Command",
+    "normalized": "Navy Warfare Development Command",
+    "display": "<span class=\"mw-page-title-main\">Navy Warfare Development Command</span>"
+  },
+  "pageid": 29082835,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/NWDC_Logo.png/330px-NWDC_Logo.png",
+    "width": 330,
+    "height": 289
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/NWDC_Logo.png/3840px-NWDC_Logo.png",
+    "width": 3960,
+    "height": 3465
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1333768705",
+  "tid": "c7b767d2-f55b-11f0-9d7c-9f204d75e397",
+  "timestamp": "2026-01-19T17:24:59Z",
+  "description": "U.S. Navy command for the generation of innovation in concepts and doctrine",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Navy_Warfare_Development_Command",
+      "revisions": "https://en.wikipedia.org/wiki/Navy_Warfare_Development_Command?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Navy_Warfare_Development_Command?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Navy_Warfare_Development_Command"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Navy_Warfare_Development_Command",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Navy_Warfare_Development_Command",
+      "edit": "https://en.wikipedia.org/wiki/Navy_Warfare_Development_Command?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Navy_Warfare_Development_Command"
+    }
+  },
+  "extract": "The Navy Warfare Development Command is a command of the United States Navy for the generation and development of innovations in concepts and doctrine for enhanced operational level maritime capability and integration in joint and coalition activities. It is currently located at Naval Station Norfolk, VA.",
+  "extract_html": "<p>The <b>Navy Warfare Development Command</b> is a command of the United States Navy for the generation and development of innovations in concepts and doctrine for enhanced operational level maritime capability and integration in joint and coalition activities. It is currently located at Naval Station Norfolk, VA.</p>"
+}

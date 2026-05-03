@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Joint Base Lewis–McChord",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Joint Base Lewis–McChord</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q999280",
+  "titles": {
+    "canonical": "Joint_Base_Lewis–McChord",
+    "normalized": "Joint Base Lewis–McChord",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Joint Base Lewis–McChord</span></span>"
+  },
+  "pageid": 38355740,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/62d_AW_C-17_loading_Army_personnel_from_Fort_Lewis.jpg/330px-62d_AW_C-17_loading_Army_personnel_from_Fort_Lewis.jpg",
+    "width": 330,
+    "height": 220
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/62d_AW_C-17_loading_Army_personnel_from_Fort_Lewis.jpg/3840px-62d_AW_C-17_loading_Army_personnel_from_Fort_Lewis.jpg",
+    "width": 4256,
+    "height": 2832
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1351948158",
+  "tid": "96aae715-4509-11f1-b6c2-78830b8a9032",
+  "timestamp": "2026-05-01T02:58:11Z",
+  "description": "US military installation near Tacoma, Washington, US",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Joint_Base_Lewis%E2%80%93McChord",
+      "revisions": "https://en.wikipedia.org/wiki/Joint_Base_Lewis%E2%80%93McChord?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Joint_Base_Lewis%E2%80%93McChord?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Joint_Base_Lewis%E2%80%93McChord"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Joint_Base_Lewis%E2%80%93McChord",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Joint_Base_Lewis%E2%80%93McChord",
+      "edit": "https://en.wikipedia.org/wiki/Joint_Base_Lewis%E2%80%93McChord?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Joint_Base_Lewis%E2%80%93McChord"
+    }
+  },
+  "extract": "Joint Base Lewis–McChord (JBLM) is a U.S. installation located 9.1 miles (14.6 km) south-southwest of Tacoma, Washington, operated by the United States Army. The installation is an amalgamation of Fort Lewis and McChord Air Force Base, which merged on February 1, 2010, to form a joint base as a result of 2005 Base Realignment and Closure Commission recommendations. JBLM is home to I Corps and the 62nd Airlift Wing.",
+  "extract_html": "<p><b>Joint Base Lewis–McChord</b> (<b>JBLM</b>) is a U.S. installation located 9.1 miles (14.6 km) south-southwest of Tacoma, Washington, operated by the United States Army. The installation is an amalgamation of Fort Lewis and McChord Air Force Base, which merged on February 1, 2010, to form a joint base as a result of 2005 Base Realignment and Closure Commission recommendations. JBLM is home to I Corps and the 62nd Airlift Wing.</p>"
+}

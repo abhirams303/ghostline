@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "75th Ranger Regiment",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">75th Ranger Regiment</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q495203",
+  "titles": {
+    "canonical": "75th_Ranger_Regiment",
+    "normalized": "75th Ranger Regiment",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">75th Ranger Regiment</span></span>"
+  },
+  "pageid": 428432,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Distinctive_unit_insignia_of_the_75th_Ranger_Regiment.svg/330px-Distinctive_unit_insignia_of_the_75th_Ranger_Regiment.svg.png",
+    "width": 330,
+    "height": 399
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Distinctive_unit_insignia_of_the_75th_Ranger_Regiment.svg/250px-Distinctive_unit_insignia_of_the_75th_Ranger_Regiment.svg.png",
+    "width": 134,
+    "height": 162
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1351450797",
+  "tid": "429dc8b0-42a1-11f1-a195-19f91149559f",
+  "timestamp": "2026-04-28T01:26:20Z",
+  "description": "Elite US Army light infantry unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/75th_Ranger_Regiment",
+      "revisions": "https://en.wikipedia.org/wiki/75th_Ranger_Regiment?action=history",
+      "edit": "https://en.wikipedia.org/wiki/75th_Ranger_Regiment?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:75th_Ranger_Regiment"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/75th_Ranger_Regiment",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/75th_Ranger_Regiment",
+      "edit": "https://en.wikipedia.org/wiki/75th_Ranger_Regiment?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:75th_Ranger_Regiment"
+    }
+  },
+  "extract": "The 75th Ranger Regiment, also known as the Army Rangers, is the United States Army Special Operations Command's premier light infantry direct-action force. The 75th Ranger Regiment is also part of Joint Special Operations Command via the Regimental Reconnaissance Company (RRC). The regiment is headquartered at Fort Benning, Georgia, and comprises a regimental headquarters company, a military intelligence battalion, a special troops battalion, and three Ranger battalions.",
+  "extract_html": "<p>The <b>75th Ranger Regiment</b>, also known as the <b>Army Rangers</b>, is the United States Army Special Operations Command's premier light infantry direct-action force. The 75th Ranger Regiment is also part of Joint Special Operations Command via the Regimental Reconnaissance Company (RRC). The regiment is headquartered at Fort Benning, Georgia, and comprises a regimental headquarters company, a military intelligence battalion, a special troops battalion, and three Ranger battalions.</p>"
+}

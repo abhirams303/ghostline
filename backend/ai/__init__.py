@@ -2,7 +2,7 @@
 
 from .adsb_analyzer import analyze_adsb_data, normalize_adsbx_record
 from .mitigation_engine import generate_mitigations
-from .palantir_integration import write_assessment_to_palantir
+from .palantir_integration import FoundryClient, FoundryError
 from .pipeline import run_full_assessment
 from .satellite_analyzer import analyze_satellite_passes
 from .score_calculator import calculate_exposure_score
@@ -18,5 +18,6 @@ __all__ = [
     "generate_threat_brief",
     "normalize_adsbx_record",
     "run_full_assessment",
-    "write_assessment_to_palantir",
+    "FoundryClient",
+    "FoundryError",
 ]

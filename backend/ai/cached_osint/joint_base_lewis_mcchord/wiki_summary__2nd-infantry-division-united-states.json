@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "2nd Infantry Division (United States)",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">2nd Infantry Division (United States)</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q210607",
+  "titles": {
+    "canonical": "2nd_Infantry_Division_(United_States)",
+    "normalized": "2nd Infantry Division (United States)",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">2nd Infantry Division (United States)</span></span>"
+  },
+  "pageid": 166688,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/2nd_Infantry_Division_%28US%29_SSI.png/330px-2nd_Infantry_Division_%28US%29_SSI.png",
+    "width": 330,
+    "height": 330
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/9/99/2nd_Infantry_Division_%28US%29_SSI.png",
+    "width": 800,
+    "height": 800
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1350039634",
+  "tid": "d512ec0c-3c51-11f1-b4cf-8faa80708f3c",
+  "timestamp": "2026-04-20T00:42:39Z",
+  "description": "Active US Army formation",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/2nd_Infantry_Division_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/2nd_Infantry_Division_(United_States)?action=history",
+      "edit": "https://en.wikipedia.org/wiki/2nd_Infantry_Division_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:2nd_Infantry_Division_(United_States)"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/2nd_Infantry_Division_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/2nd_Infantry_Division_(United_States)",
+      "edit": "https://en.wikipedia.org/wiki/2nd_Infantry_Division_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:2nd_Infantry_Division_(United_States)"
+    }
+  },
+  "extract": "The 2nd Infantry Division  (\"Indianhead\") is a formation of the United States Army. Since the 1960s, its primary mission has been the defense of South Korea in the event of an invasion from North Korea. Approximately 17,000 soldiers serve in the 2nd Infantry Division, with 10,000 stationed in South Korea, accounting for about 35% of the United States Forces Korea personnel. Known as the 2nd Infantry Division-ROK/U.S. Combined Division (2ID/RUCD), the division is bolstered by rotational Brigade Combat Teams (BCTs) from other U.S. Army divisions.",
+  "extract_html": "<p>The <b>2nd Infantry Division </b> (\"Indianhead\") is a formation of the United States Army. Since the 1960s, its primary mission has been the defense of South Korea in the event of an invasion from North Korea. Approximately 17,000 soldiers serve in the 2nd Infantry Division, with 10,000 stationed in South Korea, accounting for about 35% of the United States Forces Korea personnel. Known as the <b>2nd Infantry Division-ROK/U.S. Combined Division</b> (2ID/RUCD), the division is bolstered by rotational Brigade Combat Teams (BCTs) from other U.S. Army divisions.</p>"
+}

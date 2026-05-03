@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "United States Army Special Operations Command",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">United States Army Special Operations Command</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q1342591",
+  "titles": {
+    "canonical": "United_States_Army_Special_Operations_Command",
+    "normalized": "United States Army Special Operations Command",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">United States Army Special Operations Command</span></span>"
+  },
+  "pageid": 432717,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/United_States_Army_Special_Operations_Command_DUI.png/330px-United_States_Army_Special_Operations_Command_DUI.png",
+    "width": 330,
+    "height": 374
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/f/fe/United_States_Army_Special_Operations_Command_DUI.png",
+    "width": 2227,
+    "height": 2524
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1347955224",
+  "tid": "c27b0523-3452-11f1-99e5-00cf531db287",
+  "timestamp": "2026-04-09T20:29:08Z",
+  "description": "Army component of the U.S. Special Operations Command",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/United_States_Army_Special_Operations_Command",
+      "revisions": "https://en.wikipedia.org/wiki/United_States_Army_Special_Operations_Command?action=history",
+      "edit": "https://en.wikipedia.org/wiki/United_States_Army_Special_Operations_Command?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:United_States_Army_Special_Operations_Command"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/United_States_Army_Special_Operations_Command",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/United_States_Army_Special_Operations_Command",
+      "edit": "https://en.wikipedia.org/wiki/United_States_Army_Special_Operations_Command?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:United_States_Army_Special_Operations_Command"
+    }
+  },
+  "extract": "The United States Army Special Operations Command (Airborne) (USASOC) is the command charged with overseeing the various special operations forces of the United States Army. Headquartered at Fort Bragg, North Carolina, it is the largest component of the United States Special Operations Command. It is an Army Service Component Command. Its mission is to organize, train, educate, man, equip, fund, administer, mobilize, deploy and sustain Army special operations forces to successfully conduct worldwide special operations.",
+  "extract_html": "<p>The <b>United States Army Special Operations Command (Airborne)</b> (<b>USASOC)</b> is the command charged with overseeing the various special operations forces of the United States Army. Headquartered at Fort Bragg, North Carolina, it is the largest component of the United States Special Operations Command. It is an Army Service Component Command. Its mission is to organize, train, educate, man, equip, fund, administer, mobilize, deploy and sustain Army special operations forces to successfully conduct worldwide special operations.</p>"
+}

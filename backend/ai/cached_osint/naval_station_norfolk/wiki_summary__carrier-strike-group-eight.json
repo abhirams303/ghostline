@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Carrier Strike Group 8",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Carrier Strike Group 8</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q2940261",
+  "titles": {
+    "canonical": "Carrier_Strike_Group_8",
+    "normalized": "Carrier Strike Group 8",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Carrier Strike Group 8</span></span>"
+  },
+  "pageid": 35300258,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Seal_of_Carrier_Strike_Group_8.png/330px-Seal_of_Carrier_Strike_Group_8.png",
+    "width": 330,
+    "height": 330
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Seal_of_Carrier_Strike_Group_8.png",
+    "width": 865,
+    "height": 866
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1334202291",
+  "tid": "5c30ef72-f745-11f0-ac04-2a5b780f204d",
+  "timestamp": "2026-01-22T03:49:32Z",
+  "description": "Military unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Carrier_Strike_Group_8",
+      "revisions": "https://en.wikipedia.org/wiki/Carrier_Strike_Group_8?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Carrier_Strike_Group_8?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Carrier_Strike_Group_8"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Carrier_Strike_Group_8",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Carrier_Strike_Group_8",
+      "edit": "https://en.wikipedia.org/wiki/Carrier_Strike_Group_8?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Carrier_Strike_Group_8"
+    }
+  },
+  "extract": "Commander, Carrier Strike Group 8, abbreviated as CCSG-8 or COMCARSTRKGRU 8, is one of five U.S. Navy carrier strike groups currently assigned to the United States Fleet Forces Command. As of 2018 the group flagship is the Nimitz-class aircraft carrier USS Harry S. Truman (CVN-75). As of 2021, the other units of the group are the guided-missile cruiser USS San Jacinto (CG-56), Carrier Air Wing One, the ships of Destroyer Squadron 28 as well as the Royal Norwegian Navy's frigate HNoMS Fridtjof Nansen (F310), which joined the strike group for one deployment.",
+  "extract_html": "<p><b>Commander, Carrier Strike Group 8</b>, abbreviated as <b>CCSG-8</b> or <b>COMCARSTRKGRU 8</b>, is one of five U.S. Navy carrier strike groups currently assigned to the United States Fleet Forces Command. As of 2018 the group flagship is the <span><i>Nimitz</i>-class aircraft carrier</span> <span>USS <i>Harry S. Truman</i> (CVN-75)</span>. As of 2021, the other units of the group are the guided-missile cruiser <span>USS <i>San Jacinto</i> (CG-56)</span>, Carrier Air Wing One, the ships of Destroyer Squadron 28 as well as the Royal Norwegian Navy's frigate <span>HNoMS <i>Fridtjof Nansen</i> (F310)</span>, which joined the strike group for one deployment.</p>"
+}

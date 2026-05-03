@@ -1,0 +1,23 @@
+[
+  {
+    "place_id": 343968171,
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "relation",
+    "osm_id": 392665,
+    "lat": "36.9416699",
+    "lon": "-76.2973380",
+    "class": "landuse",
+    "type": "military",
+    "place_rank": 24,
+    "importance": 0.507281047786279,
+    "addresstype": "military",
+    "name": "Naval Station Norfolk",
+    "display_name": "Naval Station Norfolk, Norfolk, Virginia, United States",
+    "boundingbox": [
+      "36.9193494",
+      "36.9639905",
+      "-76.3307481",
+      "-76.2645623"
+    ]
+  }
+]

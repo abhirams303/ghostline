@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Destroyer Squadron 22",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Destroyer Squadron 22</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q16973590",
+  "titles": {
+    "canonical": "Destroyer_Squadron_22",
+    "normalized": "Destroyer Squadron 22",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Destroyer Squadron 22</span></span>"
+  },
+  "pageid": 39586027,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Destroyer_Squadron_22_%28United_States_Navy%29_insignia%2C_2013.png/330px-Destroyer_Squadron_22_%28United_States_Navy%29_insignia%2C_2013.png",
+    "width": 330,
+    "height": 331
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Destroyer_Squadron_22_%28United_States_Navy%29_insignia%2C_2013.png",
+    "width": 475,
+    "height": 476
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1281152538",
+  "tid": "9130312b-041a-11f0-abed-7991c252629d",
+  "timestamp": "2025-03-18T17:01:00Z",
+  "description": "Military unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Destroyer_Squadron_22",
+      "revisions": "https://en.wikipedia.org/wiki/Destroyer_Squadron_22?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Destroyer_Squadron_22?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Destroyer_Squadron_22"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Destroyer_Squadron_22",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Destroyer_Squadron_22",
+      "edit": "https://en.wikipedia.org/wiki/Destroyer_Squadron_22?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Destroyer_Squadron_22"
+    }
+  },
+  "extract": "Destroyer Squadron 22, often abbreviated as DESRON 22, is a squadron of warships of the United States Navy. It is an operational component of Carrier Strike Group Two. The squadron was formed in March 1943, and later was one of the first two squadrons of Arleigh Burke-class destroyers. Its unofficial motto is “The Fighting Double Duece.”",
+  "extract_html": "<p><b>Destroyer Squadron 22</b>, often abbreviated as DESRON 22, is a squadron of warships of the United States Navy. It is an operational component of Carrier Strike Group Two. The squadron was formed in March 1943, and later was one of the first two squadrons of <i>Arleigh Burke</i>-class destroyers. Its unofficial motto is “The Fighting Double Duece.”</p>"
+}

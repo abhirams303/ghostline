@@ -1,0 +1,39 @@
+{
+  "type": "disambiguation",
+  "title": "9th Division",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">9th Division</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q275219",
+  "titles": {
+    "canonical": "9th_Division",
+    "normalized": "9th Division",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">9th Division</span></span>"
+  },
+  "pageid": 432247,
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1035747256",
+  "tid": "8f095869-eed9-11eb-bab8-5ddf6526f84e",
+  "timestamp": "2021-07-27T12:52:54Z",
+  "description": "Topics referred to by the same term",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/9th_Division",
+      "revisions": "https://en.wikipedia.org/wiki/9th_Division?action=history",
+      "edit": "https://en.wikipedia.org/wiki/9th_Division?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:9th_Division"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/9th_Division",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/9th_Division",
+      "edit": "https://en.wikipedia.org/wiki/9th_Division?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:9th_Division"
+    }
+  },
+  "extract": "9th Division, 9th Infantry Division or 9th Armoured Division may refer to:",
+  "extract_html": "<p><b>9th Division</b>, <b>9th Infantry Division</b> or <b>9th Armoured Division</b> may refer to:</p>"
+}

@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "16th Combat Aviation Brigade (United States)",
+  "displaytitle": "<span class=\"mw-page-title-main\">16th Combat Aviation Brigade (United States)</span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q4552134",
+  "titles": {
+    "canonical": "16th_Combat_Aviation_Brigade_(United_States)",
+    "normalized": "16th Combat Aviation Brigade (United States)",
+    "display": "<span class=\"mw-page-title-main\">16th Combat Aviation Brigade (United States)</span>"
+  },
+  "pageid": 27172650,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/16_Avn_Bde_SSI.jpg/330px-16_Avn_Bde_SSI.jpg",
+    "width": 330,
+    "height": 403
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/1/11/16_Avn_Bde_SSI.jpg",
+    "width": 675,
+    "height": 825
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1343697714",
+  "tid": "30344908-20b8-11f1-8e61-39e0e3ad430d",
+  "timestamp": "2026-03-15T21:44:48Z",
+  "description": "Military unit",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/16th_Combat_Aviation_Brigade_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/16th_Combat_Aviation_Brigade_(United_States)?action=history",
+      "edit": "https://en.wikipedia.org/wiki/16th_Combat_Aviation_Brigade_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:16th_Combat_Aviation_Brigade_(United_States)"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/16th_Combat_Aviation_Brigade_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/16th_Combat_Aviation_Brigade_(United_States)",
+      "edit": "https://en.wikipedia.org/wiki/16th_Combat_Aviation_Brigade_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:16th_Combat_Aviation_Brigade_(United_States)"
+    }
+  },
+  "extract": "The 16th Combat Aviation Brigade is a Combat Aviation Brigade of the United States Army. It is subordinate to 7th Infantry Division and I Corps and based at Gray Army Airfield part of Joint Base Lewis-McChord (JBLM).",
+  "extract_html": "<p>The <b>16th Combat Aviation Brigade</b> is a Combat Aviation Brigade of the United States Army. It is subordinate to 7th Infantry Division and I Corps and based at Gray Army Airfield part of Joint Base Lewis-McChord (JBLM).</p>"
+}

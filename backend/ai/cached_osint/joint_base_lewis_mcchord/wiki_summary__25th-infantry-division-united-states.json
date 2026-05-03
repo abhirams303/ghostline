@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "25th Infantry Division (United States)",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">25th Infantry Division (United States)</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q217777",
+  "titles": {
+    "canonical": "25th_Infantry_Division_(United_States)",
+    "normalized": "25th Infantry Division (United States)",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">25th Infantry Division (United States)</span></span>"
+  },
+  "pageid": 444948,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/25th_Infantry_Division_shoulder_sleeve_insignia.png/330px-25th_Infantry_Division_shoulder_sleeve_insignia.png",
+    "width": 330,
+    "height": 384
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/e/e4/25th_Infantry_Division_shoulder_sleeve_insignia.png",
+    "width": 3648,
+    "height": 4244
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1351847871",
+  "tid": "8d862e18-44a1-11f1-bbb5-babd25d37dcf",
+  "timestamp": "2026-04-30T14:33:28Z",
+  "description": "US Army jungle warfare formation",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/25th_Infantry_Division_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/25th_Infantry_Division_(United_States)?action=history",
+      "edit": "https://en.wikipedia.org/wiki/25th_Infantry_Division_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:25th_Infantry_Division_(United_States)"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/25th_Infantry_Division_(United_States)",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/25th_Infantry_Division_(United_States)",
+      "edit": "https://en.wikipedia.org/wiki/25th_Infantry_Division_(United_States)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:25th_Infantry_Division_(United_States)"
+    }
+  },
+  "extract": "The 25th Infantry Division is a United States Army division based at Schofield Barracks in Hawaii. The division, which was activated on 1 October 1941 in Hawaii, conducts military operations primarily in the Asia-Pacific region. Its present deployment is composed of infantry brigade combat team (IBCT) and aviation units. Tropic Lightning soldiers regularly train with other U.S. military branches to practice and maintain joint operations capabilities. The climate and terrain of the Pacific region demands Tropic Lightning soldiers be able to operate in physically demanding and harsh environments. In 2014, the division opened the Jungle Operations Training Center (JOTC) —the first such school in the Army since the closing of the old Jungle Warfare School at Fort Sherman, Panama Canal Zone.",
+  "extract_html": "<p>The <b>25th Infantry Division</b> is a United States Army division based at Schofield Barracks in Hawaii. The division, which was activated on 1 October 1941 in Hawaii, conducts military operations primarily in the Asia-Pacific region. Its present deployment is composed of infantry brigade combat team (IBCT) and aviation units. Tropic Lightning soldiers regularly train with other U.S. military branches to practice and maintain joint operations capabilities. The climate and terrain of the Pacific region demands Tropic Lightning soldiers be able to operate in physically demanding and harsh environments. In 2014, the division opened the Jungle Operations Training Center (JOTC) —the first such school in the Army since the closing of the old Jungle Warfare School at Fort Sherman, Panama Canal Zone.</p>"
+}

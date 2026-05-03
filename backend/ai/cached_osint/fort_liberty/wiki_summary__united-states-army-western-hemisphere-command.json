@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "United States Army Western Hemisphere Command",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">United States Army Western Hemisphere Command</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q137321962",
+  "titles": {
+    "canonical": "United_States_Army_Western_Hemisphere_Command",
+    "normalized": "United States Army Western Hemisphere Command",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">United States Army Western Hemisphere Command</span></span>"
+  },
+  "pageid": 81779712,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/United_States_Army_Western_Hemisphere_Command_SSI_api.army.mil_2025_12_05_751x976px.png/330px-United_States_Army_Western_Hemisphere_Command_SSI_api.army.mil_2025_12_05_751x976px.png",
+    "width": 330,
+    "height": 429
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/9/95/United_States_Army_Western_Hemisphere_Command_SSI_api.army.mil_2025_12_05_751x976px.png",
+    "width": 751,
+    "height": 976
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1349928271",
+  "tid": "e0d3c4a9-3bfb-11f1-83ef-32bc45102942",
+  "timestamp": "2026-04-19T14:27:22Z",
+  "description": "Command of the United States Army",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/United_States_Army_Western_Hemisphere_Command",
+      "revisions": "https://en.wikipedia.org/wiki/United_States_Army_Western_Hemisphere_Command?action=history",
+      "edit": "https://en.wikipedia.org/wiki/United_States_Army_Western_Hemisphere_Command?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:United_States_Army_Western_Hemisphere_Command"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/United_States_Army_Western_Hemisphere_Command",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/United_States_Army_Western_Hemisphere_Command",
+      "edit": "https://en.wikipedia.org/wiki/United_States_Army_Western_Hemisphere_Command?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:United_States_Army_Western_Hemisphere_Command"
+    }
+  },
+  "extract": "The United States Army Western Hemisphere Command (USAWHC) is a command of the United States Army. It serves as the theater army and Army Service Component Command (ASCC) for both United States Northern Command (USNORTHCOM) and United States Southern Command (USSOUTHCOM), overseeing operations across North America, Latin America, and the Caribbean. Anticipating full operating capability by summer 2026, the command will oversee local operations, defense of the US southern border, natural disaster response, and general humanitarian assistance in the Western Hemisphere. USAWHC was activated on 5 December 2025, at Fort Bragg in North Carolina.",
+  "extract_html": "<p>The <b>United States Army Western Hemisphere Command</b> (<b>USAWHC</b>) is a command of the United States Army. It serves as the theater army and Army Service Component Command (ASCC) for both United States Northern Command (USNORTHCOM) and United States Southern Command (USSOUTHCOM), overseeing operations across North America, Latin America, and the Caribbean. Anticipating full operating capability by summer 2026, the command will oversee local operations, defense of the US southern border, natural disaster response, and general humanitarian assistance in the Western Hemisphere. USAWHC was activated on 5 December 2025, at Fort Bragg in North Carolina.</p>"
+}
