@@ -10,6 +10,7 @@ Today it includes:
 
 - a `pnpm`-managed Next.js frontend shell
 - a FastAPI backend with typed request and response models
+- a real Mapbox + deck.gl map surface with interactive overlays and synthetic fallback geometry
 - live ADS-B Exchange and Exa collectors plus scaffolded collector interfaces for `strava` and `satellite`
 - a local SQLite evidence store for analysis runs, findings, and deduped source documents
 - cached demo payloads for rehearsed presentations
@@ -26,11 +27,11 @@ User flow:
 2. Run analysis in `live` or `demo` mode.
 3. Backend fans out across collectors in parallel.
 4. Findings are scored and summarized into a threat-brief preview.
-5. Frontend renders evidence cards, layer toggles, and a map-shell surface.
+5. Frontend renders evidence cards, layer toggles, and a live Mapbox + deck.gl map surface.
 
 ## Stack
 
-- Frontend: Next.js 16, React 19, Tailwind CSS, deck.gl shell
+- Frontend: Next.js 16, React 19, Tailwind CSS, Mapbox, deck.gl
 - Backend: FastAPI, Pydantic, async collectors
 - Package management: `pnpm` for the frontend workspace
 - Python packaging: editable `backend/` package
@@ -120,6 +121,7 @@ Important notes:
 - The backend reads `backend/.env`.
 - The frontend reads `frontend/.env.local`.
 - Live analysis persistence defaults to `backend/data/runtime/opsec_mirror.sqlite3`.
+- Set `NEXT_PUBLIC_MAPBOX_TOKEN` in `frontend/.env.local` to enable the real basemap.
 - Set `OPENAI_API_KEY` in `backend/.env` to enable real synthesis.
 - Set `ADSBEXCHANGE_API_KEY` in `backend/.env` to enable the live ADS-B collector.
 - Set `EXA_API_KEY` in `backend/.env` to enable the live Exa news/web collector.
@@ -157,7 +159,6 @@ opsec-mirror/
 
 ## Known Gaps
 
-- The map is a shell, not a full deck.gl + Mapbox implementation yet.
 - ADS-B and Exa are live, but `strava` and `satellite` still return placeholder findings instead of real vendor responses.
 - Exa currently uses a query-based news/public-web pass, not a deeper multi-query research workflow.
 - SSE currently replays a completed narrative in chunks instead of token-streaming directly from OpenAI.

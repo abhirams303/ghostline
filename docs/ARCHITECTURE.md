@@ -15,6 +15,12 @@ The backend:
 7. Returns map layers, findings, and a threat-brief preview plus a `run_id`.
 8. Frontend subscribes to `/stream/{run_id}` for incremental narrative updates.
 
+## Frontend Map Posture
+
+- The frontend now uses a real Mapbox basemap rendered through `react-map-gl/mapbox`.
+- Collector `layers` and `findings` are translated into interactive `deck.gl` overlays in the browser.
+- Before a report loads, the map shows synthetic fallback overlays so the surface remains demonstrable.
+
 ## Current Collector Posture
 
 - `Strava`: interface scaffold with live-path placeholder output

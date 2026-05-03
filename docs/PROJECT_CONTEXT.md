@@ -23,6 +23,7 @@ The repo is a scaffold, not a finished product.
 Implemented now:
 
 - Next.js single-page frontend shell
+- real Mapbox + deck.gl map rendering in the frontend
 - FastAPI backend with `POST /analyze`
 - SSE endpoint at `GET /stream/{run_id}`
 - typed request and response models
@@ -38,7 +39,6 @@ Implemented now:
 Not implemented yet:
 
 - real source integrations
-- true deck.gl/Mapbox rendering
 - Palantir AIP ontology push logic
 - route and `unit_id` analysis beyond schema placeholders
 
@@ -255,6 +255,6 @@ If no user instruction overrides this, the most sensible order is:
 
 1. deepen ADS-B from single-snapshot heuristics into track-history analysis
 2. deepen Exa from one query into multi-query evidence gathering and deduplication
-3. replace map-shell placeholders with actual deck.gl rendering
-4. upgrade SSE from replayed chunks to true provider streaming
-5. add route-based analysis beyond single-point targets
+3. upgrade SSE from replayed chunks to true provider streaming
+4. add route-based analysis beyond single-point targets
+5. add stronger map interactions such as fitting, clustering, and time-based layer playback
