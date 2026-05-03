@@ -1,0 +1,404 @@
+{
+  "_cached_at": "2026-05-03T09:28:49.732296+00:00",
+  "_function": "get_cascade",
+  "_args": [
+    "norfolk"
+  ],
+  "value": {
+    "location": "Naval Station Norfolk",
+    "lat": 36.9416699,
+    "lon": -76.297338,
+    "chain_depth": 94,
+    "linked_units": [
+      {
+        "id": "unit_destroyer_squadron_22",
+        "name": "Destroyer Squadron 22"
+      },
+      {
+        "id": "unit_navy_warfare_development_command",
+        "name": "Navy Warfare Development Command"
+      },
+      {
+        "id": "unit_destroyer_squadron_26",
+        "name": "Destroyer Squadron 26"
+      },
+      {
+        "id": "unit_destroyer_squadron_28",
+        "name": "Destroyer Squadron 28"
+      },
+      {
+        "id": "unit_carrier_strike_group_twelve",
+        "name": "Carrier Strike Group Twelve"
+      },
+      {
+        "id": "unit_carrier_strike_group_eight",
+        "name": "Carrier Strike Group Eight"
+      },
+      {
+        "id": "unit_carrier_strike_groups",
+        "name": "carrier strike groups"
+      },
+      {
+        "id": "unit_navy_region_mid_atlantic",
+        "name": "Navy Region Mid-Atlantic"
+      },
+      {
+        "id": "unit_carrier_strike_group_two",
+        "name": "Carrier Strike Group Two"
+      },
+      {
+        "id": "unit_military_sealift_command",
+        "name": "Military Sealift Command"
+      },
+      {
+        "id": "unit_carrier_strike_group_ten",
+        "name": "Carrier Strike Group Ten"
+      },
+      {
+        "id": "unit_destroyer_squadron_2",
+        "name": "Destroyer Squadron 2"
+      }
+    ],
+    "linked_platforms": [
+      {
+        "id": "plat_ddg_81__unit_carrier_strike_group_twelve",
+        "name": "DDG-81"
+      },
+      {
+        "id": "plat_cvn_75__unit_carrier_strike_group_eight",
+        "name": "CVN-75"
+      },
+      {
+        "id": "plat_f310__unit_carrier_strike_group_eight",
+        "name": "F310"
+      },
+      {
+        "id": "plat_ddg_116__unit_carrier_strike_group_two",
+        "name": "DDG-116"
+      },
+      {
+        "id": "plat_ddg_72__unit_carrier_strike_group_two",
+        "name": "DDG-72"
+      },
+      {
+        "id": "plat_ddg_57__unit_carrier_strike_group_two",
+        "name": "DDG-57"
+      },
+      {
+        "id": "plat_cvn_77__unit_carrier_strike_group_ten",
+        "name": "CVN-77"
+      },
+      {
+        "id": "plat_ddg_55__unit_destroyer_squadron_2",
+        "name": "DDG-55"
+      },
+      {
+        "id": "plat_ddg_79__unit_destroyer_squadron_2",
+        "name": "DDG-79"
+      },
+      {
+        "id": "plat_ddg_74__unit_destroyer_squadron_2",
+        "name": "DDG-74"
+      }
+    ],
+    "linked_sensors": [
+      {
+        "id": "sens_an_spg_62__ddg_81__unit_carrier_strike_group_twelve",
+        "name": "AN/SPG-62"
+      },
+      {
+        "id": "sens_an_sqs_26__ddg_81__unit_carrier_strike_group_twelve",
+        "name": "AN/SQS-26"
+      },
+      {
+        "id": "sens_an_sqq_89__ddg_81__unit_carrier_strike_group_twelve",
+        "name": "AN/SQQ-89"
+      },
+      {
+        "id": "sens_an_spy_1__ddg_81__unit_carrier_strike_group_twelve",
+        "name": "AN/SPY-1"
+      },
+      {
+        "id": "sens_an_sps_67__ddg_81__unit_carrier_strike_group_twelve",
+        "name": "AN/SPS-67"
+      },
+      {
+        "id": "sens_an_spq_9__ddg_81__unit_carrier_strike_group_twelve",
+        "name": "AN/SPQ-9"
+      },
+      {
+        "id": "sens_surface_search_radar_ddg_119_onward__ddg_81__unit_carrier_strike_group_twelve",
+        "name": "surface search radar (DDG-119 onward)"
+      },
+      {
+        "id": "sens_an_spy_6__ddg_81__unit_carrier_strike_group_twelve",
+        "name": "AN/SPY-6"
+      },
+      {
+        "id": "sens_an_spq_9__cvn_75__unit_carrier_strike_group_eight",
+        "name": "AN/SPQ-9"
+      },
+      {
+        "id": "sens_an_spn_41__cvn_75__unit_carrier_strike_group_eight",
+        "name": "AN/SPN-41"
+      },
+      {
+        "id": "sens_an_spn_43__cvn_75__unit_carrier_strike_group_eight",
+        "name": "AN/SPN-43"
+      },
+      {
+        "id": "sens_an_spn_46__cvn_75__unit_carrier_strike_group_eight",
+        "name": "AN/SPN-46"
+      },
+      {
+        "id": "sens_an_sps_48__cvn_75__unit_carrier_strike_group_eight",
+        "name": "AN/SPS-48"
+      },
+      {
+        "id": "sens_3_d_air_search_radar__cvn_75__unit_carrier_strike_group_eight",
+        "name": "3-D air search radar"
+      },
+      {
+        "id": "sens_an_sps_49__cvn_75__unit_carrier_strike_group_eight",
+        "name": "AN/SPS-49"
+      },
+      {
+        "id": "sens_2_d_air_search_radar__cvn_75__unit_carrier_strike_group_eight",
+        "name": "2-D air search radar"
+      },
+      {
+        "id": "sens_an_sqq_89__ddg_116__unit_carrier_strike_group_two",
+        "name": "AN/SQQ-89"
+      },
+      {
+        "id": "sens_an_spq_9__ddg_116__unit_carrier_strike_group_two",
+        "name": "AN/SPQ-9"
+      },
+      {
+        "id": "sens_surface_search_radar_ddg_119_onward__ddg_116__unit_carrier_strike_group_two",
+        "name": "surface search radar (DDG-119 onward)"
+      },
+      {
+        "id": "sens_an_sps_67__ddg_116__unit_carrier_strike_group_two",
+        "name": "AN/SPS-67"
+      },
+      {
+        "id": "sens_an_spy_1__ddg_116__unit_carrier_strike_group_two",
+        "name": "AN/SPY-1"
+      },
+      {
+        "id": "sens_an_spy_6__ddg_116__unit_carrier_strike_group_two",
+        "name": "AN/SPY-6"
+      },
+      {
+        "id": "sens_an_spg_62__ddg_116__unit_carrier_strike_group_two",
+        "name": "AN/SPG-62"
+      },
+      {
+        "id": "sens_an_sqs_26__ddg_116__unit_carrier_strike_group_two",
+        "name": "AN/SQS-26"
+      },
+      {
+        "id": "sens_an_spg_62__ddg_72__unit_carrier_strike_group_two",
+        "name": "AN/SPG-62"
+      },
+      {
+        "id": "sens_an_sqs_26__ddg_72__unit_carrier_strike_group_two",
+        "name": "AN/SQS-26"
+      },
+      {
+        "id": "sens_an_spy_1__ddg_72__unit_carrier_strike_group_two",
+        "name": "AN/SPY-1"
+      },
+      {
+        "id": "sens_surface_search_radar_ddg_119_onward__ddg_72__unit_carrier_strike_group_two",
+        "name": "surface search radar (DDG-119 onward)"
+      },
+      {
+        "id": "sens_an_spy_6__ddg_72__unit_carrier_strike_group_two",
+        "name": "AN/SPY-6"
+      },
+      {
+        "id": "sens_an_sqq_89__ddg_72__unit_carrier_strike_group_two",
+        "name": "AN/SQQ-89"
+      },
+      {
+        "id": "sens_an_sps_67__ddg_72__unit_carrier_strike_group_two",
+        "name": "AN/SPS-67"
+      },
+      {
+        "id": "sens_an_spq_9__ddg_72__unit_carrier_strike_group_two",
+        "name": "AN/SPQ-9"
+      },
+      {
+        "id": "sens_an_sqq_89__ddg_57__unit_carrier_strike_group_two",
+        "name": "AN/SQQ-89"
+      },
+      {
+        "id": "sens_an_spg_62__ddg_57__unit_carrier_strike_group_two",
+        "name": "AN/SPG-62"
+      },
+      {
+        "id": "sens_an_spy_6__ddg_57__unit_carrier_strike_group_two",
+        "name": "AN/SPY-6"
+      },
+      {
+        "id": "sens_an_sqs_26__ddg_57__unit_carrier_strike_group_two",
+        "name": "AN/SQS-26"
+      },
+      {
+        "id": "sens_an_spy_1__ddg_57__unit_carrier_strike_group_two",
+        "name": "AN/SPY-1"
+      },
+      {
+        "id": "sens_an_sps_67__ddg_57__unit_carrier_strike_group_two",
+        "name": "AN/SPS-67"
+      },
+      {
+        "id": "sens_surface_search_radar_ddg_119_onward__ddg_57__unit_carrier_strike_group_two",
+        "name": "surface search radar (DDG-119 onward)"
+      },
+      {
+        "id": "sens_an_spq_9__ddg_57__unit_carrier_strike_group_two",
+        "name": "AN/SPQ-9"
+      },
+      {
+        "id": "sens_an_sps_48__cvn_77__unit_carrier_strike_group_ten",
+        "name": "AN/SPS-48"
+      },
+      {
+        "id": "sens_an_spn_43__cvn_77__unit_carrier_strike_group_ten",
+        "name": "AN/SPN-43"
+      },
+      {
+        "id": "sens_an_spq_9__cvn_77__unit_carrier_strike_group_ten",
+        "name": "AN/SPQ-9"
+      },
+      {
+        "id": "sens_an_spn_41__cvn_77__unit_carrier_strike_group_ten",
+        "name": "AN/SPN-41"
+      },
+      {
+        "id": "sens_an_spn_46__cvn_77__unit_carrier_strike_group_ten",
+        "name": "AN/SPN-46"
+      },
+      {
+        "id": "sens_an_sps_49__cvn_77__unit_carrier_strike_group_ten",
+        "name": "AN/SPS-49"
+      },
+      {
+        "id": "sens_2_d_air_search_radar__cvn_77__unit_carrier_strike_group_ten",
+        "name": "2-D air search radar"
+      },
+      {
+        "id": "sens_3_d_air_search_radar__cvn_77__unit_carrier_strike_group_ten",
+        "name": "3-D air search radar"
+      },
+      {
+        "id": "sens_an_spy_1__ddg_55__unit_destroyer_squadron_2",
+        "name": "AN/SPY-1"
+      },
+      {
+        "id": "sens_an_spy_6__ddg_55__unit_destroyer_squadron_2",
+        "name": "AN/SPY-6"
+      },
+      {
+        "id": "sens_surface_search_radar_ddg_119_onward__ddg_55__unit_destroyer_squadron_2",
+        "name": "surface search radar (DDG-119 onward)"
+      },
+      {
+        "id": "sens_an_spg_62__ddg_55__unit_destroyer_squadron_2",
+        "name": "AN/SPG-62"
+      },
+      {
+        "id": "sens_an_sps_67__ddg_55__unit_destroyer_squadron_2",
+        "name": "AN/SPS-67"
+      },
+      {
+        "id": "sens_an_sqq_89__ddg_55__unit_destroyer_squadron_2",
+        "name": "AN/SQQ-89"
+      },
+      {
+        "id": "sens_an_spq_9__ddg_55__unit_destroyer_squadron_2",
+        "name": "AN/SPQ-9"
+      },
+      {
+        "id": "sens_an_sqs_26__ddg_55__unit_destroyer_squadron_2",
+        "name": "AN/SQS-26"
+      },
+      {
+        "id": "sens_an_spy_6__ddg_79__unit_destroyer_squadron_2",
+        "name": "AN/SPY-6"
+      },
+      {
+        "id": "sens_an_spy_1__ddg_79__unit_destroyer_squadron_2",
+        "name": "AN/SPY-1"
+      },
+      {
+        "id": "sens_an_spq_9__ddg_79__unit_destroyer_squadron_2",
+        "name": "AN/SPQ-9"
+      },
+      {
+        "id": "sens_surface_search_radar_ddg_119_onward__ddg_79__unit_destroyer_squadron_2",
+        "name": "surface search radar (DDG-119 onward)"
+      },
+      {
+        "id": "sens_an_sps_67__ddg_79__unit_destroyer_squadron_2",
+        "name": "AN/SPS-67"
+      },
+      {
+        "id": "sens_an_sqq_89__ddg_79__unit_destroyer_squadron_2",
+        "name": "AN/SQQ-89"
+      },
+      {
+        "id": "sens_an_spg_62__ddg_79__unit_destroyer_squadron_2",
+        "name": "AN/SPG-62"
+      },
+      {
+        "id": "sens_an_sqs_26__ddg_79__unit_destroyer_squadron_2",
+        "name": "AN/SQS-26"
+      },
+      {
+        "id": "sens_an_sqq_89__ddg_74__unit_destroyer_squadron_2",
+        "name": "AN/SQQ-89"
+      },
+      {
+        "id": "sens_an_sps_67__ddg_74__unit_destroyer_squadron_2",
+        "name": "AN/SPS-67"
+      },
+      {
+        "id": "sens_an_spy_6__ddg_74__unit_destroyer_squadron_2",
+        "name": "AN/SPY-6"
+      },
+      {
+        "id": "sens_an_spy_1__ddg_74__unit_destroyer_squadron_2",
+        "name": "AN/SPY-1"
+      },
+      {
+        "id": "sens_an_sqs_26__ddg_74__unit_destroyer_squadron_2",
+        "name": "AN/SQS-26"
+      },
+      {
+        "id": "sens_surface_search_radar_ddg_119_onward__ddg_74__unit_destroyer_squadron_2",
+        "name": "surface search radar (DDG-119 onward)"
+      },
+      {
+        "id": "sens_an_spq_9__ddg_74__unit_destroyer_squadron_2",
+        "name": "AN/SPQ-9"
+      },
+      {
+        "id": "sens_an_spg_62__ddg_74__unit_destroyer_squadron_2",
+        "name": "AN/SPG-62"
+      }
+    ],
+    "intelligence_compromised": "The surface exposure at Naval Station Norfolk, with a composite base exposure score of 80, propagates through linked entities such as 'Destroyer Squadron 22', 'Carrier Strike Group Twelve', and platforms like 'DDG-81' and 'CVN-75'. This exposure allows adversaries to infer operational patterns, readiness levels, and deployment schedules of these units. The sensors on these platforms, such as 'AN/SPY-1' and 'AN/SPQ-9', further reveal capabilities and limitations. The combination of these insights provides adversaries with a comprehensive understanding of the operational posture and strategic intent of the U.S. Navy units stationed at Norfolk, which could not be discerned from a single source alone.",
+    "adversary_action_likely": "With the cascaded intelligence, an adversary could time their reconnaissance or offensive operations to coincide with the deployment schedules of 'Carrier Strike Group Twelve' or 'Destroyer Squadron 22'. They could exploit the gaps in coverage when 'DDG-81' or 'CVN-75' are at sea, potentially launching cyber or kinetic attacks on less defended assets or infrastructure at Naval Station Norfolk.",
+    "recommended_mitigation": "Enhance OPSEC measures for 'DDG-81' to reduce surface-level exposure, thereby mitigating downstream intelligence compromise across linked platforms and units.",
+    "cascade_score": 100,
+    "risk_level": "HIGH",
+    "confidence": "medium",
+    "cascade_id": "cascade_naval_station_norfolk_2026-05-03_v2",
+    "source_assessment_id": "18deca41-2a60-589b-a758-6850f4c18202",
+    "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/CascadeRisk/cascade_naval_station_norfolk_2026-05-03_v2"
+  }
+}

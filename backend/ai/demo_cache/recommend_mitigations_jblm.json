@@ -1,0 +1,20 @@
+{
+  "_cached_at": "2026-05-03T09:28:59.562199+00:00",
+  "_function": "recommend_mitigations",
+  "_args": [
+    "jblm"
+  ],
+  "value": {
+    "location": "Joint Base Lewis-McChord",
+    "primary_mitigation": "Implement stricter OPSEC measures for the \"Stryker\" platform, such as limiting public access to movement data, to reduce the exposure of linked units like the \"7th Infantry Division (United States)\".",
+    "alternative_mitigations": [
+      "file FAA LADD blocking for callsigns RAGE80 and STING54 immediately.",
+      "adjust flight schedules to reduce predictability, especially during 0600 to 1000 windows.",
+      "reschedule outdoor activities to avoid satellite pass times."
+    ],
+    "foundry_urls": {
+      "cascade": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/CascadeRisk/cascade_joint_base_lewis_mcchord_2026-05-03_v2",
+      "assessment": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/OpsecAssessment/99285f11-cd7d-55c2-aa82-1b5dd2aedae4"
+    }
+  }
+}

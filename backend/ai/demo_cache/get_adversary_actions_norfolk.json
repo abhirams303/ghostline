@@ -1,0 +1,42 @@
+{
+  "_cached_at": "2026-05-03T09:28:50.039559+00:00",
+  "_function": "get_adversary_actions",
+  "_args": [
+    "norfolk"
+  ],
+  "value": [
+    {
+      "action_id": "action_cascade_naval_station_norfolk_2026-05-03_v2_0",
+      "action_type": "surveillance",
+      "target_entity_name": "CVN-75",
+      "target_entity_id": "plat_cvn_75__unit_carrier_strike_group_eight",
+      "capability_required": "satellite imaging and signal intelligence capabilities",
+      "timeline": "immediate",
+      "rationale": "Monitoring CVN-75's movements and communications can reveal deployment schedules and readiness, exploiting the known gaps when it is at sea.",
+      "confidence": "medium",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_naval_station_norfolk_2026-05-03_v2_0"
+    },
+    {
+      "action_id": "action_cascade_naval_station_norfolk_2026-05-03_v2_1",
+      "action_type": "disruption",
+      "target_entity_name": "AN/SPY-1",
+      "target_entity_id": "sens_an_spy_1__ddg_81__unit_carrier_strike_group_twelve",
+      "capability_required": "cyber capabilities to interfere with radar operations",
+      "timeline": "weeks",
+      "rationale": "Disrupting the AN/SPY-1 radar on DDG-81 during deployment can reduce situational awareness, exploiting the known sensor vulnerabilities.",
+      "confidence": "medium",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_naval_station_norfolk_2026-05-03_v2_1"
+    },
+    {
+      "action_id": "action_cascade_naval_station_norfolk_2026-05-03_v2_2",
+      "action_type": "kinetic_planning",
+      "target_entity_name": "Naval Station Norfolk",
+      "target_entity_id": "geo_naval_station_norfolk",
+      "capability_required": "conventional missile systems and targeting data",
+      "timeline": "months",
+      "rationale": "Planning a kinetic strike on the Naval Station during a known deployment gap can exploit reduced defenses and maximize impact.",
+      "confidence": "medium",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_naval_station_norfolk_2026-05-03_v2_2"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "_cached_at": "2026-05-03T09:29:01.317334+00:00",
+  "_function": "get_assessment",
+  "_args": [
+    "naval base san diego"
+  ],
+  "value": {
+    "location": "Naval Base San Diego",
+    "exposure_score": 33,
+    "risk_level": "MEDIUM",
+    "strava_score": 0,
+    "aircraft_score": 30,
+    "satellite_score": 97,
+    "brief": "Commander. Naval Base San Diego. HIGH OPSEC exposure identified across multiple vectors.\n\nHIGH \u2014 Satellite imaging. Sentinel-1A pass in 5.4 hours at 19 degrees elevation. 15 passes within the next 24 hours. Any outdoor activity or equipment movement will be commercially visible, compromising operational secrecy.\n\nMODERATE \u2014 Aircraft. Two military flights logged on public ADS-B trackers in the last 7 days. No consistent military pattern detected. However, peak activity between 0300 and 0700 could indicate vulnerability during early morning operations.\n\nMINIMAL \u2014 Fitness activity. No Strava heatmap data available. No exposure from personnel movement patterns.\n\nComposite exposure score: 33 out of 100. Risk level: MEDIUM.\n\nRecommended actions. One: reschedule all outdoor activities to avoid satellite pass windows, especially within the next 24 hours. Two: increase monitoring of ADS-B feeds for any emerging patterns during peak hours. Three: maintain current OPSEC protocols for personal fitness tracking.\n\n[Note: ADS-B traffic is synthetic for V1 \u2014 derived from the populated Units/Platforms ontology. To be replaced by Member A's real ADS-B Exchange capture when available.]",
+    "lat": 32.6734868,
+    "lon": -117.1207744,
+    "assessment_id": "27bd144a-752b-54a2-8408-2ec26e5e0516",
+    "assessment_timestamp": "2026-05-03T07:45:53.574Z",
+    "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/OpsecAssessment/27bd144a-752b-54a2-8408-2ec26e5e0516"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "_cached_at": "2026-05-03T09:29:03.253047+00:00",
+  "_function": "compare_locations",
+  "_args": [],
+  "value": [
+    {
+      "location": "Naval Station Norfolk",
+      "lat": 36.9416699,
+      "lon": -76.297338,
+      "cascade_score": 100,
+      "risk_level": "HIGH",
+      "chain_depth": 94,
+      "primary_concern": "The surface exposure at Naval Station Norfolk, with a composite base exposure sc\u2026",
+      "cascade_id": "cascade_naval_station_norfolk_2026-05-03_v2",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/CascadeRisk/cascade_naval_station_norfolk_2026-05-03_v2"
+    },
+    {
+      "location": "Fort Liberty",
+      "lat": 35.140311,
+      "lon": -79.1541465,
+      "cascade_score": 100,
+      "risk_level": "HIGH",
+      "chain_depth": 12,
+      "primary_concern": "The surface exposure at Fort Liberty, with a composite base exposure score of 78\u2026",
+      "cascade_id": "cascade_fort_liberty_2026-05-03_v2",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/CascadeRisk/cascade_fort_liberty_2026-05-03_v2"
+    },
+    {
+      "location": "Joint Base Lewis-McChord",
+      "lat": 47.0308343,
+      "lon": -122.5074136,
+      "cascade_score": 86,
+      "risk_level": "HIGH",
+      "chain_depth": 13,
+      "primary_concern": "The surface exposure at Joint Base Lewis-McChord, with a composite base exposure\u2026",
+      "cascade_id": "cascade_joint_base_lewis_mcchord_2026-05-03_v2",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/CascadeRisk/cascade_joint_base_lewis_mcchord_2026-05-03_v2"
+    },
+    {
+      "location": "Shack15",
+      "lat": 37.796157,
+      "lon": -122.3941909,
+      "cascade_score": 55,
+      "risk_level": "MEDIUM",
+      "chain_depth": 0,
+      "primary_concern": "At Shack15, the surface OPSEC scores indicate a moderate level of exposure with \u2026",
+      "cascade_id": "cascade_shack15_2026-05-03_v2",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/CascadeRisk/cascade_shack15_2026-05-03_v2"
+    },
+    {
+      "location": "Naval Base San Diego",
+      "lat": 32.6734868,
+      "lon": -117.1207744,
+      "cascade_score": 33,
+      "risk_level": "MEDIUM",
+      "chain_depth": 0,
+      "primary_concern": "At Naval Base San Diego, the surface-level exposure through aircraft tracking (3\u2026",
+      "cascade_id": "cascade_naval_base_san_diego_2026-05-03_v2",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/CascadeRisk/cascade_naval_base_san_diego_2026-05-03_v2"
+    }
+  ]
+}

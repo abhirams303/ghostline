@@ -1,0 +1,469 @@
+{
+  "_cached_at": "2026-05-03T09:29:01.213172+00:00",
+  "_function": "get_full_picture",
+  "_args": [
+    "jblm"
+  ],
+  "value": {
+    "assessment": {
+      "location": "Joint Base Lewis-McChord",
+      "exposure_score": 42,
+      "risk_level": "MEDIUM",
+      "strava_score": 0,
+      "aircraft_score": 63,
+      "satellite_score": 93,
+      "brief": "Commander. Joint Base Lewis-McChord. HIGH OPSEC exposure identified across two vectors.\n\nHIGH \u2014 Aircraft. 25 military flights logged on public ADS-B trackers in the last 7 days. Callsigns RAGE80 and STING54 show a recurring pattern on Tuesday, Friday, and Sunday between 0600 and 1000. Predictable flight windows create targetable vulnerabilities.\n\nHIGH \u2014 Satellite imaging. Sentinel-2A pass in approximately 6 minutes at 10 degrees elevation. 19 passes within the next 24 hours. High frequency of imaging opportunities increases risk of outdoor activities being captured.\n\nMINIMAL \u2014 Fitness activity. No Strava heatmap data available. No predictable personnel movement patterns exposed.\n\nComposite exposure score: 42 out of 100. Risk level: MEDIUM.\n\nRecommended actions. One: file FAA LADD blocking for callsigns RAGE80 and STING54 immediately. Two: adjust flight schedules to reduce predictability, especially during 0600 to 1000 windows. Three: reschedule outdoor activities to avoid satellite pass times. Four: maintain current OPSEC protocols for fitness tracking to ensure continued minimal exposure.\n\n[Note: ADS-B traffic is synthetic for V1 \u2014 derived from the populated Units/Platforms ontology. To be replaced by Member A's real ADS-B Exchange capture when available.]",
+      "lat": 47.0308343,
+      "lon": -122.5074136,
+      "assessment_id": "99285f11-cd7d-55c2-aa82-1b5dd2aedae4",
+      "assessment_timestamp": "2026-05-03T07:45:50.915Z",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/OpsecAssessment/99285f11-cd7d-55c2-aa82-1b5dd2aedae4"
+    },
+    "cascade": {
+      "location": "Joint Base Lewis-McChord",
+      "lat": 47.0308343,
+      "lon": -122.5074136,
+      "chain_depth": 13,
+      "linked_units": [
+        {
+          "id": "unit_593rd_expeditionary_sustainment_command",
+          "name": "593rd Expeditionary Sustainment Command"
+        },
+        {
+          "id": "unit_17th_field_artillery_brigade_united_states",
+          "name": "17th Field Artillery Brigade (United States)"
+        },
+        {
+          "id": "unit_2nd_infantry_division_united_states",
+          "name": "2nd Infantry Division (United States)"
+        },
+        {
+          "id": "unit_25th_infantry_division_united_states",
+          "name": "25th Infantry Division (United States)"
+        },
+        {
+          "id": "unit_7th_infantry_division_united_states",
+          "name": "7th Infantry Division (United States)"
+        },
+        {
+          "id": "unit_555th_engineer_brigade_united_states",
+          "name": "555th Engineer Brigade (United States)"
+        },
+        {
+          "id": "unit_16th_combat_aviation_brigade_united_states",
+          "name": "16th Combat Aviation Brigade (United States)"
+        },
+        {
+          "id": "unit_i_corps_united_states",
+          "name": "I Corps (United States)"
+        },
+        {
+          "id": "unit_201st_expeditionary_military_intelligence_brigade",
+          "name": "201st Expeditionary Military Intelligence Brigade"
+        },
+        {
+          "id": "unit_australian_defence_force",
+          "name": "Australian Defence Force"
+        },
+        {
+          "id": "unit_stryker_brigade_combat_team",
+          "name": "Stryker Brigade Combat Team"
+        },
+        {
+          "id": "unit_marine_military",
+          "name": "Marine (military)"
+        }
+      ],
+      "linked_platforms": [
+        {
+          "id": "plat_stryker__unit_7th_infantry_division_unite",
+          "name": "Stryker"
+        }
+      ],
+      "linked_sensors": [],
+      "intelligence_compromised": "The surface exposure at Joint Base Lewis-McChord, with a composite base exposure score of 42, propagates through linked units such as the \"593rd Expeditionary Sustainment Command\" and the \"17th Field Artillery Brigade (United States)\". The \"Stryker Brigade Combat Team\" operates the \"Stryker\" platform, which is linked to the \"7th Infantry Division (United States)\". Although no sensors or comms assets are directly linked, the exposure of aircraft movements (63/100) and satellite imaging (93/100) could reveal operational patterns and readiness levels. This compromises specific operational intelligence, such as deployment schedules and logistical operations, which adversaries couldn't deduce from any single source alone.",
+      "adversary_action_likely": "An adversary could exploit the cascaded intelligence to time their actions against the \"Stryker Brigade Combat Team\" by predicting deployment schedules. They might also target logistical vulnerabilities of the \"593rd Expeditionary Sustainment Command\" to disrupt supply chains. Additionally, they could use the aircraft movement data to anticipate and counteract artillery operations by the \"17th Field Artillery Brigade (United States)\".",
+      "recommended_mitigation": "Implement stricter OPSEC measures for the \"Stryker\" platform, such as limiting public access to movement data, to reduce the exposure of linked units like the \"7th Infantry Division (United States)\".",
+      "cascade_score": 86,
+      "risk_level": "HIGH",
+      "confidence": "medium",
+      "cascade_id": "cascade_joint_base_lewis_mcchord_2026-05-03_v2",
+      "source_assessment_id": "99285f11-cd7d-55c2-aa82-1b5dd2aedae4",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/CascadeRisk/cascade_joint_base_lewis_mcchord_2026-05-03_v2"
+    },
+    "adversary_actions": [
+      {
+        "action_id": "action_cascade_joint_base_lewis_mcchord_2026-05-03_v2_0",
+        "action_type": "surveillance",
+        "target_entity_name": "Stryker Brigade Combat Team",
+        "target_entity_id": "unit_stryker_brigade_combat_team",
+        "capability_required": "satellite imaging and analysis tools to monitor and predict movement patterns",
+        "timeline": "immediate",
+        "rationale": "By using satellite imaging to monitor the Stryker Brigade Combat Team's movements, an adversary can predict deployment schedules and plan accordingly to exploit any operational weaknesses.",
+        "confidence": "medium",
+        "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_joint_base_lewis_mcchord_2026-05-03_v2_0"
+      },
+      {
+        "action_id": "action_cascade_joint_base_lewis_mcchord_2026-05-03_v2_1",
+        "action_type": "interdiction",
+        "target_entity_name": "593rd Expeditionary Sustainment Command",
+        "target_entity_id": "unit_593rd_expeditionary_sustainment_command",
+        "capability_required": "cyber capabilities to disrupt logistical software systems",
+        "timeline": "weeks",
+        "rationale": "Targeting the logistical operations of the 593rd Expeditionary Sustainment Command can disrupt supply chains, which are critical for sustaining military operations, thereby exploiting the cascade exposure.",
+        "confidence": "medium",
+        "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_joint_base_lewis_mcchord_2026-05-03_v2_1"
+      },
+      {
+        "action_id": "action_cascade_joint_base_lewis_mcchord_2026-05-03_v2_2",
+        "action_type": "disruption",
+        "target_entity_name": "17th Field Artillery Brigade (United States)",
+        "target_entity_id": "unit_17th_field_artillery_brigade_united_states",
+        "capability_required": "jamming equipment to interfere with communication and coordination during artillery operations",
+        "timeline": "days",
+        "rationale": "By disrupting communications of the 17th Field Artillery Brigade, an adversary can hinder artillery operations, exploiting the compromised aircraft movement data to anticipate and counteract their actions.",
+        "confidence": "medium",
+        "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_joint_base_lewis_mcchord_2026-05-03_v2_2"
+      }
+    ],
+    "current_state": {
+      "center": {
+        "lat": 47.0308343,
+        "lon": -122.5074136
+      },
+      "location_name": "Joint Base Lewis-McChord",
+      "aircraft": {
+        "center": {
+          "lat": 47.0308343,
+          "lon": -122.5074136
+        },
+        "radius_nm": 25,
+        "aircraft_count": 7,
+        "military_count": 0,
+        "aircraft": [
+          {
+            "hex": "A38C66",
+            "fr24_id": "3f831b43",
+            "callsign": "DAL2442",
+            "registration": "N328DU",
+            "lat": 47.4426,
+            "lon": -122.3046,
+            "altitude": 0,
+            "speed": 1,
+            "heading": 132,
+            "aircraft_type": "BCS3",
+            "airline_icao": "DAL",
+            "is_military": false
+          },
+          {
+            "hex": "A339B1",
+            "fr24_id": "3f840243",
+            "callsign": "DAL1015",
+            "registration": "N307DU",
+            "lat": 47.4351,
+            "lon": -122.3045,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 132,
+            "aircraft_type": "BCS3",
+            "airline_icao": "DAL",
+            "is_military": false
+          },
+          {
+            "hex": "A54C60",
+            "fr24_id": "3f8415f6",
+            "callsign": "N440UA",
+            "registration": "N440UA",
+            "lat": 47.4416,
+            "lon": -122.3044,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 272,
+            "aircraft_type": "A320",
+            "airline_icao": "UAL",
+            "is_military": false
+          },
+          {
+            "hex": "A037B2",
+            "fr24_id": "3f840d4b",
+            "callsign": "DAL2105",
+            "registration": "N113DQ",
+            "lat": 47.4352,
+            "lon": -122.3039,
+            "altitude": 0,
+            "speed": 1,
+            "heading": 90,
+            "aircraft_type": "BCS1",
+            "airline_icao": "DAL",
+            "is_military": false
+          },
+          {
+            "hex": "A06A5A",
+            "fr24_id": "3f83fac8",
+            "callsign": "DAL1412",
+            "registration": "N126DU",
+            "lat": 47.4417,
+            "lon": -122.3032,
+            "altitude": 0,
+            "speed": 1,
+            "heading": 300,
+            "aircraft_type": "BCS1",
+            "airline_icao": "DAL",
+            "is_military": false
+          },
+          {
+            "hex": "A04B24",
+            "fr24_id": "3f83735a",
+            "callsign": "AAL1774",
+            "registration": "N118NN",
+            "lat": 47.4463,
+            "lon": -122.2988,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 222,
+            "aircraft_type": "A321",
+            "airline_icao": "AAL",
+            "is_military": false
+          },
+          {
+            "hex": "A96481",
+            "fr24_id": "3f83e4d1",
+            "callsign": "N704MD",
+            "registration": "N704MD",
+            "lat": 47.3973,
+            "lon": -122.2327,
+            "altitude": 1525,
+            "speed": 141,
+            "heading": 189,
+            "aircraft_type": "C208",
+            "airline_icao": "",
+            "is_military": false
+          }
+        ],
+        "queried_at": "2026-05-03T09:28:59.830532+00:00",
+        "source": "flightradar24",
+        "data_available": true
+      },
+      "satellite": {
+        "next_pass": {
+          "satellite": "Sentinel-1A",
+          "rise_utc": "2026-05-03T13:06:40.993481+00:00",
+          "set_utc": "2026-05-03T13:09:34.478679+00:00",
+          "max_elevation_deg": 11.218473272818727,
+          "duration_seconds": 173.485198,
+          "ground_track": [
+            {
+              "lat": 50.59179735012028,
+              "lon": -96.37145597032377,
+              "time_offset_sec": 0
+            },
+            {
+              "lat": 48.81190493627593,
+              "lon": -97.11383890862604,
+              "time_offset_sec": 30
+            },
+            {
+              "lat": 47.028341594674664,
+              "lon": -97.81402935142036,
+              "time_offset_sec": 60
+            },
+            {
+              "lat": 45.241480873612176,
+              "lon": -98.47716035139592,
+              "time_offset_sec": 90
+            },
+            {
+              "lat": 43.45164280992758,
+              "lon": -99.10760871430382,
+              "time_offset_sec": 120
+            },
+            {
+              "lat": 41.659104193871386,
+              "lon": -99.70913027124057,
+              "time_offset_sec": 150
+            }
+          ]
+        },
+        "passes_in_window": 18,
+        "all_passes": [
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-03T13:06:40.993481+00:00",
+            "set_utc": "2026-05-03T13:09:34.478679+00:00",
+            "max_elevation_deg": 11.218473272818727,
+            "duration_seconds": 173.485198
+          },
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-03T14:41:39.812459+00:00",
+            "set_utc": "2026-05-03T14:51:09.142463+00:00",
+            "max_elevation_deg": 89.9413405357843,
+            "duration_seconds": 569.330004
+          },
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-03T16:21:03.463395+00:00",
+            "set_utc": "2026-05-03T16:25:36.506815+00:00",
+            "max_elevation_deg": 13.511476629607493,
+            "duration_seconds": 273.04342
+          },
+          {
+            "satellite": "Sentinel-1B",
+            "rise_utc": "2026-05-03T16:42:39.353369+00:00",
+            "set_utc": "2026-05-03T16:45:45.940890+00:00",
+            "max_elevation_deg": 11.812081670839493,
+            "duration_seconds": 186.587521
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-03T18:07:11.857539+00:00",
+            "set_utc": "2026-05-03T18:15:46.704032+00:00",
+            "max_elevation_deg": 25.57217857192001,
+            "duration_seconds": 514.846493
+          },
+          {
+            "satellite": "Sentinel-1B",
+            "rise_utc": "2026-05-03T18:15:38.824051+00:00",
+            "set_utc": "2026-05-03T18:23:50.990522+00:00",
+            "max_elevation_deg": 70.53006646945447,
+            "duration_seconds": 492.166471
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-03T18:17:13.039915+00:00",
+            "set_utc": "2026-05-03T18:26:23.342221+00:00",
+            "max_elevation_deg": 30.837446659842055,
+            "duration_seconds": 550.302306
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-03T19:46:11.928800+00:00",
+            "set_utc": "2026-05-03T19:56:08.558716+00:00",
+            "max_elevation_deg": 47.364892735191866,
+            "duration_seconds": 596.629916
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-03T19:56:31.862311+00:00",
+            "set_utc": "2026-05-03T20:06:09.361734+00:00",
+            "max_elevation_deg": 39.46662913517437,
+            "duration_seconds": 577.499423
+          },
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-04T00:13:44.115198+00:00",
+            "set_utc": "2026-05-04T00:20:16.077104+00:00",
+            "max_elevation_deg": 18.879581750762757,
+            "duration_seconds": 391.961906
+          },
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-04T01:49:29.842633+00:00",
+            "set_utc": "2026-05-04T01:58:51.882232+00:00",
+            "max_elevation_deg": 61.198763478258705,
+            "duration_seconds": 562.039599
+          },
+          {
+            "satellite": "Sentinel-1B",
+            "rise_utc": "2026-05-04T03:33:20.510386+00:00",
+            "set_utc": "2026-05-04T03:37:25.238208+00:00",
+            "max_elevation_deg": 13.547418676237779,
+            "duration_seconds": 244.727822
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-04T04:03:14.219064+00:00",
+            "set_utc": "2026-05-04T04:05:33.466066+00:00",
+            "max_elevation_deg": 10.70372192695845,
+            "duration_seconds": 139.247002
+          },
+          {
+            "satellite": "Sentinel-1B",
+            "rise_utc": "2026-05-04T05:05:50.781066+00:00",
+            "set_utc": "2026-05-04T05:14:01.854443+00:00",
+            "max_elevation_deg": 70.43367439890957,
+            "duration_seconds": 491.073377
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-04T05:27:38.406281+00:00",
+            "set_utc": "2026-05-04T05:37:40.845500+00:00",
+            "max_elevation_deg": 50.868920952676696,
+            "duration_seconds": 602.439219
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-04T05:37:43.455343+00:00",
+            "set_utc": "2026-05-04T05:47:58.428149+00:00",
+            "max_elevation_deg": 61.53215531461595,
+            "duration_seconds": 614.972806
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-04T07:08:14.401624+00:00",
+            "set_utc": "2026-05-04T07:16:33.177595+00:00",
+            "max_elevation_deg": 23.808985354622404,
+            "duration_seconds": 498.775971
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-04T07:18:59.373664+00:00",
+            "set_utc": "2026-05-04T07:26:27.918928+00:00",
+            "max_elevation_deg": 19.705128048197327,
+            "duration_seconds": 448.545264
+          }
+        ],
+        "queried_at": "2026-05-03T09:28:59.602253+00:00",
+        "data_available": true
+      },
+      "news": {
+        "article_count": 4,
+        "articles": [
+          {
+            "title": "US military to be an 'AI-first' fighting force as Pentagon signs deal with seven tech giants | LBC",
+            "url": "https://www.lbc.co.uk/article/us-military-ai-first-fighting-force-pentagon-deal-tech-giants-5HjdYcP_2/",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "US military to be an 'AI-first' fighting force as Pentagon signs deal with seven tech giants | LBC\n\nOn Air Now\n\n# US military to be an 'AI-first' fighting force as Pentagon signs deal with seven tech giants\n\nThe Pentagon has said that AI technology would now be used for any \"lawful operational use\"\n...",
+            "score": 1
+          },
+          {
+            "title": "Multi-car crash kills 3 people at Lake Chelan, WA | FOX 13 Seattle",
+            "url": "https://www.fox13seattle.com/news/crash-kills-3-lake-chelan-wa",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "Multi-car crash kills 3 people at Lake Chelan, WA | FOX 13 Seattle\n\nRiver Flood Warning is in effect, Chelan County\n\nCHELAN COUNTY, Wash. - Several people have been killed at a crash involving three vehicles at Lake Chelan heading into the weekend. All the victims were from Washington.\n\nWhat we know...",
+            "score": 0.6666666666666667
+          },
+          {
+            "title": "Pentagon strikes AI deals with Microsoft, Amazon, and NVIDIA",
+            "url": "https://www.newsbytesapp.com/news/science/pentagon-inks-deals-with-nvidia-microsoft-aws/story",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "Pentagon strikes AI deals with Microsoft, Amazon, and NVIDIA {ced(ce('ie-0'))});}\"/>\n\nLOADING...\n\nThe deals are for classified networks\n\n# Pentagon strikes AI deals with Microsoft, Amazon, and NVIDIA\n\nMay 02, 2026\n\n03:30 pm\n\n---\n\nWhat's the story\n\nThe US Department of Defense (DoD) has signed deals ...",
+            "score": 0.33333333333333337
+          },
+          {
+            "title": "Toxic Cloud Chaos On Padden Parkway After Acid Rollover",
+            "url": "https://hoodline.com/2026/05/toxic-cloud-chaos-on-padden-parkway-after-acid-rollover/",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "Toxic Cloud Chaos On Padden Parkway After Acid Rollover\n\nReal Estate & Development\n\nScience, Tech & Medicine\n\nMore forecasts: Atlanta 30 day forecast\n\n# Toxic Cloud Chaos On Padden Parkway After Acid Rollover\n\nPublished on May 02, 2026\n\nA rolling cloud of visible fumes shut down NE Padden Parkway in...",
+            "score": 0
+          }
+        ],
+        "queried_at": "2026-05-03T09:28:59.900525+00:00",
+        "data_available": true
+      },
+      "sources_succeeded": [
+        "aircraft",
+        "satellite",
+        "news"
+      ],
+      "queried_at": "2026-05-03T09:28:59.901764+00:00"
+    },
+    "provenance_summary": {
+      "total_entities": 13,
+      "high_confidence_count": 12,
+      "sources": [
+        "wikipedia"
+      ]
+    }
+  }
+}

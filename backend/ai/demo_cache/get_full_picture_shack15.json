@@ -1,0 +1,377 @@
+{
+  "_cached_at": "2026-05-03T09:29:03.151921+00:00",
+  "_function": "get_full_picture",
+  "_args": [
+    "shack15"
+  ],
+  "value": {
+    "assessment": {
+      "location": "Shack15",
+      "exposure_score": 55,
+      "risk_level": "MEDIUM",
+      "strava_score": 78,
+      "aircraft_score": 0,
+      "satellite_score": 94,
+      "brief": "Commander. Shack15. HIGH OPSEC exposure identified across two vectors.\n\nHIGH \u2014 Fitness activity. Nine distinct exercise routes publicly visible via Strava heatmap. Peak activity 0600 to 0700 and 1700 to 1800 daily. An adversary can predict personnel movement patterns and potential PT routes with high accuracy.\n\nHIGH \u2014 Satellite imaging. Sentinel-1A pass in 5.4 hours at 11 degrees elevation. Fifteen imaging opportunities within the next 24 hours. Any outdoor activity or equipment movement will be commercially visible.\n\nMINIMAL \u2014 No recurring military flight patterns detected on public ADS-B feeds.\n\nComposite exposure score: 55 out of 100. Risk level: MEDIUM.\n\nRecommended actions. One: direct all personnel to set Strava profiles to private immediately. Two: restrict outdoor activities during satellite pass windows. Three: implement a base-wide OPSEC review focusing on personal device usage and geotagging.\n\n[Note: ADS-B traffic is synthetic for V1 \u2014 derived from the populated Units/Platforms ontology. To be replaced by Member A's real ADS-B Exchange capture when available.]",
+      "lat": 37.796157,
+      "lon": -122.3941909,
+      "assessment_id": "a28a4084-8836-5678-8a30-76e6c0f83acf",
+      "assessment_timestamp": "2026-05-03T07:45:56.243Z",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/OpsecAssessment/a28a4084-8836-5678-8a30-76e6c0f83acf"
+    },
+    "cascade": {
+      "location": "Shack15",
+      "lat": 37.796157,
+      "lon": -122.3941909,
+      "chain_depth": 0,
+      "linked_units": [],
+      "linked_platforms": [],
+      "linked_sensors": [],
+      "intelligence_compromised": "At Shack15, the surface OPSEC scores indicate a moderate level of exposure with a composite base exposure score of 55. However, since there are no linked units, platforms, or sensors, the potential for surface exposure to propagate through linked entities is non-existent. Without any units like the '82nd Airborne Division' or platforms such as the 'F-35 Lightning II', there is no operational intelligence that can be compromised through this location. The lack of linked entities means that adversaries cannot infer higher-order intelligence from Shack15 alone, as there are no operational elements to exploit.",
+      "adversary_action_likely": "Given the absence of military units, platforms, or sensors at Shack15, an adversary is unlikely to take any specific exploitable actions based on cascaded intelligence. Without linked operational entities, there is no actionable intelligence that can be derived from this location that would enable adversaries to compromise military operations or assets.",
+      "recommended_mitigation": "Since there are no linked platforms or units at Shack15, no upstream mitigation is necessary to address downstream exposures. The location does not contribute to any operational intelligence risk.",
+      "cascade_score": 55,
+      "risk_level": "MEDIUM",
+      "confidence": "medium",
+      "cascade_id": "cascade_shack15_2026-05-03_v2",
+      "source_assessment_id": "a28a4084-8836-5678-8a30-76e6c0f83acf",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/CascadeRisk/cascade_shack15_2026-05-03_v2"
+    },
+    "adversary_actions": [
+      {
+        "action_id": "action_cascade_shack15_2026-05-03_v2_0",
+        "action_type": "surveillance",
+        "target_entity_name": "GhostlineGeoFeature: Shack15",
+        "target_entity_id": "geo_shack15",
+        "capability_required": "Basic reconnaissance tools such as cameras, recording devices, and internet access for open-source intelligence gathering",
+        "timeline": "immediate",
+        "rationale": "Conducting surveillance on Shack15 could reveal patterns of civilian activity or potential high-value targets present at the location, which could be useful for future intelligence operations.",
+        "confidence": "medium",
+        "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_shack15_2026-05-03_v2_0"
+      }
+    ],
+    "current_state": {
+      "center": {
+        "lat": 37.796157,
+        "lon": -122.3941909
+      },
+      "location_name": "Shack15",
+      "aircraft": {
+        "center": {
+          "lat": 37.796157,
+          "lon": -122.3941909
+        },
+        "radius_nm": 25,
+        "aircraft_count": 7,
+        "military_count": 0,
+        "aircraft": [
+          {
+            "hex": "C01401",
+            "fr24_id": "3f841921",
+            "callsign": "ACA745",
+            "registration": "C-FHOY",
+            "lat": 37.6201,
+            "lon": -122.3976,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 264,
+            "aircraft_type": "BCS3",
+            "airline_icao": "ACA",
+            "is_military": false
+          },
+          {
+            "hex": "A0428A",
+            "fr24_id": "3f832208",
+            "callsign": "AAL177",
+            "registration": "N116AN",
+            "lat": 37.6113,
+            "lon": -122.3867,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 167,
+            "aircraft_type": "A321",
+            "airline_icao": "AAL",
+            "is_military": false
+          },
+          {
+            "hex": "ADAFB5",
+            "fr24_id": "3f8307f9",
+            "callsign": "JBU2615",
+            "registration": "N981JT",
+            "lat": 37.6126,
+            "lon": -122.3856,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 112,
+            "aircraft_type": "A321",
+            "airline_icao": "JBU",
+            "is_military": false
+          },
+          {
+            "hex": "AD0074",
+            "fr24_id": "3f832566",
+            "callsign": "JBU333",
+            "registration": "N937JB",
+            "lat": 37.6108,
+            "lon": -122.3854,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 270,
+            "aircraft_type": "A321",
+            "airline_icao": "JBU",
+            "is_military": false
+          },
+          {
+            "hex": "AD7E6F",
+            "fr24_id": "3f831a78",
+            "callsign": "JBU277",
+            "registration": "N969JT",
+            "lat": 37.6111,
+            "lon": -122.3851,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 306,
+            "aircraft_type": "A321",
+            "airline_icao": "JBU",
+            "is_military": false
+          },
+          {
+            "hex": "ACBE3E",
+            "fr24_id": "3f8429f2",
+            "callsign": "TAI559",
+            "registration": "N920AV",
+            "lat": 37.6129,
+            "lon": -122.3781,
+            "altitude": 0,
+            "speed": 15,
+            "heading": 118,
+            "aircraft_type": "A20N",
+            "airline_icao": "AVA",
+            "is_military": false
+          },
+          {
+            "hex": "A18A1C",
+            "fr24_id": "3f83db19",
+            "callsign": null,
+            "registration": "N199FE",
+            "lat": 37.7163,
+            "lon": -122.2191,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 103,
+            "aircraft_type": "B763",
+            "airline_icao": "FDX",
+            "is_military": false
+          }
+        ],
+        "queried_at": "2026-05-03T09:29:03.028290+00:00",
+        "source": "flightradar24",
+        "data_available": true
+      },
+      "satellite": {
+        "next_pass": {
+          "satellite": "Sentinel-1A",
+          "rise_utc": "2026-05-03T13:09:31.102234+00:00",
+          "set_utc": "2026-05-03T13:12:06.508150+00:00",
+          "max_elevation_deg": 10.97627559521131,
+          "duration_seconds": 155.405916,
+          "ground_track": [
+            {
+              "lat": 40.456190224434636,
+              "lon": -100.09776626453146,
+              "time_offset_sec": 0
+            },
+            {
+              "lat": 38.65966533048464,
+              "lon": -100.65798709854413,
+              "time_offset_sec": 30
+            },
+            {
+              "lat": 36.861023943264456,
+              "lon": -101.19702321136182,
+              "time_offset_sec": 60
+            },
+            {
+              "lat": 35.06044231311825,
+              "lon": -101.71712659922493,
+              "time_offset_sec": 90
+            },
+            {
+              "lat": 33.258079806164695,
+              "lon": -102.22028140391042,
+              "time_offset_sec": 120
+            },
+            {
+              "lat": 31.454081883714693,
+              "lon": -102.70824485843278,
+              "time_offset_sec": 150
+            }
+          ]
+        },
+        "passes_in_window": 15,
+        "all_passes": [
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-03T13:09:31.102234+00:00",
+            "set_utc": "2026-05-03T13:12:06.508150+00:00",
+            "max_elevation_deg": 10.97627559521131,
+            "duration_seconds": 155.405916
+          },
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-03T14:44:08.172588+00:00",
+            "set_utc": "2026-05-03T14:53:29.851094+00:00",
+            "max_elevation_deg": 66.35297610464461,
+            "duration_seconds": 561.678506
+          },
+          {
+            "satellite": "Sentinel-1B",
+            "rise_utc": "2026-05-03T16:45:08.745679+00:00",
+            "set_utc": "2026-05-03T16:48:25.713993+00:00",
+            "max_elevation_deg": 12.066837792568677,
+            "duration_seconds": 196.968314
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-03T18:09:41.247234+00:00",
+            "set_utc": "2026-05-03T18:18:32.713110+00:00",
+            "max_elevation_deg": 28.036328909534785,
+            "duration_seconds": 531.465876
+          },
+          {
+            "satellite": "Sentinel-1B",
+            "rise_utc": "2026-05-03T18:18:08.237564+00:00",
+            "set_utc": "2026-05-03T18:26:00.864290+00:00",
+            "max_elevation_deg": 46.53443795931467,
+            "duration_seconds": 472.626726
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-03T18:19:40.531571+00:00",
+            "set_utc": "2026-05-03T18:29:07.593754+00:00",
+            "max_elevation_deg": 34.861433476682336,
+            "duration_seconds": 567.062183
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-03T19:48:58.017257+00:00",
+            "set_utc": "2026-05-03T19:58:05.466953+00:00",
+            "max_elevation_deg": 31.983707734646607,
+            "duration_seconds": 547.449696
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-03T19:59:25.663903+00:00",
+            "set_utc": "2026-05-03T20:07:55.426900+00:00",
+            "max_elevation_deg": 26.137385602386274,
+            "duration_seconds": 509.762997
+          },
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-04T00:13:42.878552+00:00",
+            "set_utc": "2026-05-04T00:15:50.700631+00:00",
+            "max_elevation_deg": 10.686043628163343,
+            "duration_seconds": 127.822079
+          },
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-04T01:46:59.509914+00:00",
+            "set_utc": "2026-05-04T01:56:26.504867+00:00",
+            "max_elevation_deg": 77.42004560626896,
+            "duration_seconds": 566.994953
+          },
+          {
+            "satellite": "Sentinel-1B",
+            "rise_utc": "2026-05-04T05:03:27.876872+00:00",
+            "set_utc": "2026-05-04T05:11:38.599658+00:00",
+            "max_elevation_deg": 86.3592175138439,
+            "duration_seconds": 490.722786
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-04T05:25:35.529900+00:00",
+            "set_utc": "2026-05-04T05:34:57.509874+00:00",
+            "max_elevation_deg": 35.244945081136564,
+            "duration_seconds": 561.979974
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-04T05:35:32.628573+00:00",
+            "set_utc": "2026-05-04T05:45:20.176180+00:00",
+            "max_elevation_deg": 43.558936322915486,
+            "duration_seconds": 587.547607
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-04T07:05:29.725712+00:00",
+            "set_utc": "2026-05-04T07:14:00.510710+00:00",
+            "max_elevation_deg": 25.315996154187097,
+            "duration_seconds": 510.784998
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-04T07:16:15.019335+00:00",
+            "set_utc": "2026-05-04T07:23:51.270250+00:00",
+            "max_elevation_deg": 20.357697412547232,
+            "duration_seconds": 456.250915
+          }
+        ],
+        "queried_at": "2026-05-03T09:29:02.835091+00:00",
+        "data_available": true
+      },
+      "news": {
+        "article_count": 5,
+        "articles": [
+          {
+            "title": "Update on Loudoun County\u2019s first Shake Shack restaurant",
+            "url": "https://theburn.com/2026/05/02/update-on-loudoun-countys-first-shake-shack-restaurant/",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "Update on Loudoun County\u2019s first Shake Shack restaurant\n\nA few new details to share regarding the upcoming Shake Shack restaurant under construction in Loudoun County.\n\nAs regular readers know, Shake Shack is bringing its first location in Loudoun to the Cascades Marketplace shopping center.\n\nAn old...",
+            "score": 1
+          },
+          {
+            "title": "Zenwalk GNU Linux: Zenwalk 15.0 \"Skywalker\" milestone is ready",
+            "url": "http://www.zenwalk.org/2022/02/zenwalk-150-skywalker-milestone-is-ready.html",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "Zenwalk GNU Linux: Zenwalk 15.0 \"Skywalker\" milestone is ready\n\nHi,\n\nFollowing the release of the so long awaited Slackware 15.0 , here we go for the Zenwalk 15.0 \"Skywalker\", aka \"It must be very stable after all this time\" milestone.\n\nAs usual for a milestone release, most packages have been rebui...",
+            "score": 0.75
+          },
+          {
+            "title": "India successfully conducts 2nd test of long-range hypersonic anti-ship missile with 1500km range, 10 Mach speed off Odisha coast - The Times of India",
+            "url": "https://timesofindia.indiatimes.com/defence/news/india-successfully-conducts-2nd-test-of-long-range-hypersonic-anti-ship-missile-with-1500km-range-10-mach-speed-off-odisha-coast/articleshow/130724007.cms",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "India successfully conducts 2nd test of long-range hypersonic anti-ship missile with 1500km range, 10 Mach speed off Odisha coast - The Times of India\n\n# India successfully conducts 2nd test of long-range hypersonic anti-ship missile with 1500km range, 10 Mach speed off Odisha coast\n\nComments\n\nShare...",
+            "score": 0.5
+          },
+          {
+            "title": "Over 1,800 Developers Impacted in \u2018Mini Shai-Hulud\u2019 Supply Chain Attack Targeting SAP, Lightning, and Intercom - CXO Digitalpulse",
+            "url": "https://www.cxodigitalpulse.com/over-1800-developers-impacted-in-mini-shai-hulud-supply-chain-attack-targeting-sap-lightning-and-intercom/",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "Over 1,800 Developers Impacted in \u2018Mini Shai-Hulud\u2019 Supply Chain Attack Targeting SAP, Lightning, and Intercom - CXO Digitalpulse\n\nCXO pulse\n\nContent Hub\n\nSearch\n\nCXO Musings - CXO Digitalpulse\n\nCXO Musings - CXO Digitalpulse\n\nCXO Musings - CXO Digitalpulse\n\nCXO pulse\n\nContent Hub\n\nSearch\n\nCXO pulse...",
+            "score": 0.25
+          },
+          {
+            "title": "Paradigm Researcher Proposes PACTs to Shield Bitcoin From Quantum Threats - Blockonomi",
+            "url": "https://blockonomi.com/paradigm-researcher-proposes-pacts-to-shield-bitcoin-from-quantum-threats/",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "Facebook X (Twitter) LinkedIn Telegram \n\n Facebook X (Twitter) LinkedIn Telegram \n\n \n\n \n\nHome / Contact / Advertise / Submit Press Release\n\n \n\n \n\nSecurity\n\n# Paradigm Researcher Proposes PACTs to Shield Bitcoin From Quantum Threats\n\nThe PACT scheme lets Bitcoin holders timestamp private key ownershi...",
+            "score": 0
+          }
+        ],
+        "queried_at": "2026-05-03T09:29:03.149339+00:00",
+        "data_available": true
+      },
+      "sources_succeeded": [
+        "aircraft",
+        "satellite",
+        "news"
+      ],
+      "queried_at": "2026-05-03T09:29:03.151550+00:00"
+    },
+    "provenance_summary": {
+      "total_entities": 0,
+      "high_confidence_count": 0,
+      "sources": []
+    }
+  }
+}

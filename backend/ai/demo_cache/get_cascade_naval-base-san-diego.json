@@ -1,0 +1,25 @@
+{
+  "_cached_at": "2026-05-03T09:29:01.423363+00:00",
+  "_function": "get_cascade",
+  "_args": [
+    "naval base san diego"
+  ],
+  "value": {
+    "location": "Naval Base San Diego",
+    "lat": 32.6734868,
+    "lon": -117.1207744,
+    "chain_depth": 0,
+    "linked_units": [],
+    "linked_platforms": [],
+    "linked_sensors": [],
+    "intelligence_compromised": "At Naval Base San Diego, the surface-level exposure through aircraft tracking (30/100) and satellite imaging (97/100) could potentially reveal operational patterns and readiness levels of units such as the U.S. Pacific Fleet. Although no specific units or platforms are linked directly in the input, the base is known to host significant naval assets, including aircraft carriers like the USS Theodore Roosevelt. The exposure could allow adversaries to infer deployment schedules or maintenance cycles, compromising the strategic advantage of surprise. This kind of intelligence would not be discernible from any single data source alone but emerges from the combination of multiple surface-level exposures.",
+    "adversary_action_likely": "An adversary could exploit this cascaded intelligence to time their own naval operations or cyber operations against the U.S. Pacific Fleet. By understanding deployment schedules, they could plan to engage in aggressive maneuvers or cyber attacks when the fleet is least prepared or when key assets are undergoing maintenance, thus maximizing their operational advantage.",
+    "recommended_mitigation": "Enhance the operational security protocols for the USS Theodore Roosevelt to limit exposure from satellite imaging and aircraft tracking, thereby reducing the risk of adversaries inferring deployment schedules.",
+    "cascade_score": 33,
+    "risk_level": "MEDIUM",
+    "confidence": "medium",
+    "cascade_id": "cascade_naval_base_san_diego_2026-05-03_v2",
+    "source_assessment_id": "27bd144a-752b-54a2-8408-2ec26e5e0516",
+    "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/CascadeRisk/cascade_naval_base_san_diego_2026-05-03_v2"
+  }
+}

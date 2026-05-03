@@ -1,0 +1,375 @@
+{
+  "_cached_at": "2026-05-03T09:29:02.179658+00:00",
+  "_function": "get_full_picture",
+  "_args": [
+    "naval base san diego"
+  ],
+  "value": {
+    "assessment": {
+      "location": "Naval Base San Diego",
+      "exposure_score": 33,
+      "risk_level": "MEDIUM",
+      "strava_score": 0,
+      "aircraft_score": 30,
+      "satellite_score": 97,
+      "brief": "Commander. Naval Base San Diego. HIGH OPSEC exposure identified across multiple vectors.\n\nHIGH \u2014 Satellite imaging. Sentinel-1A pass in 5.4 hours at 19 degrees elevation. 15 passes within the next 24 hours. Any outdoor activity or equipment movement will be commercially visible, compromising operational secrecy.\n\nMODERATE \u2014 Aircraft. Two military flights logged on public ADS-B trackers in the last 7 days. No consistent military pattern detected. However, peak activity between 0300 and 0700 could indicate vulnerability during early morning operations.\n\nMINIMAL \u2014 Fitness activity. No Strava heatmap data available. No exposure from personnel movement patterns.\n\nComposite exposure score: 33 out of 100. Risk level: MEDIUM.\n\nRecommended actions. One: reschedule all outdoor activities to avoid satellite pass windows, especially within the next 24 hours. Two: increase monitoring of ADS-B feeds for any emerging patterns during peak hours. Three: maintain current OPSEC protocols for personal fitness tracking.\n\n[Note: ADS-B traffic is synthetic for V1 \u2014 derived from the populated Units/Platforms ontology. To be replaced by Member A's real ADS-B Exchange capture when available.]",
+      "lat": 32.6734868,
+      "lon": -117.1207744,
+      "assessment_id": "27bd144a-752b-54a2-8408-2ec26e5e0516",
+      "assessment_timestamp": "2026-05-03T07:45:53.574Z",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/OpsecAssessment/27bd144a-752b-54a2-8408-2ec26e5e0516"
+    },
+    "cascade": {
+      "location": "Naval Base San Diego",
+      "lat": 32.6734868,
+      "lon": -117.1207744,
+      "chain_depth": 0,
+      "linked_units": [],
+      "linked_platforms": [],
+      "linked_sensors": [],
+      "intelligence_compromised": "At Naval Base San Diego, the surface-level exposure through aircraft tracking (30/100) and satellite imaging (97/100) could potentially reveal operational patterns and readiness levels of units such as the U.S. Pacific Fleet. Although no specific units or platforms are linked directly in the input, the base is known to host significant naval assets, including aircraft carriers like the USS Theodore Roosevelt. The exposure could allow adversaries to infer deployment schedules or maintenance cycles, compromising the strategic advantage of surprise. This kind of intelligence would not be discernible from any single data source alone but emerges from the combination of multiple surface-level exposures.",
+      "adversary_action_likely": "An adversary could exploit this cascaded intelligence to time their own naval operations or cyber operations against the U.S. Pacific Fleet. By understanding deployment schedules, they could plan to engage in aggressive maneuvers or cyber attacks when the fleet is least prepared or when key assets are undergoing maintenance, thus maximizing their operational advantage.",
+      "recommended_mitigation": "Enhance the operational security protocols for the USS Theodore Roosevelt to limit exposure from satellite imaging and aircraft tracking, thereby reducing the risk of adversaries inferring deployment schedules.",
+      "cascade_score": 33,
+      "risk_level": "MEDIUM",
+      "confidence": "medium",
+      "cascade_id": "cascade_naval_base_san_diego_2026-05-03_v2",
+      "source_assessment_id": "27bd144a-752b-54a2-8408-2ec26e5e0516",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/CascadeRisk/cascade_naval_base_san_diego_2026-05-03_v2"
+    },
+    "adversary_actions": [
+      {
+        "action_id": "action_cascade_naval_base_san_diego_2026-05-03_v2_0",
+        "action_type": "surveillance",
+        "target_entity_name": "USS Theodore Roosevelt",
+        "target_entity_id": "",
+        "capability_required": "Access to commercial satellite imaging and aircraft tracking data",
+        "timeline": "days",
+        "rationale": "By monitoring the USS Theodore Roosevelt's movements and maintenance schedules, the adversary can gather intelligence on the operational readiness and deployment patterns of the U.S. Pacific Fleet, allowing them to plan future operations with an advantage.",
+        "confidence": "medium",
+        "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_naval_base_san_diego_2026-05-03_v2_0"
+      }
+    ],
+    "current_state": {
+      "center": {
+        "lat": 32.6734868,
+        "lon": -117.1207744
+      },
+      "location_name": "Naval Base San Diego",
+      "aircraft": {
+        "center": {
+          "lat": 32.6734868,
+          "lon": -117.1207744
+        },
+        "radius_nm": 25,
+        "aircraft_count": 4,
+        "military_count": 0,
+        "aircraft": [
+          {
+            "hex": "A977F8",
+            "fr24_id": "3f842092",
+            "callsign": "N709WG",
+            "registration": "N709WG",
+            "lat": 33.0197,
+            "lon": -117.2526,
+            "altitude": 700,
+            "speed": 64,
+            "heading": 251,
+            "aircraft_type": "B407",
+            "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "AC2E45",
+            "fr24_id": "3f8402d5",
+            "callsign": "N884SD",
+            "registration": "N884SD",
+            "lat": 33.0436,
+            "lon": -117.0566,
+            "altitude": 1475,
+            "speed": 59,
+            "heading": 161,
+            "aircraft_type": "AS50",
+            "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "0D08F4",
+            "fr24_id": "3f83b95b",
+            "callsign": "VOI186",
+            "registration": "XA-VLJ",
+            "lat": 32.5453,
+            "lon": -116.9773,
+            "altitude": 0,
+            "speed": 0,
+            "heading": 73,
+            "aircraft_type": "A321",
+            "airline_icao": "VOI",
+            "is_military": false
+          },
+          {
+            "hex": "A6B9C1",
+            "fr24_id": "3f8419b2",
+            "callsign": "VOI3210",
+            "registration": "N532VL",
+            "lat": 32.5398,
+            "lon": -116.9602,
+            "altitude": 0,
+            "speed": 14,
+            "heading": 98,
+            "aircraft_type": "A20N",
+            "airline_icao": "VOI",
+            "is_military": false
+          }
+        ],
+        "queried_at": "2026-05-03T09:29:02.118082+00:00",
+        "source": "flightradar24",
+        "data_available": true
+      },
+      "satellite": {
+        "next_pass": {
+          "satellite": "Sentinel-1A",
+          "rise_utc": "2026-05-03T13:08:47.258939+00:00",
+          "set_utc": "2026-05-03T13:15:37.174761+00:00",
+          "max_elevation_deg": 19.713605835521903,
+          "duration_seconds": 409.915822,
+          "ground_track": [
+            {
+              "lat": 43.077488215311284,
+              "lon": -99.23551048108575,
+              "time_offset_sec": 0
+            },
+            {
+              "lat": 41.28441713971178,
+              "lon": -99.831415410341,
+              "time_offset_sec": 30
+            },
+            {
+              "lat": 39.488933841653946,
+              "lon": -100.402256875381,
+              "time_offset_sec": 60
+            },
+            {
+              "lat": 37.69124604616195,
+              "lon": -100.95077075556527,
+              "time_offset_sec": 90
+            },
+            {
+              "lat": 35.89153897988188,
+              "lon": -101.47934880797906,
+              "time_offset_sec": 120
+            },
+            {
+              "lat": 34.08997939257033,
+              "lon": -101.99009320027506,
+              "time_offset_sec": 150
+            },
+            {
+              "lat": 32.2867188286998,
+              "lon": -102.48486126697077,
+              "time_offset_sec": 180
+            },
+            {
+              "lat": 30.481896301927762,
+              "lon": -102.96530247892666,
+              "time_offset_sec": 210
+            },
+            {
+              "lat": 28.67564049043883,
+              "lon": -103.43288917176397,
+              "time_offset_sec": 240
+            },
+            {
+              "lat": 26.868071545187988,
+              "lon": -103.88894224269622,
+              "time_offset_sec": 270
+            },
+            {
+              "lat": 25.05930258332762,
+              "lon": -104.33465276885899,
+              "time_offset_sec": 300
+            },
+            {
+              "lat": 23.249440924063165,
+              "lon": -104.77110030340437,
+              "time_offset_sec": 330
+            },
+            {
+              "lat": 21.438589112612082,
+              "lon": -105.19926845341145,
+              "time_offset_sec": 360
+            },
+            {
+              "lat": 19.626845769020754,
+              "lon": -105.62005822536476,
+              "time_offset_sec": 390
+            }
+          ]
+        },
+        "passes_in_window": 15,
+        "all_passes": [
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-03T13:08:47.258939+00:00",
+            "set_utc": "2026-05-03T13:15:37.174761+00:00",
+            "max_elevation_deg": 19.713605835521903,
+            "duration_seconds": 409.915822
+          },
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-03T14:45:37.072568+00:00",
+            "set_utc": "2026-05-03T14:53:59.415328+00:00",
+            "max_elevation_deg": 32.38582549789743,
+            "duration_seconds": 502.34276
+          },
+          {
+            "satellite": "Sentinel-1B",
+            "rise_utc": "2026-05-03T16:44:49.892834+00:00",
+            "set_utc": "2026-05-03T16:51:20.773554+00:00",
+            "max_elevation_deg": 22.667368134620254,
+            "duration_seconds": 390.88072
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-03T18:10:20.939756+00:00",
+            "set_utc": "2026-05-03T18:20:23.508807+00:00",
+            "max_elevation_deg": 49.299719687437296,
+            "duration_seconds": 602.569051
+          },
+          {
+            "satellite": "Sentinel-1B",
+            "rise_utc": "2026-05-03T18:19:53.129209+00:00",
+            "set_utc": "2026-05-03T18:26:07.538645+00:00",
+            "max_elevation_deg": 21.29935557798153,
+            "duration_seconds": 374.409436
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-03T18:20:28.190617+00:00",
+            "set_utc": "2026-05-03T18:30:45.399661+00:00",
+            "max_elevation_deg": 63.08825139521834,
+            "duration_seconds": 617.209044
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-03T19:51:13.064604+00:00",
+            "set_utc": "2026-05-03T19:57:32.343416+00:00",
+            "max_elevation_deg": 16.487580060604916,
+            "duration_seconds": 379.278812
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-03T20:02:10.427846+00:00",
+            "set_utc": "2026-05-03T20:06:47.337347+00:00",
+            "max_elevation_deg": 13.04138395586875,
+            "duration_seconds": 276.909501
+          },
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-04T00:10:45.179697+00:00",
+            "set_utc": "2026-05-04T00:15:14.311852+00:00",
+            "max_elevation_deg": 13.399161653735483,
+            "duration_seconds": 269.132155
+          },
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-04T01:45:32.343418+00:00",
+            "set_utc": "2026-05-04T01:54:42.460370+00:00",
+            "max_elevation_deg": 50.67135237551886,
+            "duration_seconds": 550.116952
+          },
+          {
+            "satellite": "Sentinel-1B",
+            "rise_utc": "2026-05-04T05:01:58.412381+00:00",
+            "set_utc": "2026-05-04T05:10:00.611777+00:00",
+            "max_elevation_deg": 58.839702524493354,
+            "duration_seconds": 482.199396
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-04T05:23:36.742414+00:00",
+            "set_utc": "2026-05-04T05:33:30.331348+00:00",
+            "max_elevation_deg": 46.48406630915341,
+            "duration_seconds": 593.588934
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-04T05:33:38.943653+00:00",
+            "set_utc": "2026-05-04T05:43:50.111008+00:00",
+            "max_elevation_deg": 59.04470619909809,
+            "duration_seconds": 611.167355
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-04T07:04:58.714253+00:00",
+            "set_utc": "2026-05-04T07:11:22.450373+00:00",
+            "max_elevation_deg": 16.36130190591847,
+            "duration_seconds": 383.73612
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-04T07:16:16.630672+00:00",
+            "set_utc": "2026-05-04T07:20:41.555407+00:00",
+            "max_elevation_deg": 12.617648827956954,
+            "duration_seconds": 264.924735
+          }
+        ],
+        "queried_at": "2026-05-03T09:29:01.888103+00:00",
+        "data_available": true
+      },
+      "news": {
+        "article_count": 5,
+        "articles": [
+          {
+            "title": "US redirects 48 vessels in Persian Gulf amid blockade on Iran - Rediff.com India News",
+            "url": "https://www.rediff.com/news/report/us-redirects-48-vessels-in-persian-gulf-amid-blockade-on-iran/20260502.htm",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "US redirects 48 vessels in Persian Gulf amid blockade on Iran - Rediff.com India News\n\nFollow Rediff on:\n\n# US redirects 48 vessels in Persian Gulf amid blockade on Iran\n\nSource: ANI- Edited By: Senjo M R\n\nShare:\n\n3 Minutes Read Watch on Rediff-TV Listen to Article\n\nMay 02, 2026 22:45 IST\n\nx\n\nWashin...",
+            "score": 1
+          },
+          {
+            "title": "San Diego U.S. Attorney's civil chief appointed as magistrate judge",
+            "url": "https://www.sandiegouniontribune.com/2026/05/02/u-s-attorneys-civil-division-chief-appointed-as-newest-san-diego-federal-magistrate/",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "San Diego U.S. Attorney's civil chief appointed as magistrate judge\n\n### Padres routed by White Sox, suffer third straight loss\n\nMay 1, 2026 at 10:00 pm\n\nJanet Cabral is sworn in as a new federal magistrate judge in San Diego on Monday. (U.S. District Court)\n\nGetting your Trinity Audio player ready....",
+            "score": 0.75
+          },
+          {
+            "title": "US Navy AS(X) Submarine Tenders Boost Nuclear Fleet Endurance",
+            "url": "https://defensefeeds.com/news/naval-news/us-navy-asx-submarine-tenders-boost-nuclear-fleet-endurance/",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "US Navy AS(X) Submarine Tenders Boost Nuclear Fleet Endurance\n\n# US Navy AS(X) Submarine Tenders Boost Nuclear Fleet Endurance\n\n- Logan Pierce\n- May 2, 2026\n\nCredit: Defense Feeds\n\nDefense Feeds, Washington \u2014 The US Navy is strengthening its undersea logistics network as the US Navy AS(X) submarine ...",
+            "score": 0.5
+          },
+          {
+            "title": "US, Philippines deploy NMESIS in Batanes near Taiwan for war games",
+            "url": "https://www.bairdmaritime.com/security/naval/us-philippines-deploy-nmesis-in-batanes-near-taiwan-for-war-games",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "US, Philippines deploy NMESIS in Batanes near Taiwan for war games\n\nREGIONS\n\nREGIONS\n\nMORE\n\nMORE\n\n# US, Philippines deploy NMESIS in Batanes near Taiwan for war games\n\nNMESIS system can target surface vessels at a range of 115 miles.\n\nNMESIS anti-ship missile being launched during tests at the Pacif...",
+            "score": 0.25
+          },
+          {
+            "title": "The U.S. Navy Will Soon Have 3 Aircraft Carriers 'Out Of Action' - National Security Journal",
+            "url": "https://nationalsecurityjournal.org/the-u-s-navy-will-soon-have-3-aircraft-carriers-out-of-action/",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "The U.S. Navy Will Soon Have 3 Aircraft Carriers 'Out Of Action' - National Security Journal\n\nConnect with us\n\nHi, what are you looking for?\n\nATLANTIC OCEAN (Oct. 29, 2019) USS Gerald R. Ford (CVN 78) conducts high-speed turns in the Atlantic Ocean. Ford is at sea conducting sea trials following the...",
+            "score": 0
+          }
+        ],
+        "queried_at": "2026-05-03T09:29:02.178251+00:00",
+        "data_available": true
+      },
+      "sources_succeeded": [
+        "aircraft",
+        "satellite",
+        "news"
+      ],
+      "queried_at": "2026-05-03T09:29:02.179442+00:00"
+    },
+    "provenance_summary": {
+      "total_entities": 0,
+      "high_confidence_count": 0,
+      "sources": []
+    }
+  }
+}

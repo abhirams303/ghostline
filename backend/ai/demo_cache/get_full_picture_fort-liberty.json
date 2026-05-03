@@ -1,0 +1,502 @@
+{
+  "_cached_at": "2026-05-03T14:08:52.167016+00:00",
+  "_function": "get_full_picture",
+  "_args": [
+    "fort liberty"
+  ],
+  "value": {
+    "assessment": {
+      "location": "Fort Liberty",
+      "exposure_score": 78,
+      "risk_level": "HIGH",
+      "strava_score": 78,
+      "aircraft_score": 71,
+      "satellite_score": 100,
+      "brief": "Commander. Fort Liberty, North Carolina. CRITICAL OPSEC exposure identified across three vectors.\n\nCRITICAL \u2014 Satellite imaging. Sentinel-1A will pass in 3.7 hours at 73 degrees elevation. Fifteen passes within the next 24 hours. Any outdoor equipment staging or vehicle movement will be commercially visible.\n\nHIGH \u2014 Fitness activity. Nine distinct exercise routes publicly visible via Strava heatmap. Peak activity 0600 to 0700 and 1700 to 1800 daily. An adversary monitoring this data can predict personnel movement patterns to 15-minute precision.\n\nHIGH \u2014 Aircraft. 20 military flights logged on public ADS-B trackers in the last 7 days. Callsigns RAGE88, REACH74, and SAVAGE08 appear on a recurring Tuesday-Friday cycle between 0600 and 1000. Flight pattern is predictable and targetable.\n\nComposite exposure score: 78 out of 100. Risk level: HIGH.\n\nRecommended actions. One: reschedule outdoor staging to after the satellite window closes. Two: direct all personnel to set Strava profiles to private within 24 hours, priority enforcement at units with outdoor routines. Three: file FAA LADD blocking for callsigns RAGE88, REACH74, SAVAGE08. Four: issue unit-wide OPSEC directive on personal device geotagging.\n\n[Note: ADS-B traffic is synthetic for V1 \u2014 derived from the populated Units/Platforms ontology. To be replaced by Member A's real ADS-B Exchange capture when available.]",
+      "lat": 35.140311,
+      "lon": -79.1541465,
+      "assessment_id": "9515e77c-2561-51d1-a649-da34e587985f",
+      "assessment_timestamp": "2026-05-03T07:45:42.839Z",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/OpsecAssessment/9515e77c-2561-51d1-a649-da34e587985f",
+      "_source": "disk_cache",
+      "_cached_at": "2026-05-03T09:28:46.712123+00:00"
+    },
+    "cascade": {
+      "location": "Fort Liberty",
+      "lat": 35.140311,
+      "lon": -79.1541465,
+      "chain_depth": 12,
+      "linked_units": [
+        {
+          "id": "unit_20th_engineer_brigade",
+          "name": "20th Engineer Brigade"
+        },
+        {
+          "id": "unit_joint_special_operations_command",
+          "name": "Joint Special Operations Command"
+        },
+        {
+          "id": "unit_xviii_airborne_corps",
+          "name": "XVIII Airborne Corps"
+        },
+        {
+          "id": "unit_united_states_army_reserve_command",
+          "name": "United States Army Reserve Command"
+        },
+        {
+          "id": "unit_82nd_airborne_division",
+          "name": "82nd Airborne Division"
+        },
+        {
+          "id": "unit_44th_medical_brigade",
+          "name": "44th Medical Brigade"
+        },
+        {
+          "id": "unit_18th_field_artillery_brigade",
+          "name": "18th Field Artillery Brigade"
+        },
+        {
+          "id": "unit_525th_military_intelligence_brigade",
+          "name": "525th Military Intelligence Brigade"
+        },
+        {
+          "id": "unit_united_states_army_special_operations_command",
+          "name": "United States Army Special Operations Command"
+        },
+        {
+          "id": "unit_united_states_army_western_hemisphere_command",
+          "name": "United States Army Western Hemisphere Command"
+        },
+        {
+          "id": "unit_82nd_sustainment_brigade",
+          "name": "82nd Sustainment Brigade"
+        },
+        {
+          "id": "unit_16th_military_police_brigade",
+          "name": "16th Military Police Brigade"
+        }
+      ],
+      "linked_platforms": [],
+      "linked_sensors": [],
+      "intelligence_compromised": "The surface exposure at Fort Liberty, with a composite base exposure score of 78, propagates through linked entities such as the 'Joint Special Operations Command', '82nd Airborne Division', and '525th Military Intelligence Brigade'. This exposure could reveal operational patterns, troop movements, and readiness levels of these units. For instance, fitness app heatmaps with a score of 78/100 could indicate the physical training routines of the '82nd Airborne Division', while aircraft tracking with a score of 71/100 might expose flight patterns associated with the 'Joint Special Operations Command'. Such information, when combined, could provide adversaries with insights into the operational tempo and deployment readiness of these units, which they couldn't deduce from any single source alone.",
+      "adversary_action_likely": "An adversary could exploit this cascaded intelligence to time their operations when the '82nd Airborne Division' is least prepared or to intercept communications when the '525th Military Intelligence Brigade' is most active. They could also plan counter-operations to disrupt the 'Joint Special Operations Command' by predicting their deployment schedules and readiness levels.",
+      "recommended_mitigation": "Implement stricter control measures on fitness app usage by personnel in the '82nd Airborne Division' to reduce the heatmap exposure, thereby mitigating downstream intelligence compromise.",
+      "cascade_score": 100,
+      "risk_level": "HIGH",
+      "confidence": "high",
+      "cascade_id": "cascade_fort_liberty_2026-05-03_v2",
+      "source_assessment_id": "9515e77c-2561-51d1-a649-da34e587985f",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/CascadeRisk/cascade_fort_liberty_2026-05-03_v2",
+      "_source": "disk_cache",
+      "_cached_at": "2026-05-03T09:28:47.546724+00:00"
+    },
+    "adversary_actions": [
+      {
+        "action_id": "action_cascade_fort_liberty_2026-05-03_v2_0",
+        "action_type": "disruption",
+        "target_entity_name": "Joint Special Operations Command",
+        "target_entity_id": "unit_joint_special_operations_command",
+        "capability_required": "cyber warfare unit capable of intercepting and jamming communications",
+        "timeline": "weeks",
+        "rationale": "By exploiting the compromised intelligence on deployment schedules and readiness levels, an adversary could time a cyber attack to disrupt communications during critical operations, leveraging the high cascade score to maximize impact.",
+        "confidence": "high",
+        "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_fort_liberty_2026-05-03_v2_0"
+      },
+      {
+        "action_id": "action_cascade_fort_liberty_2026-05-03_v2_1",
+        "action_type": "surveillance",
+        "target_entity_name": "82nd Airborne Division",
+        "target_entity_id": "unit_82nd_airborne_division",
+        "capability_required": "satellite imagery analysis and fitness app data mining",
+        "timeline": "days",
+        "rationale": "The adversary can use fitness app heatmaps to monitor physical training routines, identifying periods of low readiness to plan further operations or gather more intelligence.",
+        "confidence": "high",
+        "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_fort_liberty_2026-05-03_v2_1"
+      },
+      {
+        "action_id": "action_cascade_fort_liberty_2026-05-03_v2_2",
+        "action_type": "interdiction",
+        "target_entity_name": "525th Military Intelligence Brigade",
+        "target_entity_id": "unit_525th_military_intelligence_brigade",
+        "capability_required": "signals intelligence team with capability to intercept and decode communications",
+        "timeline": "immediate",
+        "rationale": "Intercepting communications when the brigade is most active could provide real-time insights into intelligence operations, exploiting the high exposure to gain strategic advantages.",
+        "confidence": "high",
+        "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_fort_liberty_2026-05-03_v2_2"
+      }
+    ],
+    "current_state": {
+      "center": {
+        "lat": 35.140311,
+        "lon": -79.1541465
+      },
+      "location_name": "Fort Liberty",
+      "aircraft": {
+        "center": {
+          "lat": 35.140311,
+          "lon": -79.1541465
+        },
+        "radius_nm": 25,
+        "aircraft_count": 11,
+        "military_count": 1,
+        "aircraft": [
+          {
+            "hex": "A98BC2",
+            "fr24_id": "3f84a6b8",
+            "callsign": "JRE714",
+            "registration": "N714JS",
+            "lat": 34.9943,
+            "lon": -79.5921,
+            "altitude": 11550,
+            "speed": 333,
+            "heading": 100,
+            "aircraft_type": "C25B",
+            "airline_icao": "JRE",
+            "is_military": false
+          },
+          {
+            "hex": "A401A9",
+            "fr24_id": "3f84e6a8",
+            "callsign": "N35731",
+            "registration": "N35731",
+            "lat": 35.2677,
+            "lon": -79.433,
+            "altitude": 3100,
+            "speed": 76,
+            "heading": 289,
+            "aircraft_type": "C172",
+            "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "A55586",
+            "fr24_id": "3f84d7c5",
+            "callsign": "N4428L",
+            "registration": "N4428L",
+            "lat": 35.0454,
+            "lon": -79.3874,
+            "altitude": 8325,
+            "speed": 153,
+            "heading": 314,
+            "aircraft_type": "PA46",
+            "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "A6CA42",
+            "fr24_id": "3f84ea79",
+            "callsign": "N53682",
+            "registration": "N53682",
+            "lat": 35.4356,
+            "lon": -79.3149,
+            "altitude": 7850,
+            "speed": 137,
+            "heading": 225,
+            "aircraft_type": "P32R",
+            "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "AC1704",
+            "fr24_id": "3f849c43",
+            "callsign": "N8784T",
+            "registration": "N8784T",
+            "lat": 34.849,
+            "lon": -79.3085,
+            "altitude": 3825,
+            "speed": 98,
+            "heading": 240,
+            "aircraft_type": "C172",
+            "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "A0C564",
+            "fr24_id": "3f84d328",
+            "callsign": "N149P",
+            "registration": "N149P",
+            "lat": 35.18,
+            "lon": -79.2183,
+            "altitude": 4875,
+            "speed": 136,
+            "heading": 87,
+            "aircraft_type": "BE23",
+            "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "AE4D9B",
+            "fr24_id": "3f848f6e",
+            "callsign": "GKA262",
+            "registration": "08-00262",
+            "lat": 35.5472,
+            "lon": -79.2058,
+            "altitude": 5375,
+            "speed": 189,
+            "heading": 128,
+            "aircraft_type": "DHC6",
+            "airline_icao": "GKA",
+            "is_military": true
+          },
+          {
+            "hex": "A5DD36",
+            "fr24_id": "3f84f8e0",
+            "callsign": "N477XP",
+            "registration": "N477XP",
+            "lat": 35.0115,
+            "lon": -79.1594,
+            "altitude": 5325,
+            "speed": 98,
+            "heading": 288,
+            "aircraft_type": "C208",
+            "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "A4943E",
+            "fr24_id": "3f84c857",
+            "callsign": "UAL1434",
+            "registration": "N39415",
+            "lat": 35.532,
+            "lon": -78.9926,
+            "altitude": 29000,
+            "speed": 478,
+            "heading": 23,
+            "aircraft_type": "B739",
+            "airline_icao": "UAL",
+            "is_military": false
+          },
+          {
+            "hex": "A1B138",
+            "fr24_id": "3f8494d0",
+            "callsign": "N208RF",
+            "registration": "N208RF",
+            "lat": 34.9807,
+            "lon": -78.9048,
+            "altitude": 16125,
+            "speed": 140,
+            "heading": 233,
+            "aircraft_type": "C208",
+            "airline_icao": "",
+            "is_military": false
+          },
+          {
+            "hex": "",
+            "fr24_id": "3f849ba9",
+            "callsign": "F900",
+            "registration": "",
+            "lat": 35.4711,
+            "lon": -78.9015,
+            "altitude": 43000,
+            "speed": 490,
+            "heading": 28,
+            "aircraft_type": "F900",
+            "airline_icao": "",
+            "is_military": false
+          }
+        ],
+        "queried_at": "2026-05-03T14:08:52.166501+00:00",
+        "source": "flightradar24",
+        "data_available": true
+      },
+      "satellite": {
+        "next_pass": {
+          "satellite": "Sentinel-2B",
+          "rise_utc": "2026-05-03T14:50:40.748813+00:00",
+          "set_utc": "2026-05-03T14:56:32.537933+00:00",
+          "max_elevation_deg": 15.076801108935994,
+          "duration_seconds": 351.78912,
+          "ground_track": [
+            {
+              "lat": 43.253098806263075,
+              "lon": -57.06586697879789,
+              "time_offset_sec": 0
+            },
+            {
+              "lat": 41.498404836864914,
+              "lon": -57.67725829318259,
+              "time_offset_sec": 30
+            },
+            {
+              "lat": 39.7412034861222,
+              "lon": -58.26311201794752,
+              "time_offset_sec": 60
+            },
+            {
+              "lat": 37.98171144986343,
+              "lon": -58.82616517815761,
+              "time_offset_sec": 90
+            },
+            {
+              "lat": 36.22012181004367,
+              "lon": -59.36881616081925,
+              "time_offset_sec": 120
+            },
+            {
+              "lat": 34.45660813213503,
+              "lon": -59.893177414284715,
+              "time_offset_sec": 150
+            },
+            {
+              "lat": 32.691327813328925,
+              "lon": -60.40111886767359,
+              "time_offset_sec": 180
+            },
+            {
+              "lat": 30.92442483183358,
+              "lon": -60.89430392381315,
+              "time_offset_sec": 210
+            },
+            {
+              "lat": 29.156032014087923,
+              "lon": -61.374219473357385,
+              "time_offset_sec": 240
+            },
+            {
+              "lat": 27.38627291124798,
+              "lon": -61.842201068601156,
+              "time_offset_sec": 270
+            },
+            {
+              "lat": 25.615263357084753,
+              "lon": -62.29945415826966,
+              "time_offset_sec": 300
+            },
+            {
+              "lat": 23.84311276453041,
+              "lon": -62.74707210164105,
+              "time_offset_sec": 330
+            }
+          ]
+        },
+        "passes_in_window": 15,
+        "all_passes": [
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-03T14:50:40.748813+00:00",
+            "set_utc": "2026-05-03T14:56:32.537933+00:00",
+            "max_elevation_deg": 15.076801108935994,
+            "duration_seconds": 351.78912
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-03T15:00:16.759167+00:00",
+            "set_utc": "2026-05-03T15:07:34.328630+00:00",
+            "max_elevation_deg": 19.144376127813665,
+            "duration_seconds": 437.569463
+          },
+          {
+            "satellite": "Sentinel-1B",
+            "rise_utc": "2026-05-03T15:06:41.130287+00:00",
+            "set_utc": "2026-05-03T15:14:51.996946+00:00",
+            "max_elevation_deg": 74.13533025486025,
+            "duration_seconds": 490.866659
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-03T16:28:17.090977+00:00",
+            "set_utc": "2026-05-03T16:38:22.862465+00:00",
+            "max_elevation_deg": 53.82385063703189,
+            "duration_seconds": 605.771488
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-03T16:38:38.019172+00:00",
+            "set_utc": "2026-05-03T16:48:23.802758+00:00",
+            "max_elevation_deg": 42.794106244120925,
+            "duration_seconds": 585.783586
+          },
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-03T22:29:16.755389+00:00",
+            "set_utc": "2026-05-03T22:38:26.748181+00:00",
+            "max_elevation_deg": 52.90241178492513,
+            "duration_seconds": 549.992792
+          },
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-04T00:09:37.691349+00:00",
+            "set_utc": "2026-05-04T00:13:49.197166+00:00",
+            "max_elevation_deg": 12.771062051451889,
+            "duration_seconds": 251.505817
+          },
+          {
+            "satellite": "Sentinel-1B",
+            "rise_utc": "2026-05-04T01:51:00.896172+00:00",
+            "set_utc": "2026-05-04T01:58:46.826737+00:00",
+            "max_elevation_deg": 44.073871708684564,
+            "duration_seconds": 465.930565
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-04T02:05:28.147835+00:00",
+            "set_utc": "2026-05-04T02:12:08.830554+00:00",
+            "max_elevation_deg": 17.52519516943569,
+            "duration_seconds": 400.682719
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-04T02:15:03.303798+00:00",
+            "set_utc": "2026-05-04T02:22:47.746180+00:00",
+            "max_elevation_deg": 21.637757180686073,
+            "duration_seconds": 464.442382
+          },
+          {
+            "satellite": "Sentinel-1B",
+            "rise_utc": "2026-05-04T03:28:47.896858+00:00",
+            "set_utc": "2026-05-04T03:31:29.733277+00:00",
+            "max_elevation_deg": 11.365492361351297,
+            "duration_seconds": 161.836419
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-04T03:42:47.822538+00:00",
+            "set_utc": "2026-05-04T03:52:51.767964+00:00",
+            "max_elevation_deg": 49.90807473614971,
+            "duration_seconds": 603.945426
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-04T03:53:14.101257+00:00",
+            "set_utc": "2026-05-04T04:02:56.224191+00:00",
+            "max_elevation_deg": 39.46642521153235,
+            "duration_seconds": 582.122934
+          },
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-04T10:32:05.915364+00:00",
+            "set_utc": "2026-05-04T10:38:16.858031+00:00",
+            "max_elevation_deg": 17.22875563740321,
+            "duration_seconds": 370.942667
+          },
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-04T12:08:30.873244+00:00",
+            "set_utc": "2026-05-04T12:17:17.722690+00:00",
+            "max_elevation_deg": 39.6479035504679,
+            "duration_seconds": 526.849446
+          }
+        ],
+        "queried_at": "2026-05-03T14:08:51.920800+00:00",
+        "data_available": true
+      },
+      "news": {
+        "error": "EXA_API_KEY missing in .env",
+        "data_available": false,
+        "article_count": 0,
+        "articles": [],
+        "queried_at": "2026-05-03T14:08:51.847262+00:00"
+      },
+      "sources_succeeded": [
+        "aircraft",
+        "satellite"
+      ],
+      "queried_at": "2026-05-03T14:08:52.166719+00:00"
+    },
+    "provenance_summary": {
+      "total_entities": 0,
+      "high_confidence_count": 0,
+      "sources": []
+    }
+  }
+}

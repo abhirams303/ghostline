@@ -1,0 +1,740 @@
+{
+  "_cached_at": "2026-05-03T09:28:58.709517+00:00",
+  "_function": "get_full_picture",
+  "_args": [
+    "norfolk"
+  ],
+  "value": {
+    "assessment": {
+      "location": "Naval Station Norfolk",
+      "exposure_score": 80,
+      "risk_level": "HIGH",
+      "strava_score": 78,
+      "aircraft_score": 81,
+      "satellite_score": 100,
+      "brief": "Commander. Naval Station Norfolk. CRITICAL OPSEC exposure identified across three vectors.\n\nCRITICAL \u2014 Satellite imaging. Sentinel-1A pass in 3.7 hours at 88 degrees elevation. Twelve imaging opportunities within 24 hours. Any outdoor activity or equipment exposure will be commercially visible, compromising operational security.\n\nHIGH \u2014 Aircraft. 24 military flights logged on public ADS-B trackers in the last 7 days. Callsigns GUNFISH07, GUNFISH25, RAYGUN63, and TIGER52 show a Friday/Sunday concentration from 0500 to 0900. Predictable flight patterns are exploitable for targeting.\n\nHIGH \u2014 Fitness activity. Nine distinct exercise routes publicly visible via Strava heatmap. Peak activity 0600 to 0700 and 1700 to 1800. An adversary can infer personnel movement patterns and routine operations.\n\nComposite exposure score: 80 out of 100. Risk level: HIGH.\n\nRecommended actions. One: reschedule outdoor activities to avoid satellite pass windows. Two: file FAA LADD blocking for callsigns GUNFISH07, GUNFISH25, RAYGUN63, TIGER52. Three: enforce Strava profile privacy settings within 24 hours, focusing on personnel with access to sensitive areas.\n\n[Note: ADS-B traffic is synthetic for V1 \u2014 derived from the populated Units/Platforms ontology. To be replaced by Member A's real ADS-B Exchange capture when available.]",
+      "lat": 36.9416699,
+      "lon": -76.297338,
+      "assessment_id": "18deca41-2a60-589b-a758-6850f4c18202",
+      "assessment_timestamp": "2026-05-03T07:45:47.061Z",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/OpsecAssessment/18deca41-2a60-589b-a758-6850f4c18202"
+    },
+    "cascade": {
+      "location": "Naval Station Norfolk",
+      "lat": 36.9416699,
+      "lon": -76.297338,
+      "chain_depth": 94,
+      "linked_units": [
+        {
+          "id": "unit_destroyer_squadron_22",
+          "name": "Destroyer Squadron 22"
+        },
+        {
+          "id": "unit_navy_warfare_development_command",
+          "name": "Navy Warfare Development Command"
+        },
+        {
+          "id": "unit_destroyer_squadron_26",
+          "name": "Destroyer Squadron 26"
+        },
+        {
+          "id": "unit_destroyer_squadron_28",
+          "name": "Destroyer Squadron 28"
+        },
+        {
+          "id": "unit_carrier_strike_group_twelve",
+          "name": "Carrier Strike Group Twelve"
+        },
+        {
+          "id": "unit_carrier_strike_group_eight",
+          "name": "Carrier Strike Group Eight"
+        },
+        {
+          "id": "unit_carrier_strike_groups",
+          "name": "carrier strike groups"
+        },
+        {
+          "id": "unit_navy_region_mid_atlantic",
+          "name": "Navy Region Mid-Atlantic"
+        },
+        {
+          "id": "unit_carrier_strike_group_two",
+          "name": "Carrier Strike Group Two"
+        },
+        {
+          "id": "unit_military_sealift_command",
+          "name": "Military Sealift Command"
+        },
+        {
+          "id": "unit_carrier_strike_group_ten",
+          "name": "Carrier Strike Group Ten"
+        },
+        {
+          "id": "unit_destroyer_squadron_2",
+          "name": "Destroyer Squadron 2"
+        }
+      ],
+      "linked_platforms": [
+        {
+          "id": "plat_ddg_81__unit_carrier_strike_group_twelve",
+          "name": "DDG-81"
+        },
+        {
+          "id": "plat_cvn_75__unit_carrier_strike_group_eight",
+          "name": "CVN-75"
+        },
+        {
+          "id": "plat_f310__unit_carrier_strike_group_eight",
+          "name": "F310"
+        },
+        {
+          "id": "plat_ddg_116__unit_carrier_strike_group_two",
+          "name": "DDG-116"
+        },
+        {
+          "id": "plat_ddg_72__unit_carrier_strike_group_two",
+          "name": "DDG-72"
+        },
+        {
+          "id": "plat_ddg_57__unit_carrier_strike_group_two",
+          "name": "DDG-57"
+        },
+        {
+          "id": "plat_cvn_77__unit_carrier_strike_group_ten",
+          "name": "CVN-77"
+        },
+        {
+          "id": "plat_ddg_55__unit_destroyer_squadron_2",
+          "name": "DDG-55"
+        },
+        {
+          "id": "plat_ddg_79__unit_destroyer_squadron_2",
+          "name": "DDG-79"
+        },
+        {
+          "id": "plat_ddg_74__unit_destroyer_squadron_2",
+          "name": "DDG-74"
+        }
+      ],
+      "linked_sensors": [
+        {
+          "id": "sens_an_spg_62__ddg_81__unit_carrier_strike_group_twelve",
+          "name": "AN/SPG-62"
+        },
+        {
+          "id": "sens_an_sqs_26__ddg_81__unit_carrier_strike_group_twelve",
+          "name": "AN/SQS-26"
+        },
+        {
+          "id": "sens_an_sqq_89__ddg_81__unit_carrier_strike_group_twelve",
+          "name": "AN/SQQ-89"
+        },
+        {
+          "id": "sens_an_spy_1__ddg_81__unit_carrier_strike_group_twelve",
+          "name": "AN/SPY-1"
+        },
+        {
+          "id": "sens_an_sps_67__ddg_81__unit_carrier_strike_group_twelve",
+          "name": "AN/SPS-67"
+        },
+        {
+          "id": "sens_an_spq_9__ddg_81__unit_carrier_strike_group_twelve",
+          "name": "AN/SPQ-9"
+        },
+        {
+          "id": "sens_surface_search_radar_ddg_119_onward__ddg_81__unit_carrier_strike_group_twelve",
+          "name": "surface search radar (DDG-119 onward)"
+        },
+        {
+          "id": "sens_an_spy_6__ddg_81__unit_carrier_strike_group_twelve",
+          "name": "AN/SPY-6"
+        },
+        {
+          "id": "sens_an_spq_9__cvn_75__unit_carrier_strike_group_eight",
+          "name": "AN/SPQ-9"
+        },
+        {
+          "id": "sens_an_spn_41__cvn_75__unit_carrier_strike_group_eight",
+          "name": "AN/SPN-41"
+        },
+        {
+          "id": "sens_an_spn_43__cvn_75__unit_carrier_strike_group_eight",
+          "name": "AN/SPN-43"
+        },
+        {
+          "id": "sens_an_spn_46__cvn_75__unit_carrier_strike_group_eight",
+          "name": "AN/SPN-46"
+        },
+        {
+          "id": "sens_an_sps_48__cvn_75__unit_carrier_strike_group_eight",
+          "name": "AN/SPS-48"
+        },
+        {
+          "id": "sens_3_d_air_search_radar__cvn_75__unit_carrier_strike_group_eight",
+          "name": "3-D air search radar"
+        },
+        {
+          "id": "sens_an_sps_49__cvn_75__unit_carrier_strike_group_eight",
+          "name": "AN/SPS-49"
+        },
+        {
+          "id": "sens_2_d_air_search_radar__cvn_75__unit_carrier_strike_group_eight",
+          "name": "2-D air search radar"
+        },
+        {
+          "id": "sens_an_sqq_89__ddg_116__unit_carrier_strike_group_two",
+          "name": "AN/SQQ-89"
+        },
+        {
+          "id": "sens_an_spq_9__ddg_116__unit_carrier_strike_group_two",
+          "name": "AN/SPQ-9"
+        },
+        {
+          "id": "sens_surface_search_radar_ddg_119_onward__ddg_116__unit_carrier_strike_group_two",
+          "name": "surface search radar (DDG-119 onward)"
+        },
+        {
+          "id": "sens_an_sps_67__ddg_116__unit_carrier_strike_group_two",
+          "name": "AN/SPS-67"
+        },
+        {
+          "id": "sens_an_spy_1__ddg_116__unit_carrier_strike_group_two",
+          "name": "AN/SPY-1"
+        },
+        {
+          "id": "sens_an_spy_6__ddg_116__unit_carrier_strike_group_two",
+          "name": "AN/SPY-6"
+        },
+        {
+          "id": "sens_an_spg_62__ddg_116__unit_carrier_strike_group_two",
+          "name": "AN/SPG-62"
+        },
+        {
+          "id": "sens_an_sqs_26__ddg_116__unit_carrier_strike_group_two",
+          "name": "AN/SQS-26"
+        },
+        {
+          "id": "sens_an_spg_62__ddg_72__unit_carrier_strike_group_two",
+          "name": "AN/SPG-62"
+        },
+        {
+          "id": "sens_an_sqs_26__ddg_72__unit_carrier_strike_group_two",
+          "name": "AN/SQS-26"
+        },
+        {
+          "id": "sens_an_spy_1__ddg_72__unit_carrier_strike_group_two",
+          "name": "AN/SPY-1"
+        },
+        {
+          "id": "sens_surface_search_radar_ddg_119_onward__ddg_72__unit_carrier_strike_group_two",
+          "name": "surface search radar (DDG-119 onward)"
+        },
+        {
+          "id": "sens_an_spy_6__ddg_72__unit_carrier_strike_group_two",
+          "name": "AN/SPY-6"
+        },
+        {
+          "id": "sens_an_sqq_89__ddg_72__unit_carrier_strike_group_two",
+          "name": "AN/SQQ-89"
+        },
+        {
+          "id": "sens_an_sps_67__ddg_72__unit_carrier_strike_group_two",
+          "name": "AN/SPS-67"
+        },
+        {
+          "id": "sens_an_spq_9__ddg_72__unit_carrier_strike_group_two",
+          "name": "AN/SPQ-9"
+        },
+        {
+          "id": "sens_an_sqq_89__ddg_57__unit_carrier_strike_group_two",
+          "name": "AN/SQQ-89"
+        },
+        {
+          "id": "sens_an_spg_62__ddg_57__unit_carrier_strike_group_two",
+          "name": "AN/SPG-62"
+        },
+        {
+          "id": "sens_an_spy_6__ddg_57__unit_carrier_strike_group_two",
+          "name": "AN/SPY-6"
+        },
+        {
+          "id": "sens_an_sqs_26__ddg_57__unit_carrier_strike_group_two",
+          "name": "AN/SQS-26"
+        },
+        {
+          "id": "sens_an_spy_1__ddg_57__unit_carrier_strike_group_two",
+          "name": "AN/SPY-1"
+        },
+        {
+          "id": "sens_an_sps_67__ddg_57__unit_carrier_strike_group_two",
+          "name": "AN/SPS-67"
+        },
+        {
+          "id": "sens_surface_search_radar_ddg_119_onward__ddg_57__unit_carrier_strike_group_two",
+          "name": "surface search radar (DDG-119 onward)"
+        },
+        {
+          "id": "sens_an_spq_9__ddg_57__unit_carrier_strike_group_two",
+          "name": "AN/SPQ-9"
+        },
+        {
+          "id": "sens_an_sps_48__cvn_77__unit_carrier_strike_group_ten",
+          "name": "AN/SPS-48"
+        },
+        {
+          "id": "sens_an_spn_43__cvn_77__unit_carrier_strike_group_ten",
+          "name": "AN/SPN-43"
+        },
+        {
+          "id": "sens_an_spq_9__cvn_77__unit_carrier_strike_group_ten",
+          "name": "AN/SPQ-9"
+        },
+        {
+          "id": "sens_an_spn_41__cvn_77__unit_carrier_strike_group_ten",
+          "name": "AN/SPN-41"
+        },
+        {
+          "id": "sens_an_spn_46__cvn_77__unit_carrier_strike_group_ten",
+          "name": "AN/SPN-46"
+        },
+        {
+          "id": "sens_an_sps_49__cvn_77__unit_carrier_strike_group_ten",
+          "name": "AN/SPS-49"
+        },
+        {
+          "id": "sens_2_d_air_search_radar__cvn_77__unit_carrier_strike_group_ten",
+          "name": "2-D air search radar"
+        },
+        {
+          "id": "sens_3_d_air_search_radar__cvn_77__unit_carrier_strike_group_ten",
+          "name": "3-D air search radar"
+        },
+        {
+          "id": "sens_an_spy_1__ddg_55__unit_destroyer_squadron_2",
+          "name": "AN/SPY-1"
+        },
+        {
+          "id": "sens_an_spy_6__ddg_55__unit_destroyer_squadron_2",
+          "name": "AN/SPY-6"
+        },
+        {
+          "id": "sens_surface_search_radar_ddg_119_onward__ddg_55__unit_destroyer_squadron_2",
+          "name": "surface search radar (DDG-119 onward)"
+        },
+        {
+          "id": "sens_an_spg_62__ddg_55__unit_destroyer_squadron_2",
+          "name": "AN/SPG-62"
+        },
+        {
+          "id": "sens_an_sps_67__ddg_55__unit_destroyer_squadron_2",
+          "name": "AN/SPS-67"
+        },
+        {
+          "id": "sens_an_sqq_89__ddg_55__unit_destroyer_squadron_2",
+          "name": "AN/SQQ-89"
+        },
+        {
+          "id": "sens_an_spq_9__ddg_55__unit_destroyer_squadron_2",
+          "name": "AN/SPQ-9"
+        },
+        {
+          "id": "sens_an_sqs_26__ddg_55__unit_destroyer_squadron_2",
+          "name": "AN/SQS-26"
+        },
+        {
+          "id": "sens_an_spy_6__ddg_79__unit_destroyer_squadron_2",
+          "name": "AN/SPY-6"
+        },
+        {
+          "id": "sens_an_spy_1__ddg_79__unit_destroyer_squadron_2",
+          "name": "AN/SPY-1"
+        },
+        {
+          "id": "sens_an_spq_9__ddg_79__unit_destroyer_squadron_2",
+          "name": "AN/SPQ-9"
+        },
+        {
+          "id": "sens_surface_search_radar_ddg_119_onward__ddg_79__unit_destroyer_squadron_2",
+          "name": "surface search radar (DDG-119 onward)"
+        },
+        {
+          "id": "sens_an_sps_67__ddg_79__unit_destroyer_squadron_2",
+          "name": "AN/SPS-67"
+        },
+        {
+          "id": "sens_an_sqq_89__ddg_79__unit_destroyer_squadron_2",
+          "name": "AN/SQQ-89"
+        },
+        {
+          "id": "sens_an_spg_62__ddg_79__unit_destroyer_squadron_2",
+          "name": "AN/SPG-62"
+        },
+        {
+          "id": "sens_an_sqs_26__ddg_79__unit_destroyer_squadron_2",
+          "name": "AN/SQS-26"
+        },
+        {
+          "id": "sens_an_sqq_89__ddg_74__unit_destroyer_squadron_2",
+          "name": "AN/SQQ-89"
+        },
+        {
+          "id": "sens_an_sps_67__ddg_74__unit_destroyer_squadron_2",
+          "name": "AN/SPS-67"
+        },
+        {
+          "id": "sens_an_spy_6__ddg_74__unit_destroyer_squadron_2",
+          "name": "AN/SPY-6"
+        },
+        {
+          "id": "sens_an_spy_1__ddg_74__unit_destroyer_squadron_2",
+          "name": "AN/SPY-1"
+        },
+        {
+          "id": "sens_an_sqs_26__ddg_74__unit_destroyer_squadron_2",
+          "name": "AN/SQS-26"
+        },
+        {
+          "id": "sens_surface_search_radar_ddg_119_onward__ddg_74__unit_destroyer_squadron_2",
+          "name": "surface search radar (DDG-119 onward)"
+        },
+        {
+          "id": "sens_an_spq_9__ddg_74__unit_destroyer_squadron_2",
+          "name": "AN/SPQ-9"
+        },
+        {
+          "id": "sens_an_spg_62__ddg_74__unit_destroyer_squadron_2",
+          "name": "AN/SPG-62"
+        }
+      ],
+      "intelligence_compromised": "The surface exposure at Naval Station Norfolk, with a composite base exposure score of 80, propagates through linked entities such as 'Destroyer Squadron 22', 'Carrier Strike Group Twelve', and platforms like 'DDG-81' and 'CVN-75'. This exposure allows adversaries to infer operational patterns, readiness levels, and deployment schedules of these units. The sensors on these platforms, such as 'AN/SPY-1' and 'AN/SPQ-9', further reveal capabilities and limitations. The combination of these insights provides adversaries with a comprehensive understanding of the operational posture and strategic intent of the U.S. Navy units stationed at Norfolk, which could not be discerned from a single source alone.",
+      "adversary_action_likely": "With the cascaded intelligence, an adversary could time their reconnaissance or offensive operations to coincide with the deployment schedules of 'Carrier Strike Group Twelve' or 'Destroyer Squadron 22'. They could exploit the gaps in coverage when 'DDG-81' or 'CVN-75' are at sea, potentially launching cyber or kinetic attacks on less defended assets or infrastructure at Naval Station Norfolk.",
+      "recommended_mitigation": "Enhance OPSEC measures for 'DDG-81' to reduce surface-level exposure, thereby mitigating downstream intelligence compromise across linked platforms and units.",
+      "cascade_score": 100,
+      "risk_level": "HIGH",
+      "confidence": "medium",
+      "cascade_id": "cascade_naval_station_norfolk_2026-05-03_v2",
+      "source_assessment_id": "18deca41-2a60-589b-a758-6850f4c18202",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/CascadeRisk/cascade_naval_station_norfolk_2026-05-03_v2"
+    },
+    "adversary_actions": [
+      {
+        "action_id": "action_cascade_naval_station_norfolk_2026-05-03_v2_0",
+        "action_type": "surveillance",
+        "target_entity_name": "CVN-75",
+        "target_entity_id": "plat_cvn_75__unit_carrier_strike_group_eight",
+        "capability_required": "satellite imaging and signal intelligence capabilities",
+        "timeline": "immediate",
+        "rationale": "Monitoring CVN-75's movements and communications can reveal deployment schedules and readiness, exploiting the known gaps when it is at sea.",
+        "confidence": "medium",
+        "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_naval_station_norfolk_2026-05-03_v2_0"
+      },
+      {
+        "action_id": "action_cascade_naval_station_norfolk_2026-05-03_v2_1",
+        "action_type": "disruption",
+        "target_entity_name": "AN/SPY-1",
+        "target_entity_id": "sens_an_spy_1__ddg_81__unit_carrier_strike_group_twelve",
+        "capability_required": "cyber capabilities to interfere with radar operations",
+        "timeline": "weeks",
+        "rationale": "Disrupting the AN/SPY-1 radar on DDG-81 during deployment can reduce situational awareness, exploiting the known sensor vulnerabilities.",
+        "confidence": "medium",
+        "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_naval_station_norfolk_2026-05-03_v2_1"
+      },
+      {
+        "action_id": "action_cascade_naval_station_norfolk_2026-05-03_v2_2",
+        "action_type": "kinetic_planning",
+        "target_entity_name": "Naval Station Norfolk",
+        "target_entity_id": "geo_naval_station_norfolk",
+        "capability_required": "conventional missile systems and targeting data",
+        "timeline": "months",
+        "rationale": "Planning a kinetic strike on the Naval Station during a known deployment gap can exploit reduced defenses and maximize impact.",
+        "confidence": "medium",
+        "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_naval_station_norfolk_2026-05-03_v2_2"
+      }
+    ],
+    "current_state": {
+      "center": {
+        "lat": 36.9416699,
+        "lon": -76.297338
+      },
+      "location_name": "Naval Station Norfolk",
+      "aircraft": {
+        "center": {
+          "lat": 36.9416699,
+          "lon": -76.297338
+        },
+        "radius_nm": 25,
+        "aircraft_count": 1,
+        "military_count": 0,
+        "aircraft": [
+          {
+            "hex": "34628D",
+            "fr24_id": "3f83c806",
+            "callsign": "IBE0312",
+            "registration": "EC-NDR",
+            "lat": 36.9438,
+            "lon": -76.1717,
+            "altitude": 39000,
+            "speed": 597,
+            "heading": 60,
+            "aircraft_type": "A359",
+            "airline_icao": "IBE",
+            "is_military": false
+          }
+        ],
+        "queried_at": "2026-05-03T09:28:50.455586+00:00",
+        "source": "flightradar24",
+        "data_available": true
+      },
+      "satellite": {
+        "next_pass": {
+          "satellite": "Sentinel-1A",
+          "rise_utc": "2026-05-03T11:26:59.764688+00:00",
+          "set_utc": "2026-05-03T11:36:27.715902+00:00",
+          "max_elevation_deg": 88.50386047234666,
+          "duration_seconds": 567.951214,
+          "ground_track": [
+            {
+              "lat": 53.94160363470104,
+              "lon": -70.14625497686433,
+              "time_offset_sec": 0
+            },
+            {
+              "lat": 52.169910165951876,
+              "lon": -70.98577271603811,
+              "time_offset_sec": 30
+            },
+            {
+              "lat": 50.39364511311426,
+              "lon": -71.77069844197305,
+              "time_offset_sec": 60
+            },
+            {
+              "lat": 48.613321775224534,
+              "lon": -72.50809866469021,
+              "time_offset_sec": 90
+            },
+            {
+              "lat": 46.829372122017716,
+              "lon": -73.20392077484429,
+              "time_offset_sec": 120
+            },
+            {
+              "lat": 45.042163151519766,
+              "lon": -73.86320582584071,
+              "time_offset_sec": 150
+            },
+            {
+              "lat": 43.252009619445126,
+              "lon": -74.49025530263636,
+              "time_offset_sec": 180
+            },
+            {
+              "lat": 41.45918403559387,
+              "lon": -75.08876295028608,
+              "time_offset_sec": 210
+            },
+            {
+              "lat": 39.66392457993819,
+              "lon": -75.66191983255986,
+              "time_offset_sec": 240
+            },
+            {
+              "lat": 37.866441419437926,
+              "lon": -76.21249870512271,
+              "time_offset_sec": 270
+            },
+            {
+              "lat": 36.066921783894195,
+              "lon": -76.74292227558286,
+              "time_offset_sec": 300
+            },
+            {
+              "lat": 34.265534070254866,
+              "lon": -77.25531881574962,
+              "time_offset_sec": 330
+            },
+            {
+              "lat": 32.46243117992433,
+              "lon": -77.75156777466817,
+              "time_offset_sec": 360
+            },
+            {
+              "lat": 30.657753245723985,
+              "lon": -78.23333743251932,
+              "time_offset_sec": 390
+            },
+            {
+              "lat": 28.85162986950197,
+              "lon": -78.70211617916885,
+              "time_offset_sec": 420
+            },
+            {
+              "lat": 27.044181964631704,
+              "lon": -79.15923865565318,
+              "time_offset_sec": 450
+            },
+            {
+              "lat": 25.235523277380672,
+              "lon": -79.60590773382033,
+              "time_offset_sec": 480
+            },
+            {
+              "lat": 23.42576164567548,
+              "lon": -80.04321310735915,
+              "time_offset_sec": 510
+            },
+            {
+              "lat": 21.615000041969683,
+              "lon": -80.47214711149218,
+              "time_offset_sec": 540
+            }
+          ]
+        },
+        "passes_in_window": 12,
+        "all_passes": [
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-03T11:26:59.764688+00:00",
+            "set_utc": "2026-05-03T11:36:27.715902+00:00",
+            "max_elevation_deg": 88.50386047234666,
+            "duration_seconds": 567.951214
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-03T14:49:21.150210+00:00",
+            "set_utc": "2026-05-03T14:56:44.419864+00:00",
+            "max_elevation_deg": 19.48451301845233,
+            "duration_seconds": 443.269654
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-03T14:59:10.371154+00:00",
+            "set_utc": "2026-05-03T15:07:32.047130+00:00",
+            "max_elevation_deg": 24.32376608878881,
+            "duration_seconds": 501.675976
+          },
+          {
+            "satellite": "Sentinel-1B",
+            "rise_utc": "2026-05-03T15:06:08.487575+00:00",
+            "set_utc": "2026-05-03T15:14:11.195236+00:00",
+            "max_elevation_deg": 56.36646377460155,
+            "duration_seconds": 482.707661
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-03T16:27:45.291109+00:00",
+            "set_utc": "2026-05-03T16:37:34.846189+00:00",
+            "max_elevation_deg": 44.33029361273524,
+            "duration_seconds": 589.55508
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-03T16:38:08.300725+00:00",
+            "set_utc": "2026-05-03T16:47:32.242788+00:00",
+            "max_elevation_deg": 35.72610668062477,
+            "duration_seconds": 563.942063
+          },
+          {
+            "satellite": "Sentinel-1A",
+            "rise_utc": "2026-05-03T22:29:27.469513+00:00",
+            "set_utc": "2026-05-03T22:38:52.681011+00:00",
+            "max_elevation_deg": 75.41491799261566,
+            "duration_seconds": 565.211498
+          },
+          {
+            "satellite": "Sentinel-1B",
+            "rise_utc": "2026-05-04T01:51:08.623670+00:00",
+            "set_utc": "2026-05-04T01:59:14.521538+00:00",
+            "max_elevation_deg": 66.89609370391844,
+            "duration_seconds": 485.897868
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-04T02:04:54.549064+00:00",
+            "set_utc": "2026-05-04T02:13:05.890877+00:00",
+            "max_elevation_deg": 24.08682440789917,
+            "duration_seconds": 491.341813
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-04T02:14:41.941371+00:00",
+            "set_utc": "2026-05-04T02:23:35.219750+00:00",
+            "max_elevation_deg": 29.50098378531967,
+            "duration_seconds": 533.278379
+          },
+          {
+            "satellite": "Sentinel-2B",
+            "rise_utc": "2026-05-04T03:43:25.998150+00:00",
+            "set_utc": "2026-05-04T03:53:01.128123+00:00",
+            "max_elevation_deg": 37.11268911913667,
+            "duration_seconds": 575.129973
+          },
+          {
+            "satellite": "Sentinel-2A",
+            "rise_utc": "2026-05-04T03:53:59.072367+00:00",
+            "set_utc": "2026-05-04T04:03:01.165343+00:00",
+            "max_elevation_deg": 29.747797879540393,
+            "duration_seconds": 542.092976
+          }
+        ],
+        "queried_at": "2026-05-03T09:28:50.246671+00:00",
+        "data_available": true
+      },
+      "news": {
+        "article_count": 5,
+        "articles": [
+          {
+            "title": "The U.S. Navy Will Soon Have 3 Aircraft Carriers 'Out Of Action' - National Security Journal",
+            "url": "https://nationalsecurityjournal.org/the-u-s-navy-will-soon-have-3-aircraft-carriers-out-of-action/",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "The U.S. Navy Will Soon Have 3 Aircraft Carriers 'Out Of Action' - National Security Journal\n\nConnect with us\n\nHi, what are you looking for?\n\nATLANTIC OCEAN (Oct. 29, 2019) USS Gerald R. Ford (CVN 78) conducts high-speed turns in the Atlantic Ocean. Ford is at sea conducting sea trials following the...",
+            "score": 1
+          },
+          {
+            "title": "US redirects 48 vessels in Persian Gulf amid blockade on Iran - Rediff.com India News",
+            "url": "https://www.rediff.com/news/report/us-redirects-48-vessels-in-persian-gulf-amid-blockade-on-iran/20260502.htm",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "US redirects 48 vessels in Persian Gulf amid blockade on Iran - Rediff.com India News\n\nFollow Rediff on:\n\n# US redirects 48 vessels in Persian Gulf amid blockade on Iran\n\nSource: ANI- Edited By: Senjo M R\n\nShare:\n\n3 Minutes Read Watch on Rediff-TV Listen to Article\n\nMay 02, 2026 22:45 IST\n\nx\n\nWashin...",
+            "score": 0.75
+          },
+          {
+            "title": "US Says Ports Blockade Has Cost Iran $4.8 Billion, Redirected 48 Ships - Newsweek",
+            "url": "https://www.newsweek.com/us-ports-blockade-cost-iran-billions-ships-redirected-11906238",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "US Says Ports Blockade Has Cost Iran $4.8 Billion, Redirected 48 Ships - Newsweek\n\nBy Peter Aitken\n\nPolitics Weekend Editor\n\nShare\n\nNewsweek is a Trust Project member\n\nSee more of our trusted coverage when you search.Prefer Newsweek on Googleto see more of our trusted coverage when you search.\n\nThe ...",
+            "score": 0.5
+          },
+          {
+            "title": "US Navy AS(X) Submarine Tenders Boost Nuclear Fleet Endurance",
+            "url": "https://defensefeeds.com/news/naval-news/us-navy-asx-submarine-tenders-boost-nuclear-fleet-endurance/",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "US Navy AS(X) Submarine Tenders Boost Nuclear Fleet Endurance\n\n# US Navy AS(X) Submarine Tenders Boost Nuclear Fleet Endurance\n\n- Logan Pierce\n- May 2, 2026\n\nCredit: Defense Feeds\n\nDefense Feeds, Washington \u2014 The US Navy is strengthening its undersea logistics network as the US Navy AS(X) submarine ...",
+            "score": 0.25
+          },
+          {
+            "title": "U.S. Navy wants first FF(X) frigate in the water by 2028 - Naval News",
+            "url": "https://www.navalnews.com/naval-news/2026/05/u-s-navy-wants-first-ffx-frigate-in-the-water-by-2028/",
+            "published_at": "2026-05-02T00:00:00.000Z",
+            "snippet": "U.S. Navy wants first FF(X) frigate in the water by 2028 - Naval News\n\n# U.S. Navy wants first FF(X) frigate in the water by 2028\n\n- About Us\n- Published on 02/05/2026\n- By Ethan Gossrow\n- In News\n\nArtist impression of an FF(X) frigate at sea. The FF(X) design is based on the USCG Legend-class cutte...",
+            "score": 0
+          }
+        ],
+        "queried_at": "2026-05-03T09:28:50.604356+00:00",
+        "data_available": true
+      },
+      "sources_succeeded": [
+        "aircraft",
+        "satellite",
+        "news"
+      ],
+      "queried_at": "2026-05-03T09:28:50.606287+00:00"
+    },
+    "provenance_summary": {
+      "total_entities": 94,
+      "high_confidence_count": 84,
+      "sources": [
+        "wikipedia"
+      ]
+    }
+  }
+}

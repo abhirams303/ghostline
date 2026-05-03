@@ -1,0 +1,21 @@
+{
+  "_cached_at": "2026-05-03T09:28:46.712123+00:00",
+  "_function": "get_assessment",
+  "_args": [
+    "fort liberty"
+  ],
+  "value": {
+    "location": "Fort Liberty",
+    "exposure_score": 78,
+    "risk_level": "HIGH",
+    "strava_score": 78,
+    "aircraft_score": 71,
+    "satellite_score": 100,
+    "brief": "Commander. Fort Liberty, North Carolina. CRITICAL OPSEC exposure identified across three vectors.\n\nCRITICAL \u2014 Satellite imaging. Sentinel-1A will pass in 3.7 hours at 73 degrees elevation. Fifteen passes within the next 24 hours. Any outdoor equipment staging or vehicle movement will be commercially visible.\n\nHIGH \u2014 Fitness activity. Nine distinct exercise routes publicly visible via Strava heatmap. Peak activity 0600 to 0700 and 1700 to 1800 daily. An adversary monitoring this data can predict personnel movement patterns to 15-minute precision.\n\nHIGH \u2014 Aircraft. 20 military flights logged on public ADS-B trackers in the last 7 days. Callsigns RAGE88, REACH74, and SAVAGE08 appear on a recurring Tuesday-Friday cycle between 0600 and 1000. Flight pattern is predictable and targetable.\n\nComposite exposure score: 78 out of 100. Risk level: HIGH.\n\nRecommended actions. One: reschedule outdoor staging to after the satellite window closes. Two: direct all personnel to set Strava profiles to private within 24 hours, priority enforcement at units with outdoor routines. Three: file FAA LADD blocking for callsigns RAGE88, REACH74, SAVAGE08. Four: issue unit-wide OPSEC directive on personal device geotagging.\n\n[Note: ADS-B traffic is synthetic for V1 \u2014 derived from the populated Units/Platforms ontology. To be replaced by Member A's real ADS-B Exchange capture when available.]",
+    "lat": 35.140311,
+    "lon": -79.1541465,
+    "assessment_id": "9515e77c-2561-51d1-a649-da34e587985f",
+    "assessment_timestamp": "2026-05-03T07:45:42.839Z",
+    "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/OpsecAssessment/9515e77c-2561-51d1-a649-da34e587985f"
+  }
+}

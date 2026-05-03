@@ -1,0 +1,17 @@
+{
+  "_cached_at": "2026-05-03T09:29:03.433656+00:00",
+  "_function": "get_provenance",
+  "_args": [
+    "sens_an_spy_1__ddg_81__unit_carrier_strike_group_twelve"
+  ],
+  "value": {
+    "entity_id": "sens_an_spy_1__ddg_81__unit_carrier_strike_group_twelve",
+    "object_type": "GhostlineSensor",
+    "name": "AN/SPY-1",
+    "source_url": "https://en.wikipedia.org/wiki/Arleigh_Burke-class_destroyer",
+    "retrieved_at": "2026-05-03T09:01:20.534Z",
+    "source_type": "wikipedia",
+    "confidence": "high",
+    "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/GhostlineSensor/sens_an_spy_1__ddg_81__unit_carrier_strike_group_twelve"
+  }
+}

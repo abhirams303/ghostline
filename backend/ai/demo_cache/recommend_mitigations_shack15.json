@@ -1,0 +1,19 @@
+{
+  "_cached_at": "2026-05-03T09:29:02.797567+00:00",
+  "_function": "recommend_mitigations",
+  "_args": [
+    "shack15"
+  ],
+  "value": {
+    "location": "Shack15",
+    "primary_mitigation": "Since there are no linked platforms or units at Shack15, no upstream mitigation is necessary to address downstream exposures. The location does not contribute to any operational intelligence risk.",
+    "alternative_mitigations": [
+      "direct all personnel to set Strava profiles to private immediately.",
+      "restrict outdoor activities during satellite pass windows."
+    ],
+    "foundry_urls": {
+      "cascade": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/CascadeRisk/cascade_shack15_2026-05-03_v2",
+      "assessment": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/OpsecAssessment/a28a4084-8836-5678-8a30-76e6c0f83acf"
+    }
+  }
+}

@@ -19,14 +19,17 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import json
 import os
 import re
 import sys
 import threading
 import time
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any
 
+from . import osint_sources
 from .palantir_integration import FoundryClient, FoundryError
 from .realtime_enrichment import get_full_current_state
 
@@ -34,6 +37,12 @@ log = logging.getLogger("ghostline.query")
 
 CACHE_TTL_SECONDS = 60.0
 PROVENANCE_FIELDS = ("sourceUrl", "retrievedAt", "sourceType", "confidence")
+
+# Persistent disk cache. Every successful Foundry query writes its result
+# here; on Foundry-unreachable paths we fall back to the disk copy. After
+# one successful smoke test the demo can run offline indefinitely.
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+DISK_CACHE_DIR = REPO_ROOT / "backend" / "ai" / "demo_cache"
 
 # Map ID prefix -> object_type. Lets get_provenance look up by raw entity_id.
 ID_PREFIX_TO_TYPE: list[tuple[str, str]] = [
@@ -105,6 +114,84 @@ def _get_client() -> FoundryClient | None:
                 log.error("FoundryClient init failed: %s", exc)
                 return None
     return _client_instance
+
+
+# ---------------------------------------------------------------------------
+# Persistent disk cache (write-on-success, read-on-foundry-unreachable)
+# ---------------------------------------------------------------------------
+
+def _disk_cache_path(function_name: str, key_args: tuple) -> Path:
+    """Stable filename derived from function name + slugified args."""
+    if not key_args:
+        return DISK_CACHE_DIR / f"{function_name}.json"
+    parts = [osint_sources.slugify(str(a)) for a in key_args]
+    slug = "_".join(p for p in parts if p) or "_"
+    return DISK_CACHE_DIR / f"{function_name}_{slug}.json"
+
+
+def _disk_write(function_name: str, key_args: tuple, value: Any) -> None:
+    """Persist a successful query result to disk. Atomic via .tmp + os.replace."""
+    try:
+        DISK_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+        path = _disk_cache_path(function_name, key_args)
+        wrapper = {
+            "_cached_at": datetime.now(timezone.utc).isoformat(),
+            "_function": function_name,
+            "_args": list(key_args),
+            "value": value,
+        }
+        tmp = path.with_suffix(".json.tmp")
+        tmp.write_text(json.dumps(wrapper, indent=2, default=str))
+        os.replace(tmp, path)
+    except Exception as exc:  # noqa: BLE001 — disk-cache write must never crash the demo
+        log.warning("disk cache write failed for %s: %s", function_name, exc)
+
+
+def _disk_read_dict(function_name: str, key_args: tuple) -> dict | None:
+    """Return a disk-cached dict (with disk-source markers) or None if missing/corrupted."""
+    try:
+        path = _disk_cache_path(function_name, key_args)
+        if not path.exists():
+            return None
+        wrapper = json.loads(path.read_text())
+        value = wrapper.get("value")
+        if not isinstance(value, dict):
+            return None
+        return {
+            **value,
+            "_source": "disk_cache",
+            "_cached_at": wrapper.get("_cached_at"),
+        }
+    except Exception as exc:  # noqa: BLE001
+        log.warning("disk cache read failed for %s: %s", function_name, exc)
+        return None
+
+
+def _disk_read_list(function_name: str, key_args: tuple) -> list | None:
+    """Return a disk-cached list or None. Lists aren't tagged with _source."""
+    try:
+        path = _disk_cache_path(function_name, key_args)
+        if not path.exists():
+            return None
+        wrapper = json.loads(path.read_text())
+        value = wrapper.get("value")
+        if not isinstance(value, list):
+            return None
+        return value
+    except Exception as exc:  # noqa: BLE001
+        log.warning("disk cache read failed for %s: %s", function_name, exc)
+        return None
+
+
+def _disk_or_error(function_name: str, key_args: tuple, error_dict: dict) -> dict:
+    """Disk-fallback shim for dict-returning functions on error paths."""
+    disk = _disk_read_dict(function_name, key_args)
+    return disk if disk is not None else error_dict
+
+
+def _disk_or_empty_list(function_name: str, key_args: tuple) -> list:
+    """Disk-fallback shim for list-returning functions on error paths."""
+    return _disk_read_list(function_name, key_args) or []
 
 
 # ---------------------------------------------------------------------------
@@ -264,20 +351,21 @@ def get_assessment(location: str) -> dict[str, Any]:
         strava_score, aircraft_score, satellite_score, brief, lat, lon,
         assessment_id, foundry_url. {"error": "..."} if not found.
     """
-    key = ("get_assessment", location.lower())
+    key_args = (location.lower(),)
+    key = ("get_assessment", *key_args)
     cached = _cache_get(key)
     if cached is not None:
         return cached
 
     client = _get_client()
     if client is None:
-        return {"error": "Foundry not configured"}
+        return _disk_or_error("get_assessment", key_args, {"error": "Foundry not configured"})
     canonical = _resolve_location_name(client, location)
     if canonical is None:
-        return {"error": f"No assessment found for {location!r}"}
+        return _disk_or_error("get_assessment", key_args, {"error": f"No assessment found for {location!r}"})
     assessment = _latest_assessment_for(client, canonical)
     if assessment is None:
-        return {"error": f"No assessment found for {canonical!r}"}
+        return _disk_or_error("get_assessment", key_args, {"error": f"No assessment found for {canonical!r}"})
 
     score = int(assessment.get("exposureScore") or 0)
     aid = assessment.get("assessmentId") or ""
@@ -296,6 +384,7 @@ def get_assessment(location: str) -> dict[str, Any]:
         "foundry_url": _foundry_url("OpsecAssessment", aid),
     }
     _cache_put(key, result)
+    _disk_write("get_assessment", key_args, result)
     return result
 
 
@@ -320,20 +409,21 @@ def get_cascade(location: str) -> dict[str, Any]:
         recommended_mitigation, cascade_score, risk_level, foundry_url.
         {"error": "..."} if not found.
     """
-    key = ("get_cascade", location.lower())
+    key_args = (location.lower(),)
+    key = ("get_cascade", *key_args)
     cached = _cache_get(key)
     if cached is not None:
         return cached
 
     client = _get_client()
     if client is None:
-        return {"error": "Foundry not configured"}
+        return _disk_or_error("get_cascade", key_args, {"error": "Foundry not configured"})
     canonical = _resolve_location_name(client, location)
     if canonical is None:
-        return {"error": f"No cascade found for {location!r}"}
+        return _disk_or_error("get_cascade", key_args, {"error": f"No cascade found for {location!r}"})
     cascade = _latest_cascade_for(client, canonical)
     if cascade is None:
-        return {"error": f"No cascade found for {canonical!r}"}
+        return _disk_or_error("get_cascade", key_args, {"error": f"No cascade found for {canonical!r}"})
 
     name_map = _entity_name_map(client)
     chain = cascade.get("chainEntities") or []
@@ -373,6 +463,7 @@ def get_cascade(location: str) -> dict[str, Any]:
         "foundry_url": _foundry_url("CascadeRisk", cid),
     }
     _cache_put(key, result)
+    _disk_write("get_cascade", key_args, result)
     return result
 
 
@@ -395,20 +486,21 @@ def get_adversary_actions(location: str) -> list[dict[str, Any]]:
         target_entity_id, capability_required, timeline, rationale,
         confidence, foundry_url. Empty list if no cascade or no actions.
     """
-    key = ("get_adversary_actions", location.lower())
+    key_args = (location.lower(),)
+    key = ("get_adversary_actions", *key_args)
     cached = _cache_get(key)
     if cached is not None:
         return cached
 
     client = _get_client()
     if client is None:
-        return []
+        return _disk_or_empty_list("get_adversary_actions", key_args)
     canonical = _resolve_location_name(client, location)
     if canonical is None:
-        return []
+        return _disk_or_empty_list("get_adversary_actions", key_args)
     cascade = _latest_cascade_for(client, canonical)
     if cascade is None:
-        return []
+        return _disk_or_empty_list("get_adversary_actions", key_args)
     cid = cascade.get("cascadeId") or ""
     try:
         linked = client.get_linked_objects(
@@ -416,7 +508,7 @@ def get_adversary_actions(location: str) -> list[dict[str, Any]]:
         )
     except FoundryError as exc:
         log.error("get_linked_objects cascadeRisk for %s: %s", cid, exc)
-        return []
+        return _disk_or_empty_list("get_adversary_actions", key_args)
 
     out: list[dict[str, Any]] = []
     for a in linked:
@@ -442,6 +534,7 @@ def get_adversary_actions(location: str) -> list[dict[str, Any]]:
     # Stable order: action_id ascending (preserves the LLM's original priority).
     out.sort(key=lambda x: x["action_id"])
     _cache_put(key, out)
+    _disk_write("get_adversary_actions", key_args, out)
     return out
 
 
@@ -459,6 +552,8 @@ def compare_locations() -> list[dict[str, Any]]:
         List of dicts, each with: location, lat, lon, cascade_score,
         risk_level, chain_depth, primary_concern (truncated 80 chars),
         cascade_id, foundry_url. Sorted high-to-low cascade_score.
+        Deduped to the latest cascade per location (handles --regenerate
+        producing v1+v2 in the same tenant).
     """
     key = ("compare_locations",)
     cached = _cache_get(key)
@@ -467,12 +562,22 @@ def compare_locations() -> list[dict[str, Any]]:
 
     client = _get_client()
     if client is None:
-        return []
+        return _disk_read_list("compare_locations", ()) or []
     try:
         cascades = client.list_objects("CascadeRisk", page_size=200)
     except FoundryError as exc:
         log.error("list CascadeRisk failed: %s", exc)
-        return []
+        return _disk_read_list("compare_locations", ()) or []
+
+    # Dedupe to latest cascade per location (createdTimestamp wins) so
+    # cascade_analyst --regenerate doesn't produce a doubled leaderboard.
+    by_loc: dict[str, dict] = {}
+    for c in cascades:
+        loc = c.get("locationName") or ""
+        existing = by_loc.get(loc)
+        if existing is None or (c.get("createdTimestamp") or "") > (existing.get("createdTimestamp") or ""):
+            by_loc[loc] = c
+    cascades = list(by_loc.values())
 
     out: list[dict[str, Any]] = []
     for c in cascades:
@@ -493,6 +598,7 @@ def compare_locations() -> list[dict[str, Any]]:
         })
     out.sort(key=lambda r: -r["cascade_score"])
     _cache_put(key, out)
+    _disk_write("compare_locations", (), out)
     return out
 
 
@@ -516,22 +622,23 @@ def recommend_mitigations(location: str) -> dict[str, Any]:
         (list[str]), foundry_urls (cascade + assessment for click-through).
         {"error": "..."} if no data.
     """
-    key = ("recommend_mitigations", location.lower())
+    key_args = (location.lower(),)
+    key = ("recommend_mitigations", *key_args)
     cached = _cache_get(key)
     if cached is not None:
         return cached
 
     client = _get_client()
     if client is None:
-        return {"error": "Foundry not configured"}
+        return _disk_or_error("recommend_mitigations", key_args, {"error": "Foundry not configured"})
     canonical = _resolve_location_name(client, location)
     if canonical is None:
-        return {"error": f"No data for {location!r}"}
+        return _disk_or_error("recommend_mitigations", key_args, {"error": f"No data for {location!r}"})
 
     cascade = _latest_cascade_for(client, canonical)
     assessment = _latest_assessment_for(client, canonical)
     if cascade is None and assessment is None:
-        return {"error": f"No mitigations available for {canonical!r}"}
+        return _disk_or_error("recommend_mitigations", key_args, {"error": f"No mitigations available for {canonical!r}"})
 
     primary = cascade.get("recommendedUpstreamMitigation") if cascade else ""
     alternatives = _extract_alternative_mitigations(
@@ -549,6 +656,7 @@ def recommend_mitigations(location: str) -> dict[str, Any]:
         },
     }
     _cache_put(key, result)
+    _disk_write("recommend_mitigations", key_args, result)
     return result
 
 
@@ -574,25 +682,28 @@ def get_provenance(entity_id: str) -> dict[str, Any]:
         entity isn't found, or a note if the type doesn't carry provenance
         (OpsecAssessment is the documented exception).
     """
-    key = ("get_provenance", entity_id)
+    key_args = (entity_id,)
+    key = ("get_provenance", *key_args)
     cached = _cache_get(key)
     if cached is not None:
         return cached
 
     client = _get_client()
     if client is None:
-        return {"error": "Foundry not configured"}
+        return _disk_or_error("get_provenance", key_args, {"error": "Foundry not configured"})
 
     object_type = _detect_object_type(entity_id)
     if object_type is None:
+        # Hard input-shape error — don't mask with disk cache; the caller
+        # passed an unrecognizable ID and needs to see that.
         return {"error": f"Could not infer object type from {entity_id!r}"}
 
     try:
         obj = client.get_object(object_type, entity_id)
     except FoundryError as exc:
-        return {"error": f"lookup failed: {exc}"}
+        return _disk_or_error("get_provenance", key_args, {"error": f"lookup failed: {exc}"})
     if obj is None:
-        return {"error": f"No {object_type} with id {entity_id!r}"}
+        return _disk_or_error("get_provenance", key_args, {"error": f"No {object_type} with id {entity_id!r}"})
 
     if object_type == "OpsecAssessment":
         # Documented exception per CLAUDE.md — no provenance properties.
@@ -618,6 +729,7 @@ def get_provenance(entity_id: str) -> dict[str, Any]:
             "foundry_url": _foundry_url(object_type, entity_id),
         }
     _cache_put(key, result)
+    _disk_write("get_provenance", key_args, result)
     return result
 
 
@@ -641,14 +753,17 @@ def get_full_picture(location: str) -> dict[str, Any]:
         (total_entities, high_confidence_count, sources). {"error": "..."}
         if location resolution fails.
     """
-    key = ("get_full_picture", location.lower())
+    key_args = (location.lower(),)
+    key = ("get_full_picture", *key_args)
     cached = _cache_get(key)
     if cached is not None:
         return cached
 
     assessment = get_assessment(location)
+    # If even the assessment lookup fell back to disk, surface that data instead
+    # of erroring — but if there's a real error and no disk fallback, error out.
     if "error" in assessment:
-        return {"error": assessment["error"]}
+        return _disk_or_error("get_full_picture", key_args, {"error": assessment["error"]})
 
     cascade = get_cascade(location)
     actions = get_adversary_actions(location)
@@ -702,6 +817,7 @@ def get_full_picture(location: str) -> dict[str, Any]:
         "provenance_summary": summary,
     }
     _cache_put(key, result)
+    _disk_write("get_full_picture", key_args, result)
     return result
 
 

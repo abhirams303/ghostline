@@ -1,0 +1,20 @@
+{
+  "_cached_at": "2026-05-03T09:29:02.623532+00:00",
+  "_function": "get_adversary_actions",
+  "_args": [
+    "shack15"
+  ],
+  "value": [
+    {
+      "action_id": "action_cascade_shack15_2026-05-03_v2_0",
+      "action_type": "surveillance",
+      "target_entity_name": "GhostlineGeoFeature: Shack15",
+      "target_entity_id": "geo_shack15",
+      "capability_required": "Basic reconnaissance tools such as cameras, recording devices, and internet access for open-source intelligence gathering",
+      "timeline": "immediate",
+      "rationale": "Conducting surveillance on Shack15 could reveal patterns of civilian activity or potential high-value targets present at the location, which could be useful for future intelligence operations.",
+      "confidence": "medium",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_shack15_2026-05-03_v2_0"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "_cached_at": "2026-05-03T09:28:47.820975+00:00",
+  "_function": "get_adversary_actions",
+  "_args": [
+    "fort liberty"
+  ],
+  "value": [
+    {
+      "action_id": "action_cascade_fort_liberty_2026-05-03_v2_0",
+      "action_type": "disruption",
+      "target_entity_name": "Joint Special Operations Command",
+      "target_entity_id": "unit_joint_special_operations_command",
+      "capability_required": "cyber warfare unit capable of intercepting and jamming communications",
+      "timeline": "weeks",
+      "rationale": "By exploiting the compromised intelligence on deployment schedules and readiness levels, an adversary could time a cyber attack to disrupt communications during critical operations, leveraging the high cascade score to maximize impact.",
+      "confidence": "high",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_fort_liberty_2026-05-03_v2_0"
+    },
+    {
+      "action_id": "action_cascade_fort_liberty_2026-05-03_v2_1",
+      "action_type": "surveillance",
+      "target_entity_name": "82nd Airborne Division",
+      "target_entity_id": "unit_82nd_airborne_division",
+      "capability_required": "satellite imagery analysis and fitness app data mining",
+      "timeline": "days",
+      "rationale": "The adversary can use fitness app heatmaps to monitor physical training routines, identifying periods of low readiness to plan further operations or gather more intelligence.",
+      "confidence": "high",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_fort_liberty_2026-05-03_v2_1"
+    },
+    {
+      "action_id": "action_cascade_fort_liberty_2026-05-03_v2_2",
+      "action_type": "interdiction",
+      "target_entity_name": "525th Military Intelligence Brigade",
+      "target_entity_id": "unit_525th_military_intelligence_brigade",
+      "capability_required": "signals intelligence team with capability to intercept and decode communications",
+      "timeline": "immediate",
+      "rationale": "Intercepting communications when the brigade is most active could provide real-time insights into intelligence operations, exploiting the high exposure to gain strategic advantages.",
+      "confidence": "high",
+      "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/AdversaryAction/action_cascade_fort_liberty_2026-05-03_v2_2"
+    }
+  ]
+}

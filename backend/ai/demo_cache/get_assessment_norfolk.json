@@ -1,0 +1,21 @@
+{
+  "_cached_at": "2026-05-03T09:28:49.630430+00:00",
+  "_function": "get_assessment",
+  "_args": [
+    "norfolk"
+  ],
+  "value": {
+    "location": "Naval Station Norfolk",
+    "exposure_score": 80,
+    "risk_level": "HIGH",
+    "strava_score": 78,
+    "aircraft_score": 81,
+    "satellite_score": 100,
+    "brief": "Commander. Naval Station Norfolk. CRITICAL OPSEC exposure identified across three vectors.\n\nCRITICAL \u2014 Satellite imaging. Sentinel-1A pass in 3.7 hours at 88 degrees elevation. Twelve imaging opportunities within 24 hours. Any outdoor activity or equipment exposure will be commercially visible, compromising operational security.\n\nHIGH \u2014 Aircraft. 24 military flights logged on public ADS-B trackers in the last 7 days. Callsigns GUNFISH07, GUNFISH25, RAYGUN63, and TIGER52 show a Friday/Sunday concentration from 0500 to 0900. Predictable flight patterns are exploitable for targeting.\n\nHIGH \u2014 Fitness activity. Nine distinct exercise routes publicly visible via Strava heatmap. Peak activity 0600 to 0700 and 1700 to 1800. An adversary can infer personnel movement patterns and routine operations.\n\nComposite exposure score: 80 out of 100. Risk level: HIGH.\n\nRecommended actions. One: reschedule outdoor activities to avoid satellite pass windows. Two: file FAA LADD blocking for callsigns GUNFISH07, GUNFISH25, RAYGUN63, TIGER52. Three: enforce Strava profile privacy settings within 24 hours, focusing on personnel with access to sensitive areas.\n\n[Note: ADS-B traffic is synthetic for V1 \u2014 derived from the populated Units/Platforms ontology. To be replaced by Member A's real ADS-B Exchange capture when available.]",
+    "lat": 36.9416699,
+    "lon": -76.297338,
+    "assessment_id": "18deca41-2a60-589b-a758-6850f4c18202",
+    "assessment_timestamp": "2026-05-03T07:45:47.061Z",
+    "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/OpsecAssessment/18deca41-2a60-589b-a758-6850f4c18202"
+  }
+}

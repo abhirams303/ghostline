@@ -1,0 +1,17 @@
+{
+  "_cached_at": "2026-05-03T09:29:03.337387+00:00",
+  "_function": "get_provenance",
+  "_args": [
+    "unit_82nd_airborne_division"
+  ],
+  "value": {
+    "entity_id": "unit_82nd_airborne_division",
+    "object_type": "GhostlineUnit",
+    "name": "82nd Airborne Division",
+    "source_url": "https://en.wikipedia.org/wiki/Fort_Bragg",
+    "retrieved_at": "2026-05-03T07:34:23.889Z",
+    "source_type": "wikipedia",
+    "confidence": "high",
+    "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/GhostlineUnit/unit_82nd_airborne_division"
+  }
+}

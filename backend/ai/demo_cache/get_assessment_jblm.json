@@ -1,0 +1,21 @@
+{
+  "_cached_at": "2026-05-03T09:28:58.810931+00:00",
+  "_function": "get_assessment",
+  "_args": [
+    "jblm"
+  ],
+  "value": {
+    "location": "Joint Base Lewis-McChord",
+    "exposure_score": 42,
+    "risk_level": "MEDIUM",
+    "strava_score": 0,
+    "aircraft_score": 63,
+    "satellite_score": 93,
+    "brief": "Commander. Joint Base Lewis-McChord. HIGH OPSEC exposure identified across two vectors.\n\nHIGH \u2014 Aircraft. 25 military flights logged on public ADS-B trackers in the last 7 days. Callsigns RAGE80 and STING54 show a recurring pattern on Tuesday, Friday, and Sunday between 0600 and 1000. Predictable flight windows create targetable vulnerabilities.\n\nHIGH \u2014 Satellite imaging. Sentinel-2A pass in approximately 6 minutes at 10 degrees elevation. 19 passes within the next 24 hours. High frequency of imaging opportunities increases risk of outdoor activities being captured.\n\nMINIMAL \u2014 Fitness activity. No Strava heatmap data available. No predictable personnel movement patterns exposed.\n\nComposite exposure score: 42 out of 100. Risk level: MEDIUM.\n\nRecommended actions. One: file FAA LADD blocking for callsigns RAGE80 and STING54 immediately. Two: adjust flight schedules to reduce predictability, especially during 0600 to 1000 windows. Three: reschedule outdoor activities to avoid satellite pass times. Four: maintain current OPSEC protocols for fitness tracking to ensure continued minimal exposure.\n\n[Note: ADS-B traffic is synthetic for V1 \u2014 derived from the populated Units/Platforms ontology. To be replaced by Member A's real ADS-B Exchange capture when available.]",
+    "lat": 47.0308343,
+    "lon": -122.5074136,
+    "assessment_id": "99285f11-cd7d-55c2-aa82-1b5dd2aedae4",
+    "assessment_timestamp": "2026-05-03T07:45:50.915Z",
+    "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/OpsecAssessment/99285f11-cd7d-55c2-aa82-1b5dd2aedae4"
+  }
+}

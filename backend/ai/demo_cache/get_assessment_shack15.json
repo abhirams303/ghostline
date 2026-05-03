@@ -1,0 +1,21 @@
+{
+  "_cached_at": "2026-05-03T09:29:02.262266+00:00",
+  "_function": "get_assessment",
+  "_args": [
+    "shack15"
+  ],
+  "value": {
+    "location": "Shack15",
+    "exposure_score": 55,
+    "risk_level": "MEDIUM",
+    "strava_score": 78,
+    "aircraft_score": 0,
+    "satellite_score": 94,
+    "brief": "Commander. Shack15. HIGH OPSEC exposure identified across two vectors.\n\nHIGH \u2014 Fitness activity. Nine distinct exercise routes publicly visible via Strava heatmap. Peak activity 0600 to 0700 and 1700 to 1800 daily. An adversary can predict personnel movement patterns and potential PT routes with high accuracy.\n\nHIGH \u2014 Satellite imaging. Sentinel-1A pass in 5.4 hours at 11 degrees elevation. Fifteen imaging opportunities within the next 24 hours. Any outdoor activity or equipment movement will be commercially visible.\n\nMINIMAL \u2014 No recurring military flight patterns detected on public ADS-B feeds.\n\nComposite exposure score: 55 out of 100. Risk level: MEDIUM.\n\nRecommended actions. One: direct all personnel to set Strava profiles to private immediately. Two: restrict outdoor activities during satellite pass windows. Three: implement a base-wide OPSEC review focusing on personal device usage and geotagging.\n\n[Note: ADS-B traffic is synthetic for V1 \u2014 derived from the populated Units/Platforms ontology. To be replaced by Member A's real ADS-B Exchange capture when available.]",
+    "lat": 37.796157,
+    "lon": -122.3941909,
+    "assessment_id": "a28a4084-8836-5678-8a30-76e6c0f83acf",
+    "assessment_timestamp": "2026-05-03T07:45:56.243Z",
+    "foundry_url": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/OpsecAssessment/a28a4084-8836-5678-8a30-76e6c0f83acf"
+  }
+}

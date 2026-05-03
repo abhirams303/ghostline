@@ -1,0 +1,19 @@
+{
+  "_cached_at": "2026-05-03T09:28:50.209930+00:00",
+  "_function": "recommend_mitigations",
+  "_args": [
+    "norfolk"
+  ],
+  "value": {
+    "location": "Naval Station Norfolk",
+    "primary_mitigation": "Enhance OPSEC measures for 'DDG-81' to reduce surface-level exposure, thereby mitigating downstream intelligence compromise across linked platforms and units.",
+    "alternative_mitigations": [
+      "reschedule outdoor activities to avoid satellite pass windows.",
+      "file FAA LADD blocking for callsigns GUNFISH07, GUNFISH25, RAYGUN63, TIGER52."
+    ],
+    "foundry_urls": {
+      "cascade": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/CascadeRisk/cascade_naval_station_norfolk_2026-05-03_v2",
+      "assessment": "https://nshackathon.palantirfoundry.com/api/v2/ontologies/ri.ontology.main.ontology.41fccd0c-2180-4c1d-841d-8a488d1abb46/objects/OpsecAssessment/18deca41-2a60-589b-a758-6850f4c18202"
+    }
+  }
+}
