@@ -8,7 +8,8 @@ This repo is an outline scaffold for the first version of the product, not a fin
 
 Today it includes:
 
-- a `pnpm`-managed Next.js frontend shell
+- a `pnpm`-managed Next.js command deck frontend
+- a voice-server MissionReport endpoint for the command deck and Pipecat agent
 - a FastAPI backend with typed request and response models
 - server-side OpenStreetMap Nominatim geocoding for custom location strings
 - a real Mapbox + deck.gl map surface with interactive overlays and synthetic fallback geometry
@@ -24,12 +25,11 @@ It does not yet include production-grade live integrations for every data source
 
 User flow:
 
-1. Enter a target location.
-2. Preset targets resolve locally; custom locations resolve through backend `/geocode`.
-3. Run analysis in `live` or `demo` mode.
-4. Backend fans out across collectors in parallel.
-5. Findings are scored and summarized into a threat-brief preview.
-6. Frontend renders evidence cards, layer toggles, and a live Mapbox + deck.gl map surface.
+1. Talk to the voice agent or type into the command deck.
+2. Location commands instantly focus the deck.gl map surface.
+3. Assessment commands call the voice-server `/voice/mission_report` integration first.
+4. Backend query APIs resolve cached or live Ghostline data, including the remote MissionReport adapter.
+5. The frontend renders command activity, score strips, findings, layer toggles, and the live Mapbox + deck.gl surface.
 
 ## Stack
 
@@ -90,7 +90,7 @@ pnpm dev
 ```
 
 Frontend runs at `http://localhost:3000`.
-Backend runs at `http://localhost:8000`.
+The command-deck backend bridge runs at `http://localhost:8000`.
 
 ## Verification
 

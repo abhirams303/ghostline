@@ -27,7 +27,7 @@ const bootEvents: TaskEvent[] = [
     at: now(),
     agent: "system",
     state: "complete",
-    message: "Command deck initialized with live Mapbox context and mock Palantir adapter."
+    message: "Command deck initialized with Ghostline voice-server integration."
   }
 ];
 

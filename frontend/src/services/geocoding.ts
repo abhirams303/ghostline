@@ -62,7 +62,14 @@ interface MapboxGeocodeResponse {
   features?: MapboxFeature[];
 }
 
-interface VoiceGeocodeResponse {
+interface VoiceAssessmentLocationResponse {
+  assessment_id?: string;
+  location?: string;
+  lat?: number;
+  lon?: number;
+}
+
+interface BackendGeocodeResponse {
   id?: string | null;
   name: string;
   lat: number;
@@ -77,9 +84,14 @@ export async function geocodeLocationName(query: string): Promise<GeocodedLocati
     return null;
   }
 
-  const voiceResult = await geocodeViaVoiceServer(trimmed);
+  const voiceResult = await geocodeViaVoiceAssessment(trimmed);
   if (voiceResult) {
     return voiceResult;
+  }
+
+  const backendResult = await geocodeViaBackendGeocode(trimmed);
+  if (backendResult) {
+    return backendResult;
   }
 
   if (!MAPBOX_TOKEN) {
@@ -131,44 +143,102 @@ export async function geocodeLocationName(query: string): Promise<GeocodedLocati
   };
 }
 
-async function geocodeViaVoiceServer(query: string): Promise<GeocodedLocation | null> {
+async function geocodeViaVoiceAssessment(query: string): Promise<GeocodedLocation | null> {
   try {
-    const response = await fetch(`${API_BASE_URL}/voice/geocode?q=${encodeURIComponent(query)}`);
+    const response = await fetch(`${API_BASE_URL}/voice/get_assessment?location=${encodeURIComponent(query)}`);
     if (!response.ok) {
       return null;
     }
 
-    const result = (await response.json()) as VoiceGeocodeResponse;
-    if (!Number.isFinite(result.lat) || !Number.isFinite(result.lon)) {
+    const result = (await response.json()) as VoiceAssessmentLocationResponse;
+    const lat = result.lat;
+    const lon = result.lon;
+    if (typeof lat !== "number" || typeof lon !== "number" || !Number.isFinite(lat) || !Number.isFinite(lon)) {
       return null;
     }
 
-    const label = result.name || query;
-    const feature: GeocodedFeature = {
-      id: result.id ?? undefined,
+    const label = result.location || query;
+    return buildGeocodedLocation({
+      id: result.assessment_id,
       label,
-      lat: result.lat,
-      lon: result.lon,
-      placeType: result.source ?? "voice",
-      placeTypes: [result.source ?? "voice"],
-      relevance: 0.86,
-      text: label,
-    };
-
-    return {
-      ...feature,
-      context: [
-        {
-          text: result.source ?? "voice-server",
-          type: "source",
-        },
-      ],
-      features: [feature],
+      lat,
+      lon,
+      placeType: "voice-assessment",
       query,
-    };
+      relevance: 0.9,
+    });
   } catch {
     return null;
   }
+}
+
+async function geocodeViaBackendGeocode(query: string): Promise<GeocodedLocation | null> {
+  try {
+    const response = await fetch(`${API_BASE_URL}/geocode?q=${encodeURIComponent(query)}`);
+    if (!response.ok) {
+      return null;
+    }
+
+    const result = (await response.json()) as BackendGeocodeResponse;
+    const lat = result.lat;
+    const lon = result.lon;
+    if (!Number.isFinite(lat) || !Number.isFinite(lon)) {
+      return null;
+    }
+
+    return buildGeocodedLocation({
+      id: result.id ?? undefined,
+      label: result.name || query,
+      lat,
+      lon,
+      placeType: result.source ?? "backend-geocode",
+      query,
+      relevance: 0.86,
+    });
+  } catch {
+    return null;
+  }
+}
+
+function buildGeocodedLocation({
+  id,
+  label,
+  lat,
+  lon,
+  placeType,
+  query,
+  relevance,
+}: {
+  id?: string | null;
+  label: string;
+  lat: number;
+  lon: number;
+  placeType: string;
+  query: string;
+  relevance: number;
+}): GeocodedLocation {
+  const feature: GeocodedFeature = {
+    id: id ?? undefined,
+    label,
+    lat,
+    lon,
+    placeType,
+    placeTypes: [placeType],
+    relevance,
+    text: label,
+  };
+
+  return {
+    ...feature,
+    context: [
+      {
+        text: placeType,
+        type: "source",
+      },
+    ],
+    features: [feature],
+    query,
+  };
 }
 
 function mapFeature(feature: MapboxFeature): GeocodedFeature | null {

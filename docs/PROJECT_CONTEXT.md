@@ -22,7 +22,8 @@ The repo is a scaffold, not a finished product.
 
 Implemented now:
 
-- Next.js single-page frontend shell
+- Next.js command deck frontend shell
+- voice-server `GET /voice/mission_report` adapter consumed by the command deck and Pipecat-facing integrations
 - real Mapbox + deck.gl map rendering in the frontend
 - server-side OpenStreetMap Nominatim geocoding at `GET /geocode`
 - FastAPI backend with `POST /analyze`
@@ -58,9 +59,10 @@ Do not assume this repo already supports:
 ## Architectural Shape
 
 ```text
-Frontend (Next.js app shell)
-  -> GET /geocode for custom location strings
-  -> POST /analyze
+Frontend (Next.js command deck)
+  -> GET /voice/mission_report for Ghostline-backed deck reports
+  -> GET /voice/get_assessment for supported-location geocoding fallback
+  -> POST /analyze fallback when using the original backend app
 Backend (FastAPI)
   -> parallel collectors
   -> local SQLite persistence
@@ -151,21 +153,24 @@ Reference: `docs/ETHICS.md`
 
 ## Frontend Expectations
 
-The frontend is intentionally a single-page shell today.
+The frontend is a single-page command deck today.
 
 Key components:
 
-- `SearchBar.tsx`
-- `Map.tsx`
-- `ThreatBrief.tsx`
-- `ExposureScore.tsx`
-- `FindingCard.tsx`
+- `CommandDeckShell.tsx`
+- `CommandDeck.tsx`
+- `useCommandDeck.ts`
+- `DeckMapSurface.tsx`
+- `ConversationBar.tsx`
+- `IntelPanel.tsx`
+- `TopBar.tsx`
 
 If you expand the frontend:
 
 - keep the first-run experience fast
 - preserve the one-input demo flow
 - avoid turning the landing interaction into a multi-step form
+- keep the deck's `/voice/mission_report` integration ahead of older fallback endpoints
 
 ## Backend Expectations
 

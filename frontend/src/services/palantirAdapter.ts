@@ -46,6 +46,11 @@ export class GhostlineBackend implements PalantirBackend {
 
   async runAssessment(targetId: string): Promise<MissionReport> {
     const target = targets.find((item) => item.id === targetId) ?? targets[0];
+    const missionReport = await fetchMissionReport(target);
+    if (missionReport) {
+      return missionReport;
+    }
+
     const voiceReport = await fetchVoiceAssessment(target);
     if (voiceReport) {
       return mapVoiceAssessment(target, voiceReport);
@@ -90,6 +95,20 @@ export class GhostlineBackend implements PalantirBackend {
       return `AIP draft: ${report.target.name} has exposure score ${report.score.aggregate}. Top review item: ${topFinding.title}.`;
     }
     return "AIP draft: no findings are loaded for the active command-deck run.";
+  }
+}
+
+async function fetchMissionReport(target: MissionTarget): Promise<MissionReport | null> {
+  try {
+    const response = await fetch(`${API_BASE_URL}/voice/mission_report?location=${encodeURIComponent(target.name)}`);
+    if (!response.ok) {
+      return null;
+    }
+
+    const payload = (await response.json()) as unknown;
+    return isMissionReport(payload) ? payload : null;
+  } catch {
+    return null;
   }
 }
 
@@ -176,6 +195,33 @@ function isVoiceAssessment(value: unknown): value is VoiceAssessment {
     typeof (value as VoiceAssessment).strava_score === "number" &&
     typeof (value as VoiceAssessment).aircraft_score === "number" &&
     typeof (value as VoiceAssessment).satellite_score === "number"
+  );
+}
+
+function isMissionReport(value: unknown): value is MissionReport {
+  if (typeof value !== "object" || value === null) {
+    return false;
+  }
+
+  const report = value as MissionReport;
+  return (
+    typeof report.runId === "string" &&
+    typeof report.generatedAt === "string" &&
+    (report.mode === "demo" || report.mode === "live") &&
+    typeof report.target === "object" &&
+    report.target !== null &&
+    typeof report.target.name === "string" &&
+    typeof report.target.lat === "number" &&
+    typeof report.target.lon === "number" &&
+    typeof report.score === "object" &&
+    report.score !== null &&
+    typeof report.score.aggregate === "number" &&
+    Array.isArray(report.findings) &&
+    Array.isArray(report.layers) &&
+    typeof report.narrative === "string" &&
+    Array.isArray(report.mitigationPriorities) &&
+    typeof report.aip === "object" &&
+    report.aip !== null
   );
 }
 

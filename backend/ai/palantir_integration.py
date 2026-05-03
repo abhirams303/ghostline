@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import logging
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
@@ -255,6 +256,51 @@ class FoundryClient:
                 f"{(resp.text or '')[:500]}"
             )
         return (resp.json() or {}).get("data", [])
+
+
+# ---------------------------------------------------------------------------
+# Backward-compatible smoke-test helper
+# ---------------------------------------------------------------------------
+
+def write_assessment_to_palantir(assessment: dict) -> bool:
+    """Legacy helper used by backend.ai.test_all.
+
+    Newer writeback paths use the explicit assessment_writeback module. This
+    wrapper keeps the historical smoke script importable and preserves its
+    "skip without creds" behavior.
+    """
+    try:
+        client = FoundryClient()
+    except FoundryError as exc:
+        log.warning("Skipping Palantir write: %s", exc)
+        return False
+
+    score_breakdown = assessment.get("score_breakdown") or {}
+    location = str(assessment.get("location") or "Unknown")
+    safe_location = "".join(ch.lower() if ch.isalnum() else "-" for ch in location).strip("-") or "unknown"
+    params = {
+        "assessment-id": assessment.get("assessment_id") or f"smoke-{safe_location}-{int(time.time())}",
+        "location-name": location,
+        "assessment-timestamp": assessment.get("assessment_timestamp") or datetime.now(timezone.utc).isoformat(),
+        "exposure-score": int(assessment.get("exposure_score") or 0),
+        "aircraft-predictability-score": int(
+            score_breakdown.get("adsb") or score_breakdown.get("aircraft") or 0
+        ),
+        "satellite-vulnerability-score": int(
+            score_breakdown.get("satellite") or score_breakdown.get("facility") or 0
+        ),
+        "strava-density-score": int(score_breakdown.get("strava") or score_breakdown.get("movement") or 0),
+        "latitude": float(assessment.get("lat") or 0.0),
+        "longitude": float(assessment.get("lon") or 0.0),
+        "threat-brief": str(assessment.get("brief") or ""),
+    }
+
+    try:
+        client.apply_action(ACTIONS["OpsecAssessment"], params)
+    except FoundryError as exc:
+        log.error("Palantir assessment smoke write failed: %s", exc)
+        return False
+    return True
 
 
 # ---------------------------------------------------------------------------
