@@ -147,6 +147,7 @@ All real, all public, all attributable. Never fabricate data — every entity in
 - `scripts/` — one-off scripts (`test_foundry.py` lives here).
 - `backend/app/` — legacy `OPSEC Mirror` FastAPI scaffold (collectors, synthesis, SQLite, SSE). Don't extend it.
 - `backend/ai/voice_server.py` — the **only** sanctioned HTTP surface for cross-team consumers (Pipecat voice agent + deck.gl frontend). Thin FastAPI wrapper over `query_api` / `realtime_enrichment` — all real logic lives in the underlying Python modules; this file is transport only. Add new endpoints here if (and only if) cross-team consumers need them; don't add them to `backend/app/`.
+- `backend/ai/pipecat_tools.py` + `backend/ai/integrated_bot.py` — the Pipecat integration layer. The teammate's repo (`~/Desktop/bang_sec/pipecat-dummy-agent/bot.py`) is **never** modified; instead `integrated_bot.py` is a faithful copy of his `bot.py` with surgical additions (5 intelligence tools, expanded `KNOWN_LOCATIONS` covering all 5 GHOSTLINE-populated targets, expanded system prompt). All Daily/Deepgram/OpenAI/Cartesia/RTVI plumbing is preserved verbatim. Production deploy points the Pipecat Cloud entry at `backend.ai.integrated_bot:bot` (one-line `pcc-deploy.toml` change). The intelligence tools talk to `voice_server` over HTTP via `GHOSTLINE_VOICE_SERVER_URL` (default `http://localhost:8765`) — no direct query_api import in the bot, so the bot can run on Pipecat Cloud while voice_server runs anywhere reachable.
 
 ## Existing modules: reuse decisions
 
@@ -193,4 +194,34 @@ pnpm lint && pnpm build
 - Don't write to Palantir without `--dry-run` verification first
 - Don't modify object type schemas during the build (locked in via AI FDE)
 - Don't extend the legacy `backend/app/` FastAPI scaffold. New cross-team endpoints belong in `backend/ai/voice_server.py` (the thin transport wrapper over `query_api` / `realtime_enrichment`) — keep real logic in the underlying Python modules so it stays testable without HTTP.
+- Don't modify the teammate's repo at `~/Desktop/bang_sec/`. The Pipecat integration is *additive only* — `backend/ai/integrated_bot.py` lives in our repo and gets pointed at via the teammate's deploy config. If a contract change is needed, propose it; don't reach across.
 - Don't push broken code to `main` — work on `voice-agent`
+
+## Pipecat integration contract
+
+Three-process runtime for the demo:
+
+```
+[ deck.gl frontend ]  --RTVI--+
+                              |
+[ Pipecat Cloud bot           |   GHOSTLINE_VOICE_SERVER_URL
+  = backend.ai.integrated_bot ]----HTTP--->  [ voice_server  ----> Foundry ]
+                              |                                     |
+[ teammate's frontend repo ]<-+                                     +--> disk_cache fallback
+```
+
+Tool wiring (in `_build_voice_pipeline` of `integrated_bot.py`):
+
+```python
+llm.register_function("set_active_location", _make_set_active_location_handler(rtvi))  # teammate's
+register_intelligence_tools(llm, rtvi)                                                  # ours
+
+context = LLMContext(
+    messages=[{"role": "system", "content": SYSTEM_PROMPT}],
+    tools=ToolsSchema(standard_tools=[SET_ACTIVE_LOCATION_TOOL, *INTELLIGENCE_TOOLS]),
+)
+```
+
+The 5 intelligence tools are: `get_location_assessment`, `get_cascade_analysis`, `get_adversary_actions`, `compare_all_locations`, `get_live_situation`. Each emits an RTVI server message of type `command-deck.intel.<kind>` (assessment / cascade / adversary-actions / compare / live) and returns a compact narration-friendly dict to the LLM.
+
+Demo-day operating order: (1) start `voice_server` (`uvicorn backend.ai.voice_server:app --port 8000`); (2) confirm reachable from wherever the bot runs (set `GHOSTLINE_VOICE_SERVER_URL` if not localhost); (3) deploy `integrated_bot:bot` via `pcc deploy` from the teammate's repo with that env var set.
