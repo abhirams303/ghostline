@@ -1,0 +1,279 @@
+@layer components {
+  .cursor-look-mode {
+    cursor:
+      url("../assets/cursor.svg") 32 32,
+      crosshair;
+  }
+
+  .dither-mask-md,
+  .dither-mask-sm {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      user-select: none;
+      pointer-events: none;
+      background-color: currentColor;
+      mask-image: url("../assets/images/dither-mask-md.png");
+      mask-size: 4px 128px;
+      mask-repeat: repeat-x;
+    }
+  }
+  .dither-mask-sm::before {
+    mask-image: url("../assets/images/dither-mask-sm.png");
+    mask-size: 4px 64px;
+  }
+
+  .dither-mask-invert {
+    &::before {
+      transform: scaleY(-1);
+    }
+  }
+
+  .focus-outline {
+    outline: none;
+    &:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      outline-style: solid;
+    }
+  }
+
+  .focus-hover {
+    outline-style: none;
+    outline-width: 2px;
+    outline-color: var(--color-primary);
+    outline-offset: 3px;
+
+    &:focus-visible,
+    &:hover:not(:focus-visible) {
+      outline-style: solid;
+    }
+  }
+
+  /* Container that disables hover on all children when any child has focus-visible */
+  .focus-disables-hover:has(:focus-visible) .interactive-card:not(:focus-visible) {
+    /* Reset hover styles when another card is focused */
+    pointer-events: none;
+  }
+
+  .mono-upper {
+    font-family: var(--font-mono);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+    letter-spacing: 0;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .borderclip {
+    background-clip: padding-box, border-box;
+  }
+
+  .loader-stripes {
+    --loader-stripe-color: currentColor;
+    background-image: repeating-linear-gradient(
+      45deg,
+      var(--loader-stripe-color),
+      var(--loader-stripe-color) var(--loader-stripe-width),
+      var(--color-background) var(--loader-stripe-width),
+      var(--color-background) calc(var(--loader-stripe-width) * 2)
+    );
+    background-size: calc(var(--loader-stripe-width) * 2.828427125)
+      calc(var(--loader-stripe-width) * 2.828427125);
+    animation: scroll var(--loader-stripe-speed) linear infinite;
+    overflow: hidden;
+    background-clip: padding-box;
+  }
+
+  .screen {
+    position: relative;
+    --feather-size: var(--screen-bg-feather);
+    --border-radius: calc(var(--feather-size) / 2);
+    color: var(--color-screen-foreground);
+
+    &:before {
+      content: "";
+      position: absolute;
+      inset: calc(-1 * var(--feather-size));
+      pointer-events: none;
+      border-radius: var(--border-radius);
+      background: var(--color-screen-background);
+
+      -webkit-mask-image:
+        linear-gradient(
+          180deg,
+          transparent 0,
+          #000 var(--feather-size),
+          #000 calc(100% - var(--feather-size)),
+          transparent 100%
+        ),
+        linear-gradient(
+          90deg,
+          transparent 0,
+          #000 var(--feather-size),
+          #000 calc(100% - var(--feather-size)),
+          transparent 100%
+        );
+      -webkit-mask-composite: source-in;
+
+      mask-image:
+        linear-gradient(
+          180deg,
+          transparent 0,
+          #000 var(--feather-size),
+          #000 calc(100% - var(--feather-size)),
+          transparent 100%
+        ),
+        linear-gradient(
+          90deg,
+          transparent 0,
+          #000 var(--feather-size),
+          #000 calc(100% - var(--feather-size)),
+          transparent 100%
+        );
+      mask-composite: intersect;
+    }
+  }
+
+  .dialog-dots {
+    background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
+
+.combat-border {
+  @apply stripe-frame stripe-frame-size-3 stripe-frame-border-2 stripe-frame-destructive;
+}
+
+.combat-tile {
+  @apply corner-dots corner-dots-offset-8 outline outline-subtle -outline-offset-4 p-ui-sm;
+}
+
+.combat-timer {
+  @apply corner-dots corner-dots-offset-8 outline outline-subtle -outline-offset-4 p-ui-sm;
+  margin-top: -4px;
+
+  &:before {
+    background-image:
+      linear-gradient(var(--corner-dots-color), var(--corner-dots-color)),
+      linear-gradient(var(--corner-dots-color), var(--corner-dots-color));
+    background-size: var(--corner-dots-size) var(--corner-dots-size);
+    background-position:
+      left var(--corner-dots-offset) bottom var(--corner-dots-offset),
+      right var(--corner-dots-offset) bottom var(--corner-dots-offset);
+  }
+}
+
+.combat-action {
+  @apply corner-dots corner-dots-white corner-dots-offset-8 corner-dots-3 absolute transition-all outline-1 -outline-offset-4 outline-subtle inset-0;
+  @apply bg-card/70 mask-[linear-gradient(to_top,transparent_5%,black_70%)];
+  @apply group-hover:outline-white group-hover:bg-accent-background;
+}
+
+.combat-action-active .combat-action {
+  @apply outline-terminal outline-2 bg-terminal-background;
+}
+
+.combat-action-inactive .combat-action {
+  @apply bg-card/70;
+}
+
+.combat-vignette {
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    transparent 50%,
+    color-mix(in srgb, var(--color-destructive) 60%, transparent) 100%
+  );
+}
+
+.PopoverContent {
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.PopoverArrow {
+  fill: white;
+}
+
+.PopoverContent[data-state="open"][data-side="top"] {
+  animation-name: slideDownAndFade;
+}
+.PopoverContent[data-state="open"][data-side="right"] {
+  animation-name: slideLeftAndFade;
+}
+.PopoverContent[data-state="open"][data-side="bottom"] {
+  animation-name: slideUpAndFade;
+}
+.PopoverContent[data-state="open"][data-side="left"] {
+  animation-name: slideRightAndFade;
+}
+
+@keyframes slideUpAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRightAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDownAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeftAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-foreground/30;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-foreground;
+}

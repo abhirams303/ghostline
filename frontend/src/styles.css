@@ -1,0 +1,75 @@
+@import "./css/index.css";
+
+@layer base {
+  #root {
+    width: 100%;
+    height: 100svh;
+  }
+
+  button,
+  input,
+  select {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .gb-panel-shell {
+    @apply bg-background text-foreground border border-border;
+  }
+
+  .gb-panel-header {
+    @apply flex items-center justify-between gap-ui-xs border-b border-border bg-black px-ui-xs py-ui-xs;
+  }
+
+  .gb-panel-title {
+    @apply text-xs font-bold uppercase text-muted-foreground;
+  }
+
+  .command-map-grid {
+    background:
+      linear-gradient(90deg, rgb(255 255 255 / 0.06) 1px, transparent 1px),
+      linear-gradient(0deg, rgb(255 255 255 / 0.06) 1px, transparent 1px),
+      radial-gradient(circle at center, rgb(220 253 56 / 0.08), transparent 40%);
+    background-size: 34px 34px, 34px 34px, auto;
+  }
+
+  .command-terminal-strip {
+    @apply bg-terminal-background text-terminal-foreground border-terminal stripe-bar stripe-bar-terminal/20 stripe-bar-8 stripe-bar-animate-1;
+  }
+
+  .command-footer-dock {
+    position: fixed !important;
+    left: 0;
+    right: 0;
+    top: calc(var(--command-visual-height, 100dvh) - 172px);
+    bottom: auto;
+    z-index: 50;
+    display: grid;
+    height: 172px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+    padding: 0 0.5rem 0.5rem;
+    background: linear-gradient(to top, #000 0%, rgb(0 0 0 / 0.9) 72%, transparent 100%);
+  }
+
+  @media (min-width: 896px) {
+    .command-footer-dock {
+      height: 156px;
+      top: calc(var(--command-visual-height, 100dvh) - 156px);
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .command-footer-dock {
+      top: calc(100vh - 308px);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .command-footer-dock {
+      right: 440px;
+    }
+  }
+}
