@@ -121,10 +121,13 @@ def get_live_aircraft(lat: float, lon: float, radius_nm: int = 25) -> dict[str, 
     if cached is not None:
         return cached
 
-    api_key = os.getenv("ADSB_API_KEY") or os.getenv("ADSBEXCHANGE_API_KEY")
+    # Accept either name. ADSBEXCHANGE_API_KEY is the canonical project setting
+    # (matches the RapidAPI dashboard convention); ADSB_API_KEY is kept as an
+    # alias because the original spec used that name.
+    api_key = os.getenv("ADSBEXCHANGE_API_KEY") or os.getenv("ADSB_API_KEY")
     if not api_key:
         result = {
-            "error": "ADSB_API_KEY missing in .env",
+            "error": "ADSBEXCHANGE_API_KEY (or ADSB_API_KEY) missing in .env",
             "data_available": False,
             "center": {"lat": float(lat), "lon": float(lon)},
             "radius_nm": int(radius_nm),
@@ -152,7 +155,13 @@ def get_live_aircraft(lat: float, lon: float, radius_nm: int = 25) -> dict[str, 
     if not resp.ok:
         body = (resp.text or "")[:200]
         log.warning("ADS-B HTTP %s: %s", resp.status_code, body)
-        result = _aircraft_error(lat, lon, radius_nm, f"HTTP {resp.status_code}: {body}")
+        # 403 from RapidAPI typically means the key is valid but the account
+        # isn't subscribed to the adsbexchange-com1 product. Surface that
+        # clearly so consumers know it's a billing gap, not a code bug.
+        hint = ""
+        if resp.status_code == 403 and "not subscribed" in body.lower():
+            hint = " — RapidAPI account needs an active adsbexchange-com1 subscription"
+        result = _aircraft_error(lat, lon, radius_nm, f"HTTP {resp.status_code}: {body}{hint}")
         _cache_put(key, result)
         return result
     try:

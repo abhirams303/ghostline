@@ -136,7 +136,7 @@ All real, all public, all attributable. Never fabricate data — every entity in
 - Wikidata SPARQL — structured military data
 - Exa.ai — semantic search for OSINT gaps (`EXA_API_KEY`)
 - OpenStreetMap Overpass API — base perimeters and features
-- ADS-B Exchange — live military aircraft (`ADSB_API_KEY`)
+- ADS-B Exchange — live military aircraft. Canonical env var: **`ADSBEXCHANGE_API_KEY`** (matches RapidAPI's dashboard convention). The code also accepts `ADSB_API_KEY` as an alias for backwards compatibility, but new `.env` files should use `ADSBEXCHANGE_API_KEY`. Note: the key alone isn't enough — the RapidAPI account must also have an active subscription to the `adsbexchange-com1` product, otherwise the API returns HTTP 403 `"not subscribed to this API"` even with a valid key.
 - Shodan — exposed infrastructure
 - CelesTrak TLE — satellite orbit data
 
