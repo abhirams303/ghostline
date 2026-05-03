@@ -1,0 +1,22 @@
+{
+  "source": "strava",
+  "severity": "low",
+  "title": "Public fitness activity in 1/9 surrounding tiles",
+  "summary": "Aggregated Strava activity is publicly visible at zoom 13 around (37.5856, -115.6708). Patterns may reveal PT routes, perimeters, or routine movement.",
+  "evidence_urls": [
+    "https://content-a.strava.com/identified/globalheat/all/blue/13/1462/3170@2x.png?v=19"
+  ],
+  "tile_count": 1,
+  "tile_total": 9,
+  "zoom": 13,
+  "tiles": [
+    {
+      "url": "https://content-a.strava.com/identified/globalheat/all/blue/13/1462/3170@2x.png?v=19"
+    }
+  ],
+  "target": {
+    "name": "area51",
+    "lat": 37.5856,
+    "lon": -115.6708
+  }
+}
