@@ -1,0 +1,429 @@
+{
+  "_synthetic_v1": true,
+  "_seed": "joint_base_lewis_mcchord|2026-05-03",
+  "_generated_at": "2026-05-03T07:46:18.158042+00:00",
+  "n_flights": 42,
+  "mil_ratio_target": 0.65,
+  "flights": [
+    {
+      "hex": "AE9D87",
+      "callsign": "EAGLE03",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 8000,
+      "speed": 413,
+      "mil": true,
+      "seen_pos": "2026-04-28T09:30:00+00:00"
+    },
+    {
+      "hex": "AE14B2",
+      "callsign": "AAL139",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 28000,
+      "speed": 398,
+      "mil": false,
+      "seen_pos": "2026-04-29T15:22:00+00:00"
+    },
+    {
+      "hex": "AEDFC3",
+      "callsign": "AAL276",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 28000,
+      "speed": 407,
+      "mil": false,
+      "seen_pos": "2026-04-28T16:26:00+00:00"
+    },
+    {
+      "hex": "AE7C52",
+      "callsign": "SHADOW16",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 8000,
+      "speed": 303,
+      "mil": true,
+      "seen_pos": "2026-04-30T09:11:00+00:00"
+    },
+    {
+      "hex": "AE8BBB",
+      "callsign": "AAL276",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 28000,
+      "speed": 432,
+      "mil": false,
+      "seen_pos": "2026-04-27T19:03:00+00:00"
+    },
+    {
+      "hex": "AE303F",
+      "callsign": "RAGE80",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 18000,
+      "speed": 361,
+      "mil": true,
+      "seen_pos": "2026-05-02T07:24:00+00:00"
+    },
+    {
+      "hex": "AEDE2A",
+      "callsign": "AAL642",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 20000,
+      "speed": 445,
+      "mil": false,
+      "seen_pos": "2026-05-02T14:46:00+00:00"
+    },
+    {
+      "hex": "AEAC33",
+      "callsign": "SAVAGE12",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 12000,
+      "speed": 185,
+      "mil": true,
+      "seen_pos": "2026-05-01T07:35:00+00:00"
+    },
+    {
+      "hex": "AE4B90",
+      "callsign": "AAL738",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 38000,
+      "speed": 395,
+      "mil": false,
+      "seen_pos": "2026-04-27T11:44:00+00:00"
+    },
+    {
+      "hex": "AEFD76",
+      "callsign": "RAGE28",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 25000,
+      "speed": 382,
+      "mil": true,
+      "seen_pos": "2026-05-03T07:18:18.157497+00:00"
+    },
+    {
+      "hex": "AECD1F",
+      "callsign": "SHADOW71",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 12000,
+      "speed": 302,
+      "mil": true,
+      "seen_pos": "2026-04-29T15:39:00+00:00"
+    },
+    {
+      "hex": "AEDA6C",
+      "callsign": "AAL738",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 20000,
+      "speed": 390,
+      "mil": false,
+      "seen_pos": "2026-05-01T22:02:00+00:00"
+    },
+    {
+      "hex": "AE5097",
+      "callsign": "VIPER25",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 18000,
+      "speed": 384,
+      "mil": true,
+      "seen_pos": "2026-04-28T07:30:00+00:00"
+    },
+    {
+      "hex": "AEA44E",
+      "callsign": "RAGE80",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 5000,
+      "speed": 296,
+      "mil": true,
+      "seen_pos": "2026-05-03T07:24:18.157497+00:00"
+    },
+    {
+      "hex": "AE4B77",
+      "callsign": "STING54",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 25000,
+      "speed": 325,
+      "mil": true,
+      "seen_pos": "2026-05-02T14:35:00+00:00"
+    },
+    {
+      "hex": "AE89DE",
+      "callsign": "STING54",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 5000,
+      "speed": 298,
+      "mil": true,
+      "seen_pos": "2026-05-01T08:23:00+00:00"
+    },
+    {
+      "hex": "AED719",
+      "callsign": "SHADOW66",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 12000,
+      "speed": 370,
+      "mil": true,
+      "seen_pos": "2026-04-29T09:36:00+00:00"
+    },
+    {
+      "hex": "AE2D77",
+      "callsign": "AAL738",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 38000,
+      "speed": 503,
+      "mil": false,
+      "seen_pos": "2026-04-29T12:23:00+00:00"
+    },
+    {
+      "hex": "AEE1B1",
+      "callsign": "STING83",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 18000,
+      "speed": 356,
+      "mil": true,
+      "seen_pos": "2026-04-28T15:53:00+00:00"
+    },
+    {
+      "hex": "AEE1BB",
+      "callsign": "STING54",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 12000,
+      "speed": 233,
+      "mil": true,
+      "seen_pos": "2026-04-27T14:22:00+00:00"
+    },
+    {
+      "hex": "AEBAF9",
+      "callsign": "RAGE80",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 12000,
+      "speed": 380,
+      "mil": true,
+      "seen_pos": "2026-05-01T09:14:00+00:00"
+    },
+    {
+      "hex": "AE7E5A",
+      "callsign": "STING54",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 25000,
+      "speed": 394,
+      "mil": true,
+      "seen_pos": "2026-04-29T08:37:00+00:00"
+    },
+    {
+      "hex": "AEA5EE",
+      "callsign": "STING13",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 25000,
+      "speed": 269,
+      "mil": true,
+      "seen_pos": "2026-05-01T14:08:00+00:00"
+    },
+    {
+      "hex": "AEF9C0",
+      "callsign": "SWA199",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 20000,
+      "speed": 400,
+      "mil": false,
+      "seen_pos": "2026-05-02T22:51:00+00:00"
+    },
+    {
+      "hex": "AEFDED",
+      "callsign": "AAL276",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 20000,
+      "speed": 468,
+      "mil": false,
+      "seen_pos": "2026-04-27T21:57:00+00:00"
+    },
+    {
+      "hex": "AEC8AF",
+      "callsign": "AAL276",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 38000,
+      "speed": 460,
+      "mil": false,
+      "seen_pos": "2026-04-28T16:12:00+00:00"
+    },
+    {
+      "hex": "AE6AAA",
+      "callsign": "SAVAGE12",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 18000,
+      "speed": 339,
+      "mil": true,
+      "seen_pos": "2026-05-01T14:49:00+00:00"
+    },
+    {
+      "hex": "AE9CB6",
+      "callsign": "AAL607",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 35000,
+      "speed": 450,
+      "mil": false,
+      "seen_pos": "2026-04-28T15:53:00+00:00"
+    },
+    {
+      "hex": "AE6243",
+      "callsign": "SHADOW72",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 8000,
+      "speed": 251,
+      "mil": true,
+      "seen_pos": "2026-05-03T07:09:18.157497+00:00"
+    },
+    {
+      "hex": "AE9E3C",
+      "callsign": "SAVAGE10",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 12000,
+      "speed": 342,
+      "mil": true,
+      "seen_pos": "2026-05-02T09:50:00+00:00"
+    },
+    {
+      "hex": "AE54B0",
+      "callsign": "STING54",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 8000,
+      "speed": 199,
+      "mil": true,
+      "seen_pos": "2026-05-03T07:09:18.157497+00:00"
+    },
+    {
+      "hex": "AEE976",
+      "callsign": "STING54",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 5000,
+      "speed": 199,
+      "mil": true,
+      "seen_pos": "2026-04-28T14:43:00+00:00"
+    },
+    {
+      "hex": "AE4EB9",
+      "callsign": "AAL276",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 28000,
+      "speed": 426,
+      "mil": false,
+      "seen_pos": "2026-05-03T07:43:00+00:00"
+    },
+    {
+      "hex": "AE41D2",
+      "callsign": "SHADOW80",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 12000,
+      "speed": 183,
+      "mil": true,
+      "seen_pos": "2026-05-03T06:50:18.157497+00:00"
+    },
+    {
+      "hex": "AE752F",
+      "callsign": "AAL276",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 38000,
+      "speed": 473,
+      "mil": false,
+      "seen_pos": "2026-04-27T09:39:00+00:00"
+    },
+    {
+      "hex": "AE74B6",
+      "callsign": "EAGLE83",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 12000,
+      "speed": 401,
+      "mil": true,
+      "seen_pos": "2026-05-03T06:19:18.157497+00:00"
+    },
+    {
+      "hex": "AE5E2A",
+      "callsign": "EAGLE13",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 25000,
+      "speed": 397,
+      "mil": true,
+      "seen_pos": "2026-04-28T15:41:00+00:00"
+    },
+    {
+      "hex": "AE218F",
+      "callsign": "EAGLE67",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 5000,
+      "speed": 408,
+      "mil": true,
+      "seen_pos": "2026-04-27T15:13:00+00:00"
+    },
+    {
+      "hex": "AE6033",
+      "callsign": "SWA222",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 20000,
+      "speed": 511,
+      "mil": false,
+      "seen_pos": "2026-04-29T07:49:00+00:00"
+    },
+    {
+      "hex": "AEF5B9",
+      "callsign": "AAL738",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 35000,
+      "speed": 383,
+      "mil": false,
+      "seen_pos": "2026-04-29T09:10:00+00:00"
+    },
+    {
+      "hex": "AE94B4",
+      "callsign": "AAL276",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 20000,
+      "speed": 484,
+      "mil": false,
+      "seen_pos": "2026-05-03T07:19:18.157497+00:00"
+    },
+    {
+      "hex": "AE253F",
+      "callsign": "ASA889",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 38000,
+      "speed": 407,
+      "mil": false,
+      "seen_pos": "2026-05-02T16:04:00+00:00"
+    }
+  ]
+}

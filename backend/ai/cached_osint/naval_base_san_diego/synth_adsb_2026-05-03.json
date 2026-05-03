@@ -1,0 +1,69 @@
+{
+  "_synthetic_v1": true,
+  "_seed": "naval_base_san_diego|2026-05-03",
+  "_generated_at": "2026-05-03T07:46:20.531786+00:00",
+  "n_flights": 6,
+  "mil_ratio_target": 0.25,
+  "flights": [
+    {
+      "hex": "AEADBA",
+      "callsign": "UAL147",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 35000,
+      "speed": 491,
+      "mil": false,
+      "seen_pos": "2026-04-30T18:36:00+00:00"
+    },
+    {
+      "hex": "AE82C2",
+      "callsign": "RAYGUN95",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 18000,
+      "speed": 326,
+      "mil": true,
+      "seen_pos": "2026-05-01T14:26:00+00:00"
+    },
+    {
+      "hex": "AE2682",
+      "callsign": "JBU287",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 35000,
+      "speed": 404,
+      "mil": false,
+      "seen_pos": "2026-05-02T13:36:00+00:00"
+    },
+    {
+      "hex": "AE44CE",
+      "callsign": "UAL486",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 28000,
+      "speed": 500,
+      "mil": false,
+      "seen_pos": "2026-04-29T22:20:00+00:00"
+    },
+    {
+      "hex": "AE430E",
+      "callsign": "ASA626",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 35000,
+      "speed": 415,
+      "mil": false,
+      "seen_pos": "2026-05-02T08:39:00+00:00"
+    },
+    {
+      "hex": "AEEF0B",
+      "callsign": "TIGER42",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 12000,
+      "speed": 263,
+      "mil": true,
+      "seen_pos": "2026-05-03T06:59:00+00:00"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "_synthetic_v1": true,
+  "_seed": "shack15|2026-05-03",
+  "_generated_at": "2026-05-03T07:46:24.600417+00:00",
+  "n_flights": 5,
+  "mil_ratio_target": 0.0,
+  "flights": [
+    {
+      "hex": "AE6E29",
+      "callsign": "UAL832",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 38000,
+      "speed": 417,
+      "mil": false,
+      "seen_pos": "2026-04-27T16:02:00+00:00"
+    },
+    {
+      "hex": "AE4780",
+      "callsign": "UAL832",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 35000,
+      "speed": 462,
+      "mil": false,
+      "seen_pos": "2026-05-01T14:37:00+00:00"
+    },
+    {
+      "hex": "AEFDA8",
+      "callsign": "JBU148",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 20000,
+      "speed": 433,
+      "mil": false,
+      "seen_pos": "2026-04-29T12:36:00+00:00"
+    },
+    {
+      "hex": "AE956B",
+      "callsign": "UAL813",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 35000,
+      "speed": 505,
+      "mil": false,
+      "seen_pos": "2026-05-01T21:21:00+00:00"
+    },
+    {
+      "hex": "AE36B1",
+      "callsign": "DAL882",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 20000,
+      "speed": 501,
+      "mil": false,
+      "seen_pos": "2026-04-29T13:03:00+00:00"
+    }
+  ]
+}

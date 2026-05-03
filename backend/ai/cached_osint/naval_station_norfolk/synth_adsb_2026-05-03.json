@@ -1,0 +1,389 @@
+{
+  "_synthetic_v1": true,
+  "_seed": "naval_station_norfolk|2026-05-03",
+  "_generated_at": "2026-05-03T07:46:13.714871+00:00",
+  "n_flights": 38,
+  "mil_ratio_target": 0.65,
+  "flights": [
+    {
+      "hex": "AEB6FF",
+      "callsign": "GUNFISH07",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 8000,
+      "speed": 411,
+      "mil": true,
+      "seen_pos": "2026-05-02T13:21:00+00:00"
+    },
+    {
+      "hex": "AEA46E",
+      "callsign": "AAL240",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 28000,
+      "speed": 473,
+      "mil": false,
+      "seen_pos": "2026-05-02T10:08:00+00:00"
+    },
+    {
+      "hex": "AE8C1A",
+      "callsign": "HAMMER31",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 12000,
+      "speed": 327,
+      "mil": true,
+      "seen_pos": "2026-05-03T07:29:13.714153+00:00"
+    },
+    {
+      "hex": "AED1E1",
+      "callsign": "JBU443",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 35000,
+      "speed": 513,
+      "mil": false,
+      "seen_pos": "2026-04-29T19:14:00+00:00"
+    },
+    {
+      "hex": "AE7213",
+      "callsign": "HAMMER31",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 25000,
+      "speed": 411,
+      "mil": true,
+      "seen_pos": "2026-04-27T07:25:00+00:00"
+    },
+    {
+      "hex": "AEC4F6",
+      "callsign": "JBU443",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 28000,
+      "speed": 438,
+      "mil": false,
+      "seen_pos": "2026-04-29T21:37:00+00:00"
+    },
+    {
+      "hex": "AE8F99",
+      "callsign": "JBU232",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 20000,
+      "speed": 409,
+      "mil": false,
+      "seen_pos": "2026-04-29T19:49:00+00:00"
+    },
+    {
+      "hex": "AE9103",
+      "callsign": "TIGER52",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 18000,
+      "speed": 407,
+      "mil": true,
+      "seen_pos": "2026-04-28T06:48:00+00:00"
+    },
+    {
+      "hex": "AED213",
+      "callsign": "AAL885",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 38000,
+      "speed": 425,
+      "mil": false,
+      "seen_pos": "2026-05-01T15:33:00+00:00"
+    },
+    {
+      "hex": "AE4106",
+      "callsign": "STRIKE04",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 5000,
+      "speed": 215,
+      "mil": true,
+      "seen_pos": "2026-04-28T06:16:00+00:00"
+    },
+    {
+      "hex": "AE879E",
+      "callsign": "DAL120",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 35000,
+      "speed": 467,
+      "mil": false,
+      "seen_pos": "2026-05-02T17:40:00+00:00"
+    },
+    {
+      "hex": "AE861F",
+      "callsign": "GUNFISH25",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 12000,
+      "speed": 339,
+      "mil": true,
+      "seen_pos": "2026-04-29T13:46:00+00:00"
+    },
+    {
+      "hex": "AEBB2C",
+      "callsign": "JBU232",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 28000,
+      "speed": 438,
+      "mil": false,
+      "seen_pos": "2026-04-30T22:58:00+00:00"
+    },
+    {
+      "hex": "AE42BC",
+      "callsign": "SCREAM72",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 12000,
+      "speed": 392,
+      "mil": true,
+      "seen_pos": "2026-05-01T06:51:00+00:00"
+    },
+    {
+      "hex": "AE13B7",
+      "callsign": "JBU443",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 20000,
+      "speed": 479,
+      "mil": false,
+      "seen_pos": "2026-04-28T20:43:00+00:00"
+    },
+    {
+      "hex": "AEA262",
+      "callsign": "HAMMER05",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 5000,
+      "speed": 204,
+      "mil": true,
+      "seen_pos": "2026-04-30T07:58:00+00:00"
+    },
+    {
+      "hex": "AEB01D",
+      "callsign": "TIGER52",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 25000,
+      "speed": 301,
+      "mil": true,
+      "seen_pos": "2026-05-03T06:36:00+00:00"
+    },
+    {
+      "hex": "AE57A1",
+      "callsign": "JBU443",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 20000,
+      "speed": 442,
+      "mil": false,
+      "seen_pos": "2026-05-03T06:16:13.714153+00:00"
+    },
+    {
+      "hex": "AE6424",
+      "callsign": "RAYGUN63",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 25000,
+      "speed": 247,
+      "mil": true,
+      "seen_pos": "2026-04-28T14:00:00+00:00"
+    },
+    {
+      "hex": "AE3C3E",
+      "callsign": "RAYGUN63",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 25000,
+      "speed": 320,
+      "mil": true,
+      "seen_pos": "2026-05-01T06:47:00+00:00"
+    },
+    {
+      "hex": "AE4CA8",
+      "callsign": "RAYGUN40",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 25000,
+      "speed": 208,
+      "mil": true,
+      "seen_pos": "2026-05-01T13:32:00+00:00"
+    },
+    {
+      "hex": "AE4262",
+      "callsign": "RAYGUN63",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 12000,
+      "speed": 230,
+      "mil": true,
+      "seen_pos": "2026-05-01T06:22:00+00:00"
+    },
+    {
+      "hex": "AE9168",
+      "callsign": "GUNFISH07",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 18000,
+      "speed": 204,
+      "mil": true,
+      "seen_pos": "2026-05-01T08:13:00+00:00"
+    },
+    {
+      "hex": "AE64AB",
+      "callsign": "TIGER52",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 8000,
+      "speed": 186,
+      "mil": true,
+      "seen_pos": "2026-05-03T06:42:13.714153+00:00"
+    },
+    {
+      "hex": "AEB885",
+      "callsign": "TIGER52",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 25000,
+      "speed": 198,
+      "mil": true,
+      "seen_pos": "2026-04-29T07:52:00+00:00"
+    },
+    {
+      "hex": "AEA9B4",
+      "callsign": "JBU663",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 28000,
+      "speed": 422,
+      "mil": false,
+      "seen_pos": "2026-04-28T11:00:00+00:00"
+    },
+    {
+      "hex": "AE2006",
+      "callsign": "GUNFISH25",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 12000,
+      "speed": 313,
+      "mil": true,
+      "seen_pos": "2026-04-30T07:49:00+00:00"
+    },
+    {
+      "hex": "AECC91",
+      "callsign": "ASA889",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 38000,
+      "speed": 509,
+      "mil": false,
+      "seen_pos": "2026-04-29T13:09:00+00:00"
+    },
+    {
+      "hex": "AED100",
+      "callsign": "TIGER52",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 8000,
+      "speed": 277,
+      "mil": true,
+      "seen_pos": "2026-04-27T07:14:00+00:00"
+    },
+    {
+      "hex": "AE72CF",
+      "callsign": "DAL673",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 20000,
+      "speed": 420,
+      "mil": false,
+      "seen_pos": "2026-04-28T09:09:00+00:00"
+    },
+    {
+      "hex": "AED073",
+      "callsign": "HAMMER14",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 18000,
+      "speed": 281,
+      "mil": true,
+      "seen_pos": "2026-05-03T06:41:00+00:00"
+    },
+    {
+      "hex": "AE93CE",
+      "callsign": "TIGER52",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 8000,
+      "speed": 362,
+      "mil": true,
+      "seen_pos": "2026-05-01T07:03:00+00:00"
+    },
+    {
+      "hex": "AE8AED",
+      "callsign": "GUNFISH07",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 25000,
+      "speed": 362,
+      "mil": true,
+      "seen_pos": "2026-04-30T14:16:00+00:00"
+    },
+    {
+      "hex": "AE56D1",
+      "callsign": "UAL882",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 35000,
+      "speed": 511,
+      "mil": false,
+      "seen_pos": "2026-04-29T22:12:00+00:00"
+    },
+    {
+      "hex": "AEBEB1",
+      "callsign": "GUNFISH25",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 18000,
+      "speed": 397,
+      "mil": true,
+      "seen_pos": "2026-05-03T06:49:13.714153+00:00"
+    },
+    {
+      "hex": "AEA929",
+      "callsign": "JBU232",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 28000,
+      "speed": 502,
+      "mil": false,
+      "seen_pos": "2026-04-28T15:15:00+00:00"
+    },
+    {
+      "hex": "AEEC43",
+      "callsign": "GUNFISH07",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 25000,
+      "speed": 349,
+      "mil": true,
+      "seen_pos": "2026-04-28T07:27:00+00:00"
+    },
+    {
+      "hex": "AEE9D1",
+      "callsign": "TIGER52",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 8000,
+      "speed": 266,
+      "mil": true,
+      "seen_pos": "2026-05-02T06:39:00+00:00"
+    }
+  ]
+}

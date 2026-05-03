@@ -1,0 +1,369 @@
+{
+  "_synthetic_v1": true,
+  "_seed": "fort_liberty|2026-05-03",
+  "_generated_at": "2026-05-03T07:46:09.703035+00:00",
+  "n_flights": 36,
+  "mil_ratio_target": 0.65,
+  "flights": [
+    {
+      "hex": "AE6DBB",
+      "callsign": "REACH74",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 18000,
+      "speed": 207,
+      "mil": true,
+      "seen_pos": "2026-04-28T14:21:00+00:00"
+    },
+    {
+      "hex": "AE909B",
+      "callsign": "AAL132",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 20000,
+      "speed": 410,
+      "mil": false,
+      "seen_pos": "2026-04-28T17:55:00+00:00"
+    },
+    {
+      "hex": "AE53F2",
+      "callsign": "SAVAGE08",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 25000,
+      "speed": 213,
+      "mil": true,
+      "seen_pos": "2026-04-28T15:15:00+00:00"
+    },
+    {
+      "hex": "AE6C25",
+      "callsign": "AAL603",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 38000,
+      "speed": 441,
+      "mil": false,
+      "seen_pos": "2026-04-29T19:50:00+00:00"
+    },
+    {
+      "hex": "AE20B7",
+      "callsign": "UAL737",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 28000,
+      "speed": 426,
+      "mil": false,
+      "seen_pos": "2026-04-29T17:56:00+00:00"
+    },
+    {
+      "hex": "AE5F26",
+      "callsign": "VIPER29",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 8000,
+      "speed": 385,
+      "mil": true,
+      "seen_pos": "2026-05-01T14:31:00+00:00"
+    },
+    {
+      "hex": "AED465",
+      "callsign": "SHADOW46",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 18000,
+      "speed": 255,
+      "mil": true,
+      "seen_pos": "2026-04-27T15:36:00+00:00"
+    },
+    {
+      "hex": "AEB136",
+      "callsign": "AAL515",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 28000,
+      "speed": 437,
+      "mil": false,
+      "seen_pos": "2026-04-27T21:53:00+00:00"
+    },
+    {
+      "hex": "AEC1EA",
+      "callsign": "SAVAGE08",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 5000,
+      "speed": 341,
+      "mil": true,
+      "seen_pos": "2026-04-29T09:51:00+00:00"
+    },
+    {
+      "hex": "AE86A1",
+      "callsign": "STING22",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 5000,
+      "speed": 248,
+      "mil": true,
+      "seen_pos": "2026-05-03T06:53:09.702563+00:00"
+    },
+    {
+      "hex": "AE9B3B",
+      "callsign": "REACH74",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 8000,
+      "speed": 235,
+      "mil": true,
+      "seen_pos": "2026-05-02T09:08:00+00:00"
+    },
+    {
+      "hex": "AEB1C9",
+      "callsign": "ASA915",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 35000,
+      "speed": 466,
+      "mil": false,
+      "seen_pos": "2026-05-03T06:26:00+00:00"
+    },
+    {
+      "hex": "AED860",
+      "callsign": "UAL645",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 28000,
+      "speed": 383,
+      "mil": false,
+      "seen_pos": "2026-04-27T20:25:00+00:00"
+    },
+    {
+      "hex": "AE566A",
+      "callsign": "SWA804",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 28000,
+      "speed": 519,
+      "mil": false,
+      "seen_pos": "2026-04-29T10:01:00+00:00"
+    },
+    {
+      "hex": "AEB5EC",
+      "callsign": "SAVAGE08",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 8000,
+      "speed": 283,
+      "mil": true,
+      "seen_pos": "2026-04-28T15:15:00+00:00"
+    },
+    {
+      "hex": "AE6DF8",
+      "callsign": "RAGE88",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 5000,
+      "speed": 208,
+      "mil": true,
+      "seen_pos": "2026-05-01T08:50:00+00:00"
+    },
+    {
+      "hex": "AEC67A",
+      "callsign": "SAVAGE08",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 18000,
+      "speed": 312,
+      "mil": true,
+      "seen_pos": "2026-04-30T15:31:00+00:00"
+    },
+    {
+      "hex": "AEA107",
+      "callsign": "SAVAGE08",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 5000,
+      "speed": 197,
+      "mil": true,
+      "seen_pos": "2026-05-01T09:03:00+00:00"
+    },
+    {
+      "hex": "AEB423",
+      "callsign": "SWA175",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 28000,
+      "speed": 470,
+      "mil": false,
+      "seen_pos": "2026-04-30T18:48:00+00:00"
+    },
+    {
+      "hex": "AEAEB0",
+      "callsign": "UAL859",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 35000,
+      "speed": 477,
+      "mil": false,
+      "seen_pos": "2026-04-29T17:16:00+00:00"
+    },
+    {
+      "hex": "AE9768",
+      "callsign": "UAL737",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 20000,
+      "speed": 467,
+      "mil": false,
+      "seen_pos": "2026-04-30T11:27:00+00:00"
+    },
+    {
+      "hex": "AE37BD",
+      "callsign": "AAL132",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 35000,
+      "speed": 385,
+      "mil": false,
+      "seen_pos": "2026-04-27T14:20:00+00:00"
+    },
+    {
+      "hex": "AE39EA",
+      "callsign": "AAL977",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 28000,
+      "speed": 404,
+      "mil": false,
+      "seen_pos": "2026-04-30T07:51:00+00:00"
+    },
+    {
+      "hex": "AEEBB7",
+      "callsign": "UAL737",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 38000,
+      "speed": 506,
+      "mil": false,
+      "seen_pos": "2026-05-03T07:29:00+00:00"
+    },
+    {
+      "hex": "AE1358",
+      "callsign": "AAL132",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 38000,
+      "speed": 450,
+      "mil": false,
+      "seen_pos": "2026-04-30T14:28:00+00:00"
+    },
+    {
+      "hex": "AEE11C",
+      "callsign": "UAL737",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 38000,
+      "speed": 467,
+      "mil": false,
+      "seen_pos": "2026-04-30T16:09:00+00:00"
+    },
+    {
+      "hex": "AE6339",
+      "callsign": "RAGE88",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 8000,
+      "speed": 183,
+      "mil": true,
+      "seen_pos": "2026-05-01T14:00:00+00:00"
+    },
+    {
+      "hex": "AE5803",
+      "callsign": "REACH69",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 8000,
+      "speed": 392,
+      "mil": true,
+      "seen_pos": "2026-05-02T15:29:00+00:00"
+    },
+    {
+      "hex": "AED672",
+      "callsign": "SAVAGE08",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 18000,
+      "speed": 349,
+      "mil": true,
+      "seen_pos": "2026-04-27T08:57:00+00:00"
+    },
+    {
+      "hex": "AE5BEB",
+      "callsign": "REACH74",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 25000,
+      "speed": 333,
+      "mil": true,
+      "seen_pos": "2026-05-03T07:34:09.702563+00:00"
+    },
+    {
+      "hex": "AE899C",
+      "callsign": "AAL132",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 38000,
+      "speed": 447,
+      "mil": false,
+      "seen_pos": "2026-04-29T10:42:00+00:00"
+    },
+    {
+      "hex": "AE5294",
+      "callsign": "EAGLE56",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 8000,
+      "speed": 198,
+      "mil": true,
+      "seen_pos": "2026-05-01T08:13:00+00:00"
+    },
+    {
+      "hex": "AEDF76",
+      "callsign": "SAVAGE08",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 12000,
+      "speed": 407,
+      "mil": true,
+      "seen_pos": "2026-05-03T07:08:09.702563+00:00"
+    },
+    {
+      "hex": "AE896B",
+      "callsign": "REACH74",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 5000,
+      "speed": 219,
+      "mil": true,
+      "seen_pos": "2026-04-27T07:52:00+00:00"
+    },
+    {
+      "hex": "AE4E4C",
+      "callsign": "SAVAGE08",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 5000,
+      "speed": 316,
+      "mil": true,
+      "seen_pos": "2026-04-30T08:22:00+00:00"
+    },
+    {
+      "hex": "AE9403",
+      "callsign": "RAGE88",
+      "lat": null,
+      "lon": null,
+      "alt_baro": 18000,
+      "speed": 333,
+      "mil": true,
+      "seen_pos": "2026-04-28T08:16:00+00:00"
+    }
+  ]
+}
