@@ -1,0 +1,48 @@
+{
+  "source": "strava",
+  "severity": "high",
+  "title": "Public fitness activity in 9/9 surrounding tiles",
+  "summary": "Aggregated Strava activity is publicly visible at zoom 13 around (36.9408, -76.3286). Patterns may reveal PT routes, perimeters, or routine movement.",
+  "evidence_urls": [
+    "https://content-a.strava.com/identified/globalheat/all/blue/13/2358/3189@2x.png?v=19",
+    "https://content-a.strava.com/identified/globalheat/all/blue/13/2358/3190@2x.png?v=19",
+    "https://content-a.strava.com/identified/globalheat/all/blue/13/2358/3191@2x.png?v=19"
+  ],
+  "tile_count": 9,
+  "tile_total": 9,
+  "zoom": 13,
+  "tiles": [
+    {
+      "url": "https://content-a.strava.com/identified/globalheat/all/blue/13/2358/3189@2x.png?v=19"
+    },
+    {
+      "url": "https://content-a.strava.com/identified/globalheat/all/blue/13/2358/3190@2x.png?v=19"
+    },
+    {
+      "url": "https://content-a.strava.com/identified/globalheat/all/blue/13/2358/3191@2x.png?v=19"
+    },
+    {
+      "url": "https://content-a.strava.com/identified/globalheat/all/blue/13/2359/3189@2x.png?v=19"
+    },
+    {
+      "url": "https://content-a.strava.com/identified/globalheat/all/blue/13/2359/3190@2x.png?v=19"
+    },
+    {
+      "url": "https://content-a.strava.com/identified/globalheat/all/blue/13/2359/3191@2x.png?v=19"
+    },
+    {
+      "url": "https://content-a.strava.com/identified/globalheat/all/blue/13/2360/3189@2x.png?v=19"
+    },
+    {
+      "url": "https://content-a.strava.com/identified/globalheat/all/blue/13/2360/3190@2x.png?v=19"
+    },
+    {
+      "url": "https://content-a.strava.com/identified/globalheat/all/blue/13/2360/3191@2x.png?v=19"
+    }
+  ],
+  "target": {
+    "name": "norfolk",
+    "lat": 36.9408,
+    "lon": -76.3286
+  }
+}

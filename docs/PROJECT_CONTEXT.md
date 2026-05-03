@@ -32,13 +32,15 @@ Implemented now:
 - cached demo JSON payloads for specific preset locations
 - live ADS-B Exchange collector
 - live Exa news/public-web collector
-- placeholder collectors for `strava` and `satellite`
+- opt-in Strava global heatmap collector path, disabled by default
+- placeholder collector for `satellite`
 - OpenAI-backed synthesis when `OPENAI_API_KEY` is configured
 - local fallback narrative generation when OpenAI is not configured or the request fails
+- manual Strava collection endpoint at `POST /collect/strava` for local validation and cache generation
 
 Not implemented yet:
 
-- real source integrations
+- production-grade source integrations
 - Palantir AIP ontology push logic
 - route and `unit_id` analysis beyond schema placeholders
 
@@ -102,7 +104,7 @@ Each collector should stay isolated in `backend/app/collectors/`.
 
 Current expectation:
 
-- `strava.py`: movement or heat-signature style findings
+- `strava.py`: movement or heat-signature style findings. When `OPSEC_MIRROR_STRAVA_ENABLED=true`, it fetches a 3x3 Strava global heatmap tile grid using local CloudFront cookies from `backend/.env`; otherwise it returns demo-safe stub findings.
 - `adsb.py`: live snapshot of nearby aircraft with normalized markers and aerial-exposure findings
 - `satellite.py`: revisit-window and imaging opportunity findings
 - `exa.py`: live public-web or news enrichment via Exa search
@@ -237,6 +239,13 @@ Run backend tests:
 ```powershell
 cd backend
 python -m pytest
+```
+
+Run a manual Strava tile smoke check:
+
+```powershell
+cd backend
+python scripts/smoke_strava.py
 ```
 
 ## If You Change Something Important
