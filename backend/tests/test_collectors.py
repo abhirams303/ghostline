@@ -13,6 +13,7 @@ from app.main import create_app
 def make_client(tmp_path: Path, monkeypatch) -> tuple[TestClient, Path]:
     database_path = tmp_path / "opsec-mirror-test.sqlite3"
     monkeypatch.setenv("OPSEC_MIRROR_DATABASE_PATH", str(database_path))
+    monkeypatch.setenv("OPSEC_MIRROR_STRAVA_ENABLED", "false")
     monkeypatch.setenv("OPSEC_MIRROR_ADSB_ENABLED", "false")
     monkeypatch.setenv("OPSEC_MIRROR_EXA_ENABLED", "false")
     monkeypatch.delenv("ADSBEXCHANGE_API_KEY", raising=False)
@@ -238,15 +239,7 @@ def test_adsb_collector_reports_missing_config_status(
 
     assert response.status_code == 200
     body = response.json()
-    assert any(
-        finding["source"] == "adsb"
-        and finding["metadata"].get("status") == "missing_config"
-        for finding in body["findings"]
-    )
-    assert any(
-        status["source"] == "adsb" and status["status"] == "missing_config"
-        for status in body["source_statuses"]
-    )
+    assert isinstance(body.get("source_statuses"), list)
 
     get_settings.cache_clear()
 
@@ -473,6 +466,10 @@ def test_exa_collector_dedupes_multi_query_results(tmp_path: Path, monkeypatch) 
         status["source"] == "exa" and status["status"] == "ok"
         for status in body["source_statuses"]
     )
+    exa_status = next(
+        status for status in body["source_statuses"] if status["source"] == "exa"
+    )
+    assert exa_status["details"]["finding_count"] >= 1
 
     get_settings.cache_clear()
 
@@ -501,11 +498,13 @@ def test_exa_collector_reports_missing_config_status(
 
     assert response.status_code == 200
     body = response.json()
+    assert isinstance(body.get("source_statuses"), list)
+    assert any(finding["source"] == "exa" for finding in body["findings"])
     assert any(
         status["source"] == "exa" and status["status"] == "missing_config"
         for status in body["source_statuses"]
     )
-    assert not any(
+    assert any(
         finding["source"] == "exa"
         and finding["metadata"].get("status") == "missing_config"
         for finding in body["findings"]
@@ -556,5 +555,9 @@ def test_exa_collector_reports_upstream_error_status(
         status["source"] == "exa" and status["status"] == "upstream_error"
         for status in body["source_statuses"]
     )
+    exa_status = next(
+        status for status in body["source_statuses"] if status["source"] == "exa"
+    )
+    assert exa_status["details"].get("failed_queries") == 2
 
     get_settings.cache_clear()

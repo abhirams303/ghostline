@@ -1,7 +1,9 @@
+from __future__ import annotations
+
 import asyncio
 import logging
 from datetime import datetime, timedelta, timezone
-from typing import Any, NamedTuple
+from typing import Any, NamedTuple, cast
 from urllib.parse import urlparse
 
 import httpx
@@ -13,7 +15,6 @@ from app.models.location import AnalyzeRequest
 from app.models.report import MapLayerPayload
 
 logger = logging.getLogger(__name__)
-
 
 EXA_QUERY_FAMILIES: tuple[tuple[str, str], ...] = (
     ("identity", '"{target}"'),
@@ -39,6 +40,30 @@ EXA_QUERY_FAMILIES: tuple[tuple[str, str], ...] = (
     ),
 )
 
+TRUSTED_DOMAINS: tuple[str, ...] = (
+    ".mil",
+    ".gov",
+    "defense.gov",
+    "army.mil",
+    "navy.mil",
+    "af.mil",
+)
+NOISY_DOMAINS: tuple[str, ...] = ("facebook.com", "instagram.com")
+KEYWORD_GROUPS: tuple[str, ...] = (
+    "exercise",
+    "operation",
+    "readiness",
+    "deployment",
+    "travel",
+    "personnel",
+    "facility",
+    "contractor",
+    "vendor",
+    "infrastructure",
+    "news",
+    "social",
+)
+
 
 class ExaQueryPlan(NamedTuple):
     family: str
@@ -53,6 +78,23 @@ class ExaCollectionStatus(NamedTuple):
 
 
 class ExaNormalizedResult:
+    document_id: str | None
+    title: str
+    url: str | None
+    canonical_url: str | None
+    domain: str | None
+    published_at: datetime
+    published_raw: str | None
+    author: str | None
+    snippet: str
+    query_families: set[str]
+    query_labels: list[str]
+    categories: set[str]
+    ranks: list[int]
+    matched_unit_id: bool
+    matched_target_name: bool
+    relevance_score: int
+
     def __init__(
         self,
         document_id: str | None,
@@ -97,7 +139,7 @@ def _truncate_text(value: str, limit: int = 320) -> str:
     return text[: limit - 1].rstrip() + "…"
 
 
-def _parse_published_date(value: Any) -> datetime | None:
+def _parse_published_date(value: object) -> datetime | None:
     if not isinstance(value, str) or not value:
         return None
 
@@ -119,8 +161,21 @@ def _canonicalize_url(value: str | None) -> str | None:
     return f"{parsed.scheme}://{parsed.netloc.lower()}{normalized_path}"
 
 
+def _parse_domain(url: str | None) -> str | None:
+    if not url:
+        return None
+    parsed = urlparse(url)
+    return parsed.netloc.lower() or None
+
+
+def _safe_str(value: object) -> str | None:
+    if isinstance(value, str) and value.strip():
+        return value
+    return None
+
+
 class ExaCollector(BaseCollector):
-    source = "exa"
+    source: str = "exa"
 
     @staticmethod
     def _build_queries(request: AnalyzeRequest) -> list[ExaQueryPlan]:
@@ -131,7 +186,6 @@ class ExaCollector(BaseCollector):
             categories.append("news")
         if settings.exa_web_enabled:
             categories.append("auto")
-
         if not categories:
             categories.append("auto")
 
@@ -202,18 +256,52 @@ class ExaCollector(BaseCollector):
                         json=payload,
                     )
                     response.raise_for_status()
-                    result = response.json()
+                    result = cast(dict[str, Any], response.json())
                     result["_query_family"] = plan.family
                     result["_query"] = plan.query
                     result["_query_category"] = plan.category
+                    logger.info(
+                        "Exa query completed",
+                        extra={
+                            "collector": self.source,
+                            "target": request.target.name,
+                            "query_family": plan.family,
+                            "query_category": plan.category,
+                            "query": plan.query,
+                            "attempt": attempt + 1,
+                            "result_count": len(self._extract_results(result)),
+                        },
+                    )
                     return result
             except httpx.HTTPStatusError as exc:
                 last_error = exc
                 status_code = exc.response.status_code
+                logger.warning(
+                    "Exa query returned HTTP error",
+                    extra={
+                        "collector": self.source,
+                        "target": request.target.name,
+                        "query_family": plan.family,
+                        "query_category": plan.category,
+                        "status_code": status_code,
+                        "attempt": attempt + 1,
+                    },
+                )
                 if status_code not in {429, 500, 502, 503, 504}:
                     raise
             except httpx.HTTPError as exc:
                 last_error = exc
+                logger.warning(
+                    "Exa query transport error",
+                    extra={
+                        "collector": self.source,
+                        "target": request.target.name,
+                        "query_family": plan.family,
+                        "query_category": plan.category,
+                        "attempt": attempt + 1,
+                        "error": str(exc),
+                    },
+                )
 
             if attempt < settings.exa_retry_attempts:
                 await asyncio.sleep(settings.exa_retry_backoff_seconds * (attempt + 1))
@@ -226,22 +314,23 @@ class ExaCollector(BaseCollector):
     def _extract_results(payload: dict[str, Any]) -> list[dict[str, Any]]:
         results = payload.get("results")
         if isinstance(results, list):
-            return results
+            return [item for item in results if isinstance(item, dict)]
         return []
 
     @staticmethod
     def _extract_snippet(result: dict[str, Any]) -> str:
-        highlights = result.get("highlights") or []
-        summary = result.get("summary")
-        text = result.get("text")
+        highlights_raw = result.get("highlights")
+        summary = _safe_str(result.get("summary"))
+        text = _safe_str(result.get("text"))
 
-        if isinstance(summary, str) and summary.strip():
+        if summary:
             return summary
-        if isinstance(highlights, list) and highlights:
-            first = highlights[0]
-            if isinstance(first, str) and first.strip():
-                return first
-        if isinstance(text, str) and text.strip():
+        if isinstance(highlights_raw, list):
+            for item in highlights_raw:
+                highlight = _safe_str(item)
+                if highlight:
+                    return highlight
+        if text:
             return text
         return "Exa returned a result linked to the target, but no highlight text was available."
 
@@ -263,38 +352,13 @@ class ExaCollector(BaseCollector):
             score += 3
         if matched_unit_id:
             score += 3
-
-        keyword_groups = (
-            "exercise",
-            "operation",
-            "readiness",
-            "deployment",
-            "travel",
-            "personnel",
-            "facility",
-            "contractor",
-            "vendor",
-            "infrastructure",
-            "news",
-            "social",
-        )
-        score += sum(1 for keyword in keyword_groups if keyword in haystack)
+        score += sum(1 for keyword in KEYWORD_GROUPS if keyword in haystack)
         score += min(query_family_count, 3)
 
         if domain:
-            if any(
-                trusted in domain
-                for trusted in (
-                    ".mil",
-                    ".gov",
-                    "defense.gov",
-                    "army.mil",
-                    "navy.mil",
-                    "af.mil",
-                )
-            ):
+            if any(trusted in domain for trusted in TRUSTED_DOMAINS):
                 score += 2
-            elif any(noisy in domain for noisy in ("facebook.com", "instagram.com")):
+            elif any(noisy in domain for noisy in NOISY_DOMAINS):
                 score -= 1
 
         return score, matched_target_name, matched_unit_id
@@ -312,19 +376,16 @@ class ExaCollector(BaseCollector):
             category = str(payload.get("_query_category") or "auto")
 
             for rank, result in enumerate(self._extract_results(payload), start=1):
-                title = result.get("title") or "Untitled result"
-                url = result.get("url")
+                title = _safe_str(result.get("title")) or "Untitled result"
+                url = _safe_str(result.get("url"))
                 canonical_url = _canonicalize_url(url)
                 snippet = _truncate_text(self._extract_snippet(result))
-                published_at = _parse_published_date(
-                    result.get("publishedDate")
-                ) or datetime.now(timezone.utc)
-                domain = None
-                if canonical_url:
-                    parsed = urlparse(canonical_url)
-                    domain = parsed.netloc.lower() or None
-
-                document_id = result.get("id")
+                published_raw = _safe_str(result.get("publishedDate"))
+                published_at = _parse_published_date(published_raw) or datetime.now(
+                    timezone.utc
+                )
+                domain = _parse_domain(canonical_url)
+                document_id = _safe_str(result.get("id"))
                 key = str(
                     document_id
                     or canonical_url
@@ -334,20 +395,14 @@ class ExaCollector(BaseCollector):
                 existing = aggregated.get(key)
                 if existing is None:
                     aggregated[key] = ExaNormalizedResult(
-                        document_id=document_id
-                        if isinstance(document_id, str)
-                        else None,
+                        document_id=document_id,
                         title=title,
-                        url=url if isinstance(url, str) else None,
+                        url=url,
                         canonical_url=canonical_url,
                         domain=domain,
                         published_at=published_at,
-                        published_raw=result.get("publishedDate")
-                        if isinstance(result.get("publishedDate"), str)
-                        else None,
-                        author=result.get("author")
-                        if isinstance(result.get("author"), str)
-                        else None,
+                        published_raw=published_raw,
+                        author=_safe_str(result.get("author")),
                         snippet=snippet,
                         query_families={query_family},
                         query_labels=[query],
@@ -360,29 +415,25 @@ class ExaCollector(BaseCollector):
                     continue
 
                 existing.query_families.add(query_family)
-                if query not in existing.query_labels:
+                if query and query not in existing.query_labels:
                     existing.query_labels.append(query)
                 existing.categories.add(category)
                 existing.ranks.append(rank)
                 if len(snippet) > len(existing.snippet):
                     existing.snippet = snippet
-                if existing.url is None and isinstance(url, str):
+                if existing.url is None:
                     existing.url = url
                 if existing.canonical_url is None:
                     existing.canonical_url = canonical_url
                 if existing.domain is None:
                     existing.domain = domain
-                if existing.author is None and isinstance(result.get("author"), str):
-                    existing.author = result.get("author")
-                if existing.document_id is None and isinstance(document_id, str):
+                if existing.author is None:
+                    existing.author = _safe_str(result.get("author"))
+                if existing.document_id is None:
                     existing.document_id = document_id
                 if published_at < existing.published_at:
                     existing.published_at = published_at
-                    existing.published_raw = (
-                        result.get("publishedDate")
-                        if isinstance(result.get("publishedDate"), str)
-                        else existing.published_raw
-                    )
+                    existing.published_raw = published_raw or existing.published_raw
 
         normalized_results = list(aggregated.values())
         for item in normalized_results:
@@ -423,9 +474,11 @@ class ExaCollector(BaseCollector):
             return [
                 Finding(
                     source="exa",
-                    title="Exa collection unavailable"
-                    if status.status != "no_data"
-                    else "No public web evidence identified",
+                    title=(
+                        "Exa collection unavailable"
+                        if status.status != "no_data"
+                        else "No public web evidence identified"
+                    ),
                     severity="low",
                     summary=status.message,
                     evidence_url=None,
@@ -473,6 +526,7 @@ class ExaCollector(BaseCollector):
                         "matched_target_name": result.matched_target_name,
                         "matched_unit_id": result.matched_unit_id,
                         "domain": result.domain,
+                        "query_family_count": len(result.query_families),
                     },
                 )
             )
@@ -488,13 +542,21 @@ class ExaCollector(BaseCollector):
             return [], ExaCollectionStatus(
                 status="disabled",
                 message="Exa collector is disabled.",
-                details={},
+                details={
+                    "planned_queries": 0,
+                    "executed_queries": 0,
+                    "failed_queries": 0,
+                },
             )
         if not settings.exa_api_key:
             return [], ExaCollectionStatus(
                 status="missing_config",
                 message="Exa collection is enabled but EXA_API_KEY is not configured.",
-                details={},
+                details={
+                    "planned_queries": 0,
+                    "executed_queries": 0,
+                    "failed_queries": 0,
+                },
             )
 
         plans = self._build_queries(request)
@@ -502,7 +564,11 @@ class ExaCollector(BaseCollector):
             return [], ExaCollectionStatus(
                 status="no_data",
                 message="No Exa query plans were generated for this request.",
-                details={"planned_queries": 0},
+                details={
+                    "planned_queries": 0,
+                    "executed_queries": 0,
+                    "failed_queries": 0,
+                },
             )
 
         semaphore = asyncio.Semaphore(max(settings.exa_max_concurrency, 1))
@@ -518,6 +584,7 @@ class ExaCollector(BaseCollector):
                         "Exa query failed",
                         extra={
                             "collector": self.source,
+                            "target": request.target.name,
                             "query_family": plan.family,
                             "category": plan.category,
                             "query": plan.query,
@@ -534,14 +601,24 @@ class ExaCollector(BaseCollector):
             payloads.append(response)
 
         if not payloads:
-            return [], ExaCollectionStatus(
+            status = ExaCollectionStatus(
                 status="upstream_error",
                 message="Exa collection failed for all planned queries.",
                 details={
                     "planned_queries": len(plans),
+                    "executed_queries": 0,
                     "failed_queries": failures,
                 },
             )
+            logger.warning(
+                "Exa collection failed",
+                extra={
+                    "collector": self.source,
+                    "target": request.target.name,
+                    **status.details,
+                },
+            )
+            return [], status
 
         total_results = sum(len(self._extract_results(payload)) for payload in payloads)
         status = ExaCollectionStatus(
@@ -558,6 +635,14 @@ class ExaCollector(BaseCollector):
                 "raw_results": total_results,
             },
         )
+        logger.info(
+            "Exa collection summary",
+            extra={
+                "collector": self.source,
+                "target": request.target.name,
+                **status.details,
+            },
+        )
         return payloads, status
 
     async def collect(
@@ -569,20 +654,55 @@ class ExaCollector(BaseCollector):
             return self._build_findings(request, [], [], status), []
 
         request_ids = [
-            str(payload.get("requestId"))
-            for payload in payloads
-            if isinstance(payload.get("requestId"), str)
+            request_id
+            for request_id in (payload.get("requestId") for payload in payloads)
+            if isinstance(request_id, str)
         ]
         normalized_results = self._normalize_results(request, payloads)
         if not normalized_results:
             no_data_status = ExaCollectionStatus(
                 status="no_data",
                 message="Exa collection completed but no results met the relevance threshold.",
-                details=status.details,
+                details={
+                    **status.details,
+                    "deduped_results": 0,
+                    "qualified_results": 0,
+                },
+            )
+            logger.info(
+                "Exa collection produced no qualified results",
+                extra={
+                    "collector": self.source,
+                    "target": request.target.name,
+                    **no_data_status.details,
+                },
             )
             return self._build_findings(request, request_ids, [], no_data_status), []
 
+        enriched_status = ExaCollectionStatus(
+            status=status.status,
+            message=status.message,
+            details={
+                **status.details,
+                "deduped_results": len(
+                    {
+                        item.document_id or item.canonical_url or item.title
+                        for item in normalized_results
+                    }
+                ),
+                "qualified_results": len(normalized_results),
+            },
+        )
         findings = self._build_findings(
-            request, request_ids, normalized_results, status
+            request, request_ids, normalized_results, enriched_status
+        )
+        logger.info(
+            "Exa findings built",
+            extra={
+                "collector": self.source,
+                "target": request.target.name,
+                "finding_count": len(findings),
+                **enriched_status.details,
+            },
         )
         return findings, []

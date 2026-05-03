@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "concurrently -k -n frontend,backend \"pnpm dev:frontend\" \"pnpm dev:backend\"",
     "dev:frontend": "pnpm --filter @opsec-mirror/frontend dev",
-    "dev:backend": "fastapi dev backend/app/main.py",
+    "dev:backend": "python -m uvicorn app.main:app --reload --app-dir backend",
     "build": "pnpm --filter @opsec-mirror/frontend build",
     "lint": "pnpm --filter @opsec-mirror/frontend lint"
   },

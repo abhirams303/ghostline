@@ -1,15 +1,26 @@
+import logging
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.analyze import router as analyze_router
 from app.api.collect import router as collect_router
+from app.api.geocode import router as geocode_router
 from app.api.health import router as health_router
 from app.api.stream import router as stream_router
 from app.config import get_settings
 from app.storage import initialize_storage
 
 
+def _configure_logging() -> None:
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s %(levelname)s %(name)s %(message)s",
+    )
+
+
 def create_app() -> FastAPI:
+    _configure_logging()
     settings = get_settings()
     initialize_storage(settings.database_path)
     app = FastAPI(
@@ -28,6 +39,7 @@ def create_app() -> FastAPI:
 
     app.include_router(health_router)
     app.include_router(collect_router)
+    app.include_router(geocode_router)
     app.include_router(analyze_router)
     app.include_router(stream_router)
     return app

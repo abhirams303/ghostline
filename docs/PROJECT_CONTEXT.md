@@ -24,13 +24,14 @@ Implemented now:
 
 - Next.js single-page frontend shell
 - real Mapbox + deck.gl map rendering in the frontend
+- server-side OpenStreetMap Nominatim geocoding at `GET /geocode`
 - FastAPI backend with `POST /analyze`
 - SSE endpoint at `GET /stream/{run_id}`
 - typed request and response models
 - live-by-default analysis path
 - local SQLite persistence for runs, findings, and deduped source evidence
 - cached demo JSON payloads for specific preset locations
-- live ADS-B Exchange collector
+- production-hardened ADS-B Exchange collector with bounded multi-snapshot sampling, path generation, and source-health reporting
 - live Exa news/public-web collector
 - opt-in Strava global heatmap collector path, disabled by default
 - placeholder collector for `satellite`
@@ -58,6 +59,7 @@ Do not assume this repo already supports:
 
 ```text
 Frontend (Next.js app shell)
+  -> GET /geocode for custom location strings
   -> POST /analyze
 Backend (FastAPI)
   -> parallel collectors
@@ -77,6 +79,7 @@ If you are changing a contract, these files matter first:
 - backend finding schema: `backend/app/models/finding.py`
 - backend response schema: `backend/app/models/report.py`
 - frontend mirrored types: `frontend/src/types/findings.ts`
+- geocode endpoint: `backend/app/api/geocode.py`
 - main analyze endpoint: `backend/app/api/analyze.py`
 - narrative stream behavior: `backend/app/api/stream.py`
 
@@ -85,6 +88,7 @@ If you are changing a contract, these files matter first:
 ### Analyze Mode
 
 - frontend defaults to `live`
+- preset targets resolve locally; custom target strings resolve through backend `/geocode`
 - backend uses cached JSON only when request mode is `demo`
 - optional demo fallback can still be enabled through backend env
 
@@ -105,9 +109,9 @@ Each collector should stay isolated in `backend/app/collectors/`.
 Current expectation:
 
 - `strava.py`: movement or heat-signature style findings. When `OPSEC_MIRROR_STRAVA_ENABLED=true`, it fetches a 3x3 Strava global heatmap tile grid using local CloudFront cookies from `backend/.env`; otherwise it returns demo-safe stub findings.
-- `adsb.py`: live snapshot of nearby aircraft with normalized markers and aerial-exposure findings
-- `satellite.py`: revisit-window and imaging opportunity findings
-- `exa.py`: live public-web or news enrichment via Exa search
+- `adsb.py`: bounded live sampling of nearby aircraft with normalized markers, short-track layers, source-health reporting, and aerial-exposure findings.
+- `satellite.py`: revisit-window and imaging opportunity findings.
+- `exa.py`: live public-web or news enrichment via Exa search.
 
 Do not spread collector-specific parsing into API routes or frontend components.
 
@@ -140,7 +144,7 @@ Always preserve:
 
 - explicit defensive-use framing
 - no instructions for harmful action
-- no “how to target” synthesis behavior
+- no "how to target" synthesis behavior
 - separation between demo-safe content and live source integrations
 
 Reference: `docs/ETHICS.md`
@@ -179,6 +183,13 @@ Avoid:
 - embedding source-specific parsing in `main.py`
 - duplicating schema definitions
 - making the frontend know collector internals
+
+### Geocoding
+
+- `GET /geocode?q=<location>` wraps OpenStreetMap Nominatim and returns a `LocationInput`.
+- Nominatim calls are server-side only so the backend can send a compliant identifying `User-Agent`.
+- The wrapper caches normalized queries for `OPSEC_MIRROR_CACHE_TTL_SECONDS` and enforces at least 1 second between upstream Nominatim requests.
+- Public Nominatim is suitable for local/light use only; production volume should use a dedicated Nominatim instance or commercial geocoder.
 
 ## Environment Setup
 
@@ -262,7 +273,7 @@ Update these when relevant:
 
 If no user instruction overrides this, the most sensible order is:
 
-1. deepen ADS-B from single-snapshot heuristics into track-history analysis
+1. deepen ADS-B from bounded short-window sampling into richer track-history and corridor analysis
 2. add richer Exa observability, diagnostics, and operational runbooks on top of the new multi-query evidence gathering and deduplication flow
 3. upgrade SSE from replayed chunks to true provider streaming
 4. add route-based analysis beyond single-point targets

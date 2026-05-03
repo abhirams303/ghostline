@@ -17,15 +17,15 @@ export function SearchBar({ loading, onSubmit }: SearchBarProps) {
   return (
     <section className="rounded-[1.9rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-4 shadow-panel md:p-5">
       <div className="flex flex-col gap-5">
-        <div className="flex items-center justify-between gap-3">
-          <div>
+        <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+          <div className="min-w-0">
             <p className="text-[11px] uppercase tracking-[0.34em] text-[#b8c1bd]">Target Command</p>
             <p className="mt-2 text-sm leading-6 text-white/58">
-              Choose a preset target or type a known operating area. Unknown input currently resolves to the
-              closest demo-safe preset.
+              Choose a preset target or type a known operating area. Custom locations resolve through
+              OpenStreetMap Nominatim when analysis starts.
             </p>
           </div>
-          <span className="hidden rounded-full border border-[#8ff6d2]/20 bg-[#8ff6d2]/8 px-3 py-2 text-[10px] uppercase tracking-[0.3em] text-[#8ff6d2] md:inline-flex">
+          <span className="w-fit rounded-full border border-[#8ff6d2]/20 bg-[#8ff6d2]/8 px-3 py-2 text-[10px] uppercase tracking-[0.3em] text-[#8ff6d2]">
             Backend Connected
           </span>
         </div>
@@ -47,7 +47,7 @@ export function SearchBar({ loading, onSubmit }: SearchBarProps) {
           ))}
         </div>
 
-        <div className="grid gap-3 lg:grid-cols-[1fr_auto_auto]">
+        <div className="grid gap-3 xl:grid-cols-[minmax(0,1fr)_auto_auto]">
           <label className="group flex min-h-16 items-center gap-3 rounded-[1.4rem] border border-white/10 bg-black/20 px-4 transition focus-within:border-[#8ff6d2]/40">
             <span className="font-mono text-xs uppercase tracking-[0.28em] text-white/35">Query</span>
             <input
@@ -58,7 +58,7 @@ export function SearchBar({ loading, onSubmit }: SearchBarProps) {
             />
           </label>
 
-          <div className="grid grid-cols-2 rounded-[1.4rem] border border-white/10 bg-black/20 p-1">
+          <div className="grid grid-cols-2 rounded-[1.4rem] border border-white/10 bg-black/20 p-1 xl:min-w-[180px]">
             {(["live", "demo"] as const).map((nextMode) => {
               const active = mode === nextMode;
               return (
@@ -82,7 +82,7 @@ export function SearchBar({ loading, onSubmit }: SearchBarProps) {
             type="button"
             disabled={loading}
             onClick={() => onSubmit(query, mode)}
-            className="min-h-16 rounded-[1.4rem] border border-[#8ff6d2]/35 bg-[linear-gradient(135deg,#8ff6d2,#d9f3b1)] px-6 text-sm font-semibold uppercase tracking-[0.28em] text-black transition hover:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-55"
+            className="min-h-16 rounded-[1.4rem] border border-[#8ff6d2]/35 bg-[linear-gradient(135deg,#8ff6d2,#d9f3b1)] px-6 text-sm font-semibold uppercase tracking-[0.28em] text-black transition hover:scale-[0.99] xl:min-w-[164px] disabled:cursor-not-allowed disabled:opacity-55"
           >
             {loading ? "Running" : "Analyze"}
           </button>

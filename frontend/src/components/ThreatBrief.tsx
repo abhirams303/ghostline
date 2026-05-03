@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 
 import { streamThreatBrief } from "@/lib/api";
-import type { AnalyzeResponse, SourceStatus } from "@/types/findings";
+import type { AnalyzeResponse } from "@/types/findings";
 
 interface ThreatBriefProps {
   report?: AnalyzeResponse | null;
@@ -12,8 +12,8 @@ interface ThreatBriefProps {
 export function ThreatBrief({ report }: ThreatBriefProps) {
   if (!report) {
     return (
-      <section className="rounded-[1.9rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-5 shadow-panel">
-        <div className="flex items-center justify-between">
+      <section className="rounded-[1.9rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-5 shadow-panel md:p-6">
+        <div className="flex flex-wrap items-center justify-between gap-3">
           <p className="text-[11px] uppercase tracking-[0.34em] text-[#b8c1bd]">
             Threat Brief
           </p>
@@ -21,9 +21,9 @@ export function ThreatBrief({ report }: ThreatBriefProps) {
             Idle
           </span>
         </div>
-        <div className="mt-5 rounded-[1.3rem] border border-dashed border-white/10 bg-black/10 p-5 text-sm leading-7 text-white/55">
-          No report yet. Once a run completes, the brief streams the narrative
-          replay from the backend’s SSE endpoint.
+        <div className="mt-5 rounded-[1.45rem] border border-dashed border-white/10 bg-black/12 p-6 text-sm leading-7 text-white/55">
+          No report yet. Run an analysis and the narrative brief will appear here
+          as a single readable summary instead of a stack of status blocks.
         </div>
       </section>
     );
@@ -36,15 +36,23 @@ interface ThreatBriefBodyProps {
   report: AnalyzeResponse;
 }
 
+type NarrativeBlock =
+  | { type: "heading"; level: 2 | 3; text: string }
+  | { type: "paragraph"; text: string }
+  | { type: "list"; items: string[] };
+type NarrativeSection = {
+  title?: string;
+  accent?: "summary" | "section";
+  blocks: NarrativeBlock[];
+};
+
 function ThreatBriefBody({ report }: ThreatBriefBodyProps) {
-  const [streamedChunks, setStreamedChunks] = useState<string[]>([
-    report.narrative_preview,
-  ]);
+  const [streamedChunks, setStreamedChunks] = useState<string[]>([]);
 
   useEffect(() => {
     const stop = streamThreatBrief(report.run_id, (chunk) => {
       setStreamedChunks((current) => {
-        if (current[current.length - 1] === chunk) {
+        if (current.includes(chunk)) {
           return current;
         }
         return [...current, chunk];
@@ -54,79 +62,384 @@ function ThreatBriefBody({ report }: ThreatBriefBodyProps) {
     return stop;
   }, [report.run_id]);
 
+  const statusLine = useMemo(
+    () =>
+      streamedChunks.find((chunk) =>
+        chunk.toLowerCase().startsWith("assessing exposure around"),
+      ) ?? "Narrative ready",
+    [streamedChunks],
+  );
+
+  const narrativeBody = useMemo(() => {
+    const replayed = streamedChunks.filter(
+      (chunk) => !chunk.toLowerCase().startsWith("assessing exposure around"),
+    );
+    return replayed.length > 0
+      ? replayed.join(" ")
+      : report.narrative_preview;
+  }, [report.narrative_preview, streamedChunks]);
+
+  const narrativeBlocks = useMemo(
+    () => buildNarrativeBlocks(narrativeBody),
+    [narrativeBody],
+  );
+  const narrativeSections = useMemo(
+    () => buildNarrativeSections(narrativeBlocks),
+    [narrativeBlocks],
+  );
+
   return (
-    <section className="rounded-[1.9rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-5 shadow-panel">
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <p className="text-[11px] uppercase tracking-[0.34em] text-[#b8c1bd]">
-            Threat Brief
-          </p>
-          <p className="mt-2 text-sm leading-6 text-white/55">
-            Streamed replay of the backend narrative for{" "}
-            <span className="text-[#f2eee4]">{report.target.name}</span>.
+    <section className="overflow-hidden rounded-[1.9rem] border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02)),linear-gradient(180deg,rgba(8,12,16,0.92),rgba(10,14,17,0.82))] shadow-panel">
+      <div className="grid gap-6 border-b border-white/10 px-5 py-5 md:px-6 md:py-6 xl:grid-cols-[minmax(0,1fr)_auto] xl:items-end">
+        <div className="min-w-0">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="rounded-full border border-[#d6d2c4]/18 bg-white/5 px-3 py-2 text-[10px] uppercase tracking-[0.32em] text-[#d6d2c4]">
+              Threat Brief
+            </span>
+            <span className="rounded-full border border-[#8ff6d2]/18 bg-[#8ff6d2]/8 px-3 py-2 text-[10px] uppercase tracking-[0.28em] text-[#dff8ec]">
+              {statusLine}
+            </span>
+          </div>
+
+          <h2 className="mt-5 max-w-4xl font-display text-[clamp(2.2rem,4vw,4rem)] leading-[0.94] tracking-[-0.03em] text-[#f2eee4] [text-wrap:balance]">
+            Defensive narrative for {report.target.name}
+          </h2>
+          <p className="mt-4 max-w-3xl text-[15px] leading-7 text-white/60 md:text-base">
+            A single synthesized readout of current exposure signals. Collector
+            posture stays in the status panel, so this space stays focused on
+            what matters.
           </p>
         </div>
-        <span className="rounded-full border border-[#8ff6d2]/20 bg-[#8ff6d2]/8 px-3 py-2 text-[10px] uppercase tracking-[0.28em] text-[#8ff6d2]">
-          streaming
-        </span>
+
+        <div className="grid gap-2 sm:grid-cols-3 xl:min-w-[360px]">
+          <BriefStat
+            label="Mode"
+            value={report.mode.toUpperCase()}
+            detail={`${report.findings.length} findings`}
+          />
+          <BriefStat
+            label="Generated"
+            value={new Date(report.generated_at).toLocaleTimeString([], {
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
+            detail={new Date(report.generated_at).toLocaleDateString()}
+          />
+          <BriefStat
+            label="Score"
+            value={`${report.score.aggregate}`}
+            detail="aggregate exposure"
+          />
+        </div>
       </div>
 
-      <div className="mt-5 space-y-3">
-        {streamedChunks.map((chunk, index) => (
-          <p
-            key={`${chunk}-${index}`}
-            className={`rounded-[1.2rem] border px-4 py-3 text-sm leading-7 ${
-              index === 0
-                ? "border-white/10 bg-black/12 text-[#f2eee4]"
-                : "border-white/8 bg-white/[0.03] text-white/72"
-            }`}
-          >
-            {chunk}
-          </p>
-        ))}
-      </div>
+      <div className="grid gap-5 px-5 py-5 md:px-6 md:py-6 lg:grid-cols-[minmax(0,1fr)_260px]">
+        <div className="min-w-0 rounded-[1.55rem] border border-white/10 bg-black/14 p-5 md:p-6">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[#b8c1bd]">
+              Narrative
+            </p>
+            <span className="text-[11px] uppercase tracking-[0.24em] text-white/35">
+              {narrativeSections.length} sections
+            </span>
+          </div>
 
-      <div className="mt-5 rounded-[1.3rem] border border-white/10 bg-black/12 p-4">
-        <div className="flex items-center justify-between gap-4">
-          <p className="text-[11px] uppercase tracking-[0.32em] text-[#b8c1bd]">
-            Source Health
-          </p>
-          <span className="text-[11px] uppercase tracking-[0.22em] text-white/38">
-            {report.source_statuses.length} collectors
-          </span>
+          <div className="mt-5 space-y-5">
+            {narrativeSections.map((section, index) => (
+              <NarrativeSectionView
+                key={`${section.title ?? "section"}-${index}`}
+                section={section}
+                isFirst={index === 0}
+              />
+            ))}
+          </div>
         </div>
-        <div className="mt-4 space-y-2">
-          {report.source_statuses.map((status) => (
-            <SourceHealthRow key={status.source} status={status} />
-          ))}
-        </div>
+
+        <aside className="grid gap-3 self-start">
+          <CalloutCard
+            label="Target"
+            value={report.target.name}
+            detail={`${report.target.lat.toFixed(3)}, ${report.target.lon.toFixed(3)}`}
+          />
+          <CalloutCard
+            label="Coverage"
+            value={`${report.layers.length} layers`}
+            detail={`${report.source_statuses.filter((status) => status.status === "ok").length} sources healthy`}
+          />
+          <CalloutCard
+            label="Posture"
+            value={report.score.aggregate >= 60 ? "Elevated" : "Measured"}
+            detail="defensive-use synthesis only"
+          />
+        </aside>
       </div>
     </section>
   );
 }
 
-function SourceHealthRow({ status }: { status: SourceStatus }) {
-  const stateStyles: Record<SourceStatus["status"], string> = {
-    ok: "border-[#8ff6d2]/25 bg-[#8ff6d2]/8 text-[#def7ec]",
-    no_data: "border-white/10 bg-white/[0.03] text-white/72",
-    disabled: "border-white/10 bg-white/[0.03] text-white/60",
-    missing_config: "border-[#f2c46b]/28 bg-[#f2c46b]/10 text-[#f7ddb0]",
-    upstream_error: "border-[#f58b64]/35 bg-[#f58b64]/10 text-[#ffd4c6]",
+function buildNarrativeBlocks(raw: string): NarrativeBlock[] {
+  const normalized = raw
+    .replace(/\r/g, "")
+    .replace(/([^\n])\s+(#{2,3}\s+)/g, "$1\n\n$2")
+    .replace(/([^\n])\s+(\d+[.)]\s+)/g, "$1\n\n$2")
+    .replace(/:\s+-\s+/g, ":\n- ")
+    .replace(/(\d+[.)]\s+[^\n-:]+(?:[:?])?)\s+-\s+/g, "$1\n- ")
+    .replace(/([.!?])\s+-\s+(?=\*\*|[A-Z])/g, "$1\n- ")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+
+  if (!normalized) {
+    return [];
+  }
+
+  const lines = normalized.split("\n").map((line) => line.trim()).filter(Boolean);
+  const blocks: NarrativeBlock[] = [];
+  let paragraphBuffer: string[] = [];
+  let listBuffer: string[] = [];
+
+  const flushParagraph = () => {
+    if (paragraphBuffer.length === 0) {
+      return;
+    }
+
+    blocks.push({
+      type: "paragraph",
+      text: paragraphBuffer.join(" ").trim(),
+    });
+    paragraphBuffer = [];
   };
 
+  const flushList = () => {
+    if (listBuffer.length === 0) {
+      return;
+    }
+
+    blocks.push({
+      type: "list",
+      items: [...listBuffer],
+    });
+    listBuffer = [];
+  };
+
+  for (const line of lines) {
+    if (line.startsWith("### ")) {
+      flushParagraph();
+      flushList();
+      blocks.push({ type: "heading", level: 3, text: line.slice(4).trim() });
+      continue;
+    }
+
+    if (line.startsWith("## ")) {
+      flushParagraph();
+      flushList();
+      blocks.push({ type: "heading", level: 2, text: line.slice(3).trim() });
+      continue;
+    }
+
+    if (/^\d+[.)]\s+/.test(line)) {
+      flushParagraph();
+      flushList();
+      blocks.push({
+        type: "heading",
+        level: 3,
+        text: line.replace(/^\d+[.)]\s+/, "").trim(),
+      });
+      continue;
+    }
+
+    if (line.startsWith("- ")) {
+      flushParagraph();
+      listBuffer.push(line.slice(2).trim());
+      continue;
+    }
+
+    flushList();
+    paragraphBuffer.push(line);
+  }
+
+  flushParagraph();
+  flushList();
+
+  return blocks.length > 0 ? blocks : [{ type: "paragraph", text: normalized }];
+}
+
+function buildNarrativeSections(blocks: NarrativeBlock[]): NarrativeSection[] {
+  if (blocks.length === 0) {
+    return [];
+  }
+
+  const sections: NarrativeSection[] = [];
+  let current: NarrativeSection | null = null;
+
+  for (const block of blocks) {
+    if (block.type === "heading") {
+      if (current && current.blocks.length > 0) {
+        sections.push(current);
+      }
+
+      current = {
+        title: block.text,
+        accent: "section",
+        blocks: [],
+      };
+      continue;
+    }
+
+    if (!current) {
+      current = {
+        accent: "summary",
+        blocks: [],
+      };
+    }
+
+    current.blocks.push(block);
+  }
+
+  if (current && current.blocks.length > 0) {
+    sections.push(current);
+  }
+
+  return sections;
+}
+
+function NarrativeSectionView({
+  section,
+  isFirst,
+}: {
+  section: NarrativeSection;
+  isFirst: boolean;
+}) {
+  const shellClass =
+    section.accent === "summary"
+      ? "rounded-[1.3rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] px-5 py-5"
+      : "rounded-[1.3rem] border border-white/8 bg-white/[0.03] px-5 py-5";
+
   return (
-    <div
-      className={`rounded-[1rem] border px-3 py-3 ${stateStyles[status.status]}`}
-    >
-      <div className="flex items-center justify-between gap-3">
-        <span className="text-[11px] uppercase tracking-[0.26em]">
-          {status.source}
-        </span>
-        <span className="text-[10px] uppercase tracking-[0.22em]">
-          {status.status.replace(/_/g, " ")}
-        </span>
+    <section className={shellClass}>
+      {section.title ? (
+        <div className="mb-4 flex flex-wrap items-center gap-3">
+          <span className="rounded-full border border-[#8ff6d2]/18 bg-[#8ff6d2]/8 px-3 py-2 text-[10px] uppercase tracking-[0.26em] text-[#dff8ec]">
+            {section.title}
+          </span>
+        </div>
+      ) : null}
+
+      <div className="space-y-4">
+        {section.blocks.map((block, index) => (
+          <NarrativeBlockView
+            key={`${block.type}-${index}`}
+            block={block}
+            isFirst={isFirst && index === 0}
+            inSection={section.accent === "section"}
+          />
+        ))}
       </div>
-      <p className="mt-2 text-sm leading-6">{status.message}</p>
+    </section>
+  );
+}
+
+function NarrativeBlockView({
+  block,
+  isFirst,
+  inSection,
+}: {
+  block: NarrativeBlock;
+  isFirst: boolean;
+  inSection: boolean;
+}) {
+  if (block.type === "list") {
+    return (
+      <ul className="grid gap-3">
+        {block.items.map((item, index) => (
+          <li
+            key={`${item}-${index}`}
+            className={`rounded-[1.1rem] border px-4 py-3 text-[14.5px] leading-7 md:text-[15px] ${
+              inSection
+                ? "border-white/8 bg-black/12 text-[#ebe4d5]"
+                : "border-white/8 bg-white/[0.03] text-[#e8e3d6]"
+            }`}
+          >
+            <div className="flex gap-3">
+              <span className="mt-[0.62rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#8ff6d2]" />
+              <span className="[overflow-wrap:anywhere]">{renderInlineText(item)}</span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  return (
+    <p
+      className={`max-w-none leading-8 [overflow-wrap:anywhere] ${
+        isFirst
+          ? "text-[17px] text-[#f2eee4] md:text-[18px]"
+          : "text-[15px] text-[#d8d2c4] md:text-[15.5px]"
+      }`}
+    >
+      {renderInlineText(block.text)}
+    </p>
+  );
+}
+
+function renderInlineText(text: string) {
+  const parts = text.split(/(\*\*.*?\*\*)/g).filter(Boolean);
+
+  return parts.map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={`${part}-${index}`} className="font-semibold text-[#f6f1e6]">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+
+    return <Fragment key={`${part}-${index}`}>{part}</Fragment>;
+  });
+}
+
+function BriefStat({
+  label,
+  value,
+  detail,
+}: {
+  label: string;
+  value: string;
+  detail: string;
+}) {
+  return (
+    <div className="rounded-[1.15rem] border border-white/10 bg-black/14 px-4 py-3">
+      <p className="text-[10px] uppercase tracking-[0.28em] text-white/40">
+        {label}
+      </p>
+      <p className="mt-2 break-words text-xl text-[#f2eee4] [overflow-wrap:anywhere]">
+        {value}
+      </p>
+      <p className="mt-1 text-xs uppercase tracking-[0.18em] text-white/35">
+        {detail}
+      </p>
+    </div>
+  );
+}
+
+function CalloutCard({
+  label,
+  value,
+  detail,
+}: {
+  label: string;
+  value: string;
+  detail: string;
+}) {
+  return (
+    <div className="rounded-[1.25rem] border border-white/10 bg-white/[0.03] px-4 py-4">
+      <p className="text-[10px] uppercase tracking-[0.3em] text-[#b8c1bd]">
+        {label}
+      </p>
+      <p className="mt-3 break-words text-base text-[#f2eee4] [overflow-wrap:anywhere]">
+        {value}
+      </p>
+      <p className="mt-2 text-sm leading-6 text-white/50">{detail}</p>
     </div>
   );
 }

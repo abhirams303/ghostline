@@ -40,9 +40,9 @@ export function Map({ report, visibleLayerIds, layers }: MapProps) {
   return (
     <section className="overflow-hidden rounded-[1.9rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] shadow-panel">
       <div className="flex flex-col gap-4 border-b border-white/10 px-5 py-4 md:flex-row md:items-end md:justify-between">
-        <div>
+        <div className="min-w-0">
           <p className="text-[11px] uppercase tracking-[0.34em] text-[#b8c1bd]">Map Surface</p>
-          <h2 className="mt-2 font-display text-3xl text-[#f2eee4]">
+          <h2 className="mt-2 break-words font-display text-3xl text-[#f2eee4] [overflow-wrap:anywhere]">
             {report ? report.target.name : "Mapbox tactical surface"}
           </h2>
           <p className="mt-2 text-sm leading-6 text-white/55">
@@ -50,14 +50,14 @@ export function Map({ report, visibleLayerIds, layers }: MapProps) {
           </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-2 text-right text-[10px] uppercase tracking-[0.24em] text-white/38">
+        <div className="grid shrink-0 grid-cols-3 gap-2 text-right text-[10px] uppercase tracking-[0.24em] text-white/38">
           <StatChip label="Layers" value={`${layers.length || deckLayers.length}`} />
           <StatChip label="Visible" value={`${visibleLayerIds.length || deckLayers.length}`} />
           <StatChip label="Marks" value={`${visibleFindings.length || Math.max(deckLayers.length - 1, 0)}`} />
         </div>
       </div>
 
-      <div className="grid gap-4 p-4 lg:grid-cols-[1fr_280px]">
+      <div className="grid gap-4 p-4 xl:grid-cols-[minmax(0,1fr)_280px]">
         <div className="relative min-h-[520px] overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#0b0f12]">
           {MAPBOX_TOKEN ? (
             <DeckGL
@@ -161,7 +161,9 @@ function InfoRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between gap-4 text-sm">
       <span className="text-white/45">{label}</span>
-      <span className="font-mono text-[12px] uppercase tracking-[0.2em] text-[#f2eee4]">{value}</span>
+      <span className="min-w-0 break-all text-right font-mono text-[12px] uppercase tracking-[0.12em] text-[#f2eee4] md:tracking-[0.2em]">
+        {value}
+      </span>
     </div>
   );
 }

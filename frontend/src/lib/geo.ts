@@ -7,9 +7,9 @@ const PRESET_TARGETS: Record<string, LocationInput> = {
 };
 
 
-export function resolveTarget(input: string): LocationInput {
+export function resolveTarget(input: string): LocationInput | null {
   const key = input.trim().toLowerCase();
-  return PRESET_TARGETS[key] ?? PRESET_TARGETS["fort liberty"];
+  return PRESET_TARGETS[key] ?? null;
 }
 
 

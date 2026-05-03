@@ -53,6 +53,10 @@ class Settings(BaseSettings):
     exa_news_enabled: bool = True
     exa_web_enabled: bool = True
     exa_min_relevance_score: int = 3
+    nominatim_base_url: str = "https://nominatim.openstreetmap.org"
+    nominatim_timeout_seconds: float = 5.0
+    nominatim_user_agent: str = "OPSEC-Mirror/0.1"
+    nominatim_email: str | None = None
     openai_api_key: str | None = Field(
         default=None,
         validation_alias=AliasChoices("OPSEC_MIRROR_OPENAI_API_KEY", "OPENAI_API_KEY"),

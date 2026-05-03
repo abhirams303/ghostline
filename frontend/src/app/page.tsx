@@ -7,8 +7,9 @@ import { FindingCard } from "@/components/FindingCard";
 import { LayerToggle } from "@/components/LayerToggle";
 import { Map } from "@/components/Map";
 import { SearchBar } from "@/components/SearchBar";
+import { SourceStatusPanel } from "@/components/SourceStatusPanel";
 import { ThreatBrief } from "@/components/ThreatBrief";
-import { analyzeTarget } from "@/lib/api";
+import { analyzeTarget, geocodeTarget } from "@/lib/api";
 import { listPresetTargets, resolveTarget } from "@/lib/geo";
 import { toLayerViewModels } from "@/lib/layers";
 import type { AnalyzeResponse, Severity } from "@/types/findings";
@@ -22,7 +23,10 @@ export default function HomePage() {
   const [error, setError] = useState<string | null>(null);
   const [lastQuery, setLastQuery] = useState("Fort Liberty");
 
-  const layers = useMemo(() => toLayerViewModels(report?.layers ?? []), [report]);
+  const layers = useMemo(
+    () => toLayerViewModels(report?.layers ?? []),
+    [report],
+  );
   const presetTargets = useMemo(() => listPresetTargets(), []);
   const findingCounts = useMemo(() => {
     const initial = { critical: 0, high: 0, medium: 0, low: 0 };
@@ -38,18 +42,26 @@ export default function HomePage() {
     setLastQuery(query);
 
     try {
-      const target = resolveTarget(query);
+      const target = resolveTarget(query) ?? (await geocodeTarget(query));
       const nextReport = await analyzeTarget({
         target,
         mode,
         route: [],
-        unit_id: null
+        unit_id: null,
       });
 
       setReport(nextReport);
-      setVisibleLayerIds(nextReport.layers.filter((layer) => layer.visible).map((layer) => layer.id));
+      setVisibleLayerIds(
+        nextReport.layers
+          .filter((layer) => layer.visible)
+          .map((layer) => layer.id),
+      );
     } catch (nextError) {
-      setError(nextError instanceof Error ? nextError.message : "Unable to analyze target.");
+      setError(
+        nextError instanceof Error
+          ? nextError.message
+          : "Unable to analyze target.",
+      );
     } finally {
       setLoading(false);
     }
@@ -57,20 +69,22 @@ export default function HomePage() {
 
   function toggleLayer(layerId: string) {
     setVisibleLayerIds((current) =>
-      current.includes(layerId) ? current.filter((id) => id !== layerId) : [...current, layerId]
+      current.includes(layerId)
+        ? current.filter((id) => id !== layerId)
+        : [...current, layerId],
     );
   }
 
   return (
-    <main className="relative min-h-screen overflow-hidden">
+    <main className="relative min-h-screen overflow-x-clip">
       <div className="ambient-orb ambient-orb-left" />
       <div className="ambient-orb ambient-orb-right" />
       <div className="grid-overlay" />
 
       <div className="relative mx-auto flex min-h-screen w-full max-w-[1480px] flex-col gap-6 px-4 py-4 md:px-6 md:py-6 xl:px-8">
         <section className="overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02)),linear-gradient(180deg,rgba(8,12,16,0.9),rgba(8,12,16,0.78))] shadow-panel">
-          <div className="grid gap-8 p-6 lg:grid-cols-[1.2fr_0.8fr] lg:p-8">
-            <div className="space-y-6">
+          <div className="grid gap-8 p-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] lg:p-8">
+            <div className="min-w-0 space-y-6">
               <div className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.34em] text-[#b8c1bd]">
                 <span className="rounded-full border border-[#d6d2c4]/20 bg-white/5 px-3 py-2 text-[#d6d2c4]">
                   OPSEC Mirror
@@ -80,18 +94,19 @@ export default function HomePage() {
                 </span>
               </div>
 
-              <div className="max-w-4xl">
-                <p className="font-display text-[clamp(3rem,7vw,6.25rem)] leading-[0.92] tracking-[-0.04em] text-[#f2eee4]">
+              <div className="max-w-4xl min-w-0">
+                <p className="font-display text-[clamp(2.65rem,7vw,6.25rem)] leading-[0.92] tracking-[-0.04em] text-[#f2eee4] [overflow-wrap:anywhere] [text-wrap:balance]">
                   Public traces become a field dossier in under a minute.
                 </p>
                 <p className="mt-5 max-w-2xl text-[15px] leading-7 text-[#b5beb9] md:text-base">
-                  This frontend turns the current backend scaffold into a believable operations console:
-                  target selection, layer control, threat narrative, scoring, and evidence cards in one
+                  This frontend turns the current backend scaffold into a
+                  believable operations console: target selection, layer
+                  control, threat narrative, scoring, and evidence cards in one
                   surface.
                 </p>
               </div>
 
-              <div className="grid gap-3 sm:grid-cols-3">
+              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
                 <MetricTile
                   label="Preset Targets"
                   value={`${presetTargets.length}`}
@@ -110,30 +125,37 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="flex h-full flex-col justify-between rounded-[1.75rem] border border-[#d6d2c4]/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-5">
-              <div>
-                <p className="text-[11px] uppercase tracking-[0.32em] text-[#f58b64]">Collector Posture</p>
+            <div className="flex min-w-0 flex-col justify-between rounded-[1.75rem] border border-[#d6d2c4]/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-5">
+              <div className="min-w-0">
+                <p className="text-[11px] uppercase tracking-[0.32em] text-[#f58b64]">
+                  Collector Posture
+                </p>
                 <div className="mt-4 space-y-3 text-sm leading-6 text-[#c5cbc7]">
                   <p>
-                    Live collection remains interface-first. The console is useful now for walkthroughs,
-                    cached demos, scoring, and persistence-backed evidence history.
+                    Live collection remains interface-first. The console is
+                    useful now for walkthroughs, cached demos, scoring, and
+                    persistence-backed evidence history.
                   </p>
                   <p>
-                    The visual direction is deliberate: editorial briefing room rather than generic SaaS
-                    dashboard.
+                    The visual direction is deliberate: editorial briefing room
+                    rather than generic SaaS dashboard.
                   </p>
                 </div>
               </div>
 
               <div className="mt-6 border-t border-white/10 pt-5">
-                <p className="text-[11px] uppercase tracking-[0.32em] text-[#b8c1bd]">Severity Mix</p>
+                <p className="text-[11px] uppercase tracking-[0.32em] text-[#b8c1bd]">
+                  Severity Mix
+                </p>
                 <div className="mt-4 grid grid-cols-4 gap-2">
                   {severityOrder.map((severity) => (
                     <div
                       key={severity}
                       className="rounded-2xl border border-white/10 bg-black/15 px-3 py-3 text-center"
                     >
-                      <div className="text-lg font-semibold text-[#f2eee4]">{findingCounts[severity]}</div>
+                      <div className="text-lg font-semibold text-[#f2eee4]">
+                        {findingCounts[severity]}
+                      </div>
                       <div className="mt-1 text-[10px] uppercase tracking-[0.28em] text-white/45">
                         {severity}
                       </div>
@@ -153,64 +175,102 @@ export default function HomePage() {
           </div>
         ) : null}
 
-        <section className="grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
+        <section className="grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)]">
           <div className="space-y-4">
-            <LayerToggle layers={layers} activeLayerIds={visibleLayerIds} onToggle={toggleLayer} />
-            <Map report={report} visibleLayerIds={visibleLayerIds} layers={layers} />
+            <LayerToggle
+              layers={layers}
+              activeLayerIds={visibleLayerIds}
+              onToggle={toggleLayer}
+            />
+            <Map
+              report={report}
+              visibleLayerIds={visibleLayerIds}
+              layers={layers}
+            />
           </div>
 
           <div className="space-y-4">
             <ExposureScore score={report?.score} />
-            <ThreatBrief report={report} />
+            <SourceStatusPanel report={report} />
           </div>
         </section>
 
-        <section className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+        <ThreatBrief report={report} />
+
+        <section className="grid gap-6 lg:grid-cols-[minmax(280px,0.8fr)_minmax(0,1.2fr)]">
           <aside className="rounded-[1.75rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-5 shadow-panel">
-            <div className="flex items-center justify-between">
-              <p className="text-[11px] uppercase tracking-[0.34em] text-[#b8c1bd]">Run Ledger</p>
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <p className="text-[11px] uppercase tracking-[0.34em] text-[#b8c1bd]">
+                Run Ledger
+              </p>
               <span className="text-xs text-white/40">
-                {report ? new Date(report.generated_at).toLocaleTimeString() : "No run"}
+                {report
+                  ? new Date(report.generated_at).toLocaleTimeString()
+                  : "No run"}
               </span>
             </div>
 
             <div className="mt-5 space-y-4">
               {report ? (
                 <>
-                  <LedgerRow label="Run ID" value={report.run_id.slice(0, 8).toUpperCase()} />
+                  <LedgerRow
+                    label="Run ID"
+                    value={report.run_id.slice(0, 8).toUpperCase()}
+                  />
                   <LedgerRow
                     label="Coordinates"
                     value={`${report.target.lat.toFixed(3)}, ${report.target.lon.toFixed(3)}`}
                   />
-                  <LedgerRow label="Radius" value={`${report.target.radius_km} km`} />
-                  <LedgerRow label="Narrative" value={`${report.narrative_preview.length} chars`} />
-                  <LedgerRow label="Evidence Rows" value={`${report.findings.length}`} />
-                  <LedgerRow label="Map Layers" value={`${report.layers.length}`} />
+                  <LedgerRow
+                    label="Radius"
+                    value={`${report.target.radius_km} km`}
+                  />
+                  <LedgerRow
+                    label="Narrative"
+                    value={`${report.narrative_preview.length} chars`}
+                  />
+                  <LedgerRow
+                    label="Evidence Rows"
+                    value={`${report.findings.length}`}
+                  />
+                  <LedgerRow
+                    label="Map Layers"
+                    value={`${report.layers.length}`}
+                  />
                 </>
               ) : (
                 <div className="rounded-[1.25rem] border border-dashed border-white/10 bg-black/10 p-5 text-sm leading-6 text-white/55">
-                  Pick one of the presets and run a demo. The backend already persists live runs, so this
-                  view is now a proper client for it rather than a blank shell.
+                  Pick one of the presets and run a demo. The backend already
+                  persists live runs, so this view is now a proper client for it
+                  rather than a blank shell.
                 </div>
               )}
             </div>
           </aside>
 
           <section className="rounded-[1.75rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-5 shadow-panel">
-            <div className="flex items-center justify-between">
-              <p className="text-[11px] uppercase tracking-[0.34em] text-[#b8c1bd]">Evidence Cards</p>
-              <span className="text-xs text-white/45">{report?.findings.length ?? 0} findings</span>
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <p className="text-[11px] uppercase tracking-[0.34em] text-[#b8c1bd]">
+                Evidence Cards
+              </p>
+              <span className="text-xs text-white/45">
+                {report?.findings.length ?? 0} findings
+              </span>
             </div>
 
-            <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            <div className="mt-5 grid gap-4 lg:grid-cols-2 2xl:grid-cols-3">
               {(report?.findings ?? []).map((finding) => (
-                <FindingCard key={`${finding.source}-${finding.title}`} finding={finding} />
+                <FindingCard
+                  key={`${finding.source}-${finding.title}`}
+                  finding={finding}
+                />
               ))}
 
               {!report ? (
                 <div className="rounded-[1.5rem] border border-dashed border-white/10 bg-black/10 p-6 text-sm leading-6 text-white/50">
-                  The evidence tray populates after an analysis run. Each card carries severity, source,
-                  location, and supporting metadata from the backend response.
+                  The evidence tray populates after an analysis run. Each card
+                  carries severity, source, location, and supporting metadata
+                  from the backend response.
                 </div>
               ) : null}
             </div>
@@ -224,16 +284,20 @@ export default function HomePage() {
 function MetricTile({
   label,
   value,
-  detail
+  detail,
 }: {
   label: string;
   value: string;
   detail: string;
 }) {
   return (
-    <div className="rounded-[1.4rem] border border-white/10 bg-black/15 p-4">
-      <p className="text-[10px] uppercase tracking-[0.32em] text-white/42">{label}</p>
-      <div className="mt-3 text-2xl font-semibold text-[#f2eee4]">{value}</div>
+    <div className="min-w-0 rounded-[1.4rem] border border-white/10 bg-black/15 p-4">
+      <p className="text-[10px] uppercase tracking-[0.32em] text-white/42">
+        {label}
+      </p>
+      <div className="mt-3 break-words text-2xl font-semibold text-[#f2eee4] [overflow-wrap:anywhere]">
+        {value}
+      </div>
       <p className="mt-2 text-sm leading-6 text-white/55">{detail}</p>
     </div>
   );
@@ -242,8 +306,8 @@ function MetricTile({
 function LedgerRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between gap-4 border-b border-white/8 pb-3 text-sm last:border-b-0 last:pb-0">
-      <span className="text-white/48">{label}</span>
-      <span className="font-mono text-right text-[13px] uppercase tracking-[0.18em] text-[#f2eee4]">
+      <span className="min-w-0 text-white/48">{label}</span>
+      <span className="min-w-0 break-all text-right font-mono text-[13px] uppercase tracking-[0.12em] text-[#f2eee4] md:tracking-[0.18em]">
         {value}
       </span>
     </div>

@@ -10,24 +10,26 @@ Today it includes:
 
 - a `pnpm`-managed Next.js frontend shell
 - a FastAPI backend with typed request and response models
+- server-side OpenStreetMap Nominatim geocoding for custom location strings
 - a real Mapbox + deck.gl map surface with interactive overlays and synthetic fallback geometry
-- live ADS-B Exchange and Exa collectors, plus an opt-in Strava global heatmap collector and scaffolded `satellite` collector
+- a production-hardened live ADS-B Exchange collector, a live Exa collector, an opt-in Strava global heatmap collector, and a scaffolded `satellite` collector
 - a local SQLite evidence store for analysis runs, findings, and deduped source documents
 - cached demo payloads for rehearsed presentations
 - OpenAI-backed threat-brief synthesis with fallback preview generation
 - SSE threat-brief replay over chunked narrative output
 
-It does not yet include production-grade live integrations for the data sources.
+It does not yet include production-grade live integrations for every data source, but ADS-B is hardened for production-style live use and Strava is available behind an opt-in collector path.
 
 ## Current Product Shape
 
 User flow:
 
 1. Enter a target location.
-2. Run analysis in `live` or `demo` mode.
-3. Backend fans out across collectors in parallel.
-4. Findings are scored and summarized into a threat-brief preview.
-5. Frontend renders evidence cards, layer toggles, and a live Mapbox + deck.gl map surface.
+2. Preset targets resolve locally; custom locations resolve through backend `/geocode`.
+3. Run analysis in `live` or `demo` mode.
+4. Backend fans out across collectors in parallel.
+5. Findings are scored and summarized into a threat-brief preview.
+6. Frontend renders evidence cards, layer toggles, and a live Mapbox + deck.gl map surface.
 
 ## Stack
 
@@ -87,7 +89,7 @@ Both:
 pnpm dev
 ```
 
-Frontend runs at `http://localhost:3000`.  
+Frontend runs at `http://localhost:3000`.
 Backend runs at `http://localhost:8000`.
 
 ## Verification
@@ -133,20 +135,21 @@ Important notes:
 - Set `OPENAI_API_KEY` in `backend/.env` to enable real synthesis.
 - Set `ADSBEXCHANGE_API_KEY` in `backend/.env` to enable the live ADS-B collector.
 - Set `EXA_API_KEY` in `backend/.env` to enable the live Exa news/web collector.
-- ADS-B currently uses a single live snapshot around the target radius and derives first-pass defensive findings from that snapshot.
+- Nominatim geocoding uses no API key, but keep `OPSEC_MIRROR_NOMINATIM_USER_AGENT` identifying this application; public Nominatim is intended for local/light usage only.
+- ADS-B performs bounded multi-snapshot sampling, emits marker and short-track layers, filters invalid out-of-radius rows, and reports collector health states such as disabled, missing configuration, upstream error, and no-data.
 - The Strava heatmap path requires local `STRAVA_CF_KEY_PAIR_ID`, `STRAVA_CF_POLICY`, and `STRAVA_CF_SIGNATURE` values in `backend/.env` and only runs when `OPSEC_MIRROR_STRAVA_ENABLED=true`.
 
 ## Project Structure
 
 ```text
 opsec-mirror/
-├── backend/                # FastAPI service, models, collectors, synthesis
-├── frontend/               # Next.js app shell
-├── docs/                   # Architecture, ethics, demo script, agent context
-├── scripts/                # Setup, deploy, and cache helper scripts
-├── AGENTS.md               # Agent operating instructions for this repo
-├── package.json            # Root workspace scripts
-└── pnpm-workspace.yaml     # pnpm workspace definition
+|-- backend/                # FastAPI service, models, collectors, synthesis
+|-- frontend/               # Next.js app shell
+|-- docs/                   # Architecture, ethics, demo script, agent context
+|-- scripts/                # Setup, deploy, and cache helper scripts
+|-- AGENTS.md               # Agent operating instructions for this repo
+|-- package.json            # Root workspace scripts
+`-- pnpm-workspace.yaml     # pnpm workspace definition
 ```
 
 ## Important Docs
