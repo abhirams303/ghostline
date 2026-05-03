@@ -4,6 +4,7 @@ from pathlib import Path
 from fastapi.testclient import TestClient
 
 from app.collectors.adsb import ADSBCollector
+from app.collectors.exa import ExaCollector
 from app.config import get_settings
 from app.main import create_app
 
@@ -12,8 +13,11 @@ def make_client(tmp_path: Path, monkeypatch) -> tuple[TestClient, Path]:
     database_path = tmp_path / "opsec-mirror-test.sqlite3"
     monkeypatch.setenv("OPSEC_MIRROR_DATABASE_PATH", str(database_path))
     monkeypatch.setenv("OPSEC_MIRROR_ADSB_ENABLED", "false")
+    monkeypatch.setenv("OPSEC_MIRROR_EXA_ENABLED", "false")
     monkeypatch.delenv("ADSBEXCHANGE_API_KEY", raising=False)
     monkeypatch.delenv("OPSEC_MIRROR_ADSBEXCHANGE_API_KEY", raising=False)
+    monkeypatch.delenv("EXA_API_KEY", raising=False)
+    monkeypatch.delenv("OPSEC_MIRROR_EXA_API_KEY", raising=False)
     get_settings.cache_clear()
     return TestClient(create_app()), database_path
 
@@ -110,9 +114,9 @@ def test_repeated_live_runs_dedupe_source_documents(tmp_path: Path, monkeypatch)
         run_document_count = connection.execute("SELECT COUNT(*) FROM run_documents").fetchone()[0]
 
     assert run_count == 2
-    assert finding_count == 6
-    assert document_count == 3
-    assert run_document_count == 6
+    assert finding_count == 4
+    assert document_count == 2
+    assert run_document_count == 4
 
     get_settings.cache_clear()
 
@@ -180,5 +184,71 @@ def test_adsb_collector_normalizes_live_payload(tmp_path: Path, monkeypatch) -> 
         finding_count = connection.execute("SELECT COUNT(*) FROM findings").fetchone()[0]
 
     assert finding_count == len(body["findings"])
+
+    get_settings.cache_clear()
+
+
+def test_exa_collector_normalizes_live_payload(tmp_path: Path, monkeypatch) -> None:
+    client, database_path = make_client(tmp_path, monkeypatch)
+    monkeypatch.setenv("OPSEC_MIRROR_EXA_ENABLED", "true")
+    monkeypatch.setenv("EXA_API_KEY", "test-exa-key")
+    get_settings.cache_clear()
+
+    sample_payload = {
+        "requestId": "exa-request-123",
+        "results": [
+            {
+                "id": "https://example.com/article-1",
+                "title": "Public exercise coverage near Fort Liberty",
+                "url": "https://example.com/article-1",
+                "publishedDate": "2026-05-02T10:00:00Z",
+                "author": "Reporter One",
+                "highlights": [
+                    "Officials described a large training exercise near Fort Liberty this week."
+                ],
+            },
+            {
+                "id": "https://example.com/article-2",
+                "title": "Travel patterns discussed around regional base operations",
+                "url": "https://example.com/article-2",
+                "publishedDate": "2026-05-01T08:30:00Z",
+                "author": "Reporter Two",
+                "highlights": [
+                    "Public reporting referenced recurring movement around the installation."
+                ],
+            },
+        ],
+    }
+
+    async def fake_search(self, request):
+        return sample_payload
+
+    monkeypatch.setattr(ExaCollector, "_search_payload", fake_search)
+
+    response = client.post(
+        "/analyze",
+        json={
+            "target": {
+                "name": "Fort Liberty",
+                "lat": 35.1414,
+                "lon": -79.006,
+                "radius_km": 20
+            },
+            "mode": "live"
+        },
+    )
+
+    assert response.status_code == 200
+    body = response.json()
+    exa_findings = [finding for finding in body["findings"] if finding["source"] == "exa"]
+
+    assert len(exa_findings) == 2
+    assert exa_findings[0]["title"] == "Public exercise coverage near Fort Liberty"
+    assert exa_findings[0]["evidence_url"] == "https://example.com/article-1"
+
+    with sqlite3.connect(database_path) as connection:
+        document_count = connection.execute("SELECT COUNT(*) FROM source_documents").fetchone()[0]
+
+    assert document_count == len(body["findings"])
 
     get_settings.cache_clear()

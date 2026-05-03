@@ -5,9 +5,9 @@ FastAPI service for analysis orchestration, live collector fan-out, scoring, and
 Current live source coverage:
 
 - ADS-B Exchange snapshot collector
+- Exa news/public-web search collector
 
 Current scaffold-only sources:
 
 - Strava
 - Satellite revisit
-- Exa

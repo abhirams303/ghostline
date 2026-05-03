@@ -40,6 +40,10 @@ class Settings(BaseSettings):
     adsb_low_altitude_threshold_ft: int = 5000
     satellite_enabled: bool = True
     exa_enabled: bool = False
+    exa_base_url: str = "https://api.exa.ai"
+    exa_num_results: int = 3
+    exa_lookback_days: int = 30
+    exa_highlights_max_characters: int = 600
     openai_api_key: str | None = Field(
         default=None,
         validation_alias=AliasChoices("OPSEC_MIRROR_OPENAI_API_KEY", "OPENAI_API_KEY"),

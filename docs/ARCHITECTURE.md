@@ -20,7 +20,7 @@ The backend:
 - `Strava`: interface scaffold with live-path placeholder output
 - `ADSB`: live ADS-B Exchange snapshot collector with normalized aircraft markers and heuristic findings
 - `Satellite`: interface scaffold with revisit-window placeholder output
-- `Exa`: enrichment scaffold, disabled by policy until wired
+- `Exa`: live news/public-web search collector using the Exa search API
 
 ## Boundaries
 

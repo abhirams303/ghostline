@@ -30,7 +30,8 @@ Implemented now:
 - local SQLite persistence for runs, findings, and deduped source evidence
 - cached demo JSON payloads for specific preset locations
 - live ADS-B Exchange collector
-- placeholder collectors for `strava`, `satellite`, and `exa`
+- live Exa news/public-web collector
+- placeholder collectors for `strava` and `satellite`
 - OpenAI-backed synthesis when `OPENAI_API_KEY` is configured
 - local fallback narrative generation when OpenAI is not configured or the request fails
 
@@ -104,7 +105,7 @@ Current expectation:
 - `strava.py`: movement or heat-signature style findings
 - `adsb.py`: live snapshot of nearby aircraft with normalized markers and aerial-exposure findings
 - `satellite.py`: revisit-window and imaging opportunity findings
-- `exa.py`: public-web or news enrichment
+- `exa.py`: live public-web or news enrichment via Exa search
 
 Do not spread collector-specific parsing into API routes or frontend components.
 
@@ -253,7 +254,7 @@ Update these when relevant:
 If no user instruction overrides this, the most sensible order is:
 
 1. deepen ADS-B from single-snapshot heuristics into track-history analysis
-2. replace map-shell placeholders with actual deck.gl rendering
-3. upgrade SSE from replayed chunks to true provider streaming
-4. add route-based analysis beyond single-point targets
-5. add Palantir AIP integration only after source and contract stability improve
+2. deepen Exa from one query into multi-query evidence gathering and deduplication
+3. replace map-shell placeholders with actual deck.gl rendering
+4. upgrade SSE from replayed chunks to true provider streaming
+5. add route-based analysis beyond single-point targets
