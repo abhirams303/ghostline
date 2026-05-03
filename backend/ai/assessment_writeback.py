@@ -99,9 +99,10 @@ SENTINEL_TLES = [
 SEVERITY_TO_DENSITY = {"high": 78, "medium": 50, "low": 25}
 
 SYNTH_ADSB_FOOTER = (
-    "\n\n[Note: ADS-B traffic is synthetic for V1 — derived from the populated "
-    "Units/Platforms ontology. To be replaced by Member A's real ADS-B Exchange "
-    "capture when available.]"
+    "\n\n[Note: 7-day historical aircraft pattern is synthetic for V1 — derived "
+    "from the populated Units/Platforms ontology. Realtime FlightRadar24 snapshots "
+    "are available via realtime_enrichment.get_live_aircraft, but a continuous "
+    "historical capture is still pending.]"
 )
 
 

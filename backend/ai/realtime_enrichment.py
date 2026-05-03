@@ -28,6 +28,7 @@ from typing import Any
 
 import requests
 from dotenv import load_dotenv
+from math import cos, radians
 
 # Intra-package reuse: these are "private" by Python convention but live in
 # the same backend.ai package. Promoting them later (or extracting to a
@@ -45,11 +46,14 @@ CACHE_TTL_SECONDS = 60.0
 HTTP_TIMEOUT = 5.0
 GROUND_TRACK_SAMPLE_SECONDS = 30
 
-# Heuristic for the "is military" flag when the upstream `mil` flag is missing.
+# FlightRadar24 has no "is military" flag in its public flight records, so we
+# use heuristics: callsign prefix list (US military aviation tactical / mission
+# call signs) plus US-military hex-block prefixes (AE/AF/AD).
 MIL_CALLSIGN_PREFIXES = (
-    "RCH", "REACH", "SHADOW", "EAGLE", "NAVY", "SAVAGE", "RAGE", "VIPER",
-    "TALON", "STING", "SAM", "MAGMA", "VAPOR", "HAVOC", "GUNFISH", "RAYGUN",
-    "HAMMER", "STRIKE", "VANGUARD", "TIGER", "SCREAM", "PAT", "CONVOY",
+    "RCH", "REACH", "SHADOW", "EAGLE", "NAVY", "EVAC", "PAT", "GUARD", "DUKE",
+    "RAGE", "VIPER", "KNIFE", "TOPCAT", "HAVOC", "SAVAGE", "GUNFIGHTER",
+    "SAM", "MAGMA", "VAPOR", "WAVE", "GUNFISH", "RAYGUN", "HAMMER", "STRIKE",
+    "VANGUARD", "TIGER", "SCREAM", "CONVOY", "TALON", "STING",
 )
 
 # ---------------------------------------------------------------------------
@@ -86,123 +90,115 @@ def _now_iso() -> str:
 
 
 # ---------------------------------------------------------------------------
-# 1. Aircraft (ADS-B Exchange via RapidAPI)
+# 1. Aircraft (FlightRadar24 free Python API)
 # ---------------------------------------------------------------------------
 
-def _is_military(record: dict[str, Any]) -> bool:
-    """Trust the upstream mil flag; fall back to callsign prefix and US-mil hex."""
-    if record.get("mil") is True:
-        return True
-    callsign = (record.get("flight") or record.get("callsign") or "").strip().upper()
-    if any(callsign.startswith(p) for p in MIL_CALLSIGN_PREFIXES):
-        return True
-    hex_id = (record.get("hex") or "").upper()
-    if hex_id.startswith(("AE", "ADF")):
-        return True
-    return False
+def _is_military_callsign(callsign: str | None) -> bool:
+    """True if the callsign starts with a known US-military aviation prefix."""
+    if not callsign:
+        return False
+    cs = callsign.strip().upper()
+    return any(cs.startswith(p) for p in MIL_CALLSIGN_PREFIXES)
+
+
+def _is_military_hex(hex_id: str | None) -> bool:
+    """True if the hex code falls inside the US-military allocated block (AE/AF).
+
+    Only AE0000-AFFFFF is military; AD-prefix codes are FAA-assigned civilian
+    (verified empirically — AD-prefixed flights observed are AAL/DAL commercial
+    with N-number registrations)."""
+    if not hex_id:
+        return False
+    return hex_id.upper().startswith(("AE", "AF"))
 
 
 def get_live_aircraft(lat: float, lon: float, radius_nm: int = 25) -> dict[str, Any]:
-    """Live aircraft within radius_nm of lat/lon. Returns {error, data_available: False}
-    on failure; never raises.
+    """Live aircraft within radius_nm of lat/lon via FlightRadar24's free API.
+
+    No API key required. Military detection is heuristic (callsign prefix +
+    US-mil hex blocks) since FR24 doesn't expose a `mil` flag.
 
     Args:
         lat: Latitude in decimal degrees.
         lon: Longitude in decimal degrees.
-        radius_nm: Search radius in nautical miles (default 25, max 250 by API).
+        radius_nm: Search radius in nautical miles (default 25).
 
     Returns:
         Dict with keys: center, radius_nm, aircraft_count, military_count, aircraft,
-        queried_at, source. Each entry in `aircraft` has lat, lon, callsign, altitude,
-        speed, is_military, hex.
+        queried_at, source, data_available. Each entry in `aircraft` has hex,
+        callsign, lat, lon, altitude, speed, heading, aircraft_type, is_military.
+        On failure: {"error": "...", "data_available": False, ...empty fields}.
     """
     key = ("aircraft", *_key_latlon(lat, lon), int(radius_nm))
     cached = _cache_get(key)
     if cached is not None:
         return cached
 
-    # Accept either name. ADSBEXCHANGE_API_KEY is the canonical project setting
-    # (matches the RapidAPI dashboard convention); ADSB_API_KEY is kept as an
-    # alias because the original spec used that name.
-    api_key = os.getenv("ADSBEXCHANGE_API_KEY") or os.getenv("ADSB_API_KEY")
-    if not api_key:
-        result = {
-            "error": "ADSBEXCHANGE_API_KEY (or ADSB_API_KEY) missing in .env",
-            "data_available": False,
-            "center": {"lat": float(lat), "lon": float(lon)},
-            "radius_nm": int(radius_nm),
-            "queried_at": _now_iso(),
-            "source": "adsb_exchange",
-        }
+    try:
+        # Lazy-import so a missing FR24 install doesn't break module load
+        # (the rest of realtime_enrichment + query_api stays usable).
+        from FlightRadar24 import FlightRadar24API
+    except ImportError as exc:
+        result = _aircraft_error(
+            lat, lon, radius_nm,
+            f"FlightRadar24 package not installed: {exc} — pip install FlightRadarAPI",
+        )
         _cache_put(key, result)
         return result
 
-    url = (
-        f"https://adsbexchange-com1.p.rapidapi.com/v2/"
-        f"lat/{lat}/lon/{lon}/dist/{int(radius_nm)}/"
-    )
-    headers = {
-        "x-rapidapi-key": api_key,
-        "x-rapidapi-host": "adsbexchange-com1.p.rapidapi.com",
-    }
     try:
-        resp = requests.get(url, headers=headers, timeout=HTTP_TIMEOUT)
-    except requests.RequestException as exc:
-        log.warning("ADS-B request failed: %s", exc)
-        result = _aircraft_error(lat, lon, radius_nm, f"network: {exc}")
-        _cache_put(key, result)
-        return result
-    if not resp.ok:
-        body = (resp.text or "")[:200]
-        log.warning("ADS-B HTTP %s: %s", resp.status_code, body)
-        # 403 from RapidAPI typically means the key is valid but the account
-        # isn't subscribed to the adsbexchange-com1 product. Surface that
-        # clearly so consumers know it's a billing gap, not a code bug.
-        hint = ""
-        if resp.status_code == 403 and "not subscribed" in body.lower():
-            hint = " — RapidAPI account needs an active adsbexchange-com1 subscription"
-        result = _aircraft_error(lat, lon, radius_nm, f"HTTP {resp.status_code}: {body}{hint}")
-        _cache_put(key, result)
-        return result
-    try:
-        payload = resp.json()
-    except ValueError:
-        result = _aircraft_error(lat, lon, radius_nm, "non-JSON body")
+        # Convert nm radius to FR24's bounds string. FR24 expects the order
+        # "north,south,west,east" (NOT north/south/east/west — verified
+        # empirically: a north/south/east/west string returns flights from
+        # across the country because FR24 interprets the lon pair as
+        # west=more-negative, east=less-negative).
+        # 1° lat ≈ 60 nm; longitude scales by cos(latitude) (max(0.01, …)
+        # guards against poles).
+        delta_lat = radius_nm / 60.0
+        delta_lon = radius_nm / (60.0 * max(0.01, cos(radians(lat))))
+        bounds = (
+            f"{lat + delta_lat:.6f},"
+            f"{lat - delta_lat:.6f},"
+            f"{lon - delta_lon:.6f},"
+            f"{lon + delta_lon:.6f}"
+        )
+        fr = FlightRadar24API()
+        flights = fr.get_flights(bounds=bounds)
+    except Exception as exc:  # noqa: BLE001 — collectors must not raise
+        log.warning("FlightRadar24 fetch failed: %s", exc)
+        result = _aircraft_error(lat, lon, radius_nm, str(exc))
         _cache_put(key, result)
         return result
 
-    raw_records = payload.get("ac") or payload.get("aircraft") or []
     aircraft: list[dict[str, Any]] = []
     military_count = 0
-    for r in raw_records:
-        if r.get("lat") is None or r.get("lon") is None:
-            continue
-        is_mil = _is_military(r)
-        if is_mil:
-            military_count += 1
-        alt_raw = r.get("alt_baro")
-        if isinstance(alt_raw, str) and alt_raw.lower() == "ground":
-            altitude = 0
-        else:
-            try:
-                altitude = int(float(alt_raw)) if alt_raw is not None else None
-            except (TypeError, ValueError):
-                altitude = None
-        speed_raw = r.get("gs")
+    for f in flights or []:
         try:
-            speed = int(float(speed_raw)) if speed_raw is not None else None
-        except (TypeError, ValueError):
-            speed = None
-        aircraft.append({
-            "hex": (r.get("hex") or "").upper(),
-            "callsign": (r.get("flight") or "").strip() or None,
-            "lat": float(r["lat"]),
-            "lon": float(r["lon"]),
-            "altitude": altitude,
-            "speed": speed,
-            "type": r.get("t") or r.get("type"),
-            "is_military": is_mil,
-        })
+            callsign = (getattr(f, "callsign", None) or "").strip() or None
+            # FR24 exposes both the FR24 internal flight id (`f.id`, 8-char) and
+            # the canonical ICAO 24-bit hex (`f.icao_24bit`, 6-char). The hex
+            # block heuristic only works on the real ICAO hex.
+            icao_hex = (getattr(f, "icao_24bit", None) or "").strip()
+            is_mil = _is_military_callsign(callsign) or _is_military_hex(icao_hex)
+            if is_mil:
+                military_count += 1
+            aircraft.append({
+                "hex": icao_hex,                                          # ICAO 24-bit hex
+                "fr24_id": (getattr(f, "id", None) or "").strip(),         # FR24 internal id
+                "callsign": callsign,
+                "registration": getattr(f, "registration", "") or "",
+                "lat": getattr(f, "latitude", None),
+                "lon": getattr(f, "longitude", None),
+                "altitude": getattr(f, "altitude", None),
+                "speed": getattr(f, "ground_speed", None),
+                "heading": getattr(f, "heading", None),
+                "aircraft_type": getattr(f, "aircraft_code", "") or "",
+                "airline_icao": getattr(f, "airline_icao", "") or "",
+                "is_military": is_mil,
+            })
+        except Exception as exc:  # noqa: BLE001 — skip a single malformed record
+            log.debug("skipped malformed FR24 flight record: %s", exc)
+            continue
 
     result = {
         "center": {"lat": float(lat), "lon": float(lon)},
@@ -211,7 +207,7 @@ def get_live_aircraft(lat: float, lon: float, radius_nm: int = 25) -> dict[str, 
         "military_count": military_count,
         "aircraft": aircraft,
         "queried_at": _now_iso(),
-        "source": "adsb_exchange",
+        "source": "flightradar24",
         "data_available": True,
     }
     _cache_put(key, result)
@@ -228,7 +224,7 @@ def _aircraft_error(lat: float, lon: float, radius_nm: int, msg: str) -> dict[st
         "military_count": 0,
         "aircraft": [],
         "queried_at": _now_iso(),
-        "source": "adsb_exchange",
+        "source": "flightradar24",
     }
 
 

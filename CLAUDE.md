@@ -12,7 +12,7 @@ The legacy `OPSEC Mirror` FastAPI scaffold (`backend/app/`, `frontend/`) predate
 
 1. **Populated ontology** — `GhostlineGeoFeature`, `GhostlineUnit`, `GhostlinePlatform`, `GhostlineSensor`, `GhostlineCommsAsset` written into Foundry from real OSINT, with provenance metadata on every object.
 2. **Pre-computed cascade analyses** — AI agents (Cascade Analyst, Adversary Modeler) read the populated ontology and write `CascadeRisk` and `AdversaryAction` objects back into it.
-3. **Realtime enrichment** — lat/lon-keyed live data layer (ADS-B, Shodan, satellite passes, news) queried at request time, not pre-stored.
+3. **Realtime enrichment** — lat/lon-keyed live data layer (FlightRadar24 aircraft, Shodan, satellite passes, news) queried at request time, not pre-stored.
 
 Build order, current focus:
 
@@ -136,7 +136,7 @@ All real, all public, all attributable. Never fabricate data — every entity in
 - Wikidata SPARQL — structured military data
 - Exa.ai — semantic search for OSINT gaps (`EXA_API_KEY`)
 - OpenStreetMap Overpass API — base perimeters and features
-- ADS-B Exchange — live military aircraft. Canonical env var: **`ADSBEXCHANGE_API_KEY`** (matches RapidAPI's dashboard convention). The code also accepts `ADSB_API_KEY` as an alias for backwards compatibility, but new `.env` files should use `ADSBEXCHANGE_API_KEY`. Note: the key alone isn't enough — the RapidAPI account must also have an active subscription to the `adsbexchange-com1` product, otherwise the API returns HTTP 403 `"not subscribed to this API"` even with a valid key.
+- FlightRadar24 — live aircraft via the `FlightRadarAPI` Python package (`pip install FlightRadarAPI`, plus `beautifulsoup4` which is a transitive dep that the package doesn't pin). **No API key required.** Used by `realtime_enrichment.get_live_aircraft()`. Bounds string is `north,south,west,east` (NOT north/south/east/west — that returns flights from across the country). The ICAO 24-bit hex lives on `flight.icao_24bit` (6 chars), not `flight.id` (FR24 internal 8-char id). Military detection is heuristic: callsign-prefix list (RCH, REACH, SHADOW, EAGLE, NAVY, EVAC, PAT, GUARD, RAGE, etc.) plus US-military hex blocks **AE/AF only** (`AD` is FAA-assigned civilian — verified by live test where ADxxxx codes were AAL/DAL commercial flights with N-numbers).
 - Shodan — exposed infrastructure
 - CelesTrak TLE — satellite orbit data
 
